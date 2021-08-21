@@ -14,7 +14,6 @@ public class ManagerQuiz : MonoBehaviour
 
     private QuizDb g_quizDB = null; // Variable que almacena la lista de las preguntas
     private QuizUi g_quizUI = null; //Referencia a la interfaz del quizz
-    private AudioSource src = null;
     private Scene Scene;// Variable privada de tipo escena que se utilizará para controlar y condicionar con las escenas
     public Control_Button Control;// Se localiza un objeto por referencia en este caso la clase que nos permita activar y desativar la interacción con los botones
     private void Start()
@@ -24,7 +23,7 @@ public class ManagerQuiz : MonoBehaviour
         Scene = SceneManager.GetActiveScene();//GetActiveScene es un método que nos permite obtener la escena activa actualmente  
         GameManager.shareInstance.StarGame();
         Nexquestion();// Lo llamamos para tener la primera pregunta
-        src = GetComponent<AudioSource>();// Obtenemos la componenete del audio 
+      
 
     }
 
@@ -34,6 +33,7 @@ public class ManagerQuiz : MonoBehaviour
         //Método encargado de indicar al constructor que debe mostrar las opciones, solo si estamos en estado de juego InGame
         if (GameManager.shareInstance.currentgameState == GameState.InGame)
         {
+          
             Control.OffOutlineRed();
             Control.activebutton(); // Si estamos en modo de juego llamará al método que activa la interacción con los botones
             Contador.sumar();//LLama al metodo encargado de sumar el contador de la trivia
@@ -61,8 +61,12 @@ public class ManagerQuiz : MonoBehaviour
         optionButton.SetColor(optionButton.Option.correct ? correctColor : incorrectColor);
         if (optionButton.Option.correct == false)
         {
+            StartCoroutine(WaitforNave());
             AudioManager.shareaudio.Efectos[2].Play();
             Control.OutlineRed(0);
+            
+           
+
 
         }
         else if (optionButton.Option.correct == true)
@@ -74,14 +78,13 @@ public class ManagerQuiz : MonoBehaviour
             /* El operador ternario es un operador que hace básicamente el trabajo de una estructura condicional,
              hace una evaluación de una expresión y dependiendo el resultado nos asignará un resultado u otro.
             Podemos verlo como un if “express” para algo sencillo.*/
-            src.Play();
+        
         yield return new WaitForSeconds(waitTime); // Tiempo que damos para que las corrutina ejecute las acciones establecidas anteriormente
+ 
         if (optionButton.Option.correct == false) // Condicinal que evalua si la pregunta es correcta o no
         {
-            Contador.ResetHealth();//Método encargado de restar las vidas cuando se seleccione la respuesta incorrecta
-            ManagerScene.shareMscen.ResetLifeActivate();
            
-            Invoke("waitresetlife",0.4f);
+            Contador.ResetHealth();//Método encargado de restar las vidas cuando se seleccione la respuesta incorrecta
             Nexquestion();
         }
         else if (optionButton.Option.correct == true)
@@ -89,10 +92,21 @@ public class ManagerQuiz : MonoBehaviour
             Contador.PointsAdd();//Método encargado de sumar los puntos si se seleccioná la respuesta correcta
             Nexquestion();// Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
         }
+
+    }
+    IEnumerator WaitforHeart()
+    {
+        AnimaCon.ShareAnimation.StartHeart();
+        yield return new WaitForSeconds(1f);
+        AnimaCon.ShareAnimation.StopHeart();
+        AnimaCon.ShareAnimation.DesactiveNaveError();
+    }
+    IEnumerator WaitforNave()
+    {
+        AnimaCon.ShareAnimation.ActiveNaveError();
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(WaitforHeart());
     }
 
-    public void waitresetlife()
-    {
-        ManagerScene.shareMscen.ResetLifeOff();
-    }
+
 }

@@ -23,7 +23,6 @@ public class Contador : MonoBehaviour
     public int value_moneda;// Variable de tipo pública en el que se almacena el valor de la moneda en determinado nivel
     public int moneda;// Variable entera que almacena la cantida de monedas obtenidas
     private Scene scene;// Variable privada de tipo escena que se utilizará para controlar y condicionar con las escenas
-    public ManagerQuiz manQ;//Localización por referencia del objeto(ManagerQuiz)
     public Guardado GuardadoMonedas;//Referencia a la clase Guardado
  
     void Awake()
@@ -40,7 +39,7 @@ public class Contador : MonoBehaviour
         GuardadoMonedas.CargarMonedas();// Se carga las monedas para poderlas visualizar la cantidad de monedas que se tiene
         scene = SceneManager.GetActiveScene();//GetActiveScene es un método que nos permite obtener la escena activa actualmente
         //Cuando inicia el juego debemos imprimer el valor que hayan adquirido las variables al iniciar el juego
-        textcont.text = sharecont.contador.ToString() + range;//Se imprime el contador y el rango de la cantidad de preguntas que habrá en el nivel
+        textcont.text = contador.ToString() + range;//Se imprime el contador y el rango de la cantidad de preguntas que habrá en el nivel
      points_ui.text = puntos.ToString();//Imprime Los puntos en la interfaz
      text_health.text = vidas.ToString();//Imprime las vidas en la interfaz
      moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz

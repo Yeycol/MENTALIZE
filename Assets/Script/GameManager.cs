@@ -130,7 +130,6 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[3].Stop();
             AudioManager.shareaudio.Efectos[0].Play();
             ManagerScene.shareMscen.OffAlert();//Se desactiva la alerta en caso de que este activa al pasar a Game Over
-            ManagerScene.shareMscen.ResetLifeOff();
             AnimaCon.ShareAnimation.DesactivateRedTime();
             AnimaCon.ShareAnimation.DesactivatePizarra();
             ManagerScene.shareMscen.ActiveOver();

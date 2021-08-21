@@ -703,6 +703,7 @@ GameObject:
   - component: {fileID: 131907620}
   - component: {fileID: 131907622}
   - component: {fileID: 131907621}
+  - component: {fileID: 131907623}
   m_Layer: 5
   m_Name: UIheart
   m_TagString: Untagged
@@ -719,15 +720,15 @@ RectTransform:
   m_GameObject: {fileID: 131907619}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.88, y: 0.88, z: 0.88}
+  m_LocalScale: {x: 5.3725166, y: 5.3725166, z: 5.3725166}
   m_Children: []
   m_Father: {fileID: 1751911028}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 3.9, y: 29}
-  m_SizeDelta: {x: 43.580017, y: 39.569}
+  m_AnchoredPosition: {x: 1.2, y: -0.3018036}
+  m_SizeDelta: {x: 39.9577, y: 38.9653}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131907621
 MonoBehaviour:
@@ -749,7 +750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7540117440507744353, guid: 4f5a4ca0f010b294580379f2f43093c5, type: 3}
+  m_Sprite: {fileID: -6129407692978914199, guid: 9172dec9327e8a94a8c78c173e50a92c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -767,6 +768,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131907619}
   m_CullTransparentMesh: 1
+--- !u!95 &131907623
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131907619}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4b210a12c1e33a4a89d1c9de0fd9136, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &173601163
 GameObject:
   m_ObjectHideFlags: 0
@@ -7696,7 +7716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contador: 0
-  vidas: 1
+  vidas: 5
   puntos: 0
   textcont: {fileID: 848886202}
   text_health: {fileID: 1597135352}
@@ -7708,7 +7728,6 @@ MonoBehaviour:
   value_Points: 1
   value_moneda: 1
   moneda: 0
-  manQ: {fileID: 2076829821}
   GuardadoMonedas: {fileID: 0}
 --- !u!1 &1419827195
 GameObject:
@@ -8194,7 +8213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.379883, y: 74.62866}
+  m_AnchoredPosition: {x: -5.379883, y: 74.62891}
   m_SizeDelta: {x: 11.24, y: 149.2573}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1437653984
@@ -8884,7 +8903,6 @@ MonoBehaviour:
   Win: {fileID: 1075901219}
   GameOver: {fileID: 858293645}
   Alert: {fileID: 952170510}
-  Lifetime: {fileID: 2078641197}
   SceneAnima: {fileID: 470241103}
 --- !u!4 &1509874916
 Transform:
@@ -10502,8 +10520,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.7861328, y: -1.0654297}
-  m_SizeDelta: {x: 6.5013, y: 5.8787}
+  m_AnchoredPosition: {x: -1.4667969, y: -1.4243164}
+  m_SizeDelta: {x: 6.3847, y: 6.0038}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1720640636
 MonoBehaviour:
@@ -10534,7 +10552,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.01
 --- !u!222 &1720640637
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12968,7 +12986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctColor: {r: 0.18052626, g: 1, b: 0, a: 1}
   incorrectColor: {r: 1, g: 0, b: 0, a: 1}
-  waitTime: 1.5
+  waitTime: 2
   Control: {fileID: 323193908}
 --- !u!82 &2076829822
 AudioSource:
@@ -13320,6 +13338,8 @@ MonoBehaviour:
   - {fileID: 89270789}
   - {fileID: 1437653984}
   - {fileID: 1700445352}
+  - {fileID: 1444873636}
+  - {fileID: 131907623}
 --- !u!4 &2127555816
 Transform:
   m_ObjectHideFlags: 0

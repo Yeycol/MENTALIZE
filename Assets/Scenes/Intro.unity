@@ -1045,7 +1045,6 @@ MonoBehaviour:
   Win: {fileID: 799547929}
   GameOver: {fileID: 1256950642}
   Alert: {fileID: 1236266621}
-  Lifetime: {fileID: 0}
   SceneAnima: {fileID: 2131891075}
 --- !u!4 &186068463
 Transform:
@@ -3150,7 +3149,7 @@ Transform:
   - {fileID: 2005943607}
   - {fileID: 1518727717}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &460407814
 GameObject:
@@ -13955,7 +13954,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1768244515
 GameObject:

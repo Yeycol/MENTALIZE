@@ -17,7 +17,8 @@ public class AnimaCon : MonoBehaviour
     const string ACTIVE_PADLOCK = "StartDesblock";//Variable constante que hace referencia al parámetro del candado del Win 
     const string START_WIN = "StartWin";//Variable constante que hace referencia al parámetro booleano d ela interfaz Win
     const string START_CONFETI = "StartConfeti";//Variable constante que hace referencia al parámetro booleano que controla la animación del confeti
-
+    const string START_NAVE_ERROR = "StartNaveError";
+    const string START_HEART = "StartHeart";
     private void Awake()
     {
         if (ShareAnimation == null)
@@ -100,7 +101,23 @@ public class AnimaCon : MonoBehaviour
         ManagerScene.shareMscen.OffAlert();
         AudioManager.shareaudio.Partida.mute = false;
     }
-
+    public void ActiveNaveError()
+    {
+        AnimationLis[10].SetBool(START_NAVE_ERROR,true);
+       
+    }
+    public void DesactiveNaveError()
+    {
+        AnimationLis[10].SetBool(START_NAVE_ERROR,false);
+    }
+    public void StartHeart()
+    {
+        AnimationLis[11].SetBool(START_HEART, true);
+    }
+    public void StopHeart()
+    {
+        AnimationLis[11].SetBool(START_HEART, false);
+    }
     public void WaitPadlock()
     {
      AnimationLis[6].SetBool(ACTIVE_PADLOCK, true);//Se activa la animación de desbloqueo

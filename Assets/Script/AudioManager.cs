@@ -44,15 +44,15 @@ public class AudioManager : MonoBehaviour
         Partida.Play(); //Permite iniciar la reproducción de la componente de sonido
         Partida.loop = true;//Esto permite que la música se reproduzca en bucle 
        
-        Musica1.value = PlayerPrefs.GetFloat("Mus", 1f);//Le asignamos al slider de la música el valor float 1
+        Musica1.value = PlayerPrefs.GetFloat("Mus", 1f);//Obtenemos el valor para el slider de la música el valor float 1
         Partida.volume = Musica1.value;//El valor que tenga el slider de la música tambien lo tendrá el volumen de la instancia de Audio Source
         Efectos1.value= PlayerPrefs.GetFloat("Efect", 1f);
-        Efectos[0].volume = Efectos1.value;
-        Efectos[1].volume = Efectos1.value;
-        Efectos[2].volume = Efectos1.value;
-        Efectos[3].volume = Efectos1.value;
-        Efectos[4].volume = Efectos1.value;
-        Efectos[5].volume = Efectos1.value;
+        Efectos[0].volume = Efectos1.value;//Otorgamos el valor del slider al volumen del efecto de Over 
+        Efectos[1].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Answer Good
+        Efectos[2].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Answer Bad
+        Efectos[3].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de TimeEnd
+        Efectos[4].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Alerta o Logo
+        Efectos[5].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Back Alert
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
 
@@ -61,8 +61,8 @@ public class AudioManager : MonoBehaviour
     public void regularVolumen()
     {
         Partida.volume = Musica1.value;
-        PlayerPrefs.SetFloat("Mus", Musica1.value);
-        PlayerPrefs.Save();
+        PlayerPrefs.SetFloat("Mus", Musica1.value);// Le asignamos el valor que tenga el slider en la variable del prefab
+        PlayerPrefs.Save();//Guardamos los valores del prefab
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
     public void RegularEfectos()
@@ -79,32 +79,35 @@ public class AudioManager : MonoBehaviour
     }
     public void CargarSlider()
     {
-        
+        //Se encarga de cargar los valores guardados en la variable de player prefs, es decir le otorgamos el valor almacenado en el player prefs al slider de la música
         Musica1.value = PlayerPrefs.GetFloat("Mus");
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
     public void CargarEfectos()
     {
+        //Se encarga de cargar los valores guardados en la variable de player prefs, es decir le otorgamos el valor almacenado en el player prefs al slider de los efectos
         Efectos1.value = PlayerPrefs.GetFloat("Efect");
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
     public void Mute()
     {
-        if (Musica1.value==0 && Efectos1.value == 0)
+        //Método encargado de evaluar si se activa el mute o no, dependiendo de los valores del slider
+        if (Musica1.value==0 && Efectos1.value == 0)// Si el slider de música y el slider de efectos son iguales a cero
         {
-            Mute1.enabled = true;
-            Mute2.enabled = true;
+            Mute1.enabled = true;//Habilita la imagen de mute
+            Mute2.enabled = true;//Habilita la imagen de mute
 
         }
        else if(Musica1.value!= 0 && Efectos1.value!=0)
         {
-            Mute1.enabled = false;
-            Mute2.enabled = false;
-        } else if (Musica1.value>0 && Efectos1.value== 0)
+            Mute1.enabled = false;//Deshabilita la imagen de mute
+            Mute2.enabled = false;//Deshabilita la imagen de mute
+        } else if (Musica1.value>0 && Efectos1.value== 0)//Si el slider de musica es mayor que cero y el slider de efectos es iguañ a cero
         {
-            Mute1.enabled = false;
-            Mute2.enabled = true;
-        }else if (Efectos1.value > 0 && Musica1.value == 0)
+            Mute1.enabled = false;//Deshabilita la imagen de mute
+            Mute2.enabled = true;//Habilita la imagen de mute
+        }
+        else if (Efectos1.value > 0 && Musica1.value == 0)
         {
             Mute1.enabled = true;
             Mute2.enabled = false;

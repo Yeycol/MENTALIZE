@@ -11,7 +11,6 @@ public class ManagerScene : MonoBehaviour
     public Canvas Win;//Referencia al Canvas llamado Win
     public Canvas GameOver;//Referencia al Canvas llamado GameOver
     public Canvas Alert;// Referencia al Canvas llamado Alert
-    public Canvas Lifetime;//Referencia al Canvas ResLife
     //public Canvas Pause;//Referencia al Canvas de la Pausa
     public Canvas SceneAnima;//Referencia al canvas encargado de hacer la transición al pasar a otra escena
    
@@ -91,16 +90,7 @@ public class ManagerScene : MonoBehaviour
         //Desactiva el Canvas de la Alerta   
         Alert.enabled = false;
     }
-    public void ResetLifeActivate()
-    {
-        //Activa el Canvas de la resta de vidas
-        Lifetime.enabled = true;
-    }
-    public void ResetLifeOff()
-    {
-        //Desactiva el Canvas de la resta de vidass
-        Lifetime.enabled = false;
-    }
+   
     public void ActiveCanvasAnimaScene()
     {
         //Método encargado de habilar el canvas de las trancisiones entre escenas
