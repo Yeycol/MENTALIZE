@@ -85,14 +85,19 @@ public class ManagerQuiz : MonoBehaviour
         {
            
             Contador.ResetHealth();//Método encargado de restar las vidas cuando se seleccione la respuesta incorrecta
-            Nexquestion();
+            Invoke("Nexquestion", 1.1f);
         }
         else if (optionButton.Option.correct == true)
         {
             Contador.PointsAdd();//Método encargado de sumar los puntos si se seleccioná la respuesta correcta
-            Nexquestion();// Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
+            Invoke("Nexquestion",1.1f);// Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
         }
 
+    }
+
+    public void Next()
+    {
+        Nexquestion();
     }
     IEnumerator WaitforHeart()
     {
