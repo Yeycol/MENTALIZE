@@ -52,4 +52,8 @@ public class ActivarOpciones : MonoBehaviour
         Pausa.enabled = false;//Se desactiva el canvas de pausa
     }
     
+  public void Disparo()
+    {
+        AudioManager.shareaudio.Efectos[6].Play();
+    }
 }

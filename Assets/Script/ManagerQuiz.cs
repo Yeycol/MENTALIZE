@@ -85,12 +85,12 @@ public class ManagerQuiz : MonoBehaviour
         {
            
             Contador.ResetHealth();//Método encargado de restar las vidas cuando se seleccione la respuesta incorrecta
-            Invoke("Nexquestion", 1.1f);
+            
         }
         else if (optionButton.Option.correct == true)
         {
             Contador.PointsAdd();//Método encargado de sumar los puntos si se seleccioná la respuesta correcta
-            Invoke("Nexquestion",1.1f);// Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
+            Invoke("Nexquestion",1f);// Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
         }
 
     }
@@ -100,11 +100,12 @@ public class ManagerQuiz : MonoBehaviour
         Nexquestion();
     }
     IEnumerator WaitforHeart()
-    {
+    { 
         AnimaCon.ShareAnimation.StartHeart();
         yield return new WaitForSeconds(1f);
         AnimaCon.ShareAnimation.StopHeart();
         AnimaCon.ShareAnimation.DesactiveNaveError();
+        Invoke("Nexquestion", 0.1f);
     }
     IEnumerator WaitforNave()
     {
@@ -112,6 +113,6 @@ public class ManagerQuiz : MonoBehaviour
         yield return new WaitForSeconds(1f);
         StartCoroutine(WaitforHeart());
     }
-
+ 
 
 }

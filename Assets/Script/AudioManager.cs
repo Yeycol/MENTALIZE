@@ -53,6 +53,7 @@ public class AudioManager : MonoBehaviour
         Efectos[3].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de TimeEnd
         Efectos[4].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Alerta o Logo
         Efectos[5].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Back Alert
+        Efectos[6].volume = Efectos1.value;
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
 
@@ -73,6 +74,7 @@ public class AudioManager : MonoBehaviour
         Efectos[3].volume = Efectos1.value;
         Efectos[4].volume = Efectos1.value;
         Efectos[5].volume = Efectos1.value;
+        Efectos[6].volume = Efectos1.value;
         PlayerPrefs.SetFloat("Efect", Efectos1.value);
         PlayerPrefs.Save();
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
