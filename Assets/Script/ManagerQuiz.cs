@@ -12,14 +12,12 @@ public class ManagerQuiz : MonoBehaviour
     [SerializeField] private Color incorrectColor = Color.black;//Variable que almacena el color rojo
     [SerializeField] private float waitTime = 0.0f;// Esta variable indica el tiempo a esperar para la siguiente pregunta 
 
-    private QuizDb g_quizDB = null; // Variable que almacena la lista de las preguntas
-    private QuizUi g_quizUI = null; //Referencia a la interfaz del quizz
+    public QuizDb g_quizDB = null; // Variable que almacena la lista de las preguntas
+    public  QuizUi g_quizUI = null; //Referencia a la interfaz del quizz
     private Scene Scene;// Variable privada de tipo escena que se utilizará para controlar y condicionar con las escenas
     public Control_Button Control;// Se localiza un objeto por referencia en este caso la clase que nos permita activar y desativar la interacción con los botones
     private void Start()
     {
-        g_quizDB = GameObject.FindObjectOfType<QuizDb>();//Localizando al Game Object que tiene el script de base de datos
-        g_quizUI = GameObject.FindObjectOfType<QuizUi>();// Localizando al Game Object que tiene el script de QuizUi
         Scene = SceneManager.GetActiveScene();//GetActiveScene es un método que nos permite obtener la escena activa actualmente  
         GameManager.shareInstance.StarGame();
         Nexquestion();// Lo llamamos para tener la primera pregunta
@@ -103,8 +101,8 @@ public class ManagerQuiz : MonoBehaviour
     { 
         AnimaCon.ShareAnimation.StartHeart();
         yield return new WaitForSeconds(1f);
-        AnimaCon.ShareAnimation.StopHeart();
         AnimaCon.ShareAnimation.DesactiveNaveError();
+        AnimaCon.ShareAnimation.StopHeart();
         Invoke("Nexquestion", 0.1f);
     }
     IEnumerator WaitforNave()

@@ -90,8 +90,8 @@ public class AnimaCon : MonoBehaviour
     public void DesactivateAlert()
     {
         //Método encargado  de desactivar la alerta con animación
-        AnimaCon.ShareAnimation.AlertOff();
         AudioManager.shareaudio.Efectos[5].Play();
+        AlertOff();
         Invoke("DescativateCanvasAlert", 0.5f);// damos un tiempo de llamado al método para que el canvas no desaparesca al instante
     }
 

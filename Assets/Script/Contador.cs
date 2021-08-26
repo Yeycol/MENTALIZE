@@ -24,15 +24,16 @@ public class Contador : MonoBehaviour
     public int moneda;// Variable entera que almacena la cantida de monedas obtenidas
     private Scene scene;// Variable privada de tipo escena que se utilizará para controlar y condicionar con las escenas
     public Guardado GuardadoMonedas;//Referencia a la clase Guardado
- 
+    public int pointsinv;
+    private int numFrames = 5;
     void Awake()
     {
         if (sharecont == null)
         {
             sharecont = this;
         }
-       GuardadoMonedas = GameObject.Find("ControlNiveles").GetComponent<Guardado>();//Localización de la clase guardado a traves d ela busqueda del objeto ControlNiveles
-    
+        GuardadoMonedas = GameObject.Find("ControlNiveles").GetComponent<Guardado>();//Localización de la clase guardado a traves d ela busqueda del objeto ControlNiveles
+
     }
     void Start()
     {
@@ -40,10 +41,10 @@ public class Contador : MonoBehaviour
         scene = SceneManager.GetActiveScene();//GetActiveScene es un método que nos permite obtener la escena activa actualmente
         //Cuando inicia el juego debemos imprimer el valor que hayan adquirido las variables al iniciar el juego
         textcont.text = contador.ToString() + range;//Se imprime el contador y el rango de la cantidad de preguntas que habrá en el nivel
-     points_ui.text = puntos.ToString();//Imprime Los puntos en la interfaz
-     text_health.text = vidas.ToString();//Imprime las vidas en la interfaz
-     moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
-     currentTime = time;//Se establece que el tiempo actual es igual a el tiempo establecido en la variable publica
+        points_ui.text = puntos.ToString();//Imprime Los puntos en la interfaz
+        text_health.text = vidas.ToString();//Imprime las vidas en la interfaz
+        moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
+        currentTime = time;//Se establece que el tiempo actual es igual a el tiempo establecido en la variable publica
     }
 
     private void FixedUpdate()
@@ -51,11 +52,20 @@ public class Contador : MonoBehaviour
         //Aqui se esta evaluando a cada frame, si estamos en en modo juego ejecutará las instrucciones establecidas en las condicionales
         if (GameManager.shareInstance.currentgameState == GameState.InGame)
         {
+            EventTime();
+            if (Time.frameCount % numFrames == 0)
+            {
+                EventEndLevel();
+            }
+        }
+    }
+        public void EventTime()
+        {
             if (currentTime > 0)
             {
                 //Si el tiempo establecido es mayor que cero se debera disminuir el tiempo establecido
                 currentTime -= Time.deltaTime;//Time.deltatime es un método que nos permite saber el tiempo transcurrido desde el último frame, es decir iremos decrementando la variable current time de acuerdo al tiempo que haya transcurrido
-                //Si el juego va a 60 frames, update jecutará 60 frames por segundo, donde el tiempo transcurrido es 1seg
+                                              //Si el juego va a 60 frames, update jecutará 60 frames por segundo, donde el tiempo transcurrido es 1seg
                 time_ui.text = (int)currentTime + "seg";//Aqui asignamos de manera explicita el valor de la variable current time a la variable tipo texto apra que esta se muestre en la UI
             }
 
@@ -72,21 +82,23 @@ public class Contador : MonoBehaviour
                 //Si el tiempo es igual a 10 llama a un método encargado de activar la animación  del reloj
                 AnimaCon.ShareAnimation.ActiveRedTime();
                 AudioManager.shareaudio.Efectos[3].Play();
-            
-
             }
+        }
 
-            if (scene.name == ("Level 1"))//Condicional que evalua si nos encontramos en esta escena
-            {
+    public void EventEndLevel()
+    {
+        switch (scene.name)
+        {
+            case "Level 1":
                 //Esta sección evalua si el contador de las trivias son mayores que 5 estas apliquen las condicionales en el interior
-                if (Contador.sharecont.contador == 6)
+                if (contador == 6)
                 {
 
                     //Si es el caso esta aplicará esta condicional donde se llamará a un método si se consigue los puntos requeridos
-                    if (Contador.sharecont.puntos == 5)
+                    if (puntos == 5 || pointsinv == 5)
                     {
                         AudioManager.shareaudio.Partida.mute = true;
-                        Contador.givefive();//Método encargado de dar 5 al contador
+                        givefive();//Método encargado de dar 5 al contador
                         GuardadoMonedas.GuardarMonedas();
                         GameManager.shareInstance.WinGame();//Llama a la pantalla de ganaste
                         ControlNiveles.shareLvl.DesbloquearNivel();//Método encargado de desbloquear los niveles ganados
@@ -95,58 +107,38 @@ public class Contador : MonoBehaviour
                     else
                     {
                         AudioManager.shareaudio.Partida.mute = true;
-                        Contador.givefive();
+                        givefive();
                         GameManager.shareInstance.GameOver();//Llama a la pantalla de Game Over
                     }
                 }
+                break;
 
-            }
-
-            if (scene.name == ("Level 2"))//Si no es el caso se aplicará la siguiente condicional
-            {
-                if (Contador.sharecont.contador == 6)
+         case "Level 2":
+                if (contador == 6)
                 {
-                    if (Contador.sharecont.puntos == 10)
+
+                    //Si es el caso esta aplicará esta condicional donde se llamará a un método si se consigue los puntos requeridos
+                    if (puntos == 10 || pointsinv == 10)
                     {
                         AudioManager.shareaudio.Partida.mute = true;
+                        givefive();//Método encargado de dar 5 al contador
                         GuardadoMonedas.GuardarMonedas();
-                        Contador.givefive();//Método encargado de dar 5 al contador
                         GameManager.shareInstance.WinGame();//Llama a la pantalla de ganaste
                         ControlNiveles.shareLvl.DesbloquearNivel();//Método encargado de desbloquear los niveles ganados
+                        //ManagerScene.shareMscen.loadesne();
                     }
                     else
                     {
                         AudioManager.shareaudio.Partida.mute = true;
-                        Contador.givefive();
-                        GameManager.shareInstance.GameOver();//Llama a la pantalla de Games Over
+                        givefive();
+                        GameManager.shareInstance.GameOver();//Llama a la pantalla de Game Over
                     }
                 }
-            }
-            if (scene.name == ("Level 3"))//Si no es el caso se aplicará la siguiente condicional
-            {
-                if (Contador.sharecont.contador == 6)
-                {
-                    if (Contador.sharecont.puntos == 15)
-                    {
-                        GuardadoMonedas.GuardarMonedas();
-                        Contador.givefive();//Método encargado de dar 5 al contador
-                        GameManager.shareInstance.WinGame();//Llama a la pantalla de ganaste
-                        ControlNiveles.shareLvl.DesbloquearNivel();//Método encargado de desbloquear los niveles ganados
-                    }
-                    else
-                    {
-                        Contador.givefive();
-                        GameManager.shareInstance.GameOver();//Llama a la pantalla de Games Over
-                    }
-                }
-            }
+                break;
 
         }
-
     }
-
-
-    
+            
     // Update is called once per frame
     public static void sumar()  
     {
@@ -225,6 +217,7 @@ public class Contador : MonoBehaviour
                 sharecont.points_ui.text = sharecont.puntos.ToString();
             }
         }
+        sharecont.pointsinv += sharecont.value_Points;
         sharecont.moneda += sharecont.value_moneda;
         sharecont.moneda_ui.text = sharecont.moneda.ToString();
         sharecont.points_ui.text = sharecont.puntos.ToString();

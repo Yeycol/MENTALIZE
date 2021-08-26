@@ -8,23 +8,22 @@ public class Video : MonoBehaviour
     public float wite = 6f;
     // Start is called before the first frame update
 
-void Awake()
+    void Awake()
     {
         AudioManager.shareaudio.Partida.mute=true;
     }
     void Start()
     {
-        StartCoroutine(Wait_Intro()); 
+        GameManager.shareInstance.LoadPartyandGame();//Llamamos al método que se encarga de pasar al estado de menú
+        StartCoroutine(Wait_Intro());
     }
-     IEnumerator Wait_Intro()
+    IEnumerator Wait_Intro()
     {
-        GameManager.shareInstance.LoadPartyandGame();
+    
         yield return new WaitForSeconds(wite);
         ControlNiveles.shareLvl.CambiarNivel(3);
         AudioManager.shareaudio.Partida.Play();
-        AudioManager.shareaudio.Partida.mute = false;
     }
-  
-   
+
 
 }

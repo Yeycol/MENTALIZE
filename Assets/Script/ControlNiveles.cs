@@ -28,7 +28,6 @@ public class ControlNiveles : MonoBehaviour
     private void Start()
     {  
         //TODO: Quitar el llamado al estado d  e juego menú, cuando no se incie el juego desde el menú
-        GameManager.shareInstance.BackToMenu();//Llamamos al método que se encarga de pasar al estado de menú
         if (GameManager.shareInstance.currentgameState == GameState.menu)
         {
         //Solo si estamos en estado de juego pasaran las acciones establecidas dentro de este condicional

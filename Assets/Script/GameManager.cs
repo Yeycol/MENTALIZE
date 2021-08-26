@@ -21,8 +21,7 @@ public class GameManager : MonoBehaviour
 {
     public GameState currentgameState = GameState.menu;// Variable publica del tipo enumerado inicializada en el menú, es pública por lo tanto se podrá visualizar en la Interfaz de Unity
     public static GameManager shareInstance; // Variable que hace referencia a un singleton 
-
-    private void Awake()
+    void Awake()
     {
         // El primero que llegue a esta línea será el único que controle el game manager
         if (shareInstance == null)
@@ -35,31 +34,33 @@ public class GameManager : MonoBehaviour
         {
          Destroy(gameObject);
         }
-        
+        Application.targetFrameRate = 60;
+      
     }
 
 
 
     void Update()
     {
+        EvaluateAlert();
+    }
+
+    public void EvaluateAlert()
+    {
         if (GameManager.shareInstance.currentgameState == GameState.InGame ||
-            GameManager.shareInstance.currentgameState == GameState.menu)
+           GameManager.shareInstance.currentgameState == GameState.menu)
         {
             //Solo si estamos en modo de juego y en menu, podremos activar la alerta de salida
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 //Si se presiona el boton de escape del Móvil haremos las siguientes instrucciones
                 AudioManager.shareaudio.Efectos[4].Play();
-                AudioManager.shareaudio.Partida.mute=true;
+                AudioManager.shareaudio.Partida.mute = true;
                 ManagerScene.shareMscen.ActiveAlert();//Llamamos al canvas de alerta
                 AnimaCon.ShareAnimation.AlertActive();//Activación de la animación de la alerta
             }
         }
-
-     
-
     }
-
 
     public void StarGame()
     {
@@ -152,6 +153,7 @@ public class GameManager : MonoBehaviour
         else if (newGameState == GameState.Load)
         {
             //TODO: Mostrar la pantalla de carga
+            
         }
         else if (newGameState==GameState.Pause)
         {
@@ -163,6 +165,7 @@ public class GameManager : MonoBehaviour
         }
 
        this.currentgameState = newGameState;
+       
     }
     public void WaitOver()
     {
@@ -178,8 +181,9 @@ public class GameManager : MonoBehaviour
         AnimaCon.ShareAnimation.AtivateConfeti();
     }
 
-    
-   
+ 
+
+
 
 
 

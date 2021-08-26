@@ -4,43 +4,43 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -4566069554668651674
-    second: Fondo_Niveles
+    second: Fondo-Level
   - first:
       213: -9047368478409622075
-    second: Barra_Menu
+    second: BarraMenu
   - first:
       213: -4027161885581454392
-    second: TiendaUI
+    second: Compras
   - first:
       213: -6963747842116883247
-    second: "Men\xFA_UI"
+    second: Tienda
   - first:
       213: 5497349147830483161
-    second: Inventario_UI
+    second: Inventario
   - first:
       213: 8824408689741666072
-    second: Control_Niveles
+    second: Conector
   - first:
       213: -2938154005482436472
-    second: Menu_UI
+    second: Menu
   - first:
       213: -3886195483270850034
-    second: Play_UI
+    second: Play
   - first:
       213: 3995631639653988088
-    second: "Fondo_Selecci\xF3n"
+    second: Pantalla de los niveles 5000x3000_8
   - first:
       213: 4144251996888864776
-    second: Pausa_UI
+    second: Pausa
   - first:
       213: -31651445005507979
     second: Barra
   - first:
       213: 2169156167556648014
-    second: Pantalla_Digital
+    second: PantallaDigital
   - first:
       213: 2700949209171471866
-    second: Reiniciar_UI
+    second: Recargar
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -130,25 +130,25 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 47
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fondo_Niveles
+      name: Fondo-Level
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1545
-        height: 2743
+        y: 16
+        width: 1538
+        height: 2719
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,7 +163,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Barra_Menu
+      name: BarraMenu
       rect:
         serializedVersion: 2
         x: 1647
@@ -184,11 +184,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TiendaUI
+      name: Compras
       rect:
         serializedVersion: 2
-        x: 3303
-        y: 2267
+        x: 3298
+        y: 2262
         width: 441
         height: 470
       alignment: 0
@@ -205,7 +205,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Men\xFA_UI"
+      name: Tienda
       rect:
         serializedVersion: 2
         x: 3868
@@ -226,13 +226,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inventario_UI
+      name: Inventario
       rect:
         serializedVersion: 2
-        x: 4387
-        y: 2265
-        width: 436
-        height: 472
+        x: 4368
+        y: 2256
+        width: 437
+        height: 463
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,11 +247,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Control_Niveles
+      name: Conector
       rect:
         serializedVersion: 2
         x: 1692
-        y: 1961
+        y: 1956
         width: 1425
         height: 426
       alignment: 0
@@ -268,7 +268,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Menu_UI
+      name: Menu
       rect:
         serializedVersion: 2
         x: 3324
@@ -289,7 +289,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Play_UI
+      name: Play
       rect:
         serializedVersion: 2
         x: 3903
@@ -310,13 +310,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Fondo_Selecci\xF3n"
+      name: Pantalla de los niveles 5000x3000_8
       rect:
         serializedVersion: 2
         x: 1720
-        y: 21
-        width: 1419
-        height: 1817
+        y: 0
+        width: 1418
+        height: 1838
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,11 +331,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pausa_UI
+      name: Pausa
       rect:
         serializedVersion: 2
-        x: 3595
-        y: 699
+        x: 3590
+        y: 694
         width: 1187
         height: 1130
       alignment: 0
@@ -373,7 +373,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pantalla_Digital
+      name: PantallaDigital
       rect:
         serializedVersion: 2
         x: 3249
@@ -394,15 +394,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reiniciar_UI
+      name: Recargar
       rect:
         serializedVersion: 2
-        x: 4440
-        y: 1863
-        width: 341
-        height: 354
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4442
+        y: 1870
+        width: 339
+        height: 344
+      alignment: 9
+      pivot: {x: 1.6435972, y: 0.48529556}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
