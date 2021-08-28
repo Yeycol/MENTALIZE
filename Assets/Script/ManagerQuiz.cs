@@ -69,6 +69,7 @@ public class ManagerQuiz : MonoBehaviour
         }
         else if (optionButton.Option.correct == true)
         {
+            StartCoroutine(WaitforNaveCorrect());
             AudioManager.shareaudio.Efectos[1].Play();
             Control.OutlineGreen();
         }
@@ -88,7 +89,7 @@ public class ManagerQuiz : MonoBehaviour
         else if (optionButton.Option.correct == true)
         {
             Contador.PointsAdd();//Método encargado de sumar los puntos si se seleccioná la respuesta correcta
-            Invoke("Nexquestion",1f);// Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
+            
         }
 
     }
@@ -111,6 +112,12 @@ public class ManagerQuiz : MonoBehaviour
         yield return new WaitForSeconds(1f);
         StartCoroutine(WaitforHeart());
     }
- 
+    IEnumerator WaitforNaveCorrect()
+    {
+        AnimaCon.ShareAnimation.ActiveNaveCorrect();
+        yield return new WaitForSeconds(1f);
+        AnimaCon.ShareAnimation.DesactiveNaveCorrect();
+        Invoke("Nexquestion", 1.9f);// Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
+    }
 
 }

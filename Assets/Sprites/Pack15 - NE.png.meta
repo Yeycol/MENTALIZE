@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 0fe8f054a04ec0b4c87ade1946df9af3
+guid: d27eb823562e54348b0a310925af53ff
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8659703400172541270
-    second: NA17
+      213: -8576739236806560594
+    second: NE113
   - first:
-      213: 3510222150560892397
-    second: NA18
+      213: 483275503942559118
+    second: NE114
   - first:
-      213: -8214281082509063273
-    second: NA19
+      213: 1478531494136454086
+    second: NE115
   - first:
-      213: -2475964409846382778
-    second: NA20
+      213: 8533553659491290206
+    second: NE116
   - first:
-      213: -4607157217042156840
-    second: NA21
+      213: 2830793764503759381
+    second: NE117
   - first:
-      213: -4085151544682833186
-    second: NA22
+      213: 7806606280131111529
+    second: NE118
   - first:
-      213: -2323490439773804777
-    second: NA23
+      213: 5946953832566887143
+    second: NE119
   - first:
-      213: -8092053080557241528
-    second: NA24
+      213: 4165575083549652604
+    second: NE120
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NA17
+      name: NE113
       rect:
         serializedVersion: 2
         x: 0
@@ -141,14 +141,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 655d6838c527d2870800000000000000
-      internalID: 8659703400172541270
+      spriteID: ea47dfa0b1d49f880800000000000000
+      internalID: -8576739236806560594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NA18
+      name: NE114
       rect:
         serializedVersion: 2
         x: 1080
@@ -162,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de5c3eea270d6b030800000000000000
-      internalID: 3510222150560892397
+      spriteID: e85e425a280f4b600800000000000000
+      internalID: 483275503942559118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NA19
+      name: NE115
       rect:
         serializedVersion: 2
         x: 2160
@@ -183,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79b06d760e2010e80800000000000000
-      internalID: -8214281082509063273
+      spriteID: 6cb1b317f8cc48410800000000000000
+      internalID: 1478531494136454086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NA20
+      name: NE116
       rect:
         serializedVersion: 2
         x: 3240
@@ -204,14 +204,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64fb89acc7b93add0800000000000000
-      internalID: -2475964409846382778
+      spriteID: e5c86b137d54d6670800000000000000
+      internalID: 8533553659491290206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NA21
+      name: NE117
       rect:
         serializedVersion: 2
         x: 0
@@ -225,14 +225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d233ddbbe61010c0800000000000000
-      internalID: -4607157217042156840
+      spriteID: 51a23ad3eeff84720800000000000000
+      internalID: 2830793764503759381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NA22
+      name: NE118
       rect:
         serializedVersion: 2
         x: 1080
@@ -246,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eda9a8d6050ae47c0800000000000000
-      internalID: -4085151544682833186
+      spriteID: 96a6c84fc03a65c60800000000000000
+      internalID: 7806606280131111529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NA23
+      name: NE119
       rect:
         serializedVersion: 2
         x: 2160
@@ -267,14 +267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 717244261cd41cfd0800000000000000
-      internalID: -2323490439773804777
+      spriteID: 7e21ccd9003d78250800000000000000
+      internalID: 5946953832566887143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NA24
+      name: NE120
       rect:
         serializedVersion: 2
         x: 3240
@@ -288,8 +288,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84bb7c5c89043bf80800000000000000
-      internalID: -8092053080557241528
+      spriteID: c76f134e7781fc930800000000000000
+      internalID: 4165575083549652604
       vertices: []
       indices: 
       edges: []

@@ -19,6 +19,7 @@ public class AnimaCon : MonoBehaviour
     const string START_CONFETI = "StartConfeti";//Variable constante que hace referencia al parámetro booleano que controla la animación del confeti
     const string START_NAVE_ERROR = "StartNaveError";
     const string START_HEART = "StartHeart";
+    const string START_NAVE_CORRECT = "StartNaveCorrect";
     private void Awake()
     {
         if (ShareAnimation == null)
@@ -109,6 +110,15 @@ public class AnimaCon : MonoBehaviour
     public void DesactiveNaveError()
     {
         AnimationLis[10].SetBool(START_NAVE_ERROR,false);
+    }
+    public void ActiveNaveCorrect()
+    {
+        AnimationLis[12].SetBool(START_NAVE_CORRECT, true);
+
+    }
+    public void DesactiveNaveCorrect()
+    {
+        AnimationLis[12].SetBool(START_NAVE_CORRECT, false);
     }
     public void StartHeart()
     {

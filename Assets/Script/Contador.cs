@@ -45,6 +45,7 @@ public class Contador : MonoBehaviour
         text_health.text = vidas.ToString();//Imprime las vidas en la interfaz
         moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
         currentTime = time;//Se establece que el tiempo actual es igual a el tiempo establecido en la variable publica
+   
     }
 
     private void FixedUpdate()
@@ -167,6 +168,7 @@ public class Contador : MonoBehaviour
                 ControlNiveles.shareLvl.CambiarNivel(2);
                 AudioManager.shareaudio.Efectos[3].Stop();
                 break;
+         
         }
         
         //AnimaCon.ShareAnimation.DesactivateRedTime();
