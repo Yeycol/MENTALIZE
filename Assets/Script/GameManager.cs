@@ -27,14 +27,14 @@ public class GameManager : MonoBehaviour
         if (shareInstance == null)
         {
             shareInstance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);//Método que evita que las configuraciones y datos almacenados en las variables de la anterior escena no sean borradas al pasar a una nueva
            
         }
         else
         {
          Destroy(gameObject);
         }
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 60;//Se indica al videojuego que intente renderizar a una velocidad de fotogramas específicos
       
     }
 
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        EvaluateAlert();
+        EvaluateAlert();//Se llama al método encargado de activar la alerta dependiendo del estado de juego en el que se encuentren
     }
 
     public void EvaluateAlert()
@@ -54,8 +54,8 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 //Si se presiona el boton de escape del Móvil haremos las siguientes instrucciones
-                AudioManager.shareaudio.Efectos[4].Play();
-                AudioManager.shareaudio.Partida.mute = true;
+                AudioManager.shareaudio.Efectos[4].Play();//Reproducimos el sonido de Alerta o Logro
+                AudioManager.shareaudio.Partida.mute = true;//Muteamos el sonido de la música
                 ManagerScene.shareMscen.ActiveAlert();//Llamamos al canvas de alerta
                 AnimaCon.ShareAnimation.AlertActive();//Activación de la animación de la alerta
             }
@@ -107,48 +107,44 @@ public class GameManager : MonoBehaviour
         if (newGameState == GameState.menu)
         {
             //TODO: Colocar la lógica del menú
-           
+
 
 
         }
         else if (newGameState == GameState.InGame)
         {
-            AudioManager.shareaudio.Partida.mute = false;
-            AudioManager.shareaudio.Efectos[3].mute = false;
-            ManagerScene.shareMscen.OffAlert();
-            AnimaCon.ShareAnimation.DesactivateCandado();
-            AnimaCon.ShareAnimation.DesactivateOver();
-            Invoke("WaitOver", 0.70f);// Desactiva el canvas del Game Over en un tiempo determinado dando tiempo a que se muestre la animación 
-            AnimaCon.ShareAnimation.DesactivateWin();
-            AnimaCon.ShareAnimation.StopPadlock();
-            AnimaCon.ShareAnimation.DesactivateConfeti();
-            AnimaCon.ShareAnimation.ActivePizarra();
-            Invoke("WaitWin", 1f);//Desactiva el canvas del Win en un tiempo determinado dando tiempo a que se muestre la animación
+
+            AudioManager.shareaudio.Partida.mute = false;//Se desmutea la música del videojuego
+            AudioManager.shareaudio.Efectos[3].mute = false;//Se desmutea el efecto TimeEnd
+            ManagerScene.shareMscen.OffOver();//Desactiva la interfaz de usuario al perder partida
+            ManagerScene.shareMscen.OffWin();//Desactiva la interfaz de usuario al ganar partida
+            AnimaCon.ShareAnimation.DesactivateConfeti();//Método encargado de desactivar la animación del confeti
+            AnimaCon.ShareAnimation.ActivePizarra();//Activa la animación d ela pizarra al empezar la aprtida
+
         }
         else if (newGameState == GameState.GameOver)
         {
-            //TODO: Indicar al usuario que ha perdido la partida
-            AudioManager.shareaudio.Efectos[3].Stop();
-            AudioManager.shareaudio.Efectos[0].Play();
+            AudioManager.shareaudio.Efectos[3].Stop();//Para el sonido llamado Time End
+            AudioManager.shareaudio.Efectos[0].Play();//Activa el sonido llamado OverGame
             ManagerScene.shareMscen.OffAlert();//Se desactiva la alerta en caso de que este activa al pasar a Game Over
-            AnimaCon.ShareAnimation.DesactivateRedTime();
-            AnimaCon.ShareAnimation.DesactivatePizarra();
-            ManagerScene.shareMscen.ActiveOver();
-            AnimaCon.ShareAnimation.ActivateOver();
-            AnimaCon.ShareAnimation.ActiveCandado();
+            AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva la animación del evento Time End
+            AnimaCon.ShareAnimation.DesactivatePizarra();//Al perder partida se desactiva la animación de la pizarra
+            ManagerScene.shareMscen.ActiveOver();//Se activa el Canvas d ela Interfaz de Usuario al perder partida
+            AnimaCon.ShareAnimation.ActivateOver();//Se habilita la animación  de la Interfaz de Usuario
+            AnimaCon.ShareAnimation.ActiveCandado();//Se activa la animación del candado al perder
         }
         else if (newGameState == GameState.Win)
         {
             //TODO: Indicar al usuario que ha ganado
-            AudioManager.shareaudio.Efectos[3].Stop();
-            AudioManager.shareaudio.Efectos[0].Play();
-            AnimaCon.ShareAnimation.DesactivateRedTime();
+            AudioManager.shareaudio.Efectos[3].Stop();//Para el sonido llamado Time End
+            AudioManager.shareaudio.Efectos[0].Play();//Activa el sonido llamado WinGame
+            AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva la animación del evento Time End
             ManagerScene.shareMscen.OffAlert();//Se desactiva la alerta en caso de que este activa al pasar a Win
-            AnimaCon.ShareAnimation.DesactivatePizarra();
-            ManagerScene.shareMscen.ActiveWin();
-            AnimaCon.ShareAnimation.ActiveWin();
-            AnimaCon.ShareAnimation.StartPadlock();
-            Invoke("Wait_Confeti",2f);   
+            AnimaCon.ShareAnimation.DesactivatePizarra();//Al perder partida se desactiva la animación de la pizarra
+            ManagerScene.shareMscen.ActiveWin();//Se activa el Canvas de la Interfaz de Usuario al ganar la Partida
+            AnimaCon.ShareAnimation.ActiveWin();//Se habilita la animación  de la Interfaz de Usuario
+            AnimaCon.ShareAnimation.StartPadlock();//Se activa la animación del evento Padlock
+            AnimaCon.ShareAnimation.AtivateConfeti();
         }
         else if (newGameState == GameState.Load)
         {
@@ -158,30 +154,21 @@ public class GameManager : MonoBehaviour
         else if (newGameState==GameState.Pause)
         {
             //TODO: Mostrar al usuario el menú de pausa
-            AudioManager.shareaudio.Efectos[3].mute=true;
-            AudioManager.shareaudio.Partida.mute = true;
+            AudioManager.shareaudio.Efectos[3].mute=true;//Mutea el sonido de Time End
+            AudioManager.shareaudio.Partida.mute = true;//Mutea el sonido de la Partida
             
 
         }
-
-       this.currentgameState = newGameState;
-       
+        /*Se establece que la variable currentState la cual es mostrada de
+        manera pública en el editor de Unity se igual a la pasada por parámetro*/
+        this.currentgameState = newGameState;  
     }
-    public void WaitOver()
-    {
-        
-        ManagerScene.shareMscen.OffOver();
-    }
-    public void WaitWin()
-    {
-        ManagerScene.shareMscen.OffWin();
-    }
-    public void Wait_Confeti()
-    {
-        AnimaCon.ShareAnimation.AtivateConfeti();
-    }
-
+   
  
+
+   
+
+  
 
 
 

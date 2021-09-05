@@ -52,32 +52,17 @@ public class AnimaCon : MonoBehaviour
     {
      AnimationLis[1].SetBool(ACTIVE_OVER, true);//Activamos la animación de la pantalla de Game Over
     }
-    public void DesactivateOver()
-    {
-        AnimationLis[1].SetBool(ACTIVE_OVER, false);//Se desactiva la animación de la pantalla de Game Over
-    }
     public void ActiveCandado()
     {
         AnimationLis[5].SetBool(ACTIVE_CANDADO, true);//Activamos la animación del candado
-    }
-    public void DesactivateCandado()
-    {
-        AnimationLis[5].SetBool(ACTIVE_CANDADO, false);//Desactivamos la animación del candado
     }
    public void StartPadlock()
     {
         Invoke("WaitPadlock", 0.80f);
     }
-    public void StopPadlock() {
-        AnimationLis[6].SetBool(ACTIVE_PADLOCK, false);//Se desactiva la animación de desbloqueo 
-    }
     public void ActiveWin()
     {
     AnimationLis[7].SetBool(START_WIN, true);//Activamos la animación de win
-    }
-    public void DesactivateWin()
-    {
-    AnimationLis[7].SetBool(START_WIN, false);//Se desactiva la animación para la ventana de Win
     }
     public void AtivateConfeti()
     {
@@ -85,7 +70,7 @@ public class AnimaCon : MonoBehaviour
     }
     public void DesactivateConfeti()
     {
-        AnimationLis[8].SetBool(START_CONFETI, false);//Se activa animación del confeti
+        AnimationLis[8].SetBool(START_CONFETI, false);//Se desactiva animación del confeti
     }
 
     public void DesactivateAlert()
@@ -144,5 +129,6 @@ public class AnimaCon : MonoBehaviour
         AnimationLis[4].SetBool(ACTIVE_TEXTIME, false);//Desactiva la animación texto parpadeo en blanco
     }
 
-   
+    
+
 }

@@ -51,7 +51,8 @@ public class ActivarOpciones : MonoBehaviour
         Time.timeScale = 1f;
         Pausa.enabled = false;//Se desactiva el canvas de pausa
     }
-    
+   
+
 
 
 

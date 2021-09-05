@@ -1745,7 +1745,6 @@ MonoBehaviour:
   b2: {fileID: 2120802044}
   b3: {fileID: 1850802570}
   b4: {fileID: 1662653915}
-  optionbutton: {fileID: 0}
   ButtonSelection: 0
 --- !u!1 &336956505
 GameObject:
@@ -2276,7 +2275,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &470241104
 RectTransform:
@@ -4473,7 +4472,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &858293646
 RectTransform:
@@ -5972,7 +5971,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075901216}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -7285,7 +7284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2374222918679686493, guid: 3d83e1c9dde48d949a42fa4ffd9b2bb7, type: 3}
+  m_Sprite: {fileID: -8781000647218096836, guid: cdb454e198454464180c54a1ae875a2a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8246,10 +8245,10 @@ RectTransform:
   m_Father: {fileID: 1075901220}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.379883, y: 74.62891}
-  m_SizeDelta: {x: 11.24, y: 149.2573}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1664}
+  m_SizeDelta: {x: 1920, y: 3478.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1437653984
 Animator:
@@ -8290,7 +8289,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2374222918679686493, guid: 3d83e1c9dde48d949a42fa4ffd9b2bb7, type: 3}
+  m_Sprite: {fileID: -3045612214812004661, guid: 0b9ee1fb20a9f6141922d9bd217a9274, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8463,7 +8462,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444873632}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!95 &1444873636
 Animator:
   serializedVersion: 3
@@ -8873,6 +8872,7 @@ MonoBehaviour:
   GameOver: {fileID: 858293645}
   Alert: {fileID: 952170510}
   SceneAnima: {fileID: 470241103}
+  ButtonsInterface: {fileID: 1751228380}
 --- !u!4 &1509874916
 Transform:
   m_ObjectHideFlags: 0
@@ -10672,7 +10672,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 1, g: 0.050980393, b: 0.7529412, a: 0.62352943}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -10686,7 +10686,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1751228381}
   m_OnClick:
     m_PersistentCalls:

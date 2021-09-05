@@ -6,21 +6,19 @@ using UnityEngine.SceneManagement;//Librería que permite usar los métodos para c
 
 public class ManagerScene : MonoBehaviour
 {
-    public static ManagerScene shareMscen;
+    public static ManagerScene shareMscen;//Variable de tipo stática utilizada para hacer un singleton o instancia compartida
     public Canvas Gameview;//Referencia al Canvas llamada Ingame
     public Canvas Win;//Referencia al Canvas llamado Win
     public Canvas GameOver;//Referencia al Canvas llamado GameOver
     public Canvas Alert;// Referencia al Canvas llamado Alert
-    //public Canvas Pause;//Referencia al Canvas de la Pausa
     public Canvas SceneAnima;//Referencia al canvas encargado de hacer la transición al pasar a otra escena
-   
+    public Button ButtonsInterface;
 
     private void Awake()
     {
         if (shareMscen == null)
         {
             shareMscen = this;
-           
         }
         else
         {
@@ -60,6 +58,7 @@ public class ManagerScene : MonoBehaviour
     {
         //Activa el Canvas del Game Over
         GameOver.enabled = true;
+        Invoke("HabilitateButtons", 1.5f);
     }
     public void OffOver()
     {
@@ -70,8 +69,7 @@ public class ManagerScene : MonoBehaviour
     {
         //Método encargado de cargar la escena del menu
            
-        AudioManager.shareaudio.Partida.mute = false;//Se reinicia el audio según lo establecido en la condicional
-       
+        AudioManager.shareaudio.Partida.mute = false;//Se desmutea el audio de la música dle videojuego
         GameManager.shareInstance.BackToMenu();//Pasamos al estado de juego menú
         SceneManager.LoadScene(3);//Carga el menú de selección de niveles 
         Time.timeScale = 1f;// Escala en la que pasa el tiempo, utilizados para efectos de cámara lenta
@@ -93,23 +91,23 @@ public class ManagerScene : MonoBehaviour
    
     public void ActiveCanvasAnimaScene()
     {
-        //Método encargado de habilar el canvas de las trancisiones entre escenas
+        //Método encargado de habilitar el canvas de las trancisiones entre escenas
         SceneAnima.enabled = true;
     }
 
     public void QuitApplication()
     {
         //Método encargado de salir del juego
-#if UNITY_EDITOR
-        // Application.Quit() does not work in the editor so
-        // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+#if UNITY_EDITOR //Si nos encontramos en el editor, apagamos el play del editor
         UnityEditor.EditorApplication.isPlaying = false;
-#else
+#else //Si estamos en un dispositivo móvil quitamos la aplicación
          Application.Quit();
 #endif
     }
-
-
+    public void HabilitateButtons()
+    {
+        ButtonsInterface.interactable = true;
+    }
 
 }
  
