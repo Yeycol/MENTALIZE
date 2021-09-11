@@ -23,4 +23,8 @@ public class EventSounds : MonoBehaviour
     {
         AudioManager.shareaudio.Efectos[9].Play();
     }
+    public void NaveCorrectEntrada()
+    {
+        AudioManager.shareaudio.Efectos[10].Play();
+    }
 }

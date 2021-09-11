@@ -79,7 +79,7 @@ public class ManagerQuiz : MonoBehaviour
         //Método que tiene la finalidad de ser usado para pasar a la siguiente pregunta
         // Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
         AnimaCon.ShareAnimation.StopHeart();//Se llama al método encargado de reproducir la animación  del corazón restaurandose
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.20f);
             Nexquestion();
     }
 
@@ -87,6 +87,7 @@ public class ManagerQuiz : MonoBehaviour
     {
         //Método que tiene la finalidad de ser usado para pasar a la siguiente pregunta 
         // Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
+        AnimaCon.ShareAnimation.DesactiveNaveCorrect();//Se llama al método encargado de reproducir la animación de la nave saliendo de escena
         yield return new WaitForSeconds(1.6f);
         Nexquestion();
     }
@@ -95,7 +96,7 @@ public class ManagerQuiz : MonoBehaviour
     { 
         AnimaCon.ShareAnimation.StartHeart();//Se llama al método encargado de reproducir la animación del corazón rompiendose
         AnimaCon.ShareAnimation.DesactiveNaveError();//Se llama al método encargado de reproducir la animación de la Nave Saliendo de escena
-        yield return new WaitForSeconds(1.2f);//Tiempo que se le otroga a la corrutina para que haga las acciones anteriores
+        yield return new WaitForSeconds(1.1f);//Tiempo que se le otroga a la corrutina para que haga las acciones anteriores
         Contador.ResetHealth();//Método encargado de restar las vidas cuando se seleccione la respuesta incorrecta
         /*Para que lo anterior se pueda visualizar, se da un tiempo para invocar al método encargado
          de llamar al ´método que´pasa a la siguiente pregunta*/
@@ -107,7 +108,7 @@ public class ManagerQuiz : MonoBehaviour
     IEnumerator WaitforNave()
     {
         AnimaCon.ShareAnimation.ActiveNaveError();//Se llama al método encargado de reproducir la animación de la entrada de la nave y disparo 
-        yield return new WaitForSeconds(1f);//Tiempo que se le otorga a la corrutina para que haga las acciones anteriores
+        yield return new WaitForSeconds(1.3f);//Tiempo que se le otorga a la corrutina para que haga las acciones anteriores
         /*Luego de que se ejecuten las acciones de la corrutina, se llama a otra corrutina encargada de 
          reproducir la animación del corazón y de pasar a la siguiente pregunta*/       
         StartCoroutine(WaitforHeart());//Corrutina llamada para dar tiempo a la aniamción de la desfragmentación del corazón
@@ -116,7 +117,6 @@ public class ManagerQuiz : MonoBehaviour
     {
         AnimaCon.ShareAnimation.ActiveNaveCorrect();//Se llama al método encargado de reproducir la animación de la entrada de la nave para cuando se responde bien 
         yield return new WaitForSeconds(1f);//Tiempo que se le otroga a la corrutina para que haga las acciones anteriores
-        AnimaCon.ShareAnimation.DesactiveNaveCorrect();//Se llama al método encargado de reproducir la animación de la nave saliendo de escena
         Contador.PointsAdd();//Método encargado de sumar los puntos si se seleccioná la respuesta correcta
         if (Contador.sharecont.contador <=5)//Condicional que evalua si el valor es menor igual a 5, permitiendo limitar el llamado de el método que pasa a la siguiente pregunta        
             StartCoroutine(NextCorrect());//Corrutina que se llama para dar un tiempo a la reproducción de las animaciones

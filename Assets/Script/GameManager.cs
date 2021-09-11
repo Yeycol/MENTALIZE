@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
             ManagerScene.shareMscen.OffOver();//Desactiva la interfaz de usuario al perder partida
             ManagerScene.shareMscen.OffWin();//Desactiva la interfaz de usuario al ganar partida
             AnimaCon.ShareAnimation.DesactivateConfeti();//Método encargado de desactivar la animación del confeti
-            AnimaCon.ShareAnimation.ActivePizarra();//Activa la animación d ela pizarra al empezar la aprtida
+            //AnimaCon.ShareAnimation.ActivePizarra();//Activa la animación d ela pizarra al empezar la aprtida
 
         }
         else if (newGameState == GameState.GameOver)
@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[0].Play();//Activa el sonido llamado OverGame
             ManagerScene.shareMscen.OffAlert();//Se desactiva la alerta en caso de que este activa al pasar a Game Over
             AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva la animación del evento Time End
-            AnimaCon.ShareAnimation.DesactivatePizarra();//Al perder partida se desactiva la animación de la pizarra
+            //AnimaCon.ShareAnimation.DesactivatePizarra();//Al perder partida se desactiva la animación de la pizarra
             ManagerScene.shareMscen.ActiveOver();//Se activa el Canvas d ela Interfaz de Usuario al perder partida
             AnimaCon.ShareAnimation.ActivateOver();//Se habilita la animación  de la Interfaz de Usuario
             AnimaCon.ShareAnimation.ActiveCandado();//Se activa la animación del candado al perder
@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[0].Play();//Activa el sonido llamado WinGame
             AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva la animación del evento Time End
             ManagerScene.shareMscen.OffAlert();//Se desactiva la alerta en caso de que este activa al pasar a Win
-            AnimaCon.ShareAnimation.DesactivatePizarra();//Al perder partida se desactiva la animación de la pizarra
+            //AnimaCon.ShareAnimation.DesactivatePizarra();//Al perder partida se desactiva la animación de la pizarra
             ManagerScene.shareMscen.ActiveWin();//Se activa el Canvas de la Interfaz de Usuario al ganar la Partida
             AnimaCon.ShareAnimation.ActiveWin();//Se habilita la animación  de la Interfaz de Usuario
             AnimaCon.ShareAnimation.StartPadlock();//Se activa la animación del evento Padlock

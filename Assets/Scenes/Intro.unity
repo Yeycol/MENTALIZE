@@ -1935,7 +1935,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ba3542bcbcc550541b1753b6ee9e6f71, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3e4528b27d282c54ea90924a9b2fb13b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -2047,6 +2047,7 @@ MonoBehaviour:
   - {fileID: 1177320240}
   - {fileID: 723466174}
   - {fileID: 1145106487}
+  - {fileID: 1239020377}
   Mute1: {fileID: 604847397}
   Mute2: {fileID: 632030520}
 --- !u!4 &456155945
@@ -5985,6 +5986,133 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1239020375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1239020376}
+  - component: {fileID: 1239020377}
+  m_Layer: 0
+  m_Name: 'NaveAbducir '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1239020376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239020375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1518727717}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1239020377
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239020375}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1dd99429a3082e84da0882847ce706a3, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1252074727
 GameObject:
   m_ObjectHideFlags: 0
@@ -7091,6 +7219,7 @@ Transform:
   - {fileID: 1177320239}
   - {fileID: 723466173}
   - {fileID: 1145106486}
+  - {fileID: 1239020376}
   m_Father: {fileID: 456155945}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8754,7 +8883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -139, y: -149.48285}
+  m_AnchoredPosition: {x: -133, y: -144}
   m_SizeDelta: {x: 108.9014, y: 104.8448}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1716390512
@@ -9231,6 +9360,37 @@ MonoBehaviour:
   - {fileID: 104883171}
   - {fileID: 814359734}
   - {fileID: 706758314}
+  LevelShadow:
+  - {fileID: 1481605904}
+  - {fileID: 1674730970}
+  - {fileID: 560757913}
+  - {fileID: 220412447}
+  - {fileID: 1607311462}
+  - {fileID: 2147141597}
+  - {fileID: 346382390}
+  - {fileID: 1659754087}
+  - {fileID: 1225706885}
+  - {fileID: 264832678}
+  - {fileID: 1023058463}
+  - {fileID: 92010505}
+  - {fileID: 3223290}
+  - {fileID: 460407816}
+  - {fileID: 708422559}
+  - {fileID: 141198948}
+  - {fileID: 678137826}
+  - {fileID: 1304197928}
+  - {fileID: 33526904}
+  - {fileID: 1931663664}
+  - {fileID: 1160068606}
+  - {fileID: 1317354675}
+  - {fileID: 1119534573}
+  - {fileID: 206299834}
+  - {fileID: 750911393}
+  - {fileID: 607974173}
+  - {fileID: 567769845}
+  - {fileID: 104883170}
+  - {fileID: 814359733}
+  - {fileID: 706758313}
   ActiveColor: {r: 0.10588236, g: 0.078431375, b: 0.3921569, a: 1}
 --- !u!4 &1763270860
 Transform:

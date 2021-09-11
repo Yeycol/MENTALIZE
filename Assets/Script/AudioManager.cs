@@ -57,6 +57,7 @@ public class AudioManager : MonoBehaviour
         Efectos[7].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Llegada Volando
         Efectos[8].volume = Efectos1.value;
         Efectos[9].volume = Efectos1.value;
+        Efectos[10].volume = Efectos1.value;
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
 
@@ -81,6 +82,7 @@ public class AudioManager : MonoBehaviour
         Efectos[7].volume = Efectos1.value;
         Efectos[8].volume = Efectos1.value;
         Efectos[9].volume = Efectos1.value;
+        Efectos[10].volume = Efectos1.value;
         PlayerPrefs.SetFloat("Efect", Efectos1.value);
         PlayerPrefs.Save();
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute

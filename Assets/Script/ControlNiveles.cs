@@ -13,10 +13,10 @@ public class ControlNiveles : MonoBehaviour
     public Button[] Buttonslevel;//Array de componentes de tipo botón que serviran para localizar estos objetos por referencia
     public Image[] Imagelevel;//Array de componentes de tipo Imagen que serviran para localizar estos objetos por referencia
     public Text[] Level;//Array de componentes de tipo texto que serviran para localizar estos objetos por referencia
+    public Shadow[] LevelShadow;
     Guardado cargaryguardar;// Variable de tipo de la clase Guardado, que servirá para hacer referencia a la clase encargada de guardar los niveles y monedas conseguidos 
     public Color ActiveColor;// Color que establecemos desde el editor de Unity para el texto de los botones
-    public static ControlNiveles shareLvl;// Variable que hace referencia a esta misma clase, servirá para hacerla una instancia compartida
-
+    public static ControlNiveles shareLvl;// Variable que hace referencia a esta misma clase, servirá para hacerla una instancia compartida   
     private void Awake()
     {
         if (shareLvl == null)
@@ -26,7 +26,7 @@ public class ControlNiveles : MonoBehaviour
        cargaryguardar = GetComponent<Guardado>();//Como este script esta agregado al mismo objeto llamado control niveles, simplemente recuperamos su componente sin buscarlo
     }
     private void Start()
-    {  
+    {
         if (GameManager.shareInstance.currentgameState == GameState.menu)
         {
         //Solo si estamos en estado de juego pasaran las acciones establecidas dentro de este condicional
@@ -92,8 +92,10 @@ public void FalseButton()
         //Método encargado de colocar los botones bloqueados
             for (int i = 0; i < Buttonslevel.Length; i++)//Bucle que repite su ciclo hasta la cantidad de botones almacenados en el array
             {
-       //Dentro del  ciclo se evalua si los botones de la lista tienen desahabilitado la interacción entonces cargan una imagen de la carpeta de resources
-                if (Buttonslevel[i].interactable == false)
+            Level[i].fontSize = 80;
+            LevelShadow[i].effectDistance = new Vector2(5f, -0.5f);
+            //Dentro del  ciclo se evalua si los botones de la lista tienen desahabilitado la interacción entonces cargan una imagen de la carpeta de resources
+            if (Buttonslevel[i].interactable == false)
                 {
                  Imagelevel[i].sprite = Resources.Load<Sprite>("Sprite/Bloqueado");//Le asignamos al array de componentes imágenes el cargado de una de las imágenes almacenada en resources
                  Level[i].text = "?";//Le asignamos a los arrays tipo texto el signo de interrogación
@@ -110,6 +112,8 @@ public void FalseButton()
             if (Buttonslevel[i].interactable == true)// Hacemos esto solo si los botones tienen la interacción habilitada
             {
                 Level[i].color = ActiveColor;// Cambiamos el color de la componente texto
+                Level[i].fontSize = 80;
+                LevelShadow[i].effectDistance = new Vector2(8f,2f) ;
                 Level[0].text = "1";
                 Level[1].text = "2";
                 Level[2].text = "3";

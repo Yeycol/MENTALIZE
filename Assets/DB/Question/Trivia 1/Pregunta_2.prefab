@@ -43,7 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQu\xE9 civilizaci\xF3n antigua ten\xEDa faraones como gobernantes?"
+  text: "\xBFQu\xE9 civilizaci\xF3n antigua ten\xEDa faraones como                                                      
+    gobernantes?"
   options:
   - text: "Turqu\xEDa"
     correct: 0
