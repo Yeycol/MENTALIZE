@@ -107,15 +107,12 @@ public class GameManager : MonoBehaviour
         if (newGameState == GameState.menu)
         {
             //TODO: Colocar la lógica del menú
-
-
-
+         
         }
         else if (newGameState == GameState.InGame)
         {
-
-            AudioManager.shareaudio.Partida.mute = false;//Se desmutea la música del videojuego
-            AudioManager.shareaudio.Efectos[3].mute = false;//Se desmutea el efecto TimeEnd
+            Contador.sharecont.points_ui.text = Contador.sharecont.pointsinv.ToString();//Imprime los puntos invicibles en la interfaz
+            AudioManager.shareaudio.Partida.mute=false;
             ManagerScene.shareMscen.OffOver();//Desactiva la interfaz de usuario al perder partida
             ManagerScene.shareMscen.OffWin();//Desactiva la interfaz de usuario al ganar partida
             AnimaCon.ShareAnimation.DesactivateConfeti();//Método encargado de desactivar la animación del confeti
@@ -124,6 +121,7 @@ public class GameManager : MonoBehaviour
         }
         else if (newGameState == GameState.GameOver)
         {
+            AudioManager.shareaudio.Partida.mute=true;
             AudioManager.shareaudio.Efectos[3].Stop();//Para el sonido llamado Time End
             AudioManager.shareaudio.Efectos[0].Play();//Activa el sonido llamado OverGame
             ManagerScene.shareMscen.OffAlert();//Se desactiva la alerta en caso de que este activa al pasar a Game Over
@@ -136,6 +134,7 @@ public class GameManager : MonoBehaviour
         else if (newGameState == GameState.Win)
         {
             //TODO: Indicar al usuario que ha ganado
+            AudioManager.shareaudio.Partida.mute=true;
             AudioManager.shareaudio.Efectos[3].Stop();//Para el sonido llamado Time End
             AudioManager.shareaudio.Efectos[0].Play();//Activa el sonido llamado WinGame
             AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva la animación del evento Time End
@@ -144,7 +143,8 @@ public class GameManager : MonoBehaviour
             ManagerScene.shareMscen.ActiveWin();//Se activa el Canvas de la Interfaz de Usuario al ganar la Partida
             AnimaCon.ShareAnimation.ActiveWin();//Se habilita la animación  de la Interfaz de Usuario
             AnimaCon.ShareAnimation.StartPadlock();//Se activa la animación del evento Padlock
-            AnimaCon.ShareAnimation.AtivateConfeti();
+            StartCoroutine(WaitForConfeti());//Llamamos a la corrutina encargada de habilitar la animación del Confeti
+           
         }
         else if (newGameState == GameState.Load)
         {
@@ -154,17 +154,26 @@ public class GameManager : MonoBehaviour
         else if (newGameState==GameState.Pause)
         {
             //TODO: Mostrar al usuario el menú de pausa
-            AudioManager.shareaudio.Efectos[3].mute=true;//Mutea el sonido de Time End
-            AudioManager.shareaudio.Partida.mute = true;//Mutea el sonido de la Partida
-            
-
+            AudioManager.shareaudio.Efectos[3].Pause();//Pausa el sonido de Time End
+            AudioManager.shareaudio.Partida.mute=true;//Pausa el sonido de la Partida
+            AudioManager.shareaudio.Efectos[6].Pause();//Pausamos el Efecto Disparo
+            AudioManager.shareaudio.Efectos[7].Pause();//Pausamos el Efecto Llegada Nave
+            AudioManager.shareaudio.Efectos[8].Pause();//Pausamos el Efeco Salida Nave
+            AudioManager.shareaudio.Efectos[9].Pause();//Pausamos el Efeco Roto
+            AudioManager.shareaudio.Efectos[10].Pause();//Pausamos el Efeco Abducir Nave
         }
         /*Se establece que la variable currentState la cual es mostrada de
         manera pública en el editor de Unity se igual a la pasada por parámetro*/
         this.currentgameState = newGameState;  
     }
    
- 
+    IEnumerator WaitForConfeti()
+    {
+        //Esta corrutina permite darle tiempo a la animación dle Active Over 
+        //De esa forma evitar perdida de FPS Al ejecutar simultaneas animaciones
+        yield return new WaitForSeconds(2f);//Tiempo que se le asigna a la corrutina para que ejecute las acciones establecidas
+        AnimaCon.ShareAnimation.AtivateConfeti();//Llamamos al método encargado de habilitar la animación del Confeti
+    }
 
    
 

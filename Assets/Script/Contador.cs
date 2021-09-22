@@ -42,6 +42,8 @@ public class Contador : MonoBehaviour
         GuardadoMonedas.CargarMonedas();// Se carga las monedas para poderlas visualizar la cantidad de monedas que se tiene
         scene = SceneManager.GetActiveScene();//GetActiveScene es un método que nos permite obtener la escena activa actualmente
         InicializarDatosInterfaz();//Cuando inicia el juego debemos imprimer el valor que hayan adquirido las variables al iniciar el juego
+       
+        
     }
 
     private void FixedUpdate()
@@ -61,12 +63,17 @@ public class Contador : MonoBehaviour
 
     public void InicializarDatosInterfaz()
     {
-        textcont.text = contador.ToString() + range;//Se imprime el contador y el rango de la cantidad de preguntas que habrá en el nivel
-        points_ui.text = pointsinv.ToString();//Imprime los puntos invicibles en la interfaz
-        text_health.text = vidas.ToString();//Imprime las vidas en la interfaz
-        moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
-        currentTime = time;//Se establece que el tiempo actual es igual a el tiempo establecido en la variable publica
-
+        if (scene.name != "SelectLevelSpace")
+        {
+            textcont.text = contador.ToString() + range;//Se imprime el contador y el rango de la cantidad de preguntas que habrá en el nivel
+            text_health.text = vidas.ToString();//Imprime las vidas en la interfaz
+            moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
+            currentTime = time;//Se establece que el tiempo actual es igual a el tiempo establecido en la variable publica
+            if (GameManager.shareInstance.currentgameState == GameState.menu)
+            {
+                points_ui.text = puntos.ToString();
+            }
+        } 
     }
     public void EventTime()
         {
@@ -112,7 +119,6 @@ public class Contador : MonoBehaviour
                      usados para guardar llegan a 5 al repetir el nivel estos no aumentaban su valor y rompian
                     la lógica impidiendo ganar o perder la partida, por ello los puntos invicibles aunque se repita
                     la partida estos no son limitados ni guardados*/
-                        AudioManager.shareaudio.Partida.mute = true;//Se mutea el volumén de la música
                         GuardadoMonedas.GuardarMonedas();//Se hace el guardado de monedas solo si se gana
                         GameManager.shareInstance.WinGame();//Llama a la pantalla de ganaste
                         ControlNiveles.shareLvl.DesbloquearNivel();//Método encargado de desbloquear los niveles ganados
@@ -132,14 +138,12 @@ public class Contador : MonoBehaviour
                     //Si es el caso esta aplicará esta condicional donde se llamará a un método si se consigue los puntos requeridos
                     if (puntos == 10 || pointsinv == 10)
                     {
-                        AudioManager.shareaudio.Partida.mute = true;//Se mutea el volumén de la música
                         GuardadoMonedas.GuardarMonedas();//Se hace el guardado de monedas solo si se gana
                         GameManager.shareInstance.WinGame();//Llama a la pantalla de ganaste
                         ControlNiveles.shareLvl.DesbloquearNivel();//Método encargado de desbloquear los niveles ganados
                     }
                     else
                     {
-                        AudioManager.shareaudio.Partida.mute = true;//Se mutea el volumén de la música
                         GameManager.shareInstance.GameOver();//Llama a la pantalla de Game Over
                     }
                 }
@@ -216,7 +220,7 @@ public class Contador : MonoBehaviour
         sharecont.pointsinv += sharecont.value_Points;//Se incrementa el valor de los puntos invicibles de acuerdo al valor establecido en valor de puntos
         sharecont.points_ui.text = sharecont.pointsinv.ToString();
         sharecont.moneda += sharecont.value_moneda;//Se incrementa el valor de la moneda de acuerdo al valor establecido de la moneda por nivel
-        sharecont.moneda_ui.text = sharecont.moneda.ToString();//Se imprime el valor de monedas ganadas por interfaz   
+        sharecont.moneda_ui.text = sharecont.moneda.ToString();//Se imprime el valor de monedas ganadas por interfaz  
     }
  
 }

@@ -16,7 +16,9 @@ public class ControlNiveles : MonoBehaviour
     public Shadow[] LevelShadow;
     Guardado cargaryguardar;// Variable de tipo de la clase Guardado, que servirá para hacer referencia a la clase encargada de guardar los niveles y monedas conseguidos 
     public Color ActiveColor;// Color que establecemos desde el editor de Unity para el texto de los botones
+    public Color ShadowColor;
     public static ControlNiveles shareLvl;// Variable que hace referencia a esta misma clase, servirá para hacerla una instancia compartida   
+    private Scene Getscene;
     private void Awake()
     {
         if (shareLvl == null)
@@ -24,22 +26,26 @@ public class ControlNiveles : MonoBehaviour
             shareLvl = this;
         }
        cargaryguardar = GetComponent<Guardado>();//Como este script esta agregado al mismo objeto llamado control niveles, simplemente recuperamos su componente sin buscarlo
+       Getscene = SceneManager.GetActiveScene();
     }
     private void Start()
     {
         if (GameManager.shareInstance.currentgameState == GameState.menu)
         {
-        //Solo si estamos en estado de juego pasaran las acciones establecidas dentro de este condicional
-           cargaryguardar.Guardar();// Se llama al método de la clase Guardado, para que este guarde los niveles desbloqueados  
-            RefreshButton();// Método encargado de actualizar los botones desbloqueados 
-            FalseButton();// Método encargado de desbloquear los botones bloqueados 
+            if (Getscene.name == "SelectLevel (Trivias)")
+            {
+                //Solo si estamos en estado de juego pasaran las acciones establecidas dentro de este condicional
+                cargaryguardar.Guardar();// Se llama al método de la clase Guardado, para que este guarde los niveles desbloqueados  
+                RefreshButton();// Método encargado de actualizar los botones desbloqueados 
+                FalseButton();// Método encargado de desbloquear los botones bloqueados 
+            }            
         }
     }
     public void CambiarNivel(int Nivel)
     {
         //Este método recibe como parámetro un entero del indice de la escena a la que queremos dirigirnos 
         
-        if (Nivel == 3)// Si el número de la escena pasada por argumento es igual a 3 
+        if (Nivel == 3|| Nivel == 4 )// Si el número de la escena pasada por argumento es igual a 3 
         {
             //Entonces llamará al método encargado de cargar la escena del menú
             StartCoroutine(AnimatorTransitionSceneMenu());
@@ -73,7 +79,7 @@ public class ControlNiveles : MonoBehaviour
     {
         AnimaCon.ShareAnimation.AnimationLis[9].SetTrigger("ExitScene");
         yield return new WaitForSeconds(0.9f);
-        ManagerScene.shareMscen.LoadMenu();
+        ManagerScene.shareMscen.LoadMenu(3);
     }
 
 
@@ -112,8 +118,9 @@ public void FalseButton()
             if (Buttonslevel[i].interactable == true)// Hacemos esto solo si los botones tienen la interacción habilitada
             {
                 Level[i].color = ActiveColor;// Cambiamos el color de la componente texto
+                LevelShadow[i].effectColor = ShadowColor;
                 Level[i].fontSize = 80;
-                LevelShadow[i].effectDistance = new Vector2(8f,2f) ;
+                LevelShadow[i].effectDistance = new Vector2(8f,2f);
                 Level[0].text = "1";
                 Level[1].text = "2";
                 Level[2].text = "3";

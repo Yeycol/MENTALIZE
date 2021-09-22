@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SelectLevel (Trivias).unity
     guid: c35164323f352ea4f9be2495f7be90bb
+  - enabled: 1
+    path: Assets/Scenes/SelectLevelSpace.unity
+    guid: aa6accaa2fd29e14ea05cd4febc2a465
+  - enabled: 1
+    path: Assets/Scenes/Carga.unity
+    guid: 6e5f0d9908e6d5e4d9be8b4a790662e3
   m_configObjects: {}

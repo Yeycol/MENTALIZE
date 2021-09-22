@@ -27,4 +27,12 @@ public class EventSounds : MonoBehaviour
     {
         AudioManager.shareaudio.Efectos[10].Play();
     }
+
+    public void ButtonSelect() {
+        AudioManager.shareaudio.Efectos[11].Play();
+    }
+   public void FocosDañados()
+    {
+        AudioManager.shareaudio.Efectos[12].Play();
+    }
 }

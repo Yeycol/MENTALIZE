@@ -55,9 +55,11 @@ public class AudioManager : MonoBehaviour
         Efectos[5].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Back Alert
         Efectos[6].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Disparo
         Efectos[7].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Llegada Volando
-        Efectos[8].volume = Efectos1.value;
-        Efectos[9].volume = Efectos1.value;
-        Efectos[10].volume = Efectos1.value;
+        Efectos[8].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Salida Nave
+        Efectos[9].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Roto
+        Efectos[10].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Nave Abducir
+        Efectos[11].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de ButtonSelect
+        Efectos[12].volume = Efectos1.value;//Otorgamos el valor del slider al volumen del efecto de FocosDañados
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
 
@@ -83,6 +85,8 @@ public class AudioManager : MonoBehaviour
         Efectos[8].volume = Efectos1.value;
         Efectos[9].volume = Efectos1.value;
         Efectos[10].volume = Efectos1.value;
+        Efectos[11].volume = Efectos1.value;
+        Efectos[12].volume = Efectos1.value;
         PlayerPrefs.SetFloat("Efect", Efectos1.value);
         PlayerPrefs.Save();
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
@@ -119,8 +123,8 @@ public class AudioManager : MonoBehaviour
         }
         else if (Efectos1.value > 0 && Musica1.value == 0)
         {
-            Mute1.enabled = true;
-            Mute2.enabled = false;
+            Mute1.enabled = true;//Habilita la imagen de mute
+            Mute2.enabled = false;//Deshabilita la imagen de mute
         }
 
 

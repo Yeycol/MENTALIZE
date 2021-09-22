@@ -30,9 +30,9 @@ public class ActivarOpciones : MonoBehaviour
     {
         //Activa el Canvas que muestra las opciones de pausa
         Time.timeScale = 0f;// Escala en la que pasa el tiempo, utilizados para efectos de cámara lenta
-        // Cuando timeScale es = 1 el tiempo pasa tan rápido como el tiempo real
-        // Cuando timeScale es = 0,5 el tiempo pasa 2 veces mas lento que el tiempo real
-        // Cuando lo establecemos en 0 actua como pausa
+                            // Cuando timeScale es = 1 el tiempo pasa tan rápido como el tiempo real
+                            // Cuando timeScale es = 0,5 el tiempo pasa 2 veces mas lento que el tiempo real
+                            // Cuando lo establecemos en 0 actua como pausa
         Pausa.enabled = true;//Activamos el canvas localizado
         AudioManager.shareaudio.CargarSlider();//Método encargado de cargar las configuraciones almacenadas la última vez de la música
         AudioManager.shareaudio.CargarEfectos();//Método encargado de cargar las configuraciones almacenada la última vez de los efectos
@@ -42,6 +42,13 @@ public class ActivarOpciones : MonoBehaviour
     {
         //Desactiva el Canvas que muestra las opciones de pausa
         Time.timeScale = 1f;
+        AudioManager.shareaudio.Partida.mute=false;//Se desmutea la música del videojuego
+        AudioManager.shareaudio.Efectos[3].UnPause();//Se desmutea el efecto TimeEnd
+        AudioManager.shareaudio.Efectos[6].UnPause();//Despausamos Efecto Disparo
+        AudioManager.shareaudio.Efectos[7].UnPause();//Despausamos Efecto Llegada Nave
+        AudioManager.shareaudio.Efectos[8].UnPause();//Despausamos Efecto Salida nave
+        AudioManager.shareaudio.Efectos[9].UnPause();//Despausamos el Efeco Roto
+        AudioManager.shareaudio.Efectos[10].UnPause();//Despausamos el Efeco Abducir Nave
         Pausa.enabled = false;//Desactivamos el canvas
         GameManager.shareInstance.StarGame();//Pasamos a estado de juego InGame por estar en Pausa
     }

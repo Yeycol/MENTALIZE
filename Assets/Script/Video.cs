@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class Video : MonoBehaviour
 {
     public float wite = 6f;//Variable de tipo flotante que especifica el tiempo para que la corrutina ejecute sus acciones
-
     void Awake()
     {
         AudioManager.shareaudio.Partida.mute=true;//Al despertarse, se mutea la música del juego, debido a que se reproduce el video de intro
@@ -21,7 +21,7 @@ public class Video : MonoBehaviour
     {
        //Se espera que se reproduzca el video
         yield return new WaitForSeconds(wite);
-        ControlNiveles.shareLvl.CambiarNivel(3);//Se llama al método encargado de cambiar la escena a partir del pasado por parametro de un entero
+        ControlNiveles.shareLvl.CambiarNivel(5);//Se llama al método encargado de cambiar la escena a partir del pasado por parametro de un entero
         AudioManager.shareaudio.Partida.Play();//Se vuelve a reproducir el audio desde un inicio para que no se escuche entrecortado al desmutear
     }
 

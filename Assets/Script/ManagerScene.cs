@@ -12,7 +12,7 @@ public class ManagerScene : MonoBehaviour
     public Canvas GameOver;//Referencia al Canvas llamado GameOver
     public Canvas Alert;// Referencia al Canvas llamado Alert
     public Canvas SceneAnima;//Referencia al canvas encargado de hacer la transición al pasar a otra escena
-    public Button ButtonsInterface;
+    public Button[] ButtonsInterface;
 
     private void Awake()
     {
@@ -47,6 +47,10 @@ public class ManagerScene : MonoBehaviour
     {
         //Activa el Canvas Win 
         Win.enabled = true;
+        if (GameManager.shareInstance.currentgameState == GameState.InGame)
+        {
+            StartCoroutine(EnableButton());//Corrutina encargada de habilitar los botones de la interfaz Win
+        }
     }
 
     public void OffWin()
@@ -58,24 +62,42 @@ public class ManagerScene : MonoBehaviour
     {
         //Activa el Canvas del Game Over
         GameOver.enabled = true;
-        Invoke("HabilitateButtons", 1.5f);
+        if (GameManager.shareInstance.currentgameState == GameState.InGame)
+        {
+            StartCoroutine(EnableButton());//Corrutina encargada de habilitar los botones de la interfaz Over
+        }
     }
     public void OffOver()
     {
         //Desactiva el Canvas del GameOver 
         GameOver.enabled = false;
     }
-    public void LoadMenu()
+    public void LoadMenu(int Nivel)
     {
         //Método encargado de cargar la escena del menu
-           
-        AudioManager.shareaudio.Partida.mute = false;//Se desmutea el audio de la música dle videojuego
-        GameManager.shareInstance.BackToMenu();//Pasamos al estado de juego menú
-        SceneManager.LoadScene(3);//Carga el menú de selección de niveles 
-        Time.timeScale = 1f;// Escala en la que pasa el tiempo, utilizados para efectos de cámara lenta
-        // Cuando timeScale es = 1 el tiempo pasa tan rápido como el tiempo real
-        // Cuando timeScale es = 0,5 el tiempo pasa 2 veces mas lento que el tiempo real
+        switch(Nivel)
+        {
+          case 3:
+          GameManager.shareInstance.BackToMenu();//Pasamos al estado de juego menú
+          SceneManager.LoadScene(3);//Carga el menú de selección de niveles 
+          Time.timeScale = 1f;// Escala en la que pasa el tiempo, utilizados para efectos de cámara lenta
+           // Cuando timeScale es = 1 el tiempo pasa tan rápido como el tiempo real
+          // Cuando timeScale es = 0,5 el tiempo pasa 2 veces mas lento que el tiempo real
+         // Cuando lo establecemos en cero actua como pausa
+          break;
+
+          case 4:
+          AudioManager.shareaudio.Partida.mute = false;//Se desmutea el audio de la música dle videojuego
+          GameManager.shareInstance.BackToMenu();//Pasamos al estado de juego menú
+          SceneManager.LoadScene(4);//Carga el menú de selección de niveles 
+          Time.timeScale = 1f;// Escala en la que pasa el tiempo, utilizados para efectos de cámara lenta
+          // Cuando timeScale es = 1 el tiempo pasa tan rápido como el tiempo real
+         // Cuando timeScale es = 0,5 el tiempo pasa 2 veces mas lento que el tiempo real
         // Cuando lo establecemos en cero actua como pausa
+          break;
+        }  
+         
+        
     }
 
     public void ActiveAlert()
@@ -104,9 +126,18 @@ public class ManagerScene : MonoBehaviour
          Application.Quit();
 #endif
     }
-    public void HabilitateButtons()
+    IEnumerator EnableButton()
     {
-        ButtonsInterface.interactable = true;
+        //Esta corrutina se encarga de habilitar los botones solo hasta que las animaciones de la interfaz aparescan 
+        //Evitando ir al menu o repetir partida sin ver los botones
+        yield return new WaitForSeconds(1.5f);//Tiempo que se le asigna a la corrutina para hacer las acciones estañecidas
+        ButtonsInterface[0].interactable = true;//Reset del Over
+        ButtonsInterface[1].interactable = true;//Salir del Over
+        ButtonsInterface[2].interactable = true;//Cerrar del Over
+        ButtonsInterface[3].interactable = true;//Salir del Win
+        ButtonsInterface[4].interactable = true;//Reintentar Win 
+        ButtonsInterface[5].interactable = true;//Continuar Win 
+        ButtonsInterface[6].interactable = true;//Cerrar Win
     }
 
 }

@@ -79,7 +79,7 @@ public class ManagerQuiz : MonoBehaviour
         //Método que tiene la finalidad de ser usado para pasar a la siguiente pregunta
         // Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
         AnimaCon.ShareAnimation.StopHeart();//Se llama al método encargado de reproducir la animación  del corazón restaurandose
-        yield return new WaitForSeconds(0.20f);
+        yield return new WaitForSeconds(0.30f);
             Nexquestion();
     }
 
