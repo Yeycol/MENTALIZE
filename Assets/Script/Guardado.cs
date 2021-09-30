@@ -5,16 +5,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;//Libreria que nos permite utilizar las capacidades de serealización del sistema Operativo en el script
 using System.IO;// Librería que nos permite crear archivos y leerlos en caulquier momento
-
+using System.Linq;//Librería que nos facilitará la copia de listas
 public class Guardado : MonoBehaviour
 {
     private string RutaArchivo;//Variable que almacenará la ruta en la que vamos almacenar los niveles desbloqueados
     private string RutaArchivo1;//Variable que almacenará la ruta en la que vamos almacenar las monedas
+    private string RutaArchivo2;
     static bool PrimeraVez = true;//Booleano utilizado para hacer el cargado de los niveles por única vez
+    public List<int> Cero = null;
     private void Awake()
     {
         RutaArchivo = Application.persistentDataPath + "/datos.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte del juego 
         RutaArchivo1 = Application.persistentDataPath + "/datos1.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte del juego 
+        RutaArchivo2 = Application.persistentDataPath + "/ObjectsBull.dat";
         if (PrimeraVez)//Evalua si es el bolleano es verdad, se carga los niveles desbloqueados, si n es el caso no ingresa a la condicional
         {
             Cargar();//Método encargado de cargar los datos almacenados
@@ -75,6 +78,34 @@ public class Guardado : MonoBehaviour
             Contador.sharecont.puntos = 0;
         }
     }
+
+    public void GuardarList()
+    {
+        //Método encargado de guardar la lista del Id de Items Comprados
+        BinaryFormatter bf = new BinaryFormatter();//Permite crear un formato binario el cual gestionará el trabajo de serialización
+        FileStream file2 = File.Create(RutaArchivo2);//Se crea un puntero en donde crear el archivo, donde se pasa por parámetro la ruta
+        IdObjetos datos2 = new IdObjetos(ControlSección.ShareTienda.IdObjetos);//Se inicializa la clase de IdObjetos y se pasa por parámetro la lista a almacenar 
+        bf.Serialize(file2, datos2);//Guardamos el parámetro enviado al método de la clase IdObjetos en el archivo con ruta que creamos
+        file2.Close();//Cerrramos el archivo que hemos creado
+    }
+    public void CargarList()
+    {
+        if (File.Exists(RutaArchivo2))//Se pregunta por la existencia del archivo que creamos al guardar
+        {
+            //Si existe este lo cargará
+            BinaryFormatter bf = new BinaryFormatter();//Se crea nuevamente un formato binario el cual gestionara el trabajo de deserialización
+            FileStream file2 = File.Open(RutaArchivo2, FileMode.Open);//Se crea un puntero pero esta vez para abrir el archivo en la ruta guardada
+            IdObjetos datos2 = (IdObjetos)bf.Deserialize(file2);// Se deserializa el archivo en la ruta que especificamos abrir, no se pueden enviar binarios al Unity y esperar que funcione 
+            //Pero si podemos convertir nuestro archivo deserializado a un tipo de dato específico
+            ControlSección.ShareTienda.IdObjetos = datos2.Idonjectos.ToList(); ;// Se iguala la variable de la clase control Selección a la variable de la clase de IdObjetos
+            //Para que reciba el dato almacenado en su interior, para ello copeamos la lista de la clase IdObjetos y la asignamos a la variable d ela clase control selección
+        }
+        else
+        {
+            //Sino existe el fichero se copeará una lista vacía 
+            ControlSección.ShareTienda.IdObjetos = Cero.ToList();
+        }
+    }
 }
 [System.Serializable]
 class GuardadodeDatos{
@@ -93,5 +124,15 @@ class Monedas
     {
         monedas = MonedasGanadas;
         points = puntosganados;
+    }
+}
+
+[System.Serializable]
+class IdObjetos
+{
+    public List<int> Idonjectos=null;//Lista que almacernará la copia de la lista pasada por referencia
+    public IdObjetos(List<int>ObjeRef)
+    {
+        Idonjectos = ObjeRef.ToList();//Se copia la lista pasada por referencia
     }
 }

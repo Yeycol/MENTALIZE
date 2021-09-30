@@ -63,22 +63,18 @@ public class Contador : MonoBehaviour
 
     public void InicializarDatosInterfaz()
     {
-        if (scene.name != "SelectLevelSpace")
-        {
+ 
             textcont.text = contador.ToString() + range;//Se imprime el contador y el rango de la cantidad de preguntas que habrá en el nivel
             text_health.text = vidas.ToString();//Imprime las vidas en la interfaz
             moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
             currentTime = time;//Se establece que el tiempo actual es igual a el tiempo establecido en la variable publica
-            if (GameManager.shareInstance.currentgameState == GameState.menu)
-            {
-                points_ui.text = puntos.ToString();
-            }
-        } 
+           points_ui.text = puntos.ToString();       
     }
     public void EventTime()
         {
             if (currentTime > 0)
             {
+            Time.timeScale = 0.3f;
                 //Si el tiempo establecido es mayor que cero se debera disminuir el tiempo establecido
                 currentTime -= Time.deltaTime;//Time.deltatime es un método que nos permite saber el tiempo transcurrido desde el último frame, es decir iremos decrementando la variable current time de acuerdo al tiempo que haya transcurrido
                                               //Si el juego va a 60 frames, update jecutará 60 frames por segundo, donde el tiempo transcurrido es 1seg

@@ -78,6 +78,7 @@ public class ManagerScene : MonoBehaviour
         switch(Nivel)
         {
           case 3:
+          AudioManager.shareaudio.Partida.mute = false;
           GameManager.shareInstance.BackToMenu();//Pasamos al estado de juego menú
           SceneManager.LoadScene(3);//Carga el menú de selección de niveles 
           Time.timeScale = 1f;// Escala en la que pasa el tiempo, utilizados para efectos de cámara lenta

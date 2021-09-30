@@ -126,10 +126,5 @@ public class AudioManager : MonoBehaviour
             Mute1.enabled = true;//Habilita la imagen de mute
             Mute2.enabled = false;//Deshabilita la imagen de mute
         }
-
-
-
     } 
-
-
 }

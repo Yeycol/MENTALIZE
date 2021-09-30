@@ -1,29 +1,56 @@
+/*Esta clase se encarga de mostrar la pantalla de carga, con mensajes aletorias claves
+ que le servirá al jugador mas adelante en cualquier partida, cabe recalcar que antes de entrar
+a cualquier nivel será llamado primero a esta clase y posteriormente se llamará a la escena 
+cargar a través del paso del nivel por parámetro*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class Carga : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public float wite2 = 3f;//Variable de tipo flotante que especifica el tiempo para que la corrutina ejecute sus acciones
     public Text[] Frases;//Array que almacena las frases a mostrar por pantalla
     public Text Muestra;//Variable de tipo text que muestra las frases por GUI
+    private Scene scene;
+    public int Preverload;
     void Awake()
     {
-        AudioManager.shareaudio.Partida.mute = false;//Al despertarse, se desmutea la música del juego
+    
+        scene = SceneManager.GetActiveScene();
+        if (scene.name == "Carga")
+        {
+            AudioManager.shareaudio.Partida.mute = false;//Al despertarse, se desmutea la música del juegos
+            CargarPreverLoad();
+        }
     }
-    void Start()
+    void Start ()
     {
-        GameManager.shareInstance.LoadPartyandGame();//Llamamos al método que se encarga de pasar al estado de Carga
-        StartCoroutine(Wait_Intro());//Se llama a la corrutina
+        if (scene.name == "Carga")
+        {
+            
+            StartCoroutine(Wait_Intro(Preverload));
+        }
     }
-    IEnumerator Wait_Intro()
+    public void GuardarPreverLoad(int PreviewLoad)
     {
-        int index = Random.Range(0, Frases.Length);//Devuelve un entero aleatorio desde 0 hasta la cantidad de elementos del array
-        Muestra.text = Frases[index].text;//Se iguala la variable tipo text de GUI con el indice de tipo entero obtenido de manera aleatoria
-        //Se espera que se reproduzca el video
-        yield return new WaitForSeconds(wite2);
-            ControlNiveles.shareLvl.CambiarNivel(3);//Se llama al método encargado de cambiar la escena de menu a partir del pasado por parametro de un entero
+        PlayerPrefs.SetInt("Preview", PreviewLoad);
+        
+    }
+    public void CargarPreverLoad()
+    {
+        Preverload=PlayerPrefs.GetInt("Preview");
+    }
+   
+    IEnumerator Wait_Intro(int PreviewLevel)
+    {
+        if (scene.name == "Carga")
+        {
+            int index = Random.Range(0, Frases.Length);//Devuelve un entero aleatorio desde 0 hasta la cantidad de elementos del array
+            Muestra.text = Frases[index].text;//Se iguala la variable tipo text de GUI con el indice de tipo entero obtenido de manera aleatoria
+        }
+            //Se espera que se reproduzca el video
+        yield return new WaitForSeconds(10f);
+            ControlNiveles.shareLvl.CambiarNivel(PreviewLevel);//Se llama al método encargado de cambiar la escena de menu a partir del pasado por parametro de un entero
     }
 
 }

@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - groupbutton
-  - Partida
   - Pausa
+  - Load
   layers:
   - Default
   - TransparentFX

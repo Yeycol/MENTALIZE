@@ -19,6 +19,7 @@ public class ControlNiveles : MonoBehaviour
     public Color ShadowColor;
     public static ControlNiveles shareLvl;// Variable que hace referencia a esta misma clase, servirá para hacerla una instancia compartida   
     private Scene Getscene;
+    public Carga ReferCar;
     private void Awake()
     {
         if (shareLvl == null)
@@ -48,7 +49,7 @@ public class ControlNiveles : MonoBehaviour
         if (Nivel == 3|| Nivel == 4 )// Si el número de la escena pasada por argumento es igual a 3 
         {
             //Entonces llamará al método encargado de cargar la escena del menú
-            StartCoroutine(AnimatorTransitionSceneMenu());
+            StartCoroutine(AnimatorTransitionSceneMenu(Nivel));
         }
         else
         {
@@ -56,6 +57,7 @@ public class ControlNiveles : MonoBehaviour
             //Nota: En la corrutina se pasa por parámetro el entero del nivel al que se quiere ir 
             StartCoroutine(AnimatorTransitionScene(Nivel));
         }
+    
     }
     IEnumerator AnimatorTransitionScene(int Nivel)
     {
@@ -75,13 +77,32 @@ public class ControlNiveles : MonoBehaviour
         SceneManager.LoadScene(Nivel);// Una vez que termina la corrutina se carga la siguienre escena pasada por parámetro
     }
 
-    IEnumerator AnimatorTransitionSceneMenu()
+    IEnumerator AnimatorTransitionSceneMenu(int Nivel)
     {
         AnimaCon.ShareAnimation.AnimationLis[9].SetTrigger("ExitScene");
         yield return new WaitForSeconds(0.9f);
-        ManagerScene.shareMscen.LoadMenu(3);
+        ManagerScene.shareMscen.LoadMenu(Nivel);
     }
 
+    public void EventButtonPass(int referenceButton)
+    {
+        switch (referenceButton)
+        {
+            case 1:
+                ReferCar.GuardarPreverLoad(referenceButton);
+                CambiarNivel(5);
+                break;
+            case 2:
+                ReferCar.GuardarPreverLoad(referenceButton);
+                CambiarNivel(5);
+                break;
+            case 6:
+                ReferCar.GuardarPreverLoad(referenceButton);
+                GameManager.shareInstance.BackToMenu();
+                CambiarNivel(5);
+                break;
+        }
+    }
 
 public void DesbloquearNivel()
     {

@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Carga.unity
     guid: 6e5f0d9908e6d5e4d9be8b4a790662e3
+  - enabled: 1
+    path: Assets/Scenes/Tienda.unity
+    guid: 0b64983048b9ee345be9ba8319a8b1e9
   m_configObjects: {}

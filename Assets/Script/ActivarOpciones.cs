@@ -22,7 +22,7 @@ public class ActivarOpciones : MonoBehaviour
     }
     void Start()
     {
-        Pause = GameObject.FindGameObjectWithTag("Pausa").GetComponent<ReferencesPause>();//Localizamos por etiqueta al objeto que tenga la etiqueta pause en este caso el AudioManager
+        //Pause = GameObject.FindGameObjectWithTag("Pausa").GetComponent<ReferencesPause>();//Localizamos por etiqueta al objeto que tenga la etiqueta pause en este caso el AudioManager
         Pausa = GameObject.Find("Pause").GetComponent<Canvas>();//Una vez recuperado este objeto, se prosigue a localizar un objeto que tenga el nombre pause, para recuperar su componente canvas y poderlo controlar
     }
 
