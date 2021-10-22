@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
             //TODO: Indicar al usuario que ha ganado
             AudioManager.shareaudio.Partida.mute=true;
             AudioManager.shareaudio.Efectos[3].Stop();//Para el sonido llamado Time End
-            AudioManager.shareaudio.Efectos[0].Play();//Activa el sonido llamado WinGame
+            AudioManager.shareaudio.Efectos[13].Play();//Activa el sonido llamado WinGame
             AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva la animación del evento Time End
             ManagerScene.shareMscen.OffAlert();//Se desactiva la alerta en caso de que este activa al pasar a Win
             //AnimaCon.ShareAnimation.DesactivatePizarra();//Al perder partida se desactiva la animación de la pizarra

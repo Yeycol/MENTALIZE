@@ -49,7 +49,7 @@ public class Carga : MonoBehaviour
             Muestra.text = Frases[index].text;//Se iguala la variable tipo text de GUI con el indice de tipo entero obtenido de manera aleatoria
         }
             //Se espera que se reproduzca el video
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(7f);
             ControlNiveles.shareLvl.CambiarNivel(PreviewLevel);//Se llama al método encargado de cambiar la escena de menu a partir del pasado por parametro de un entero
     }
 

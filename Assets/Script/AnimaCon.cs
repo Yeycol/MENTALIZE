@@ -20,6 +20,7 @@ public class AnimaCon : MonoBehaviour
     const string START_NAVE_ERROR = "StartNaveError";
     const string START_HEART = "StartHeart";
     const string START_NAVE_CORRECT = "StartNaveCorrect";
+    const string START_EXITTIME = "StartExtraTime";
     private void Awake()
     {
         if (ShareAnimation == null)
@@ -128,7 +129,15 @@ public class AnimaCon : MonoBehaviour
         AnimationLis[3].SetBool(ACTIVE_REDTIME, false);//Desactiva la animación del reloj parpadeo en rojo
         AnimationLis[4].SetBool(ACTIVE_TEXTIME, false);//Desactiva la animación texto parpadeo en blanco
     }
-
-    
+    public void ActiveAnimationExtraTime()
+    {
+        //Activa la animación cuando se da tiempo extra
+        AnimationLis[13].SetBool(START_EXITTIME, true);
+    }
+    public void DesactiveAnimationExtraTime()
+    {
+        //Desactiva la animación cuando se da tiempo extra
+        AnimationLis[13].SetBool(START_EXITTIME, false);
+    }
 
 }

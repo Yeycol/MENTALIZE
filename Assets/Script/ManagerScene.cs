@@ -13,6 +13,7 @@ public class ManagerScene : MonoBehaviour
     public Canvas Alert;// Referencia al Canvas llamado Alert
     public Canvas SceneAnima;//Referencia al canvas encargado de hacer la transición al pasar a otra escena
     public Button[] ButtonsInterface;
+    public Canvas[] Descripciones;//Referencia  alos canvas que tienen las descripciones d elos objetos comprados
 
     private void Awake()
     {
@@ -139,6 +140,144 @@ public class ManagerScene : MonoBehaviour
         ButtonsInterface[4].interactable = true;//Reintentar Win 
         ButtonsInterface[5].interactable = true;//Continuar Win 
         ButtonsInterface[6].interactable = true;//Cerrar Win
+    }
+
+    public void ActiveEventDescripciones(int IdObjectDecrip)
+    {
+        switch (IdObjectDecrip)
+        {
+            case 0:
+                Descripciones[0].enabled = true;    
+                break;
+
+            case 1:
+                Descripciones[1].enabled = true;
+                break;
+
+            case 2:
+                Descripciones[2].enabled = true;
+                break;
+            case 3:
+                Descripciones[3].enabled = true;
+                break;
+            case 4:
+                Descripciones[4].enabled = true;
+                break;
+            case 5:
+                Descripciones[5].enabled = true;
+                break;
+            case 6:
+                Descripciones[6].enabled = true;
+                break;
+            case 7:
+                Descripciones[7].enabled = true;
+                break;
+            case 8:
+                Descripciones[8].enabled = true;
+                break;
+            case 9:
+                Descripciones[9].enabled = true;
+                break;
+            case 10:
+                Descripciones[10].enabled = true;
+                break;
+            case 11:
+                Descripciones[11].enabled = true;
+                break;
+            case 12:
+                Descripciones[12].enabled = true;
+                break;
+            case 13:
+                Descripciones[13].enabled = true;
+                break;
+            case 14:
+                Descripciones[14].enabled = true;
+                break;
+            case 15:
+                Descripciones[15].enabled = true;
+                break;
+            case 16:
+                Descripciones[16].enabled = true;
+                break;
+            case 17:
+                Descripciones[17].enabled = true;
+                break;
+            case 18:
+                Descripciones[18].enabled = true;
+                break;
+            case 19:
+                Descripciones[19].enabled = true;
+                break;
+        }
+    }
+
+    public void DesactiveEventDescripciones(int IdObjectDecrip)
+    {
+        switch (IdObjectDecrip)
+        {
+            case 0:
+                Descripciones[0].enabled = true;
+                break;
+
+            case 1:
+                Descripciones[1].enabled = true;
+                break;
+
+            case 2:
+                Descripciones[2].enabled = true;
+                break;
+            case 3:
+                Descripciones[3].enabled = true;
+                break;
+            case 4:
+                Descripciones[4].enabled = true;
+                break;
+            case 5:
+                Descripciones[5].enabled = true;
+                break;
+            case 6:
+                Descripciones[6].enabled = true;
+                break;
+            case 7:
+                Descripciones[7].enabled = true;
+                break;
+            case 8:
+                Descripciones[8].enabled = true;
+                break;
+            case 9:
+                Descripciones[9].enabled = true;
+                break;
+            case 10:
+                Descripciones[10].enabled = true;
+                break;
+            case 11:
+                Descripciones[11].enabled = true;
+                break;
+            case 12:
+                Descripciones[12].enabled = true;
+                break;
+            case 13:
+                Descripciones[13].enabled = true;
+                break;
+            case 14:
+                Descripciones[14].enabled = true;
+                break;
+            case 15:
+                Descripciones[15].enabled = true;
+                break;
+            case 16:
+                Descripciones[16].enabled = true;
+                break;
+            case 17:
+                Descripciones[17].enabled = true;
+                break;
+            case 18:
+                Descripciones[18].enabled = true;
+                break;
+            case 19:
+                Descripciones[19].enabled = true;
+                break;
+        }
     }
 
 }

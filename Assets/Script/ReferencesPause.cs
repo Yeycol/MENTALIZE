@@ -4,7 +4,7 @@ using UnityEngine;
 //Este script esta encargado de pasar por referencia el canvas de la interfaz de pausa, para que pueda ser activada desde cualquier otra escena
 public class ReferencesPause : MonoBehaviour
 {
-    public GameObject Pause;//Variable pública de tipo Game Object cuyá finalidad es la de pasar por referencia el canvas de Pausa
+  
     public void ReturnMenu()
     {
      //Método encargado de volver al menú del videojuego
@@ -21,7 +21,7 @@ public class ReferencesPause : MonoBehaviour
 
     public void DesactivateOpciones()
     {
-        ActivarOpciones.shareOp.DesactivatePause();//Se llama el método encargado de desactivar la interfaz de Pausa y pasar al modo de juego In Game
+            ActivarOpciones.shareOp.DesactivatePause();//Se llama el método encargado de desactivar la interfaz de Pausa y pasar al modo de juego In Gam
     }
     
 }
