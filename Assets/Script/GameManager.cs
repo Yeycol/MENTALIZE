@@ -155,7 +155,6 @@ public class GameManager : MonoBehaviour
         {
             //TODO: Mostrar al usuario el menú de pausa
             AudioManager.shareaudio.Efectos[3].Pause();//Pausa el sonido de Time End
-            AudioManager.shareaudio.Partida.mute=true;//Pausa el sonido de la Partida
             AudioManager.shareaudio.Efectos[6].Pause();//Pausamos el Efecto Disparo
             AudioManager.shareaudio.Efectos[7].Pause();//Pausamos el Efecto Llegada Nave
             AudioManager.shareaudio.Efectos[8].Pause();//Pausamos el Efeco Salida Nave

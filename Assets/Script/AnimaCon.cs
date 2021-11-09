@@ -17,10 +17,13 @@ public class AnimaCon : MonoBehaviour
     const string ACTIVE_PADLOCK = "StartDesblock";//Variable constante que hace referencia al parámetro del candado del Win 
     const string START_WIN = "StartWin";//Variable constante que hace referencia al parámetro booleano d ela interfaz Win
     const string START_CONFETI = "StartConfeti";//Variable constante que hace referencia al parámetro booleano que controla la animación del confeti
-    const string START_NAVE_ERROR = "StartNaveError";
-    const string START_HEART = "StartHeart";
-    const string START_NAVE_CORRECT = "StartNaveCorrect";
-    const string START_EXITTIME = "StartExtraTime";
+    const string START_NAVE_ERROR = "StartNaveError";//Variable constante que hace referencia al booleano que controla la animación cuando se responde mal una pregunta
+    const string START_HEART = "StartHeart";//Variable constante que hace referencia al parámetro booleano que controla la animación 
+    const string START_NAVE_CORRECT = "StartNaveCorrect";//Variable constante que hace referencia al parámetro booleano que controla la animación de la nave al responder al correctamente
+    const string START_EXITTIME = "StartExtraTime";//Variable constante que hace referencia al parámetro booleano que controla la animación al dar tiempo extra
+    const string START_CEROMONEY = "StartCero";//Variable constante que hace referencia al parámetro booleano que controla la animación al no tener dinero
+    const string START_NOLOGRO = "StartNoLogro";//Variable constante que hace referencia al parámetro booleano que controla la animación al no poder conseguir algo por no tener el logro desbloqueado
+    const string START_NOCOMPRA = "StartNoCompra";//Variable constante que hace referencia al parámetro booleano que controla la animación al no poder equipar algo por no estar comprado
     private void Awake()
     {
         if (ShareAnimation == null)
@@ -79,12 +82,13 @@ public class AnimaCon : MonoBehaviour
         //Método encargado  de desactivar la alerta con animación
         AudioManager.shareaudio.Efectos[5].Play();
         AlertOff();
-        Invoke("DescativateCanvasAlert", 0.5f);// damos un tiempo de llamado al método para que el canvas no desaparesca al instante
+        StartCoroutine(DescativateCanvasAlert());// damos un tiempo de llamado al método para que el canvas no desaparesca al instante
     }
 
-    public void DescativateCanvasAlert()
+    IEnumerator DescativateCanvasAlert()
     {
         //Desactiva el Canvas de la Alerta
+        yield return new WaitForSeconds(0.3f);
         ManagerScene.shareMscen.OffAlert();
         AudioManager.shareaudio.Partida.mute = false;
     }
@@ -140,4 +144,38 @@ public class AnimaCon : MonoBehaviour
         AnimationLis[13].SetBool(START_EXITTIME, false);
     }
 
+    public void ActiveEventCeroMoney()
+    {
+        //Activa la animación cuando no hay suficientes monedas para comprar
+        AnimationLis[14].SetBool(START_CEROMONEY, true);
+    }
+    public void DesactiveEventCeroMoney()
+    {
+        //Desactiva la animación cuando no hay suficientes monedas para comprar
+        AnimationLis[14].SetBool(START_CEROMONEY, false);
+    }
+
+    public void ActivateNologro()
+    {
+        //Método que se encarga de activar la animación de logro aun no desbloqueado
+        AnimationLis[15].SetBool(START_NOLOGRO, true);
+    }
+
+    public void DesactivateNologro()
+    {
+        //Método que se encarga de desactivar la animación de logro aun no desbloqueado
+        AnimationLis[15].SetBool(START_NOLOGRO, false);
+    }
+
+    public void ActiveNocompra()
+    {
+        //Método que se encarga de activar la aniamción que muestra que aun no se ha comprado
+        AnimationLis[16].SetBool(START_NOCOMPRA,true);
+    }
+
+    public void DesactiveNocompra()
+    {
+        //Método que se encarga de desactivar la aniamción que muestra que aun no se ha comprado
+        AnimationLis[16].SetBool(START_NOCOMPRA, false);
+    }
 }

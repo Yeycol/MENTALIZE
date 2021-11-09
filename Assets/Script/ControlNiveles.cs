@@ -119,12 +119,12 @@ public void FalseButton()
         //Método encargado de colocar los botones bloqueados
             for (int i = 0; i < Buttonslevel.Length; i++)//Bucle que repite su ciclo hasta la cantidad de botones almacenados en el array
             {
-            Level[i].fontSize = 80;
-            LevelShadow[i].effectDistance = new Vector2(5f, -0.5f);
             //Dentro del  ciclo se evalua si los botones de la lista tienen desahabilitado la interacción entonces cargan una imagen de la carpeta de resources
             if (Buttonslevel[i].interactable == false)
                 {
-                 Imagelevel[i].sprite = Resources.Load<Sprite>("Sprite/Bloqueado");//Le asignamos al array de componentes imágenes el cargado de una de las imágenes almacenada en resources
+                Level[i].fontSize = 80;
+                LevelShadow[i].effectDistance = new Vector2(5f, -0.5f);
+                Imagelevel[i].sprite = Resources.Load<Sprite>("Sprite/Bloqueado");//Le asignamos al array de componentes imágenes el cargado de una de las imágenes almacenada en resources
                  Level[i].text = "?";//Le asignamos a los arrays tipo texto el signo de interrogación
                 }
             }
@@ -135,9 +135,9 @@ public void FalseButton()
         for (int i = 0; i <LvlDesbloqueado+1 ; i++)//Bucle que repite su ciclo solo hasta la cantidad de niveles a desbloquear
         {
             Buttonslevel[i].interactable = true;//Se habilita los botones para poder cambiar de nivel (escena)
-            Imagelevel[i].sprite = Resources.Load<Sprite>("Sprite/Desbloqueado");//Le asignamos al array de componentes imágenes el cargado de una de las imágenes almacenada en resources
             if (Buttonslevel[i].interactable == true)// Hacemos esto solo si los botones tienen la interacción habilitada
             {
+                Imagelevel[i].sprite = Resources.Load<Sprite>("Sprite/Desbloqueado");//Le asignamos al array de componentes imágenes el cargado de una de las imágenes almacenada en resources
                 Level[i].color = ActiveColor;// Cambiamos el color de la componente texto
                 LevelShadow[i].effectColor = ShadowColor;
                 Level[i].fontSize = 80;

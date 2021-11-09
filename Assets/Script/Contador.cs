@@ -30,9 +30,9 @@ public class Contador : MonoBehaviour
     private int numFrames = 5;//Variable de tipo entero que almacena los frames a los que queremos que se llamen a determinados métodos en el Update
     public string Oneintro = "No";//Booleano que permitirá controlar la cantidad de veces que debera dar la carta dar tiempo extra
     public float TimeReferences;//Variable que hace referencia al tiempo extra que otroga la carta equipada
-    public int monedawin;
-    public int monedaextra;
-    public Text UI_WinText;
+    public int monedawin;//Variable tipo entera que alamacenará la cantidad de monedas conseguidas en determinado nivel
+    public int monedaextra;//Variable que será utilizada para almacenar la cantidad de monedas extras que debe dar la carta
+    public Text UI_WinText;//Variable tipo texto que mostrará la cantidad de monedas ganadas en el Canvas Win
     void Awake()
     {
         if (sharecont == null)
@@ -43,10 +43,12 @@ public class Contador : MonoBehaviour
     }
     void Start()
     {
-        /*PlayerPrefs.DeleteKey("Time");
-        PlayerPrefs.DeleteKey("Live");
+        /*
+         Solo usar en caso de querer resetear los valores almacenados en los key de los player prefs
         PlayerPrefs.DeleteKey("ActivarEvento");
-        PlayerPrefs.DeleteKey("ExtraMoneda");*/
+        PlayerPrefs.DeleteKey("ExtraMoneda");
+        PlayerPrefs.DeleteKey("Time");
+        PlayerPrefs.DeleteKey("Live");*/
         GuardadoMonedas.CargarMonedas();// Se carga las monedas para poderlas visualizar la cantidad de monedas que se tiene
         scene = SceneManager.GetActiveScene();//GetActiveScene es un método que nos permite obtener la escena activa actualmente
         CargarEquipament();//Se llama al método encargado de Cargar vidas extras y el tiempo extra pasado por referencia etc
@@ -71,19 +73,19 @@ public class Contador : MonoBehaviour
 
     public void InicializarDatosInterfaz()
     {
-        if (scene.name != "SelectLevel(Trivias)" || scene.name != "Tienda")
+        if (scene.name != "SelectLevel(Trivias)" || scene.name != "Tienda") //Solo si estamos en escenas distintas a las mencionadas
         {
             textcont.text = contador.ToString() + range;//Se imprime el contador y el rango de la cantidad de preguntas que habrá en el nivel
             text_health.text = vidas.ToString();//Imprime las vidas en la interfaz
             currentTime = time;//Se establece que el tiempo actual es igual a el tiempo establecido en la variable publica
         }
-        if (scene.name != "SelectLevel(Trivias)")
+        if (scene.name != "SelectLevel(Trivias)")//Solo si la escena esdistinta a la establecida
         {
             moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
         }
-        if (scene.name != "Tienda")
+        if (scene.name != "Tienda")//Solo si el nombre de la escena es distinto
         {
-            points_ui.text = puntos.ToString();
+            points_ui.text = puntos.ToString();//Se imprime los puntos globales en GUI
         }
     }
     public void EventTime()
@@ -100,7 +102,6 @@ public class Contador : MonoBehaviour
         {
             //Si el tiempo es igual a 0 se hacen las siguientes acciones
             AnimaCon.ShareAnimation.DesactivateRedTime();//Método de la clase AnimaCon, encargada de desahabilitar la animación del Reloj Rojo
-            AudioManager.shareaudio.Partida.mute = true;//Pasamos un mute a la música que se repite en fondo
             GameManager.shareInstance.GameOver();//Pasamos a estado de juego Game Over
         }
 
@@ -116,10 +117,10 @@ public class Contador : MonoBehaviour
             {
                 StartCoroutine(WaitExtraTime());//Si es el caso de ser verdad se llama a la corrutina encargada de habilitar y deshabilitar las animaciones
                 Oneintro = "No";//La primera vez que entre en este condicional debe ser la única vez, puesto que se pasará false para que en el siguiente frame no haya la posibilidad de repetir la eventualidad
-
             }
         }
-    
+
+       
     }
 
     public void EventEndLevel()
@@ -138,14 +139,14 @@ public class Contador : MonoBehaviour
                          solo son aumentados siempre y cuando lo permitan las condicionales del método PointsAdd */
                         /*Los puntos invicibles nacen después de darse cuenta que al limitar la ganada de puntos
                          usados para guardar llegan a 5 al repetir el nivel estos no aumentaban su valor y rompian
-                        la lógica impidiendo ganar o perder la partida, por ello los puntos invicibles aunque se repita
+                        la lógica impidia ganar o perder la partida, por ello los puntos invicibles aunque se repita
                         la partida estos no son limitados ni guardados*/
                         GameManager.shareInstance.WinGame();//Llama a la pantalla de ganaste
-                        monedawin += monedaextra;
-                        UI_WinText.text = monedawin.ToString();
-                        moneda += monedaextra;
-                        moneda_ui.text = moneda.ToString();
-                        GuardadoMonedas.GuardarMonedas();//Se hace el guardado de monedas solo si se gana
+                        monedawin += monedaextra;//Se incrementa el valor de la moneda siempre y cuando la moneda extra tenga un valor a incrementar
+                        UI_WinText.text = monedawin.ToString();//Se muestra por interfaz de canvas Win el valor total de monedas ganadas
+                        moneda += monedaextra;//Se incrementa el valor de la moneda global
+                        moneda_ui.text = moneda.ToString();//Se imprime su valor para actualizar los datos
+                        GuardadoMonedas.GuardarMonedas();//Se hace el guardado de monedas y puntos solo si se gana
                         ControlNiveles.shareLvl.DesbloquearNivel();//Método encargado de desbloquear los niveles ganados
                     }
                     else
@@ -225,7 +226,7 @@ public class Contador : MonoBehaviour
         //Método encargado de aumentar el valor de la moneda y puntos de acuerdo al valor establecido por pregunta
         if (sharecont.scene.name == "Level 1")
         {
-            /*El objetivo de esta condicional es el de limitar el guardado de monedas cuando se juegue 
+            /*El objetivo de esta condicional es el de limitar el guardado de puntos cuando se juegue 
              por segunda vez un mismo nivel superado*/
             if (sharecont.puntos < 5)
             {
@@ -246,7 +247,7 @@ public class Contador : MonoBehaviour
         sharecont.points_ui.text = sharecont.pointsinv.ToString();
         sharecont.moneda += sharecont.value_moneda;//Se incrementa el valor de la moneda de acuerdo al valor establecido de la moneda por nivel
         sharecont.moneda_ui.text = sharecont.moneda.ToString();//Se imprime el valor de monedas ganadas por interfaz  
-        sharecont.monedawin++;
+        sharecont.monedawin+=sharecont.value_moneda;//Se incrementa el valor de las monedas del win de acuerdo al valor que se esten dando en este nivel, con la finalidad de ser mostradas al ganar la partida en el canvas
     }
 
     public void SaveEquipament(int vidas, float extratime,string ReferencesTurn, int MonedaExtra)
@@ -255,24 +256,25 @@ public class Contador : MonoBehaviour
         PlayerPrefs.SetInt("Live", vidas);//Se almacenan las vidas Extras
         PlayerPrefs.SetFloat("Time", extratime);//Se almacena el tiempo extra
         PlayerPrefs.SetString("ActivarEvento","Si");//Se guarda en Si la variable que permitirá activar la eventualidad de extra time
-        PlayerPrefs.SetInt("ExtraMoneda", MonedaExtra); 
+        PlayerPrefs.SetInt("ExtraMoneda", MonedaExtra); //Se guarda la cantidad de monedas extras que se darán dependiendo de la carta
     }
     public void CargarEquipament()
     {
-        vidas += PlayerPrefs.GetInt("Live");
-        TimeReferences = PlayerPrefs.GetFloat("Time");
-        Oneintro = PlayerPrefs.GetString("ActivarEvento");
-        monedaextra = PlayerPrefs.GetInt("ExtraMoneda");
+        //Este método se encarga de incializar las variables de la clase Contador 
+        vidas += PlayerPrefs.GetInt("Live");//Se incrementa la cantidad de vidas extras almacenadas en el PLayer Prefs 
+        TimeReferences = PlayerPrefs.GetFloat("Time");//Se establece la cantidad de tiempo extra que da la carta 
+        Oneintro = PlayerPrefs.GetString("ActivarEvento");//Se carga en este caso la activación del evento , para que se otrogue vidas extras
+        monedaextra = PlayerPrefs.GetInt("ExtraMoneda");//Se establece la cantidad de monedas extras que se darán al ganar una partida
 
     }
  
     IEnumerator WaitExtraTime()
     {
-        AnimaCon.ShareAnimation.DesactivateRedTime();
-        AudioManager.shareaudio.Efectos[3].Stop();
-        AnimaCon.ShareAnimation.ActiveAnimationExtraTime();
-        currentTime += TimeReferences;
+        AnimaCon.ShareAnimation.DesactivateRedTime();//Desactivamos la animación cuando el tiempo se está acabando
+        AudioManager.shareaudio.Efectos[3].Stop();//Paramos el efecto de sonido TimeEnd
+        AnimaCon.ShareAnimation.ActiveAnimationExtraTime();//Activamos la animación de tiempo extra
+        currentTime += TimeReferences;//Se incrementa el tiempo actual de acuerdo al valor que otrogue la carta
         yield return new WaitForSeconds(2f);
-        AnimaCon.ShareAnimation.DesactiveAnimationExtraTime();
+        AnimaCon.ShareAnimation.DesactiveAnimationExtraTime();//Desactivamos la animación de tiempo extra
     }
 }

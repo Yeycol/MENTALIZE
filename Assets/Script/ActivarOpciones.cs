@@ -40,7 +40,6 @@ public class ActivarOpciones : MonoBehaviour
     {
         //Desactiva el Canvas que muestra las opciones de pausa
         Time.timeScale = 1f;
-        AudioManager.shareaudio.Partida.mute=false;//Se desmutea la música del videojuego
         AudioManager.shareaudio.Efectos[3].UnPause();//Se desmutea el efecto TimeEnd
         AudioManager.shareaudio.Efectos[6].UnPause();//Despausamos Efecto Disparo
         AudioManager.shareaudio.Efectos[7].UnPause();//Despausamos Efecto Llegada Nave
@@ -51,8 +50,7 @@ public class ActivarOpciones : MonoBehaviour
         if (Contador.sharecont.scene.name == "Tienda")//Se evalua si el nombre de la escena es Tienda
             GameManager.shareInstance.BackToMenu();//Se pasará el estado de juego a Menu
         else//Sino es el caso se pasará a en partida
-            GameManager.shareInstance.StarGame();//Se pasará estado de juego en partida
-        
+            GameManager.shareInstance.StarGame();//Se pasará estado de juego en partida  
     }
    public void OffCanvasPause()
     {
