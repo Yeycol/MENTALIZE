@@ -166,6 +166,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  Descripciones: []
 --- !u!4 &186068463
 Transform:
   m_ObjectHideFlags: 0
@@ -1021,6 +1022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0236c945a5d552a40a73d0080980f136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cero: 
 --- !u!114 &1763270859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1099,7 +1101,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849139006}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 04791223f0589bb44ab55e080449fd1c, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 6d7b4038081f8c24a8f1b478f7ecc523, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 812079635}

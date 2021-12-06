@@ -24,6 +24,25 @@ public class AnimaCon : MonoBehaviour
     const string START_CEROMONEY = "StartCero";//Variable constante que hace referencia al parámetro booleano que controla la animación al no tener dinero
     const string START_NOLOGRO = "StartNoLogro";//Variable constante que hace referencia al parámetro booleano que controla la animación al no poder conseguir algo por no tener el logro desbloqueado
     const string START_NOCOMPRA = "StartNoCompra";//Variable constante que hace referencia al parámetro booleano que controla la animación al no poder equipar algo por no estar comprado
+    //Lista Orden Animation Lis
+    /* 0 = Animación d ela Pizarra en las Trivias
+       1 = Animación de la Interfaz de Game Over
+       2 = Animación de la Alerta para salida (background)
+       3 = Animación Fondo Red del Reloj Digital
+       4 = Animación letras Time del Reloj digital
+       5 = Animación del Candado en Interfaz Game Over
+       6 = Animación de Candado al Desbloquear un Nivel
+       7 = Animación de la interfaz de Win
+       8 = Animación del Confeti al Ganar Partida
+       9 = Animación del Panel para las transiciones de Escena
+       10 = Animación de la nave cuando una pregunta es contestada de manera erronea 
+       11 = Animación del corazón cuando es disparado
+       12 = Animación de la nave cuando la respuesta es respondida de manera correcta
+       13 = Animación activada cuando el tiempo extra es otorgad0
+       14 = Animación de cantidad de monedas insuficientes para compra
+       15 = Animación de objeto no conseguido por logro desbloqueado faltante
+       16 = Animación de objeto no disponible por que aun no ha sido comprado 
+    */
     private void Awake()
     {
         if (ShareAnimation == null)

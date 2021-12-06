@@ -33,6 +33,7 @@ public class Contador : MonoBehaviour
     public int monedawin;//Variable tipo entera que alamacenará la cantidad de monedas conseguidas en determinado nivel
     public int monedaextra;//Variable que será utilizada para almacenar la cantidad de monedas extras que debe dar la carta
     public Text UI_WinText;//Variable tipo texto que mostrará la cantidad de monedas ganadas en el Canvas Win
+    public Slider[] SliderInicio;//Array de sliders que hacen referencia a los puntos ganados e impresos en la barra de progreso
     void Awake()
     {
         if (sharecont == null)
@@ -40,17 +41,19 @@ public class Contador : MonoBehaviour
             sharecont = this;
         }
         GuardadoMonedas = GameObject.Find("ControlNiveles").GetComponent<Guardado>();//Localización de la clase guardado a traves d ela busqueda del objeto ControlNiveles
+        scene = SceneManager.GetActiveScene();//GetActiveScene es un método que nos permite obtener la escena activa actualmente
     }
     void Start()
     {
-        /*
-         Solo usar en caso de querer resetear los valores almacenados en los key de los player prefs
+        /*Solo usar en caso de querer resetear los valores almacenados en los key de los player prefs
         PlayerPrefs.DeleteKey("ActivarEvento");
         PlayerPrefs.DeleteKey("ExtraMoneda");
         PlayerPrefs.DeleteKey("Time");
         PlayerPrefs.DeleteKey("Live");*/
         GuardadoMonedas.CargarMonedas();// Se carga las monedas para poderlas visualizar la cantidad de monedas que se tiene
-        scene = SceneManager.GetActiveScene();//GetActiveScene es un método que nos permite obtener la escena activa actualmente
+        if (scene.name!= "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace" && scene.name != "SelectModoJuego"&& scene.name!="Tienda" && scene.name != "Inicio") {
+            GuardadoMonedas.CargarList();
+        }
         CargarEquipament();//Se llama al método encargado de Cargar vidas extras y el tiempo extra pasado por referencia etc
         InicializarDatosInterfaz();//Cuando inicia el juego debemos imprimer el valor que hayan adquirido las variables al iniciar el juego     
     }
@@ -73,19 +76,31 @@ public class Contador : MonoBehaviour
 
     public void InicializarDatosInterfaz()
     {
-        if (scene.name != "SelectLevel(Trivias)" || scene.name != "Tienda") //Solo si estamos en escenas distintas a las mencionadas
+        if (scene.name != "SelectLevel (Trivias)" && scene.name != "Tienda" && scene.name!="SelectLevelSpace" && scene.name!="Inicio") //Solo si estamos en escenas distintas a las mencionadas
         {
             textcont.text = contador.ToString() + range;//Se imprime el contador y el rango de la cantidad de preguntas que habrá en el nivel
             text_health.text = vidas.ToString();//Imprime las vidas en la interfaz
             currentTime = time;//Se establece que el tiempo actual es igual a el tiempo establecido en la variable publica
         }
-        if (scene.name != "SelectLevel(Trivias)")//Solo si la escena esdistinta a la establecida
+        if (scene.name != "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace")//Solo si la escena esdistinta a la establecida
         {
             moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
         }
-        if (scene.name != "Tienda")//Solo si el nombre de la escena es distinto
+        if (scene.name != "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace" )//Solo si el nombre de la escena es distinto
         {
-            points_ui.text = puntos.ToString();//Se imprime los puntos globales en GUI
+            if (scene.name == "Inicio")
+            {
+                points_ui.text=puntos.ToString()+"/500";//Se imprime los puntos con el valor máximo en las barras de progreso del Inicio
+            }
+            else
+            {
+                points_ui.text = puntos.ToString();//Se imprime los puntos globales en GUI
+            }
+        }
+
+        if (scene.name=="Inicio")
+        {
+            SliderInicio[0].value = puntos;
         }
     }
     public void EventTime()
@@ -148,9 +163,11 @@ public class Contador : MonoBehaviour
                         moneda_ui.text = moneda.ToString();//Se imprime su valor para actualizar los datos
                         GuardadoMonedas.GuardarMonedas();//Se hace el guardado de monedas y puntos solo si se gana
                         ControlNiveles.shareLvl.DesbloquearNivel();//Método encargado de desbloquear los niveles ganados
+                        
                     }
                     else
                     {
+                       
                         AudioManager.shareaudio.Partida.mute = true;//Se mutea el volumen de la música
                         GameManager.shareInstance.GameOver();//Llama a la pantalla de Game Over
                     }

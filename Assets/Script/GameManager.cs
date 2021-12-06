@@ -106,11 +106,12 @@ public class GameManager : MonoBehaviour
         // Método que recibirá como argumento en este caso uno de los estados almacenados en el enumerados
         if (newGameState == GameState.menu)
         {
-            //TODO: Colocar la lógica del menú
+            //TODO: Colocar la lógica del menu
          
         }
         else if (newGameState == GameState.InGame)
         {
+            AudioManager.shareaudio.Partida.Stop();
             Contador.sharecont.points_ui.text = Contador.sharecont.pointsinv.ToString();//Imprime los puntos invicibles en la interfaz
             AudioManager.shareaudio.Partida.mute=false;
             ManagerScene.shareMscen.OffOver();//Desactiva la interfaz de usuario al perder partida
@@ -149,6 +150,7 @@ public class GameManager : MonoBehaviour
         else if (newGameState == GameState.Load)
         {
             //TODO: Mostrar la pantalla de carga
+            
             
         }
         else if (newGameState==GameState.Pause)

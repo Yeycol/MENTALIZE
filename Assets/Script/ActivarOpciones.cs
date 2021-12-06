@@ -47,7 +47,7 @@ public class ActivarOpciones : MonoBehaviour
         AudioManager.shareaudio.Efectos[9].UnPause();//Despausamos el Efeco Roto
         AudioManager.shareaudio.Efectos[10].UnPause();//Despausamos el Efeco Abducir Nave
         Pausa.enabled = false;//Desactivamos el canvas
-        if (Contador.sharecont.scene.name == "Tienda")//Se evalua si el nombre de la escena es Tienda
+        if (Contador.sharecont.scene.name == "Tienda" || Contador.sharecont.scene.name == "SelectModoJuego" || Contador.sharecont.scene.name == "Inicio")//Se evalua si el nombre de la escena es Tienda
             GameManager.shareInstance.BackToMenu();//Se pasará el estado de juego a Menu
         else//Sino es el caso se pasará a en partida
             GameManager.shareInstance.StarGame();//Se pasará estado de juego en partida  
@@ -57,6 +57,7 @@ public class ActivarOpciones : MonoBehaviour
         //La función de este método es pasar al menú sin establecer modo de juego Ingame
         Time.timeScale = 1f;
         Pausa.enabled = false;//Se desactiva el canvas de pausa
+        
     }
    
 

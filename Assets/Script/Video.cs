@@ -14,7 +14,7 @@ public class Video : MonoBehaviour
     }
     void Start()
     {
-        ControlNiveles.shareLvl.ReferCar.GuardarPreverLoad(3);
+        ControlNiveles.shareLvl.ReferCar.GuardarPreverLoad(8);//Llamamos al método encargado de enviar el entero de la escena que debe ser cargada después de la pantalla de carga
         GameManager.shareInstance.LoadPartyandGame();//Llamamos al método que se encarga de pasar al estado de Carga
         StartCoroutine(Wait_Intro());//Se llama a la corrutina
     }
@@ -23,7 +23,7 @@ public class Video : MonoBehaviour
         //Se espera que se reproduzca el video
         yield return new WaitForSeconds(wite);
         ControlNiveles.shareLvl.CambiarNivel(5);//Se llama al método encargado de cambiar la escena a partir del pasado por parametro de un entero     
-        AudioManager.shareaudio.Partida.Play();//Se vuelve a reproducir el audio desde un inicio para que no se escuche entrecortado al desmutear
+       AudioManager.shareaudio.Partida.Play();//Se vuelve a reproducir el audio desde un inicio para que no se escuche entrecortado al desmutear
     }
 
 

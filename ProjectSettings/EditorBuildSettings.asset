@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tienda.unity
     guid: 0b64983048b9ee345be9ba8319a8b1e9
+  - enabled: 1
+    path: Assets/Scenes/SelectModoJuego.unity
+    guid: cd057643819932d4c84d63e4048a5bc1
+  - enabled: 1
+    path: Assets/Scenes/Inicio.unity
+    guid: f1c0529e40fdd074bba63089076e6377
   m_configObjects: {}

@@ -19,7 +19,7 @@ public class ControlNiveles : MonoBehaviour
     public Color ShadowColor;
     public static ControlNiveles shareLvl;// Variable que hace referencia a esta misma clase, servirá para hacerla una instancia compartida   
     private Scene Getscene;
-    public Carga ReferCar;
+    public Carga ReferCar;// Variable de tipo de clase carga que es encargada de almacenar un entero de la escena previa que debe ser cargado después de la pantalla de carga
     private void Awake()
     {
         if (shareLvl == null)
@@ -46,9 +46,9 @@ public class ControlNiveles : MonoBehaviour
     {
         //Este método recibe como parámetro un entero del indice de la escena a la que queremos dirigirnos 
         
-        if (Nivel == 3|| Nivel == 4 )// Si el número de la escena pasada por argumento es igual a 3 
+        if (Nivel == 7 || Nivel == 3 || Nivel == 4 ||Nivel==8)// Si el número de la escena pasada por argumento es igual a los valores establecidos en el condicional
         {
-            //Entonces llamará al método encargado de cargar la escena del menú
+            //Entonces llamará a la corrrutina encargada de cargar la escena del menú
             StartCoroutine(AnimatorTransitionSceneMenu(Nivel));
         }
         else
@@ -61,17 +61,7 @@ public class ControlNiveles : MonoBehaviour
     }
     IEnumerator AnimatorTransitionScene(int Nivel)
     {
-        // Se pausa la ejecución para ir a la corrutina y hacer las accciones establecidas en su interior
-        if (GameManager.shareInstance.currentgameState == GameState.Win)
-        {
-            //En caso de que al entrar a la corrutina se este en modo de Ganado desactiva el canvas para transicionar a la siguiente escena
-            ManagerScene.shareMscen.OffWin();
-        }
-        else if (GameManager.shareInstance.currentgameState == GameState.GameOver)
-        {
-            //En caso de que al entrar a la corrutina se este en modo de Ganado desactiva el canvas para transicionar a la siguiente escena
-            ManagerScene.shareMscen.OffOver();
-        }
+   
         AnimaCon.ShareAnimation.AnimationLis[9].SetTrigger("ExitScene");//Referencia al parámetro booleano que se reinicia desde controlador cuando se efectúa una trasicción 
         yield return new WaitForSeconds(0.9f);// Tiempo que se le da a la corrutina para realizar las acciones
         SceneManager.LoadScene(Nivel);// Una vez que termina la corrutina se carga la siguienre escena pasada por parámetro
@@ -86,6 +76,7 @@ public class ControlNiveles : MonoBehaviour
 
     public void EventButtonPass(int referenceButton)
     {
+        //Método que recibe por referencia un valor entero que será enviado hacer un guardado previo, para ser cargado después de la pantalla de carga
         switch (referenceButton)
         {
             case 1:
@@ -94,11 +85,6 @@ public class ControlNiveles : MonoBehaviour
                 break;
             case 2:
                 ReferCar.GuardarPreverLoad(referenceButton);
-                CambiarNivel(5);
-                break;
-            case 6:
-                ReferCar.GuardarPreverLoad(referenceButton);
-                GameManager.shareInstance.BackToMenu();
                 CambiarNivel(5);
                 break;
         }

@@ -73,29 +73,40 @@ public class ManagerScene : MonoBehaviour
         //Desactiva el Canvas del GameOver 
         GameOver.enabled = false;
     }
-    public void LoadMenu(int Nivel)
+    public void LoadMenu( int ReferencesMenus)
     {
-        //Método encargado de cargar la escena del menu
-        switch (Nivel)
-        {
-            case 3:
+        // Va ha llegar por referencia un valor entero que permitirá ir a diferentes menus dependiendo del caso que sea
+        switch (ReferencesMenus) {
+
+            case 3://Este caso nos llevará a la Selección de Niveles para Trivias
+                //Método encargado de cargar la escena donde se encuentra la selección de Niveles Trivias
                 AudioManager.shareaudio.Partida.mute = false;
                 GameManager.shareInstance.BackToMenu();//Pasamos al estado de juego menú
                 SceneManager.LoadScene(3);//Carga el menú de selección de niveles 
+                break;
+            case 4://Este caso nos llevará a la Selección de Niveles para Viaje Yue
+                //Método encargado de cargar la escena del menu
+                AudioManager.shareaudio.Partida.mute = false;
+                GameManager.shareInstance.BackToMenu();//Pasamos al estado de juego menú
+                SceneManager.LoadScene(4);//Carga el menú de selección de niveles 
+                break;
+
+            case 7://Este caso nos llevara a la selección de modo de juego
+                //Método encargado de cargar la escena del menu
+                AudioManager.shareaudio.Partida.mute = false;
+                GameManager.shareInstance.BackToMenu();//Pasamos al estado de juego menú
+                SceneManager.LoadScene(7);//Carga el menú de selección de niveles 
                 Time.timeScale = 1f;// Escala en la que pasa el tiempo, utilizados para efectos de cámara lenta
                                     // Cuando timeScale es = 1 el tiempo pasa tan rápido como el tiempo real
                                     // Cuando timeScale es = 0,5 el tiempo pasa 2 veces mas lento que el tiempo real
                                     // Cuando lo establecemos en cero actua como pausa
                 break;
 
-            case 4:
-                AudioManager.shareaudio.Partida.mute = false;//Se desmutea el audio de la música dle videojuego
+            case 8://Este caso nos llevará a la pantalla de Inicio
+                //Método encargado de cargar la escena del menu
+                AudioManager.shareaudio.Partida.mute = false;
                 GameManager.shareInstance.BackToMenu();//Pasamos al estado de juego menú
-                SceneManager.LoadScene(4);//Carga el menú de selección de niveles 
-                Time.timeScale = 1f;// Escala en la que pasa el tiempo, utilizados para efectos de cámara lenta
-                                    // Cuando timeScale es = 1 el tiempo pasa tan rápido como el tiempo real
-                                    // Cuando timeScale es = 0,5 el tiempo pasa 2 veces mas lento que el tiempo real
-                                    // Cuando lo establecemos en cero actua como pausa
+                SceneManager.LoadScene(8);//Carga el menú de selección de niveles 
                 break;
         }
 
