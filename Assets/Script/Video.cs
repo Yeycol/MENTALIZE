@@ -14,7 +14,7 @@ public class Video : MonoBehaviour
     }
     void Start()
     {
-        ControlNiveles.shareLvl.ReferCar.GuardarPreverLoad(8);//Llamamos al método encargado de enviar el entero de la escena que debe ser cargada después de la pantalla de carga
+        ControlNiveles.shareLvl.ReferCar.GuardarPreverLoad(7);//Llamamos al método encargado de enviar el entero de la escena que debe ser cargada después de la pantalla de carga
         GameManager.shareInstance.LoadPartyandGame();//Llamamos al método que se encarga de pasar al estado de Carga
         StartCoroutine(Wait_Intro());//Se llama a la corrutina
     }
