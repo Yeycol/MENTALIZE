@@ -24,7 +24,7 @@ public class AnimaCon : MonoBehaviour
     const string START_CEROMONEY = "StartCero";//Variable constante que hace referencia al parámetro booleano que controla la animación al no tener dinero
     const string START_NOLOGRO = "StartNoLogro";//Variable constante que hace referencia al parámetro booleano que controla la animación al no poder conseguir algo por no tener el logro desbloqueado
     const string START_NOCOMPRA = "StartNoCompra";//Variable constante que hace referencia al parámetro booleano que controla la animación al no poder equipar algo por no estar comprado
-    //Lista Orden Animation Lis
+    const string START_ITEMCONSEGUIDO = "StartNewObject";//Variable constante de tipo string que hace referencia al parámetro booleano que controla la animación de item conseguido
     /* 0 = Animación d ela Pizarra en las Trivias
        1 = Animación de la Interfaz de Game Over
        2 = Animación de la Alerta para salida (background)
@@ -42,6 +42,7 @@ public class AnimaCon : MonoBehaviour
        14 = Animación de cantidad de monedas insuficientes para compra
        15 = Animación de objeto no conseguido por logro desbloqueado faltante
        16 = Animación de objeto no disponible por que aun no ha sido comprado 
+       17 = Animación de nuevo objeto conseguido, ya sea cuando suceda la eventualidad de comprado o desbloqueaod por logro
     */
     private void Awake()
     {
@@ -196,5 +197,16 @@ public class AnimaCon : MonoBehaviour
     {
         //Método que se encarga de desactivar la aniamción que muestra que aun no se ha comprado
         AnimationLis[16].SetBool(START_NOCOMPRA, false);
+    }
+
+    public void ActiveAnimationObjectGet()
+    {
+        //Método encargado de inicializar la animación de los items conseguidos
+        AnimationLis[17].SetBool(START_ITEMCONSEGUIDO, true);
+    }
+    public void DesactivateAnimationObjectGet()
+    {
+        //Método encargado de deshabilitar la animación de los items conseguidos
+        AnimationLis[17].SetBool(START_ITEMCONSEGUIDO, false);
     }
 }

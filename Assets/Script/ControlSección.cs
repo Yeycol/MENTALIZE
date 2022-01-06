@@ -159,6 +159,7 @@ public class ControlSección : MonoBehaviour
         {
             Contador.sharecont.moneda -= ListaObjetos[itemIndex].Price;//Se decrementa el valor de la variable moneda de acuerdo al precio que tenga el obejto de la lista 
             Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();//Imprimimos el valor que tenga la moneda en ese momento ya decrementado
+            StartCoroutine(WaitObjectConseguido());
             GuardadoListas.GuardarMonedas();//Se guarda la cantidad total de las monedas después de este proceso
             ListaObjetos[itemIndex].IsPurchased = true;//Se ha comprado se pasa a verdadero
             ListaObjetos[itemIndex].Txt_Buttons.text = "Adquirido";//En el texto de los botones se lo cambia por comprado
@@ -188,6 +189,7 @@ public class ControlSección : MonoBehaviour
         //3= Animación No Logrado
         //4= Animación No Compra
         //5= Perfil General
+        //6= Animación Item Conseguido
         if (PressButton == 1)//Si en este caso es uno, habilitara el objeto Cartas y los demas serán deshabilitados
         {
             /*Siempre que presionemos este boton antes de activar el Game Object reseteara las posiciones del Content Cartas, lo que hace es establecer los valores predeterminados*/
@@ -957,7 +959,20 @@ public class ControlSección : MonoBehaviour
         yield return new WaitForSeconds(1f);
         GUIControl[4].SetActive(false);//Luego del tiempo pasado a la corrutina desahabilatamos el objeto panel de No Compra
     }
-   
+
+    IEnumerator WaitObjectConseguido()
+    {
+        GUIControl[6].SetActive(true);
+        AnimaCon.ShareAnimation.ActiveAnimationObjectGet();
+        yield return new WaitForSeconds(5f);
+        StartCoroutine(EndWaitObjectConseguido());
+    }
+    IEnumerator EndWaitObjectConseguido()
+    {
+        AnimaCon.ShareAnimation.DesactivateAnimationObjectGet();
+        yield return new WaitForSeconds(3f);
+        GUIControl[6].SetActive(false);
+    }
     public void LoadEquipament()
     {
         //Método encargado de cargar el botón que se presionó al Equipar una Carta
