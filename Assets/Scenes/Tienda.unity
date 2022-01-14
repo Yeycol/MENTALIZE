@@ -52686,6 +52686,7 @@ MonoBehaviour:
   Fon: {fileID: 0}
   Perfil: 0
   Background: 0
+  Nameuser: {fileID: 0}
   scene:
     m_Handle: 0
   ObjectsUser: []
@@ -70198,6 +70199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb40f455c8151b40bbcdf34df3010f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene:
+    m_Handle: 0
 --- !u!1 &1281148587
 GameObject:
   m_ObjectHideFlags: 0
@@ -89368,7 +89371,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3500
+  m_Text: 40
 --- !u!222 &1637555196
 CanvasRenderer:
   m_ObjectHideFlags: 0

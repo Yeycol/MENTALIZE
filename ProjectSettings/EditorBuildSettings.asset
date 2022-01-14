@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Trivia/Level 1.unity
     guid: 2f0c65f0e6a88c94d98c2fbdfc018e3d
   - enabled: 1
-    path: Assets/Scenes/Trivia/Level 2.unity
-    guid: 36593a2384cb9304bbfe48ae58a7c63d
-  - enabled: 1
     path: Assets/Scenes/SelectLevel (Trivias).unity
     guid: c35164323f352ea4f9be2495f7be90bb
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 2.unity
+    guid: 196e2850049e9b1498dd95b350682094
   - enabled: 1
     path: Assets/Scenes/SelectLevelSpace.unity
     guid: aa6accaa2fd29e14ea05cd4febc2a465

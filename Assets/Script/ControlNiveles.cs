@@ -16,7 +16,7 @@ public class ControlNiveles : MonoBehaviour
     public Shadow[] LevelShadow;
     Guardado cargaryguardar;// Variable de tipo de la clase Guardado, que servirá para hacer referencia a la clase encargada de guardar los niveles y monedas conseguidos 
     public Color ActiveColor;// Color que establecemos desde el editor de Unity para el texto de los botones
-    public Color ShadowColor;
+    public Color ShadowColor;// Hace referencia al color de la sombra de los textos 
     public static ControlNiveles shareLvl;// Variable que hace referencia a esta misma clase, servirá para hacerla una instancia compartida   
     private Scene Getscene;
     public Carga ReferCar;// Variable de tipo de clase carga que es encargada de almacenar un entero de la escena previa que debe ser cargado después de la pantalla de carga
@@ -31,22 +31,18 @@ public class ControlNiveles : MonoBehaviour
     }
     private void Start()
     {
-        if (GameManager.shareInstance.currentgameState == GameState.menu)
-        {
             if (Getscene.name == "SelectLevel (Trivias)")
             {
-                //Solo si estamos en estado de juego pasaran las acciones establecidas dentro de este condicional
-                cargaryguardar.Guardar();// Se llama al método de la clase Guardado, para que este guarde los niveles desbloqueados  
+                //Solo si estamos en estado de juego pasaran las acciones establecidas dentro de este condicional 
                 RefreshButton();// Método encargado de actualizar los botones desbloqueados 
                 FalseButton();// Método encargado de desbloquear los botones bloqueados 
-            }            
-        }
+            }        
     }
     public void CambiarNivel(int Nivel)
     {
         //Este método recibe como parámetro un entero del indice de la escena a la que queremos dirigirnos 
         
-        if (Nivel == 7 || Nivel == 3 || Nivel == 4 ||Nivel==8)// Si el número de la escena pasada por argumento es igual a los valores establecidos en el condicional
+        if (Nivel == 7 || Nivel == 2 || Nivel == 4 ||Nivel==8)// Si el número de la escena pasada por argumento es igual a los valores establecidos en el condicional
         {
             //Entonces llamará a la corrrutina encargada de cargar la escena del menú
             StartCoroutine(AnimatorTransitionSceneMenu(Nivel));
@@ -61,7 +57,6 @@ public class ControlNiveles : MonoBehaviour
     }
     IEnumerator AnimatorTransitionScene(int Nivel)
     {
-   
         AnimaCon.ShareAnimation.AnimationLis[9].SetTrigger("ExitScene");//Referencia al parámetro booleano que se reinicia desde controlador cuando se efectúa una trasicción 
         yield return new WaitForSeconds(0.9f);// Tiempo que se le da a la corrutina para realizar las acciones
         SceneManager.LoadScene(Nivel);// Una vez que termina la corrutina se carga la siguienre escena pasada por parámetro
@@ -87,6 +82,11 @@ public class ControlNiveles : MonoBehaviour
                 ReferCar.GuardarPreverLoad(referenceButton);
                 CambiarNivel(5);
                 break;
+            case 3:
+                GameManager.shareInstance.LoadPartyandGame();
+                ReferCar.GuardarPreverLoad(referenceButton);
+                CambiarNivel(5);
+                break;
         }
     }
 
@@ -97,7 +97,8 @@ public void DesbloquearNivel()
         {
             //Se le asigna a la variable Lvl Desbloqueado el level actual que se tenga almacenado 
             LvlDesbloqueado = Lvlcurrent;
-         
+            cargaryguardar.Guardar();// Se llama al método de la clase Guardado, para que este guarde los niveles desbloqueados 
+
         }
     }
 public void FalseButton()

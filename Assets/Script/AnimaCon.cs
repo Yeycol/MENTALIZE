@@ -110,7 +110,7 @@ public class AnimaCon : MonoBehaviour
         //Desactiva el Canvas de la Alerta
         yield return new WaitForSeconds(0.3f);
         ManagerScene.shareMscen.OffAlert();
-        AudioManager.shareaudio.Partida.mute = false;
+        AudioManager.shareaudio.Efectos[14].UnPause();
     }
     public void ActiveNaveError()
     {

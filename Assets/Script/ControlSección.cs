@@ -596,7 +596,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 23);//Se guardara el Id 23 en el Player Prefs Id_Perfil  
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");//Se guarda un "Si " en el PLayer Prefs Equipado_Perfil con la finalidad de controlar el cargado de los elementos equipados
-                    ReferenPerBack.PreverSaveIdPerfil(23);// Se envía al método de la clase ReferenPerandBak, para que estos guarden el id y puedan ser cargados en otra escena, en este caso para los perfiles 
+                    ReferenPerBack.PreverSaveIdPerfil(23,"Sr.Buck");// Se envía al método de la clase ReferenPerandBak, para que estos guarden el id y puedan ser cargados en otra escena, en este caso para los perfiles 
                     Button_Equipar[23].interactable = false;//Se desactiva la interacción del botón equipar en la posición del caso
                     Txt_Equipar[23].text = "Equipado";//Se pone el texto del boton del equipado en Equipado
                     GUIControl[5].SetActive(false);//Se desactiva el Game Object que contiene la componente imagen en la que se encuentra el Perfil General 
@@ -610,7 +610,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 24);
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");
-                    ReferenPerBack.PreverSaveIdPerfil(24);
+                    ReferenPerBack.PreverSaveIdPerfil(24,"Yuyo");
                     Button_Equipar[24].interactable = false;
                     Txt_Equipar[24].text = "Equipado";
                     GUIControl[5].SetActive(false);
@@ -624,7 +624,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 25);
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");
-                    ReferenPerBack.PreverSaveIdPerfil(25);
+                    ReferenPerBack.PreverSaveIdPerfil(25,"Blue");
                     Button_Equipar[25].interactable = false;
                     Txt_Equipar[25].text = "Equipado";
                     GUIControl[5].SetActive(false);
@@ -638,7 +638,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 26);
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");
-                    ReferenPerBack.PreverSaveIdPerfil(26);
+                    ReferenPerBack.PreverSaveIdPerfil(26,"Oreo");
                     Button_Equipar[26].interactable = false;
                     Txt_Equipar[26].text = "Equipado";
                     GUIControl[5].SetActive(false);
@@ -652,7 +652,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 27);
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");
-                    ReferenPerBack.PreverSaveIdPerfil(27);
+                    ReferenPerBack.PreverSaveIdPerfil(27,"Andrew");
                     Button_Equipar[27].interactable = false;
                     Txt_Equipar[27].text = "Equipado";
                     GUIControl[5].SetActive(false);
@@ -666,7 +666,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 28);
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");
-                    ReferenPerBack.PreverSaveIdPerfil(28);
+                    ReferenPerBack.PreverSaveIdPerfil(28,"Xoana");
                     Button_Equipar[28].interactable = false;
                     Txt_Equipar[28].text = "Equipado";
                     GUIControl[5].SetActive(false);
@@ -680,7 +680,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 29);
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");
-                    ReferenPerBack.PreverSaveIdPerfil(29);
+                    ReferenPerBack.PreverSaveIdPerfil(29,"Coco");
                     Button_Equipar[29].interactable = false;
                     Txt_Equipar[29].text = "Equipado";
                     GUIControl[5].SetActive(false);
@@ -694,7 +694,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 30);
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");
-                    ReferenPerBack.PreverSaveIdPerfil(30);
+                    ReferenPerBack.PreverSaveIdPerfil(30,"Celeste");
                     Button_Equipar[30].interactable = false;
                     Txt_Equipar[30].text = "Equipado";
                     GUIControl[5].SetActive(false);
@@ -708,7 +708,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 31);
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");
-                    ReferenPerBack.PreverSaveIdPerfil(31);
+                    ReferenPerBack.PreverSaveIdPerfil(31,"Nick");
                     Button_Equipar[31].interactable = false;
                     Txt_Equipar[31].text = "Equipado";
                     GUIControl[5].SetActive(false);
@@ -722,7 +722,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 32);
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");
-                    ReferenPerBack.PreverSaveIdPerfil(32);
+                    ReferenPerBack.PreverSaveIdPerfil(32,"Juan");
                     Button_Equipar[32].interactable = false;
                     Txt_Equipar[32].text = "Equipado";
                     GUIControl[5].SetActive(false);
@@ -736,7 +736,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 33);
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");
-                    ReferenPerBack.PreverSaveIdPerfil(33);
+                    ReferenPerBack.PreverSaveIdPerfil(33,"Shock");
                     Button_Equipar[33].interactable = false;
                     Txt_Equipar[33].text = "Equipado";
                     GUIControl[5].SetActive(false);
@@ -750,7 +750,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 34);
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");
-                    ReferenPerBack.PreverSaveIdPerfil(34);
+                    ReferenPerBack.PreverSaveIdPerfil(34,"Yume");
                     Button_Equipar[34].interactable = false;
                     Txt_Equipar[34].text = "Equipado";
                     GUIControl[5].SetActive(false);
@@ -764,7 +764,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 35);
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");
-                    ReferenPerBack.PreverSaveIdPerfil(35);
+                    ReferenPerBack.PreverSaveIdPerfil(35,"Napoleón");
                     Button_Equipar[35].interactable = false;
                     Txt_Equipar[35].text = "Equipado";
                     GUIControl[5].SetActive(false);
@@ -778,7 +778,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 36);
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");
-                    ReferenPerBack.PreverSaveIdPerfil(36);
+                    ReferenPerBack.PreverSaveIdPerfil(36,"Nube");
                     Button_Equipar[36].interactable = false;
                     Txt_Equipar[36].text = "Equipado";
                     GUIControl[5].SetActive(false);
@@ -793,7 +793,7 @@ public class ControlSección : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 37);
                     PlayerPrefs.SetString("Equipado_Perfil", "Si");
-                    ReferenPerBack.PreverSaveIdPerfil(37);
+                    ReferenPerBack.PreverSaveIdPerfil(37,"Manchas");
                     Button_Equipar[37].interactable = false;
                     Txt_Equipar[37].text = "Equipado";
                     GUIControl[5].SetActive(false);

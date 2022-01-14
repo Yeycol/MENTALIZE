@@ -12,7 +12,7 @@ public class Contador : MonoBehaviour
     public static Contador sharecont;
     public int contador; // Variable de tipo entero que almacena los números del contador de la trivia 
     public int vidas; //Variable de tipo entero que almacena la cantidad de vidas
-    public int puntos;//Variable pública de tipo entero en la cual se almacenarán los puntos que se van obteniendo
+   public int puntos;//Variable pública de tipo entero en la cual se almacenarán los puntos que se van obteniendo
     public Text textcont;// Variable de tipo Texto utilizada para que adquiera los valores de contador
     public Text text_health;// Variable de tipo Texto para que adquiera el valor de las vidas
     public Text time_ui;//Variable de tipo texto para que adquiera  el valor del cronómetro
@@ -42,6 +42,8 @@ public class Contador : MonoBehaviour
         }
         GuardadoMonedas = GameObject.Find("ControlNiveles").GetComponent<Guardado>();//Localización de la clase guardado a traves d ela busqueda del objeto ControlNiveles
         scene = SceneManager.GetActiveScene();//GetActiveScene es un método que nos permite obtener la escena activa actualmente
+       
+       
     }
     void Start()
     {
@@ -50,7 +52,6 @@ public class Contador : MonoBehaviour
         PlayerPrefs.DeleteKey("ExtraMoneda");
         PlayerPrefs.DeleteKey("Time");
         PlayerPrefs.DeleteKey("Live");*/
-        GuardadoMonedas.CargarMonedas();// Se carga las monedas para poderlas visualizar la cantidad de monedas que se tiene
         if (scene.name!= "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace" && scene.name != "SelectModoJuego"&& scene.name!="Tienda" && scene.name != "Inicio") {
             GuardadoMonedas.CargarList();
         }
@@ -76,6 +77,7 @@ public class Contador : MonoBehaviour
 
     public void InicializarDatosInterfaz()
     {
+        GuardadoMonedas.CargarMonedas();// Se carga las monedas para poderlas visualizar la cantidad de monedas que se tiene
         if (scene.name != "SelectLevel (Trivias)" && scene.name != "Tienda" && scene.name!="SelectLevelSpace" && scene.name!="Inicio") //Solo si estamos en escenas distintas a las mencionadas
         {
             textcont.text = contador.ToString() + range;//Se imprime el contador y el rango de la cantidad de preguntas que habrá en el nivel
@@ -85,23 +87,13 @@ public class Contador : MonoBehaviour
         if (scene.name != "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace")//Solo si la escena esdistinta a la establecida
         {
             moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
-        }
-        if (scene.name != "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace" )//Solo si el nombre de la escena es distinto
-        {
+            points_ui.text = puntos.ToString();
             if (scene.name == "Inicio")
             {
-                points_ui.text=puntos.ToString()+"/500";//Se imprime los puntos con el valor máximo en las barras de progreso del Inicio
+                SliderInicio[0].value = puntos;
+                points_ui.text = puntos.ToString() + "/500";//Se imprime los puntos con el valor máximo en las barras de progreso del Inicio
             }
-            else
-            {
-                points_ui.text = puntos.ToString();//Se imprime los puntos globales en GUI
-            }
-        }
-
-        if (scene.name=="Inicio")
-        {
-            SliderInicio[0].value = puntos;
-        }
+        }  
     }
     public void EventTime()
     {
@@ -140,61 +132,36 @@ public class Contador : MonoBehaviour
 
     public void EventEndLevel()
     {
-        switch (scene.name)
+        if (scene.name == "Level 1" || scene.name == "Level 2")
         {
-            case "Level 1":
-                //Esta sección evalua si el contador de las trivias son iguales que 6 estas apliquen las condicionales en el interior
-                if (contador == 6)
+            //Esta sección evalua si el contador de las trivias son iguales que 6 estas apliquen las condicionales en el interior
+            if (contador == 6)
+            {
+                //Si es el caso esta aplicará esta condicional donde se llamará a un método si se consigue los puntos requeridos
+                if (pointsinv == 5)
                 {
+                    /*Si los puntos invicibles son iguales hacen las acciones establecidas, los puntos que son guradados 
+                     solo son aumentados siempre y cuando lo permitan las condicionales del método PointsAdd */
+                    /*Los puntos invicibles nacen después de darse cuenta que al limitar la ganada de puntos
+                     usados para guardar llegan a 5 al repetir el nivel estos no aumentaban su valor y rompian
+                    la lógica impidia ganar o perder la partida, por ello los puntos invicibles aunque se repita
+                    la partida estos no son limitados ni guardados*/
+                    GameManager.shareInstance.WinGame();//Llama a la pantalla de ganaste
+                    monedawin += monedaextra;//Se incrementa el valor de la moneda siempre y cuando la moneda extra tenga un valor a incrementar
+                    UI_WinText.text = monedawin.ToString();//Se muestra por interfaz de canvas Win el valor total de monedas ganadas
+                    moneda += monedaextra;//Se incrementa el valor de la moneda global
+                    moneda_ui.text = moneda.ToString();//Se imprime su valor para actualizar los datos
+                    GuardadoMonedas.GuardarMonedas();//Se hace el guardado de monedas y puntos solo si se gana
+                    ControlNiveles.shareLvl.DesbloquearNivel();//Método encargado de desbloquear los niveles ganados
 
-                    //Si es el caso esta aplicará esta condicional donde se llamará a un método si se consigue los puntos requeridos
-                    if (pointsinv == 5)
-                    {
-                        /*Si los puntos invicibles son iguales hacen las acciones establecidas, los puntos que son guradados 
-                         solo son aumentados siempre y cuando lo permitan las condicionales del método PointsAdd */
-                        /*Los puntos invicibles nacen después de darse cuenta que al limitar la ganada de puntos
-                         usados para guardar llegan a 5 al repetir el nivel estos no aumentaban su valor y rompian
-                        la lógica impidia ganar o perder la partida, por ello los puntos invicibles aunque se repita
-                        la partida estos no son limitados ni guardados*/
-                        GameManager.shareInstance.WinGame();//Llama a la pantalla de ganaste
-                        monedawin += monedaextra;//Se incrementa el valor de la moneda siempre y cuando la moneda extra tenga un valor a incrementar
-                        UI_WinText.text = monedawin.ToString();//Se muestra por interfaz de canvas Win el valor total de monedas ganadas
-                        moneda += monedaextra;//Se incrementa el valor de la moneda global
-                        moneda_ui.text = moneda.ToString();//Se imprime su valor para actualizar los datos
-                        GuardadoMonedas.GuardarMonedas();//Se hace el guardado de monedas y puntos solo si se gana
-                        ControlNiveles.shareLvl.DesbloquearNivel();//Método encargado de desbloquear los niveles ganados
-                        
-                    }
-                    else
-                    {
-                       
-                        AudioManager.shareaudio.Partida.mute = true;//Se mutea el volumen de la música
-                        GameManager.shareInstance.GameOver();//Llama a la pantalla de Game Over
-                    }
                 }
-                break;
-
-            case "Level 2":
-                if (contador == 11)
+                else
                 {
-
-                    //Si es el caso esta aplicará esta condicional donde se llamará a un método si se consigue los puntos requeridos
-                    if (puntos == 10 || pointsinv == 10)
-                    {
-                        GuardadoMonedas.GuardarMonedas();//Se hace el guardado de monedas solo si se gana
-                        GameManager.shareInstance.WinGame();//Llama a la pantalla de ganaste
-                        ControlNiveles.shareLvl.DesbloquearNivel();//Método encargado de desbloquear los niveles ganados
-                    }
-                    else
-                    {
-                        GameManager.shareInstance.GameOver();//Llama a la pantalla de Game Over
-                    }
+                    GameManager.shareInstance.GameOver();//Llama a la pantalla de Game Over
                 }
-                break;
-
+            }
         }
     }
-
     public static void sumar()
     {
         /* Este método es encargado de aumentar en uno al contador
@@ -219,8 +186,9 @@ public class Contador : MonoBehaviour
                 AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva  la animación del Relo digital en In Game
                 break;
             case "Level 2":
-                ControlNiveles.shareLvl.CambiarNivel(2);//Llamamos a la escena del Nivel 2
+                ControlNiveles.shareLvl.CambiarNivel(3);//Llamamos a la escena del Nivel 2
                 AudioManager.shareaudio.Efectos[3].Stop();//Detenemos el efecto de Alarma, cuando se acaba el tiempo
+                AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva  la animación del Relo digital en In Game
                 break;
         }
     }
@@ -232,7 +200,6 @@ public class Contador : MonoBehaviour
         if (sharecont.vidas == 0)
         {
             //Se llamá a la pantalla de GameOver solo si las vidas son igual a 0
-            AudioManager.shareaudio.Partida.mute = true;//Se mutea el volumen de la música
             GameManager.shareInstance.GameOver();//Pasamos a estado de Juego Game Over
 
         }
@@ -261,7 +228,6 @@ public class Contador : MonoBehaviour
             }
         }
         sharecont.pointsinv += sharecont.value_Points;//Se incrementa el valor de los puntos invicibles de acuerdo al valor establecido en valor de puntos
-        sharecont.points_ui.text = sharecont.pointsinv.ToString();
         sharecont.moneda += sharecont.value_moneda;//Se incrementa el valor de la moneda de acuerdo al valor establecido de la moneda por nivel
         sharecont.moneda_ui.text = sharecont.moneda.ToString();//Se imprime el valor de monedas ganadas por interfaz  
         sharecont.monedawin+=sharecont.value_moneda;//Se incrementa el valor de las monedas del win de acuerdo al valor que se esten dando en este nivel, con la finalidad de ser mostradas al ganar la partida en el canvas

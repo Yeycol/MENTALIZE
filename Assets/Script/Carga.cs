@@ -6,11 +6,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 public class Carga : MonoBehaviour
 {
     public Text[] Frases;//Array que almacena las frases a mostrar por pantalla
-    public Text Muestra;//Variable de tipo text que muestra las frases por GUI
+    public TextMeshProUGUI Muestra;//Variable de tipo text que muestra las frases por GUI
     private Scene scene;
     public int Preverload;//Varaible que almacenará el entero de la escena a cargar
     void Awake()
@@ -19,7 +20,6 @@ public class Carga : MonoBehaviour
         scene = SceneManager.GetActiveScene();
         if (scene.name == "Carga")
         {
-            AudioManager.shareaudio.Partida.mute = false;//Al despertarse, se desmutea Partida
             CargarPreverLoad();//Este método se encarga de cargar el Key del Playerpref que almacena la escena previa guardada
         }
     }
