@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[14].UnPause();//Quitamos la pausa a la Música del Menú para que se vuelva a escuchar
             AudioManager.shareaudio.Efectos[15].Pause();//Colocamos en Pausa a la música de la Trivia
             AudioManager.shareaudio.Efectos[16].Pause();//Colocamos En Pausa a la música de Space Yue
+            AudioManager.shareaudio.Efectos[3].Stop();       
         }
         else if (newGameState == GameState.InGame)
         {

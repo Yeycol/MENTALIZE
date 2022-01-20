@@ -159,7 +159,7 @@ public class ControlSección : MonoBehaviour
         {
             Contador.sharecont.moneda -= ListaObjetos[itemIndex].Price;//Se decrementa el valor de la variable moneda de acuerdo al precio que tenga el obejto de la lista 
             Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();//Imprimimos el valor que tenga la moneda en ese momento ya decrementado
-            StartCoroutine(WaitObjectConseguido());
+            StartCoroutine(WaitObjectConseguido());//Se llama a la corrutina encargada de  activar la animación cuando se obtiene un objeto nuevo 
             GuardadoListas.GuardarMonedas();//Se guarda la cantidad total de las monedas después de este proceso
             ListaObjetos[itemIndex].IsPurchased = true;//Se ha comprado se pasa a verdadero
             ListaObjetos[itemIndex].Txt_Buttons.text = "Adquirido";//En el texto de los botones se lo cambia por comprado
@@ -255,7 +255,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetString("Equipado", "Si");//Se guardara el id del elemento equipado
                     Button_Equipar[0].interactable = false;//Desahabilitamos el botón de la posición cero del array de botones equipar
                     Txt_Equipar[0].text = "Equipado";//Se cambia el texto del botón a equipado
-                    Contador.sharecont.SaveEquipament(1, 5, "Si", 1);//Se llama a un método de la clase contador el cual se encarga de pasar por referencia la vidas, tiempo, monedas extras y si se debe aplicar lo equipado
+                    Contador.sharecont.SaveEquipament(1, 20, "Si", 1);//Se llama a un método de la clase contador el cual se encarga de pasar por referencia la vidas, tiempo, monedas extras y si se debe aplicar lo equipado
                 }
                 else if (ListaObjetos[0].IsPurchased == false)
                 {
@@ -269,7 +269,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetString("Equipado", "Si");
                     Button_Equipar[1].interactable = false;
                     Txt_Equipar[1].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(3, 10, "Si", 3);
                 }
                 else if (ListaObjetos[1].IsPurchased == false)
                 {
@@ -962,16 +962,16 @@ public class ControlSección : MonoBehaviour
 
     IEnumerator WaitObjectConseguido()
     {
-        GUIControl[6].SetActive(true);
-        AnimaCon.ShareAnimation.ActiveAnimationObjectGet();
+        GUIControl[6].SetActive(true);//Activa el objeto que contiene los demás elementos para la animación al obtener un objeto
+        AnimaCon.ShareAnimation.ActiveAnimationObjectGet();//Se le indica a la clase Animacon que llame a su comportamiento encargado de pasar un booleano para que se habilite la animación
         yield return new WaitForSeconds(5f);
-        StartCoroutine(EndWaitObjectConseguido());
+        StartCoroutine(EndWaitObjectConseguido());//Se llama a la corrutina encargada de dar tiempo para la salia de la animación
     }
     IEnumerator EndWaitObjectConseguido()
     {
-        AnimaCon.ShareAnimation.DesactivateAnimationObjectGet();
+        AnimaCon.ShareAnimation.DesactivateAnimationObjectGet();//Se le indica a la clase AnimaCon que llame a su comportamiento encargado de activar la animación de salida al obtener un objeto
         yield return new WaitForSeconds(3f);
-        GUIControl[6].SetActive(false);
+        GUIControl[6].SetActive(false);//Se desactiva el obejeto que contiene los elementos para la animación de objeto obtenido
     }
     public void LoadEquipament()
     {

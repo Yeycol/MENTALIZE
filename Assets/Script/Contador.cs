@@ -256,8 +256,8 @@ public class Contador : MonoBehaviour
         AnimaCon.ShareAnimation.DesactivateRedTime();//Desactivamos la animación cuando el tiempo se está acabando
         AudioManager.shareaudio.Efectos[3].Stop();//Paramos el efecto de sonido TimeEnd
         AnimaCon.ShareAnimation.ActiveAnimationExtraTime();//Activamos la animación de tiempo extra
-        currentTime += TimeReferences;//Se incrementa el tiempo actual de acuerdo al valor que otrogue la carta
         yield return new WaitForSeconds(2f);
+        currentTime += TimeReferences;//Se incrementa el tiempo actual de acuerdo al valor que otrogue la carta
         AnimaCon.ShareAnimation.DesactiveAnimationExtraTime();//Desactivamos la animación de tiempo extra
     }
 }

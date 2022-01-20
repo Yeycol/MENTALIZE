@@ -46,7 +46,11 @@ public class RefPerandBack : MonoBehaviour
         if (scene.name != "Tienda" && scene.name != "SelectModoJuego")
         {
             Nameuser.text = PlayerPrefs.GetString("NameUser"); // Se carga el texto pasado por parámetro a la variable tipo texto que mostrará el nombre de usuario por UI 
-        }
+            if (Nameuser.text == "")
+            {
+                Nameuser.text = "Nevul";
+            }
+        } 
             Background = PlayerPrefs.GetInt("ID_FONDO");//Otorgamos el entero del Key del PLayer Prefs en la variable entera Fondo
     }
     public void RefreshObjectPerfil()

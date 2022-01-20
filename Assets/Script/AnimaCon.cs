@@ -25,6 +25,7 @@ public class AnimaCon : MonoBehaviour
     const string START_NOLOGRO = "StartNoLogro";//Variable constante que hace referencia al parámetro booleano que controla la animación al no poder conseguir algo por no tener el logro desbloqueado
     const string START_NOCOMPRA = "StartNoCompra";//Variable constante que hace referencia al parámetro booleano que controla la animación al no poder equipar algo por no estar comprado
     const string START_ITEMCONSEGUIDO = "StartNewObject";//Variable constante de tipo string que hace referencia al parámetro booleano que controla la animación de item conseguido
+    const string START_EXTRATIME = "StartTextTimeExtra";//Variable constaten  de tipo string que almacena el nombre del parámetro necesario para controlar el parámeteo booleano establecido en el animator 
     /* 0 = Animación d ela Pizarra en las Trivias
        1 = Animación de la Interfaz de Game Over
        2 = Animación de la Alerta para salida (background)
@@ -43,7 +44,8 @@ public class AnimaCon : MonoBehaviour
        15 = Animación de objeto no conseguido por logro desbloqueado faltante
        16 = Animación de objeto no disponible por que aun no ha sido comprado 
        17 = Animación de nuevo objeto conseguido, ya sea cuando suceda la eventualidad de comprado o desbloqueaod por logro
-    */
+       18 = Referencia al controlador de la animación encargada de mostrar en UI el Texto de Time Extra     
+      */
     private void Awake()
     {
         if (ShareAnimation == null)
@@ -157,11 +159,13 @@ public class AnimaCon : MonoBehaviour
     {
         //Activa la animación cuando se da tiempo extra
         AnimationLis[13].SetBool(START_EXITTIME, true);
+        AnimationLis[18].SetBool(START_EXTRATIME, true);
     }
     public void DesactiveAnimationExtraTime()
     {
         //Desactiva la animación cuando se da tiempo extra
         AnimationLis[13].SetBool(START_EXITTIME, false);
+        AnimationLis[18].SetBool(START_EXTRATIME, false);
     }
 
     public void ActiveEventCeroMoney()
@@ -209,4 +213,6 @@ public class AnimaCon : MonoBehaviour
         //Método encargado de deshabilitar la animación de los items conseguidos
         AnimationLis[17].SetBool(START_ITEMCONSEGUIDO, false);
     }
+
+  
 }
