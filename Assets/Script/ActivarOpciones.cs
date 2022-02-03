@@ -40,13 +40,18 @@ public class ActivarOpciones : MonoBehaviour
     {
         //Desactiva el Canvas que muestra las opciones de pausa
         Time.timeScale = 1f;
+        //TODO:Recuerda Reactivar el Audio cuando ya se desactive el Canvas de la Pausa
         AudioManager.shareaudio.Efectos[3].UnPause();//Se desmutea el efecto TimeEnd
         AudioManager.shareaudio.Efectos[6].UnPause();//Despausamos Efecto Disparo
         AudioManager.shareaudio.Efectos[7].UnPause();//Despausamos Efecto Llegada Nave
         AudioManager.shareaudio.Efectos[8].UnPause();//Despausamos Efecto Salida nave
         AudioManager.shareaudio.Efectos[9].UnPause();//Despausamos el Efeco Roto
         AudioManager.shareaudio.Efectos[10].UnPause();//Despausamos el Efeco Abducir Nave
+        AudioManager.shareaudio.Efectos[17].UnPause();//Despausamos el sonido de la frase A toda Máquina
+        AudioManager.shareaudio.Efectos[18].UnPause();//Despausamos la frase Se te acaba el timpo Tic Tac
+        AudioManager.shareaudio.Efectos[19].UnPause();//Despausamos la frase Mira el reloj no te queda tiempo
         Pausa.enabled = false;//Desactivamos el canvas
+        //TODO: Aun faltan establecer condicionales para la Pausa tanto en estado Menú como In game
         if (Contador.sharecont.scene.name == "Tienda" || Contador.sharecont.scene.name == "SelectModoJuego" || Contador.sharecont.scene.name == "Inicio")//Se evalua si el nombre de la escena es Tienda
             GameManager.shareInstance.BackToMenu();//Se pasará el estado de juego a Menu
         else//Sino es el caso se pasará a en partida

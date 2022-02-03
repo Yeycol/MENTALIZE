@@ -2,11 +2,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;//Librería que nos permitira controlar las scenas del videojuego
+
+
 
 public class AnimaCon : MonoBehaviour
 {
+    public Scene scene;
     public List<Animator> AnimationLis = null;//Lista de las animaciones a controlar
     public static AnimaCon ShareAnimation;
+    public Animator[] EventTime = new Animator[3];//Array que contiene las animaciones para las eventualidades del tiempo 
+    public GameObject ObjectAnimation;//Hace referencia al objeto padre que contiene en su interior a los demás hijos que son las animaciones
+    public ParameterAndTime[]ValueNecesary;//Array que contiene los strings de los nombres de los parámetros para activar la animación
+    public int indextime;//Varibale de tipo entera que será utilizada para sacar un entero aleatorio del Array EventTime
     //Referencia a los parámetros de las animaciones
     const string START_PIZARRA = "startPizarra";//Variable costante que hace referencia al parámetro booleano de la pizarra
     const string ACTIVE_OVER = "Active";// Variable constante que hace referencia al parámetro booleano de la interfaz de Game Over
@@ -53,17 +62,13 @@ public class AnimaCon : MonoBehaviour
             ShareAnimation = this;
            
         }
-      
+        indextime = Random.Range(0, EventTime.Length);//Se genera un número entero aleatorio desde cero hasta la cantidad de objetos que tenga el array EventTime 
+        scene = SceneManager.GetActiveScene();
     }
 
     public void  AlertActive()
     {
         AnimationLis[2].SetBool(ACTIVE_ALERT, true);// Activamos la animación de la alerta
-    }
-
-    public void AlertOff()
-    {
-        AnimationLis[2].SetBool(ACTIVE_ALERT, false);// Desactivamos  la animación de la alerta
     }
 
     public void ActivePizarra()
@@ -102,17 +107,54 @@ public class AnimaCon : MonoBehaviour
     public void DesactivateAlert()
     {
         //Método encargado  de desactivar la alerta con animación
-        AudioManager.shareaudio.Efectos[5].Play();
-        AlertOff();
-        StartCoroutine(DescativateCanvasAlert());// damos un tiempo de llamado al método para que el canvas no desaparesca al instante
+            StartCoroutine(DescativateCanvasAlert());// Damos un tiempo de llamado al método para que el canvas no desaparesca al instante
     }
 
     IEnumerator DescativateCanvasAlert()
     {
-        //Desactiva el Canvas de la Alerta
+        AudioManager.shareaudio.Efectos[5].Play();//Reproducimos el efecto de sonido al salir de la alerta
+        AnimationLis[2].SetBool(ACTIVE_ALERT, false);// Desactivamos  la animación de la alerta
         yield return new WaitForSeconds(0.3f);
-        ManagerScene.shareMscen.OffAlert();
-        AudioManager.shareaudio.Efectos[14].UnPause();
+        ManagerScene.shareMscen.OffAlert();//Desactivamos el canvas de la alerta
+        if (scene.name == "SelectLevel (Trivias)" || scene.name == "SelectLevelSpace" || scene.name == "Tienda" || scene.name == "SelectModoJuego")
+        {
+            //Se pasa a modo de juego en menú solo si estamos en las escenas establecidas en la condicional
+            GameManager.shareInstance.BackToMenu();
+        }
+        else
+        {
+            //En el caso que sea de que el nombre de la escena actual sea cualquier otro pasará estado de juego InGame
+            GameManager.shareInstance.StarGame();
+        }
+        if (GameManager.shareInstance.currentgameState == GameState.InGame)//Solo si estamos en modo de juego sucederá lo establecido dentro de la condicional
+        {
+            AudioManager.shareaudio.Efectos[3].UnPause();//Se desmutea el efecto TimeEnd
+            AudioManager.shareaudio.Efectos[6].mute=false;//Desmuteamos el Efecto Disparo
+            AudioManager.shareaudio.Efectos[7].mute=false;//Desmuteamos el Efecto Llegada Nave
+            AudioManager.shareaudio.Efectos[8].mute=false;//Desuteamos el Efecto Salida nave
+            AudioManager.shareaudio.Efectos[9].mute=false;//Desmuteamos el Efeco Roto
+            AudioManager.shareaudio.Efectos[10].mute=false;//Desmuteamos el Efeco Abducir Nave
+            AudioManager.shareaudio.Efectos[15].UnPause();//Se despausa la canción para Trivias
+            AudioManager.shareaudio.Efectos[16].UnPause();//Se despausa la canción para Space Yue
+            //TODO: Arreglar lo del sonido para las animaciones cuando sale la alerta
+            AudioManager.shareaudio.Efectos[17].mute = false;//Desmuteamos el sonido de la frase A toda Máquina
+            AudioManager.shareaudio.Efectos[18].mute = false;//Desmuteamos el sonido de la frase Se te acaba el tiempo
+            AudioManager.shareaudio.Efectos[19].mute = false;//Desmuteamos el sonido de la frase Mira el Reloj no te queda tiempo
+        }
+        else if (GameManager.shareInstance.currentgameState == GameState.menu)//Solo si estamos en menú sucederá lo del interior
+        {
+            AudioManager.shareaudio.Efectos[6].mute = false;//Desmuteamos el Efecto Disparo
+            AudioManager.shareaudio.Efectos[7].mute = false;//Desmuteamos el Efecto Llegada Nave
+            AudioManager.shareaudio.Efectos[8].mute = false;//Desuteamos el Efecto Salida nave
+            AudioManager.shareaudio.Efectos[9].mute = false;//Desmuteamos el Efeco Roto
+            AudioManager.shareaudio.Efectos[10].mute = false;//Desmuteamos el Efeco Abducir Nave
+            AudioManager.shareaudio.Efectos[12].mute=false;//Despausamos el sonido de Focos Dañados
+            AudioManager.shareaudio.Efectos[14].UnPause();//Despausa la canción del menú
+            AudioManager.shareaudio.Efectos[17].mute = false;//Desmuteamos el sonido de la frase A toda Máquina
+            AudioManager.shareaudio.Efectos[18].mute = false;//Desmuteamos el sonido de la frase Se te acaba el tiempo
+            AudioManager.shareaudio.Efectos[19].mute = false;//Desmuteamos el sonido de la frase Mira el Reloj no te queda tiempo
+        }
+    
     }
     public void ActiveNaveError()
     {
@@ -213,6 +255,47 @@ public class AnimaCon : MonoBehaviour
         //Método encargado de deshabilitar la animación de los items conseguidos
         AnimationLis[17].SetBool(START_ITEMCONSEGUIDO, false);
     }
-
+    public void EventInGame(string Event)
+    {
+        //Este método recibe dos parámetros de tipo string el uno almacena el tipo de evento que está por suceder y el otro el nombre del parámetro , necesario para establecer el booleano a la componente animator
+        
+        switch (Event)
+        {
+            case "Time":// En caso del evento llamarse Time
+                if (indextime == 0)//En caso de que el número aleatorio sea igual a 0
+                {
+                    StartCoroutine(StartEvenTAnimationTime(indextime,ValueNecesary[0].ParameterAnimator, ValueNecesary[0].TimeCourrutine));//Se llama a la corrutina para dar tiempo a visualizar la animación pasando por parámetro la posición de la animación, parámetro que se tiene que activar y tiempo de la corrutina, para mostrar la animación
+                } else if (indextime == 1)//En caso que el número aleatorio sea igual a 1
+                {
+                    StartCoroutine(StartEvenTAnimationTime(indextime, ValueNecesary[1].ParameterAnimator,ValueNecesary[1].TimeCourrutine));
+                }
+                else if(indextime==2)//En caso que el número aleatorio sea igual a 2
+                {
+                    StartCoroutine(StartEvenTAnimationTime(indextime, ValueNecesary[2].ParameterAnimator, ValueNecesary[2].TimeCourrutine));
+                }
+                break;
+        }
+        
+    }
+    IEnumerator StartEvenTAnimationTime(int AnimationParameter, string ParameterAnimator, float TimeCorru)
+    { 
+        Contador.sharecont.IntroAnimation = true;//Se indica que el comportamiento EventTime de la clase Contador debe tomar en cuenta los frmaes para ser llamado
+        ObjectAnimation.SetActive(true);//Hablitamos el objeto con Raycast engargado de evitar que los botones sean presionados cuando la animación estaá activa 
+        EventTime[AnimationParameter].SetBool(ParameterAnimator, true);//Se activa la animación de acuerdo al entero obtenido en el ramdom y el nombre del parámetro pasado por parámetro
+        yield return new WaitForSeconds(TimeCorru);
+        Contador.sharecont.IntroAnimation = false;//Se indica que el comportamiento de Contador deje de tomar en cuenta los frames
+        EventTime[AnimationParameter].SetBool(ParameterAnimator, false);//Se activa la animación de salida de la eventualidad
+        ObjectAnimation.SetActive(false);//Deshabilitamos el objeto encargado dehabilitar el Raycast Para evitar que los botones de las trivias activen otra animación
+    }
+        
   
+    [System.Serializable]
+    public class ParameterAndTime
+    {
+        //Esta clase tiene la funcionalidad de servir para a creación de un array de este tipo para poder asignar a sus propiedades datos
+        public float TimeCourrutine;//Campo de clase que pretende almacenar un flotante del tiempo de duración de la animacíón
+        public string ParameterAnimator;//Campo de clase que pretende almacenar un string del nombre del parámetro del Animator
+    }
 }
+
+

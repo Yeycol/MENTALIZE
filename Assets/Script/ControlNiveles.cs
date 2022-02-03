@@ -71,19 +71,9 @@ public class ControlNiveles : MonoBehaviour
 
     public void EventButtonPass(int referenceButton)
     {
-        //Método que recibe por referencia un valor entero que será enviado hacer un guardado previo, para ser cargado después de la pantalla de carga
-        if (Getscene.name == "SelectLevel (Trivias)")
-        {
-            //En caso de que el nombre de la escena activa reciba el nombre de la condicional esta pasará un etsado de juego Menú 
-            GameManager.shareInstance.BackToMenu();
-        }else
-        {
-            //En la situación que la escena activa reciva un nombre diferente este estalecerá como estado de juego en carga
-            GameManager.shareInstance.LoadPartyandGame();
-            //La finalidad de ello es evitar que al ir a un nivel desde el menú de trivias la música del estado de carga y menú no se reinicie en ningun momento sino que esta se mantenga 
-        }
-            ReferCar.GuardarPreverLoad(referenceButton);
-            CambiarNivel(5);
+        GameManager.shareInstance.LoadPartyandGame();//Pasamos estado de juego a partida
+        ReferCar.GuardarPreverLoad(referenceButton);//LLamamos al método encargado de guardar el entero que nos permitirá acceder a la siguiente escena
+        CambiarNivel(5);//Por predeterminado iremos a la escena de carga antes de cargar la escena del juego
         
     }
 

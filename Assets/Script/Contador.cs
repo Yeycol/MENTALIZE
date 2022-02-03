@@ -34,6 +34,7 @@ public class Contador : MonoBehaviour
     public int monedaextra;//Variable que será utilizada para almacenar la cantidad de monedas extras que debe dar la carta
     public Text UI_WinText;//Variable tipo texto que mostrará la cantidad de monedas ganadas en el Canvas Win
     public Slider[] SliderInicio;//Array de sliders que hacen referencia a los puntos ganados e impresos en la barra de progreso
+    public bool IntroAnimation = false;//Variable de tipo boooleano encargada de hace rque el tiempo vaya mas lento cuando tengamos una animación activa
     void Awake()
     {
         if (sharecont == null)
@@ -42,8 +43,6 @@ public class Contador : MonoBehaviour
         }
         GuardadoMonedas = GameObject.Find("ControlNiveles").GetComponent<Guardado>();//Localización de la clase guardado a traves d ela busqueda del objeto ControlNiveles
         scene = SceneManager.GetActiveScene();//GetActiveScene es un método que nos permite obtener la escena activa actualmente
-       
-       
     }
     void Start()
     {
@@ -55,7 +54,7 @@ public class Contador : MonoBehaviour
         if (scene.name!= "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace" && scene.name != "SelectModoJuego"&& scene.name!="Tienda" && scene.name != "Inicio") {
             GuardadoMonedas.CargarList();
         }
-        CargarEquipament();//Se llama al método encargado de Cargar vidas extras y el tiempo extra pasado por referencia etc
+        CargarEquipament();//Se llama al método encargado de Cargar vi    das extras y el tiempo extra pasado por referencia etc
         InicializarDatosInterfaz();//Cuando inicia el juego debemos imprimer el valor que hayan adquirido las variables al iniciar el juego     
     }
     private void FixedUpdate()
@@ -63,10 +62,21 @@ public class Contador : MonoBehaviour
         //Aqui se esta evaluando a cada frame, si estamos en en modo juego ejecutará las instrucciones establecidas en las condicionales
         if (GameManager.shareInstance.currentgameState == GameState.InGame)
         {
-           // if (Time.frameCount % numFrames == 0)
-            //{
-                EventTime();//Método que se encarga de aumentar el tiempo del cronómetro y hacer las acciones establecidas cuando se cumplan ciertas eventualidades
-           // }
+            //Las siguientes condicionales estan encargadads de evaluar un booleano que permite que el llamado al método event time sea llamado a cada 5 frames 
+            //Esto da el efecto que eltiempo vaya mas lento, así evitando que el tiempo sea arrebatado cuando una animación se encuentra activa 
+            if (IntroAnimation)
+            {
+                //En el caso de ser true se llama a cada 5 frames el método Event Time 
+                if (Time.frameCount % numFrames == 0)
+                {
+                    EventTime();//Método que se encarga de aumentar el tiempo del cronómetro y hacer las acciones establecidas cuando se cumplan ciertas eventualidades
+                }
+            } else if (!IntroAnimation)
+            { 
+                EventTime();//En el caso de ser falso este debe ser llamado sin tener en cuenta la cantidad de frames en la que debe ser llamado el método 
+            }
+
+
             if (Time.frameCount % numFrames == 0)
             {
                 //La condicional es verdadera cuando el restante de la división entre el número total de frames desde el inicio del juego y el número de frames es igual a 0
@@ -93,7 +103,8 @@ public class Contador : MonoBehaviour
                 SliderInicio[0].value = puntos;
                 points_ui.text = puntos.ToString() + "/500";//Se imprime los puntos con el valor máximo en las barras de progreso del Inicio
             }
-        }  
+        }
+        
     }
     public void EventTime()
     {
@@ -108,22 +119,28 @@ public class Contador : MonoBehaviour
         if ((int)currentTime == 0)
         {
             //Si el tiempo es igual a 0 se hacen las siguientes acciones
-            AnimaCon.ShareAnimation.DesactivateRedTime();//Método de la clase AnimaCon, encargada de desahabilitar la animación del Reloj Rojo
-            GameManager.shareInstance.GameOver();//Pasamos a estado de juego Game Over
+            GameManager.shareInstance.GameOver();
+
         }
-
-        if ((int)currentTime == 10)
-        {
+        if ((int)currentTime == 20)
+        { //Esta condicional solo sucede siempre y cuando el tiempo sea igual a 20
+                AnimaCon.ShareAnimation.EventInGame("Time");//Se llama al método encargado de evaluar en que eventualidad estamos y proceder a reproducir la animación de acuerdo l número aleatorio conseguido   
+        }else if ((int)currentTime == 10){
             //Si el tiempo es igual a 10 se hacen las siguientes acciones
-
-            AnimaCon.ShareAnimation.ActiveRedTime();// Se habilita la animación de Reloj Rojo
-            AudioManager.shareaudio.Efectos[3].Play();//Iniciamos el Audio del efecto del Alarma cuando se acaba el tiempo
-        } else if ((int)currentTime == 7)//Si el tiempo actual es igual a 7 e entra a la condicional
+                AudioManager.shareaudio.Efectos[3].Play();//Iniciamos el Audio del efecto del Alarma cuando se acaba el tiempo
+                AnimaCon.ShareAnimation.ActiveRedTime();// Se habilita la animación de Reloj Rojo
+                
+            }
+        else if ((int)currentTime == 7)//Si el tiempo actual es igual a 7 e entra a la condicional
         {
-            if (Oneintro=="Si")//Dentro de este if anidado se evalua si la variable booleana OneIntro es verdadera
+            if (Oneintro == "Si")//Dentro de este if anidado se evalua si la variable booleana OneIntro es verdadera
             {
-                StartCoroutine(WaitExtraTime());//Si es el caso de ser verdad se llama a la corrutina encargada de habilitar y deshabilitar las animaciones
-                Oneintro = "No";//La primera vez que entre en este condicional debe ser la única vez, puesto que se pasará false para que en el siguiente frame no haya la posibilidad de repetir la eventualidad
+                //La animación solo se activará si estamos en estado de juego InGame
+                if (GameManager.shareInstance.currentgameState == GameState.InGame)
+                {
+                    StartCoroutine(WaitExtraTime());//Si es el caso de ser verdad se llama a la corrutina encargada de habilitar y deshabilitar las animaciones
+                    Oneintro = "No";//La primera vez que entre en este condicional debe ser la única vez, puesto que se pasará false para que en el siguiente frame no haya la posibilidad de repetir la eventualidad
+                }
             }
         }
 
@@ -175,6 +192,7 @@ public class Contador : MonoBehaviour
     }
     public void resetcont()
     {
+        ResetSound();//Llamamos al método encargado de resetear los sonidos de la anterior Escena
         //Método encargado de resetear la Trivia
         switch (scene.name)
         {
@@ -182,12 +200,10 @@ public class Contador : MonoBehaviour
              en la anterior escena estas se restablecen dando el efecto de reseteo de partida*/
             case "Level 1":
                 ControlNiveles.shareLvl.CambiarNivel(1);//Llamamos a la escena del Nivel 1
-                AudioManager.shareaudio.Efectos[3].Stop();//Detenemos el efecto de Alarma, cuando se acaba el tiempo
                 AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva  la animación del Relo digital en In Game
                 break;
             case "Level 2":
                 ControlNiveles.shareLvl.CambiarNivel(3);//Llamamos a la escena del Nivel 2
-                AudioManager.shareaudio.Efectos[3].Stop();//Detenemos el efecto de Alarma, cuando se acaba el tiempo
                 AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva  la animación del Relo digital en In Game
                 break;
         }
@@ -253,11 +269,32 @@ public class Contador : MonoBehaviour
  
     IEnumerator WaitExtraTime()
     {
+        IntroAnimation = true;// Se activa la lentitud al tiempo para que la animación no haga sentir que el jugador a perdido tiempo
+        AudioManager.shareaudio.Efectos[3].Stop();  
+        AnimaCon.ShareAnimation.ObjectAnimation.SetActive(true) ;//Lalamamos al método encargado de desahabilitar los botones de la Trivia
         AnimaCon.ShareAnimation.DesactivateRedTime();//Desactivamos la animación cuando el tiempo se está acabando
-        AudioManager.shareaudio.Efectos[3].Stop();//Paramos el efecto de sonido TimeEnd
         AnimaCon.ShareAnimation.ActiveAnimationExtraTime();//Activamos la animación de tiempo extra
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.3f);
         currentTime += TimeReferences;//Se incrementa el tiempo actual de acuerdo al valor que otrogue la carta
+        AnimaCon.ShareAnimation.ObjectAnimation.SetActive(false);//Activamos nuevamente los botones de las trivias para que se pueda seleccionar las respuestas sin ningun problema
+        IntroAnimation = false;// Se le indica a la variable booleano que quite la lentitud a tiempo y asi volver todo a la normalidad puesto que no hay animación activa 
         AnimaCon.ShareAnimation.DesactiveAnimationExtraTime();//Desactivamos la animación de tiempo extra
+    }
+    public void ResetSound()
+    {
+        //Método encargado de parar los sonidos de la anterior escena al resetearse
+        AudioManager.shareaudio.Efectos[3].Stop();//Para el sonido de Time End
+        AudioManager.shareaudio.Efectos[6].Stop();//Para el Efecto Disparo
+        AudioManager.shareaudio.Efectos[7].Stop();//Para el Efecto Llegada Nave
+        AudioManager.shareaudio.Efectos[8].Stop();//Para el Efeco Salida Nave
+        AudioManager.shareaudio.Efectos[9].Stop();//Para el Efeco Roto
+        AudioManager.shareaudio.Efectos[10].Stop();//Para el Efeco Abducir Nave
+        AudioManager.shareaudio.Efectos[15].Stop();// Para  la música de Trivias d ela anterior escena
+        AudioManager.shareaudio.Efectos[16].Stop();//Para la música de Space Yue
+        AudioManager.shareaudio.Efectos[17].Stop();//Se para la Frase A toda Máquina gogo
+        AudioManager.shareaudio.Efectos[18].Stop();//Se para la frase de Se te acaba Tiempo Tic Tac
+        AudioManager.shareaudio.Efectos[19].Stop();//Paramos el sonido de la frase Mira el reloj no te queda tiempo
+        AudioManager.shareaudio.Efectos[13].Stop();//Se para el sonido del WiGame
+        AudioManager.shareaudio.Efectos[0].Stop();//Se para el sonido del OverGame
     }
 }

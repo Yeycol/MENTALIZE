@@ -83,6 +83,7 @@ public class ManagerScene : MonoBehaviour
     {
         //Activa el Canvas de la Alerta    
         Alert.enabled = true;
+        AnimaCon.ShareAnimation.AlertActive();
     }
     public void OffAlert()
     {

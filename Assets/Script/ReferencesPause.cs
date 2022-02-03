@@ -17,6 +17,7 @@ public class ReferencesPause : MonoBehaviour
         //Método encargado de resetear la partida en modo pausa
         Contador.sharecont.resetcont();//Se llama al método encargado de resetear la partida
         ActivarOpciones.shareOp.DesactivatePause();//Se llama el método encargado de desactivar la interfaz de Pausa y pasar al modo de juego In Game
+        //ActivarOpciones.shareOp.OffCanvasPause();
     }
 
     public void DesactivateOpciones()

@@ -8,17 +8,10 @@ public class EventSounds : MonoBehaviour
     public Scene scene;
     void Awake()
     {
-     scene = SceneManager.GetActiveScene(); 
+     scene = SceneManager.GetActiveScene();
+        EvaluateMusicIngame();//Llamamos al método  encargado de establecer la música de Ingame
     }
-    void Start()
-    {
-        if (scene.name=="Level 1" || scene.name == "Level 2") {
-         PlayMusicTrivias();
-        } else if(scene.name=="SelectLevelSpace")
-        {
-            PlayMusicSpaceYue();
-        }
-    }
+  
     public void Disparo()
     {
         AudioManager.shareaudio.Efectos[6].Play();
@@ -59,5 +52,31 @@ public class EventSounds : MonoBehaviour
     {
         AudioManager.shareaudio.Efectos[16].Play();
         AudioManager.shareaudio.Efectos[16].loop = true;
+    }
+   public void PlayAtodaMáquinaGo()
+    {
+        AudioManager.shareaudio.Efectos[17].Play();
+    }
+    public void PLaySeTeAcabaElTiempo()
+    {
+        AudioManager.shareaudio.Efectos[18].Play();
+    }
+
+    public void PLayMiraElRelojNoTeQuedaTiempo()
+    {
+        AudioManager.shareaudio.Efectos[19].Play();
+    }
+    public void EvaluateMusicIngame()
+    {
+        //Método encargado de evaluar que música debe sonar en Ingame
+        //TODO: Aun falta establecer las demás condicionales cuando existan mas niveles
+        if (scene.name == "Level 1" || scene.name == "Level 2")
+        {
+            PlayMusicTrivias();
+        }
+        else if (scene.name == "SelectLevelSpace")
+        {
+            PlayMusicSpaceYue();
+        }
     }
 }
