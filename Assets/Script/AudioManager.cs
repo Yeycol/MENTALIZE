@@ -6,6 +6,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager shareaudio;//Variable que servirá para hacer la clase una instancia compartida
+    public AudioSource Partida;//Variable de tipo Audiosource que hace referenica a la música de fondo
     public Slider Musica1,Efectos1;//Variable de tipo Slider que servirá para hacer referencia a los sliders que controlan la regulación de volumen 
     public AudioSource [] Efectos;//Array de efectos que hacen referencia al conjunto de efectos que deseamos regular el volumen
     public Image Mute1;//Refencia  de la imagen que tiene un símbolo que da a expresar que se muteo totalmente la música
@@ -18,6 +19,7 @@ public class AudioManager : MonoBehaviour
         {
             shareaudio = this;
             DontDestroyOnLoad(gameObject);//Método que evita que se destruyan las referencias y datos almacenados en las variables de esta clase 
+            Partida = GetComponent<AudioSource>();//Localizamos la componente audio de este objeto
         }
         else
         {
@@ -39,10 +41,11 @@ public class AudioManager : MonoBehaviour
     public void Inicializar()
     {
         //Este método esta encargado de dar play a la música, efectos y de indicar su volumén inciial
+        Partida.Play(); //Permite iniciar la reproducción de la componente de sonido
+        Partida.loop = true;//Esto permite que la música se reproduzca en bucle 
+       
         Musica1.value = PlayerPrefs.GetFloat("Mus", 1f);//Obtenemos el valor para el slider de la música el valor float 1
-        Efectos[14].volume = Musica1.value;//El valor que tenga el slider de la música tambien lo tendrá el volumen de la instancia de Audio Source
-        Efectos[15].volume = Musica1.value;//Efecto 15 hace referencia a la música de las trivias
-        Efectos[16].volume = Musica1.value;//Efecto 16 hace referencia a la música de Space Yue
+        Partida.volume = Musica1.value;//El valor que tenga el slider de la música tambien lo tendrá el volumen de la instancia de Audio Source
         Efectos1.value= PlayerPrefs.GetFloat("Efect", 1f);
         Efectos[0].volume = Efectos1.value;//Otorgamos el valor del slider al volumen del efecto de Over 
         Efectos[1].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Answer Good
@@ -57,10 +60,6 @@ public class AudioManager : MonoBehaviour
         Efectos[10].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Nave Abducir
         Efectos[11].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de ButtonSelect
         Efectos[12].volume = Efectos1.value;//Otorgamos el valor del slider al volumen del efecto de FocosDañados
-        Efectos[13].volume = Efectos1.value;//Otorgamos el valor del slider al volumen del efecto de Win
-        Efectos[17].volume = Efectos1.value;//Otorgamos el valor del slider al volumen de la voz de la frase A toda Máquina Go Go
-        Efectos[18].volume = Efectos1.value;//Otorgmaos el valor del slider al volumen del objeto que contiene la componete audio source de la frase Se te acaba el tiempo   
-        Efectos[19].volume = Efectos1.value;//Otrogamos el valor del slider a la propiedad volumen del objeto encargado de reproducir la frase Mira el Reloj no te queda tiempo
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
 
@@ -68,9 +67,7 @@ public class AudioManager : MonoBehaviour
 
     public void regularVolumen()
     {
-        Efectos[14].volume = Musica1.value;//El valor del Slider será igual a la propiedad volumen de la música para el Menú
-        Efectos[15].volume = Musica1.value;
-        Efectos[16].volume = Musica1.value;
+        Partida.volume = Musica1.value;
         PlayerPrefs.SetFloat("Mus", Musica1.value);// Le asignamos el valor que tenga el slider en la variable del prefab
         PlayerPrefs.Save();//Guardamos los valores del prefab
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
@@ -90,10 +87,6 @@ public class AudioManager : MonoBehaviour
         Efectos[10].volume = Efectos1.value;
         Efectos[11].volume = Efectos1.value;
         Efectos[12].volume = Efectos1.value;
-        Efectos[13].volume = Efectos1.value;
-        Efectos[17].volume = Efectos1.value;
-        Efectos[18].volume = Efectos1.value;
-        Efectos[19].volume = Efectos1.value;
         PlayerPrefs.SetFloat("Efect", Efectos1.value);
         PlayerPrefs.Save();
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute

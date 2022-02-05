@@ -25,9 +25,8 @@ public class ManagerQuiz : MonoBehaviour
     public void Nexquestion()
     {
         //Método encargado de indicar al constructor que debe mostrar las opciones, solo si estamos en estado de juego InGame
-        if (GameManager.shareInstance.currentgameState == GameState.InGame|| GameManager.shareInstance.currentgameState == GameState.Alert)
+        if (GameManager.shareInstance.currentgameState == GameState.InGame)
         {
-            Contador.sharecont.IntroAnimation = false;
             Control.OffOutlineRed();//Se llama al método encargado de restablecer el color de los Outline originales
             Control.activebutton(); // Si estamos en modo de juego llamará al método que activa la interacción con los botones
             Contador.sumar();//LLama al metodo encargado de sumar el contador de la trivia
@@ -59,7 +58,6 @@ public class ManagerQuiz : MonoBehaviour
         if (optionButton.Option.correct == false)
         {
             //En el caso de haber seleccionado una respuesta incorrecta, se hace las siguientes acciones
-            Contador.sharecont.IntroAnimation = true;
             StartCoroutine(WaitforNave());//Se llama a la corrutina encargada de pausar la ejecución para ver la animación cuando la repsuesta es incorrecta 
             AudioManager.shareaudio.Efectos[2].Play();//Reproducimos el sonido de Answer Bad
             Control.OutlineRed(0);//Llamamos al método encargado de poner el outline de los botones para que los coloque en rojo
@@ -67,7 +65,6 @@ public class ManagerQuiz : MonoBehaviour
         else if (optionButton.Option.correct == true)
         {
             //En el caso de que se haya seleccionado una respuesta correcta, se hacen las siguientes acciones
-            Contador.sharecont.IntroAnimation = true;
             StartCoroutine(WaitforNaveCorrect());// Se llama a la corrutina encargada de pausar la ejecución para poder visualizar la animación cuando la respuesta es correcta
             AudioManager.shareaudio.Efectos[1].Play();//Reproducimos el sonido de Answer Good
             Control.OutlineGreen();// Llamamos al método encargado de poner el outline de los botones para que los coloque en verde 
@@ -83,8 +80,7 @@ public class ManagerQuiz : MonoBehaviour
         // Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
         AnimaCon.ShareAnimation.StopHeart();//Se llama al método encargado de reproducir la animación  del corazón restaurandose
         yield return new WaitForSeconds(0.30f);
-        //Contador.sharecont.IntroAnimation = false;
-        Nexquestion();
+            Nexquestion();
     }
 
     IEnumerator NextCorrect()
@@ -93,7 +89,6 @@ public class ManagerQuiz : MonoBehaviour
         // Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
         AnimaCon.ShareAnimation.DesactiveNaveCorrect();//Se llama al método encargado de reproducir la animación de la nave saliendo de escena
         yield return new WaitForSeconds(1.6f);
-        //Contador.sharecont.IntroAnimation=false;//Luego de que las acciones establecidas en la corrutina se cumpla se le indica al comportamiento Event Time de la Clase Contador que ya no se tengan en cuenta la cantidad de frames para ser llamado  
         Nexquestion();
     }
 
