@@ -43,13 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFCU\xC1L ES RESULTADO DE SUMAR ESTOS DOS VALORES  2+2?"
+  text: "\xBFQu\xE9 civilizaci\xF3n antigua ten\xEDa faraones como                                                      
+    gobernantes?"
   options:
-  - text: 4
+  - text: "Turqu\xEDa"
+    correct: 0
+  - text: "M\xE9xico "
+    correct: 0
+  - text: Egipto
     correct: 1
-  - text: 10
-    correct: 0
-  - text: 8
-    correct: 0
-  - text: 7
+  - text: 'China '
     correct: 0

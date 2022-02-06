@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFCU\xC1NTOS SOLDADOS ARGENTINOS MURIERON EN LA GUERRA DE LAS MALVINAS?"
+  text: "\xBFEn qu\xE9 continente/s se encuentra Turqu\xEDa?"
   options:
-  - text: 649
+  - text: "Am\xE9rica"
+    correct: 0
+  - text: Asia y Europa
     correct: 1
-  - text: 200
+  - text: "\xC1frica y Ecuador"
     correct: 0
-  - text: 987
-    correct: 0
-  - text: 1452
+  - text: "Ocean\xEDa"
     correct: 0
