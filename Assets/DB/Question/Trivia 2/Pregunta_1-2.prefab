@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQUI\xC9N DIJO LA FAMOSA FRASE \u201CMI PLUMA LO MAT\xD3\u201D?"
+  text: "\xBFEn qu\xE9 pa\xEDs se sit\xFAa la ciudad de Cali?"
   options:
-  - text: JULIO JARAMILLO
-    correct: 0
-  - text: "LUCIO GUTI\xC9RREZ"
-    correct: 0
-  - text: JUAN MONTALVO
+  - text: Colombia
     correct: 1
-  - text: RAFAEL CORREA
+  - text: Venezuela
+    correct: 0
+  - text: Costa Rica
+    correct: 0
+  - text: Chile
     correct: 0

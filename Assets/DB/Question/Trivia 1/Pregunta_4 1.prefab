@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFCU\xC1L ES LA COORDENADA POR LA QUE SALE EL ASTRO REY SOL?"
+  text: "\xBFQu\xE9 ciudad qued\xF3 partida en dos tras la Segunda Guerra Mundial?"
   options:
-  - text: NORTE
+  - text: Frankfurt
     correct: 0
-  - text: SUR
-    correct: 0
-  - text: ESTE
+  - text: "Berl\xEDn"
     correct: 1
-  - text: OESTE
+  - text: "M\xFAnich"
+    correct: 0
+  - text: 'Hamburgo '
     correct: 0
