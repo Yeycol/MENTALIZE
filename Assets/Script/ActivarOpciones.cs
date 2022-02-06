@@ -4,10 +4,8 @@ using UnityEngine;
 //Este script está encargado de activar la interfaz de pausa en cualquier escena a partir de las referencias establecidas en el anterior script
 public class ActivarOpciones : MonoBehaviour
 {
-    public ReferencesPause Pause;//Variable pública de tipo de la clase ReferencesPause, el cuál permitirá controlar su canvas desde cualquier otra escena
     public Canvas Pausa;//Variable de tipo canvas que hace referencia a la interfaz de pausa
     public static ActivarOpciones shareOp;//Variable estática de tipo de esta misma clase, la misma que servirá para crear una instancia compartida
-
     private void Awake()
     {
         if (shareOp == null)
@@ -19,11 +17,11 @@ public class ActivarOpciones : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
     void Start()
     {
-        //Pause = GameObject.FindGameObjectWithTag("Pausa").GetComponent<ReferencesPause>();//Localizamos por etiqueta al objeto que tenga la etiqueta pause en este caso el AudioManager
-        Pausa = GameObject.Find("Pause").GetComponent<Canvas>();//Una vez recuperado este objeto, se prosigue a localizar un objeto que tenga el nombre pause, para recuperar su componente canvas y poderlo controlar
+        Pausa = GameObject.FindGameObjectWithTag("Pausa").GetComponent<Canvas>();//Una vez recuperado este objeto, se prosigue a localizar un objeto que tenga el nombre pause, para recuperar su componente canvas y poderlo controlar
     }
 
     public void ActivePause()
@@ -42,21 +40,29 @@ public class ActivarOpciones : MonoBehaviour
     {
         //Desactiva el Canvas que muestra las opciones de pausa
         Time.timeScale = 1f;
-        AudioManager.shareaudio.Partida.mute=false;//Se desmutea la música del videojuego
+        //TODO:Recuerda Reactivar el Audio cuando ya se desactive el Canvas de la Pausa
         AudioManager.shareaudio.Efectos[3].UnPause();//Se desmutea el efecto TimeEnd
         AudioManager.shareaudio.Efectos[6].UnPause();//Despausamos Efecto Disparo
         AudioManager.shareaudio.Efectos[7].UnPause();//Despausamos Efecto Llegada Nave
         AudioManager.shareaudio.Efectos[8].UnPause();//Despausamos Efecto Salida nave
         AudioManager.shareaudio.Efectos[9].UnPause();//Despausamos el Efeco Roto
         AudioManager.shareaudio.Efectos[10].UnPause();//Despausamos el Efeco Abducir Nave
+        AudioManager.shareaudio.Efectos[17].UnPause();//Despausamos el sonido de la frase A toda Máquina
+        AudioManager.shareaudio.Efectos[18].UnPause();//Despausamos la frase Se te acaba el timpo Tic Tac
+        AudioManager.shareaudio.Efectos[19].UnPause();//Despausamos la frase Mira el reloj no te queda tiempo
         Pausa.enabled = false;//Desactivamos el canvas
-        GameManager.shareInstance.StarGame();//Pasamos a estado de juego InGame por estar en Pausa
+        //TODO: Aun faltan establecer condicionales para la Pausa tanto en estado Menú como In game
+        if (Contador.sharecont.scene.name == "Tienda" || Contador.sharecont.scene.name == "SelectModoJuego" || Contador.sharecont.scene.name == "Inicio")//Se evalua si el nombre de la escena es Tienda
+            GameManager.shareInstance.BackToMenu();//Se pasará el estado de juego a Menu
+        else//Sino es el caso se pasará a en partida
+            GameManager.shareInstance.StarGame();//Se pasará estado de juego en partida  
     }
    public void OffCanvasPause()
     {
         //La función de este método es pasar al menú sin establecer modo de juego Ingame
         Time.timeScale = 1f;
         Pausa.enabled = false;//Se desactiva el canvas de pausa
+        
     }
    
 

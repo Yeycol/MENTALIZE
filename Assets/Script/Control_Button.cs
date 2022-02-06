@@ -10,93 +10,42 @@ using UnityEngine.UI;//Libreria necesaria para controlar el aspecto de Interface
 
 public class Control_Button : MonoBehaviour
 {
-    public Button buton1, buton2, buton3, buton4;//Variable de tipo Button, que sirve de referencia para los botones
+    public Button [] BotonesTrivias  = new Button [4];//Variable de tipo Button, que sirve de referencia para los botones
     public Color Origin = Color.black;//Variable de tipo color utilizada para restablecer el color incial de el Outline del texto de las opciones
     public Outline b1, b2, b3, b4;//Variable de tipo Outline, sirve para lozalizar por referencia el outline de los Textos de los botones
     public int ButtonSelection;//Variable de tipo entera que almacena el número de boton cliqueado
-
-    // Start is called before the first frame update
-    void Awake()
+    void Update()
     {
-        // Se lo caliza los hijos del objeto al cual le otorguemos este script
-        buton1 = transform.GetChild(0).GetComponent<Button>();//Devuelve la posición, rotación y escala de un hijo por índice 0
-        buton2 = transform.GetChild(1).GetComponent<Button>();//Devuelve la posición, rotación y escala de un hijo por índice 1
-        buton3 = transform.GetChild(2).GetComponent<Button>();//Devuelve la posición, rotación y escala de un hijo por índice 2
-        buton4 = transform.GetChild(3).GetComponent<Button>();//Devuelve la posición, rotación y escala de un hijo por índice 3
-        // Se localizan los cuatros botones de las opciones
-    }
-
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        EventoPorBotones();  // Al ejecutarse este método a cada frame evalua si los eventos suceden
-    }
-
-    public void EventoPorBotones()
-    {
-        // Si se presiona el uno de los botones llamrá a su método corrrespondiente
-        buton1.onClick.AddListener(button1Off);
-        buton2.onClick.AddListener(button2Off);
-        buton3.onClick.AddListener(button3Off);
-        buton4.onClick.AddListener(button4Off);
-        if(GameManager.shareInstance.currentgameState == GameState.GameOver || 
-            GameManager.shareInstance.currentgameState == GameState.Win || 
-            GameManager.shareInstance.currentgameState == GameState.Pause)
+       /* if (GameManager.shareInstance.currentgameState == GameState.GameOver ||
+           GameManager.shareInstance.currentgameState == GameState.Win ||
+           GameManager.shareInstance.currentgameState == GameState.Pause)
         {
             //Se evalua si nos encontramos en estos estados de juego para que los botones no sean presionados al estar en Game Over, Win o Pausa
             DesactivateButton();
         }
-    }
+       */
 
-    void button1Off()
-    {
-        //Este método se encarga de desahabilitar la interacción con los botones 2,3,4
-        buton2.interactable = false;
-        buton3.interactable = false;
-        buton4.interactable = false;
-    }
-    void button2Off()
-    {
-        //Este método se encarga de desahabilitar la interacción con los botones 1,3,4
-        buton1.interactable = false;
-        buton3.interactable = false;
-        buton4.interactable = false;
-    }
-    void button3Off()
-    {
-        //Este método se encarga de desahabilitar la interacción con los botones 1,2,4
-        buton1.interactable = false;
-        buton2.interactable = false;
-        buton4.interactable = false;
-    }
-
-    void button4Off()
-    {
-        //Este método se encarga de desahabilitar la interacción con los botones 1,2,3
-        buton1.interactable = false;
-        buton2.interactable = false;
-        buton3.interactable = false;
     }
 
     public void activebutton()
     {
         //Este método activa todos los botones al pasar a la siguiente pregunta 
-        buton1.interactable = true;
-        buton2.interactable = true;
-        buton3.interactable = true;
-        buton4.interactable = true;
+        BotonesTrivias[0].enabled=true;
+        BotonesTrivias[1].enabled = true;
+        BotonesTrivias[2].enabled = true;
+        BotonesTrivias[3].enabled = true;
     }
 
     public void DesactivateButton()
     {
         //Este método desactiva todos los botones dependiendo de la eventualidad
-        buton1.interactable = false;
-        buton2.interactable = false;
-        buton3.interactable = false;
-        buton4.interactable = false;
+        BotonesTrivias[0].enabled = false;
+        BotonesTrivias[1].enabled = false;
+        BotonesTrivias[2].enabled = false;
+        BotonesTrivias[3].enabled = false;
     }
-  
+   
+
     public void OutlineRed(int button)
     {
         //Método encargado de establecer el Outline de los botones en color Rojo cuando se conteste mal
@@ -109,7 +58,9 @@ public class Control_Button : MonoBehaviour
         {
             //Para cuando el entero es 1
             b1.effectColor = Color.red;
-        }else if (button == 2)
+
+        }
+        else if (button == 2)
         {
             //Para cuando el entero es 2
             b2.effectColor = Color.red;

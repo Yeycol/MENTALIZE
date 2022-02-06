@@ -43,13 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFCu\xE1ntos soldados argentinos murieron en la Guerra de las Malvinas?"
+  text: "\xBFC\xD3MO SE LLAMA EL PROCESO DE ELABORACI\xD3N DE ALIMENTOS QUE REALIZAN
+    LAS PLANTAS?"
   options:
-  - text: 649
+  - text: "FOTOS\xCDNTESIS"
     correct: 1
-  - text: 200
+  - text: MEIOSIS
     correct: 0
-  - text: 987
+  - text: MITOSIS
     correct: 0
-  - text: 1452
+  - text: "VAPORIZACI\xD3N"
     correct: 0
