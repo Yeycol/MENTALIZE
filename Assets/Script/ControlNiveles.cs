@@ -16,10 +16,10 @@ public class ControlNiveles : MonoBehaviour
     public Shadow[] LevelShadow;
     Guardado cargaryguardar;// Variable de tipo de la clase Guardado, que servirá para hacer referencia a la clase encargada de guardar los niveles y monedas conseguidos 
     public Color ActiveColor;// Color que establecemos desde el editor de Unity para el texto de los botones
-    public Color ShadowColor;
+    public Color ShadowColor;// Hace referencia al color de la sombra de los textos 
     public static ControlNiveles shareLvl;// Variable que hace referencia a esta misma clase, servirá para hacerla una instancia compartida   
     private Scene Getscene;
-    public Carga ReferCar;
+    public Carga ReferCar;// Variable de tipo de clase carga que es encargada de almacenar un entero de la escena previa que debe ser cargado después de la pantalla de carga
     private void Awake()
     {
         if (shareLvl == null)
@@ -31,24 +31,20 @@ public class ControlNiveles : MonoBehaviour
     }
     private void Start()
     {
-        if (GameManager.shareInstance.currentgameState == GameState.menu)
-        {
             if (Getscene.name == "SelectLevel (Trivias)")
             {
-                //Solo si estamos en estado de juego pasaran las acciones establecidas dentro de este condicional
-                cargaryguardar.Guardar();// Se llama al método de la clase Guardado, para que este guarde los niveles desbloqueados  
+                //Solo si estamos en estado de juego pasaran las acciones establecidas dentro de este condicional 
                 RefreshButton();// Método encargado de actualizar los botones desbloqueados 
                 FalseButton();// Método encargado de desbloquear los botones bloqueados 
-            }            
-        }
+            }        
     }
     public void CambiarNivel(int Nivel)
     {
         //Este método recibe como parámetro un entero del indice de la escena a la que queremos dirigirnos 
         
-        if (Nivel == 3|| Nivel == 4 )// Si el número de la escena pasada por argumento es igual a 3 
+        if (Nivel == 7 || Nivel == 2 || Nivel == 4 ||Nivel==8)// Si el número de la escena pasada por argumento es igual a los valores establecidos en el condicional
         {
-            //Entonces llamará al método encargado de cargar la escena del menú
+            //Entonces llamará a la corrrutina encargada de cargar la escena del menú
             StartCoroutine(AnimatorTransitionSceneMenu(Nivel));
         }
         else
@@ -61,17 +57,6 @@ public class ControlNiveles : MonoBehaviour
     }
     IEnumerator AnimatorTransitionScene(int Nivel)
     {
-        // Se pausa la ejecución para ir a la corrutina y hacer las accciones establecidas en su interior
-        if (GameManager.shareInstance.currentgameState == GameState.Win)
-        {
-            //En caso de que al entrar a la corrutina se este en modo de Ganado desactiva el canvas para transicionar a la siguiente escena
-            ManagerScene.shareMscen.OffWin();
-        }
-        else if (GameManager.shareInstance.currentgameState == GameState.GameOver)
-        {
-            //En caso de que al entrar a la corrutina se este en modo de Ganado desactiva el canvas para transicionar a la siguiente escena
-            ManagerScene.shareMscen.OffOver();
-        }
         AnimaCon.ShareAnimation.AnimationLis[9].SetTrigger("ExitScene");//Referencia al parámetro booleano que se reinicia desde controlador cuando se efectúa una trasicción 
         yield return new WaitForSeconds(0.9f);// Tiempo que se le da a la corrutina para realizar las acciones
         SceneManager.LoadScene(Nivel);// Una vez que termina la corrutina se carga la siguienre escena pasada por parámetro
@@ -86,22 +71,10 @@ public class ControlNiveles : MonoBehaviour
 
     public void EventButtonPass(int referenceButton)
     {
-        switch (referenceButton)
-        {
-            case 1:
-                ReferCar.GuardarPreverLoad(referenceButton);
-                CambiarNivel(5);
-                break;
-            case 2:
-                ReferCar.GuardarPreverLoad(referenceButton);
-                CambiarNivel(5);
-                break;
-            case 6:
-                ReferCar.GuardarPreverLoad(referenceButton);
-                GameManager.shareInstance.BackToMenu();
-                CambiarNivel(5);
-                break;
-        }
+        GameManager.shareInstance.LoadPartyandGame();//Pasamos estado de juego a partida
+        ReferCar.GuardarPreverLoad(referenceButton);//LLamamos al método encargado de guardar el entero que nos permitirá acceder a la siguiente escena
+        CambiarNivel(5);//Por predeterminado iremos a la escena de carga antes de cargar la escena del juego
+        
     }
 
 public void DesbloquearNivel()
@@ -111,7 +84,8 @@ public void DesbloquearNivel()
         {
             //Se le asigna a la variable Lvl Desbloqueado el level actual que se tenga almacenado 
             LvlDesbloqueado = Lvlcurrent;
-         
+            cargaryguardar.Guardar();// Se llama al método de la clase Guardado, para que este guarde los niveles desbloqueados 
+
         }
     }
 public void FalseButton()
@@ -119,12 +93,12 @@ public void FalseButton()
         //Método encargado de colocar los botones bloqueados
             for (int i = 0; i < Buttonslevel.Length; i++)//Bucle que repite su ciclo hasta la cantidad de botones almacenados en el array
             {
-            Level[i].fontSize = 80;
-            LevelShadow[i].effectDistance = new Vector2(5f, -0.5f);
             //Dentro del  ciclo se evalua si los botones de la lista tienen desahabilitado la interacción entonces cargan una imagen de la carpeta de resources
             if (Buttonslevel[i].interactable == false)
                 {
-                 Imagelevel[i].sprite = Resources.Load<Sprite>("Sprite/Bloqueado");//Le asignamos al array de componentes imágenes el cargado de una de las imágenes almacenada en resources
+                Level[i].fontSize = 80;
+                LevelShadow[i].effectDistance = new Vector2(5f, -0.5f);
+                Imagelevel[i].sprite = Resources.Load<Sprite>("Sprite/Bloqueado");//Le asignamos al array de componentes imágenes el cargado de una de las imágenes almacenada en resources
                  Level[i].text = "?";//Le asignamos a los arrays tipo texto el signo de interrogación
                 }
             }
@@ -135,9 +109,9 @@ public void FalseButton()
         for (int i = 0; i <LvlDesbloqueado+1 ; i++)//Bucle que repite su ciclo solo hasta la cantidad de niveles a desbloquear
         {
             Buttonslevel[i].interactable = true;//Se habilita los botones para poder cambiar de nivel (escena)
-            Imagelevel[i].sprite = Resources.Load<Sprite>("Sprite/Desbloqueado");//Le asignamos al array de componentes imágenes el cargado de una de las imágenes almacenada en resources
             if (Buttonslevel[i].interactable == true)// Hacemos esto solo si los botones tienen la interacción habilitada
             {
+                Imagelevel[i].sprite = Resources.Load<Sprite>("Sprite/Desbloqueado");//Le asignamos al array de componentes imágenes el cargado de una de las imágenes almacenada en resources
                 Level[i].color = ActiveColor;// Cambiamos el color de la componente texto
                 LevelShadow[i].effectColor = ShadowColor;
                 Level[i].fontSize = 80;
