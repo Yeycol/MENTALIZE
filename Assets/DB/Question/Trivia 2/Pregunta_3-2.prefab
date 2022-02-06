@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFCu\xE1l es la capital de Uruguay?"
+  text: "3.\t\xBFQU\xC9 PA\xCDS LE REGAL\xD3 LA ESTATUA DE LA LIBERTAD A NUEVA YORK?"
   options:
-  - text: Durazno
+  - text: "ESPA\xD1A"
     correct: 0
-  - text: Montevideo
+  - text: ALEMANIA
+    correct: 0
+  - text: "JAP\xD3N "
+    correct: 0
+  - text: FRANCIA
     correct: 1
-  - text: Ciudad del Caribe
-    correct: 0
-  - text: Salto
-    correct: 0

@@ -43,14 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFCu\xE1l de las siguientes especialidades no es t\xEDpica de la cocina
-    estadounidense?"
+  text: "\xBFQU\xC9 CIVILIZACI\xD3N ANTIGUA TEN\xCDA FARAONES COMO GOBERNANTES?"
   options:
-  - text: La hamburguesa
+  - text: "TURQU\xCDA"
     correct: 0
-  - text: El pastel de cangrejo
+  - text: "M\xC9XICO"
     correct: 0
-  - text: La tarta de manzana
-    correct: 0
-  - text: "Todas son t\xEDpicas"
+  - text: EGIPTO
     correct: 1
+  - text: CHINA
+    correct: 0

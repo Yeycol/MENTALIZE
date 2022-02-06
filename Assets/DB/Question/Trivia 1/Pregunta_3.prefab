@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQu\xE9 pa\xEDs le regal\xF3 la Estatua de la Libertad a Nueva York?"
+  text: "\xBFC\xD3MO SE ESCRIBE EL COLOR AMARILLO EN EL IDIOMA INGL\xC9S?"
   options:
-  - text: "Jap\xF3n "
+  - text: BLUE
     correct: 0
-  - text: "Espa\xF1a"
+  - text: RED
     correct: 0
-  - text: Alemania
+  - text: GREEN
     correct: 0
-  - text: 'Francia '
+  - text: YELLOW
     correct: 1

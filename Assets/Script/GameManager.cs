@@ -4,7 +4,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 // Aqui se creará el enumerado que contendrá los estados del juego
 public enum GameState
 {
@@ -14,13 +13,15 @@ public enum GameState
     GameOver,
     Pause,
     Load,
-    Win
+    Win,
+    Alert
 }
 
 public class GameManager : MonoBehaviour
 {
     public GameState currentgameState = GameState.menu;// Variable publica del tipo enumerado inicializada en el menú, es pública por lo tanto se podrá visualizar en la Interfaz de Unity
     public static GameManager shareInstance; // Variable que hace referencia a un singleton 
+    private bool HabiliteAudioLoad;//Variable de tipo booleano en la que se pretende almacenar un booleano para saber si se debe dar play o no a la canción de las trivias
     void Awake()
     {
         // El primero que llegue a esta línea será el único que controle el game manager
@@ -34,8 +35,7 @@ public class GameManager : MonoBehaviour
         {
          Destroy(gameObject);
         }
-        Application.targetFrameRate = 60;//Se indica al videojuego que intente renderizar a una velocidad de fotogramas específicos
-      
+        Application.targetFrameRate = 60;//Se indica al videojuego que intente renderizar a una velocidad de fotogramas específicos  
     }
 
 
@@ -48,16 +48,13 @@ public class GameManager : MonoBehaviour
     public void EvaluateAlert()
     {
         if (GameManager.shareInstance.currentgameState == GameState.InGame ||
-           GameManager.shareInstance.currentgameState == GameState.menu)
+           GameManager.shareInstance.currentgameState == GameState.menu&&currentgameState!=GameState.GameOver&& currentgameState != GameState.Win)
         {
-            //Solo si estamos en modo de juego y en menu, podremos activar la alerta de salida
+            //Solo si estamos en modo de juego y en menu y el estado de juego es diferente de GameOver Y Win 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 //Si se presiona el boton de escape del Móvil haremos las siguientes instrucciones
-                AudioManager.shareaudio.Efectos[4].Play();//Reproducimos el sonido de Alerta o Logro
-                AudioManager.shareaudio.Partida.mute = true;//Muteamos el sonido de la música
-                ManagerScene.shareMscen.ActiveAlert();//Llamamos al canvas de alerta
-                AnimaCon.ShareAnimation.AlertActive();//Activación de la animación de la alerta
+                AlertActive();//Se llama al método encargado de pasar al método SetGameState el estado de Alerta
             }
         }
     }
@@ -87,8 +84,9 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void LoadPartyandGame()
+    public void LoadPartyandGame(bool active_audio=false)
     {
+        HabiliteAudioLoad = active_audio;//Se almacena el valor booleano pasado por referencia a la variable booleana
         //Método que nos permitirá mostrar la pantalla de carga
         SetGameState(GameState.Load);
     }
@@ -99,6 +97,11 @@ public class GameManager : MonoBehaviour
         SetGameState(GameState.Win);
         
     }
+    public void AlertActive()
+    {
+        //Método encargado de pasar estado de juego Alerta Activa
+        SetGameState(GameState.Alert);
+    }
 
     private void SetGameState(GameState newGameState)
     {
@@ -106,13 +109,16 @@ public class GameManager : MonoBehaviour
         // Método que recibirá como argumento en este caso uno de los estados almacenados en el enumerados
         if (newGameState == GameState.menu)
         {
-            //TODO: Colocar la lógica del menú
-         
+            AudioManager.shareaudio.Efectos[14].UnPause();//Quitamos la pausa a la Música del Menú para que se vuelva a escuchar
+            AudioManager.shareaudio.Efectos[15].Pause();//Colocamos en Pausa a la música de la Trivia
+            AudioManager.shareaudio.Efectos[16].Pause();//Colocamos En Pausa a la música de Space Yue
+            AudioManager.shareaudio.Efectos[3].Stop();       
         }
         else if (newGameState == GameState.InGame)
         {
-            Contador.sharecont.points_ui.text = Contador.sharecont.pointsinv.ToString();//Imprime los puntos invicibles en la interfaz
-            AudioManager.shareaudio.Partida.mute=false;
+            AudioManager.shareaudio.Efectos[14].Pause();//Al llegar ha In game es necesario pausar la canción del menú
+            AudioManager.shareaudio.Efectos[15].UnPause();//Quitamos la pausa de las canciones de la partida siempre y cuando tengan la orden play establecida
+            AudioManager.shareaudio.Efectos[16].UnPause();
             ManagerScene.shareMscen.OffOver();//Desactiva la interfaz de usuario al perder partida
             ManagerScene.shareMscen.OffWin();//Desactiva la interfaz de usuario al ganar partida
             AnimaCon.ShareAnimation.DesactivateConfeti();//Método encargado de desactivar la animación del confeti
@@ -121,8 +127,11 @@ public class GameManager : MonoBehaviour
         }
         else if (newGameState == GameState.GameOver)
         {
-            AudioManager.shareaudio.Partida.mute=true;
-            AudioManager.shareaudio.Efectos[3].Stop();//Para el sonido llamado Time End
+            AudioManager.shareaudio.Efectos[3].Stop();//Paramos el sonido del TimeEnd
+            AudioManager.shareaudio.Efectos[15].Stop();//De igual forma en el Win paramos la música de la escena para posterior escuchar el sonido de Game Over 
+            AudioManager.shareaudio.Efectos[16].Stop();
+            AudioManager.shareaudio.Efectos[17].Stop();//Paramos el sonido de la frase A toda la máquina Go Go Go
+            AudioManager.shareaudio.Efectos[18].Stop();//Paramos el sonido de Se te caba Tiempo Tic Tac
             AudioManager.shareaudio.Efectos[0].Play();//Activa el sonido llamado OverGame
             ManagerScene.shareMscen.OffAlert();//Se desactiva la alerta en caso de que este activa al pasar a Game Over
             AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva la animación del evento Time End
@@ -134,9 +143,12 @@ public class GameManager : MonoBehaviour
         else if (newGameState == GameState.Win)
         {
             //TODO: Indicar al usuario que ha ganado
-            AudioManager.shareaudio.Partida.mute=true;
+            AudioManager.shareaudio.Efectos[15].Stop();//Al ganar una partida es necesario apagar la música  para escuchar el sonido de win
+            AudioManager.shareaudio.Efectos[16].Stop();
             AudioManager.shareaudio.Efectos[3].Stop();//Para el sonido llamado Time End
-            AudioManager.shareaudio.Efectos[0].Play();//Activa el sonido llamado WinGame
+            AudioManager.shareaudio.Efectos[13].Play();//Activa el sonido llamado WinGame
+            AudioManager.shareaudio.Efectos[17].Stop();//Paramos el sonido de la frase A toda la máquina Go Go Go
+            AudioManager.shareaudio.Efectos[18].Stop();//Paramos el sonido de Se te caba Tiempo Tic Tac
             AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva la animación del evento Time End
             ManagerScene.shareMscen.OffAlert();//Se desactiva la alerta en caso de que este activa al pasar a Win
             //AnimaCon.ShareAnimation.DesactivatePizarra();//Al perder partida se desactiva la animación de la pizarra
@@ -144,27 +156,54 @@ public class GameManager : MonoBehaviour
             AnimaCon.ShareAnimation.ActiveWin();//Se habilita la animación  de la Interfaz de Usuario
             AnimaCon.ShareAnimation.StartPadlock();//Se activa la animación del evento Padlock
             StartCoroutine(WaitForConfeti());//Llamamos a la corrutina encargada de habilitar la animación del Confeti
-           
         }
         else if (newGameState == GameState.Load)
-        {
-            //TODO: Mostrar la pantalla de carga
-            
+        {   
+            if (HabiliteAudioLoad)//Esta condicional evalua si la variable booleana es true para poder un pausar el sonido de menu, reiniciarlo y repetirlo en loop
+            {
+                AudioManager.shareaudio.Efectos[14].UnPause();//Desmuteamos la música del menú del juego
+                AudioManager.shareaudio.Efectos[14].Play();//Se vuelve a reproducir el audio desde un inicio para que no se escuche entrecortado al desmutear
+                AudioManager.shareaudio.Efectos[14].loop = true;// Se establece en bucle para que la música del menú se reproduzca   
+            }
         }
         else if (newGameState==GameState.Pause)
         {
-            //TODO: Mostrar al usuario el menú de pausa
+            //TODO: Recuerda que al agregar un sonido nuevo debes Pausarlo si esta en pausa 
             AudioManager.shareaudio.Efectos[3].Pause();//Pausa el sonido de Time End
-            AudioManager.shareaudio.Partida.mute=true;//Pausa el sonido de la Partida
             AudioManager.shareaudio.Efectos[6].Pause();//Pausamos el Efecto Disparo
             AudioManager.shareaudio.Efectos[7].Pause();//Pausamos el Efecto Llegada Nave
             AudioManager.shareaudio.Efectos[8].Pause();//Pausamos el Efeco Salida Nave
             AudioManager.shareaudio.Efectos[9].Pause();//Pausamos el Efeco Roto
             AudioManager.shareaudio.Efectos[10].Pause();//Pausamos el Efeco Abducir Nave
+            AudioManager.shareaudio.Efectos[14].Pause();//Al pasar en esta pausa se deben deshabilitar las canciones en determinada escena para proceder con su configuración
+            AudioManager.shareaudio.Efectos[15].Pause();// Al pasar a pausa se para un momento la música de Trivias
+            AudioManager.shareaudio.Efectos[16].Pause();//Se pausa la música de Space Yue
+            AudioManager.shareaudio.Efectos[17].Pause();//Se pausa la Frase A toda Máquina gogo
+            AudioManager.shareaudio.Efectos[18].Pause();//Se pausa la Frase Se te acaba el Tiempo
+            AudioManager.shareaudio.Efectos[19].Pause();//Se pausa el sonido de la frase Mira el Reloj no te queda tiempo
+        } else if (newGameState == GameState.Alert)
+        { 
+            //TODO: Recuerda que cada que agregues algun Efecto de sonido nuevo debes asignarle su estado cuando pase a Alert
+            //Este modo de encarga de desahabilitar los sonidos para cuando sale la alerta
+            AudioManager.shareaudio.Efectos[4].Play();//Reproducimos el sonido de Alerta o Logro
+            AudioManager.shareaudio.Efectos[3].Pause();//Pausa el sonido de Time End
+            AudioManager.shareaudio.Efectos[6].mute = true;//Pausamos el Efecto Disparo
+            AudioManager.shareaudio.Efectos[7].mute = true;//Pausamos el Efecto Llegada Nave
+            AudioManager.shareaudio.Efectos[8].mute = true;//Pausamos el Efeco Salida Nave
+            AudioManager.shareaudio.Efectos[9].mute = true;//Pausamos el Efeco Roto
+            AudioManager.shareaudio.Efectos[10].mute = true;//Pausamos el Efeco Abducir Nave
+            AudioManager.shareaudio.Efectos[12].mute = true;//Muteamos el sonido de los Focos Dañados
+            AudioManager.shareaudio.Efectos[14].Pause();//Muteamos el sonido de la música
+            AudioManager.shareaudio.Efectos[15].Pause();//Muteamos la música para Trivias
+            AudioManager.shareaudio.Efectos[16].Pause();//Muteamos música para Space Yue
+            AudioManager.shareaudio.Efectos[17].mute = true;//Muteamos la frase de A toda máquina Go Go
+            AudioManager.shareaudio.Efectos[18].mute = true;//Muteamos la frase Se te aca el Tiempo Tic Tac
+            AudioManager.shareaudio.Efectos [19].mute = true;//Muteamos el sonido de la frase Mira el Reloj
+            ManagerScene.shareMscen.ActiveAlert();//Llamamos al canvas de alerta
         }
         /*Se establece que la variable currentState la cual es mostrada de
         manera pública en el editor de Unity se igual a la pasada por parámetro*/
-        this.currentgameState = newGameState;  
+        currentgameState = newGameState;  
     }
    
     IEnumerator WaitForConfeti()

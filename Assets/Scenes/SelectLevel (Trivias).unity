@@ -1244,7 +1244,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 779606604}
         m_TargetAssemblyTypeName: EventSounds, Assembly-CSharp
         m_MethodName: ButtonSelect
         m_Mode: 1
@@ -2390,7 +2390,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2885,7 +2885,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 675101370}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1515657929}
+        m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
+        m_MethodName: CambiarNivel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 779606604}
+        m_TargetAssemblyTypeName: EventSounds, Assembly-CSharp
+        m_MethodName: ButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &675101370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3751,6 +3775,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb40f455c8151b40bbcdf34df3010f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene:
+    m_Handle: 0
 --- !u!1 &785766959
 GameObject:
   m_ObjectHideFlags: 0
@@ -6465,6 +6491,7 @@ MonoBehaviour:
   - {fileID: 888535870}
   - {fileID: 1798193472}
   - {fileID: 1798193472}
+  Descripciones: []
 --- !u!4 &1287460660
 Transform:
   m_ObjectHideFlags: 0
@@ -8476,12 +8503,21 @@ MonoBehaviour:
   moneda_ui: {fileID: 1785166287}
   points_ui: {fileID: 1830064945}
   time: 61
+  currentTime: 0
   range: 0
   value_Points: 0
   value_moneda: 1
   moneda: 0
+  scene:
+    m_Handle: 0
   GuardadoMonedas: {fileID: 0}
   pointsinv: 0
+  Oneintro: No
+  TimeReferences: 0
+  monedawin: 0
+  monedaextra: 0
+  UI_WinText: {fileID: 0}
+  SliderInicio: []
 --- !u!4 &1652577665
 Transform:
   m_ObjectHideFlags: 0
@@ -9718,7 +9754,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1784785759}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1515657929}
+        m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
+        m_MethodName: CambiarNivel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1784785759
 MonoBehaviour:
   m_ObjectHideFlags: 0
