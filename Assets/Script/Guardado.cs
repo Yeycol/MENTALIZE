@@ -12,12 +12,12 @@ public class Guardado : MonoBehaviour
     private string RutaArchivo1;//Variable que almacenará la ruta en la que vamos almacenar las monedas
     private string RutaArchivo2;
     static bool PrimeraVez = true;//Booleano utilizado para hacer el cargado de los niveles por única vez
-    public List<int> Cero = null;//Lista vacía en caso de que no exista el fichero
+    public List<int> Cero = null;
     private void Awake()
     {
         RutaArchivo = Application.persistentDataPath + "/datos.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte del juego 
         RutaArchivo1 = Application.persistentDataPath + "/datos1.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte del juego 
-        RutaArchivo2 = Application.persistentDataPath + "/ObjectBuy.dat";
+        RutaArchivo2 = Application.persistentDataPath + "/ObjectsBull.dat";
         if (PrimeraVez)//Evalua si es el bolleano es verdad, se carga los niveles desbloqueados, si n es el caso no ingresa a la condicional
         {
             Cargar();//Método encargado de cargar los datos almacenados
@@ -99,7 +99,6 @@ public class Guardado : MonoBehaviour
             //Pero si podemos convertir nuestro archivo deserializado a un tipo de dato específico
             ControlSección.ShareTienda.IdObjetos = datos2.Idonjectos.ToList(); ;// Se iguala la variable de la clase control Selección a la variable de la clase de IdObjetos
             //Para que reciba el dato almacenado en su interior, para ello copeamos la lista de la clase IdObjetos y la asignamos a la variable d ela clase control selección
-            file2.Close();
         }
         else
         {

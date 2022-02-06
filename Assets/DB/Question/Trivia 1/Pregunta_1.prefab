@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFDE QUE COLOR ES EL CIELO?"
+  text: "\xBFQui\xE9n dijo la famosa frase \u201CMi Pluma lo mat\xF3\u201D?"
   options:
-  - text: BLANCO
+  - text: Julio Jaramillo
     correct: 0
-  - text: ROJO
+  - text: "Lucio Guti\xE9rrez"
     correct: 0
-  - text: CELESTE
+  - text: Juan Montalvo
     correct: 1
-  - text: VERDE
+  - text: Rafael Correa
     correct: 0

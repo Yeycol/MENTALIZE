@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQU\xC9 CIUDAD QUED\xD3 PARTIDA EN DOS TRAS LA SEGUNDA GUERRA MUNDIAL?"
+  text: "\xBFA qu\xE9 pa\xEDs pertenece la Isla Gal\xE1pagos?"
   options:
-  - text: FRANKFURT
+  - text: "M\xE9xico"
     correct: 0
-  - text: "BERL\xCDN"
+  - text: Argentina
+    correct: 0
+  - text: Ecuador
     correct: 1
-  - text: "M\xDANICH"
-    correct: 0
-  - text: 'HAMBURGO '
+  - text: "Sucmb\xEDos"
     correct: 0
