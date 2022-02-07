@@ -13,9 +13,11 @@ public class AnimaCon : MonoBehaviour
     public List<Animator> AnimationLis = null;//Lista de las animaciones a controlar
     public static AnimaCon ShareAnimation;
     public Animator[] EventTime = new Animator[3];//Array que contiene las animaciones para las eventualidades del tiempo 
+    public Animator[] EventVidas = new Animator[3];//Array que contiene la componente Animator de los objetos de la animación para cuando se pierde vidas  
     public GameObject ObjectAnimation;//Hace referencia al objeto padre que contiene en su interior a los demás hijos que son las animaciones
     public ParameterAndTime[]ValueNecesary;//Array que contiene los strings de los nombres de los parámetros para activar la animación
     public int indextime;//Varibale de tipo entera que será utilizada para sacar un entero aleatorio del Array EventTime
+    public int indexvidas;//Variable de tipo entero que alamcenará el entero aleatorio para las eventualidades de vida 
     //Referencia a los parámetros de las animaciones
     const string START_PIZARRA = "startPizarra";//Variable costante que hace referencia al parámetro booleano de la pizarra
     const string ACTIVE_OVER = "Active";// Variable constante que hace referencia al parámetro booleano de la interfaz de Game Over
@@ -60,9 +62,10 @@ public class AnimaCon : MonoBehaviour
         if (ShareAnimation == null)
         {
             ShareAnimation = this;
-           
+
         }
         indextime = Random.Range(0, EventTime.Length);//Se genera un número entero aleatorio desde cero hasta la cantidad de objetos que tenga el array EventTime 
+        indexvidas = Random.Range(0, EventVidas.Length);//El número aleatorio generado por el método Range es almacenado en la variable entera, este número aleatorio es escogido desde 0 hasta la cantidad de elementos que tenga el array
         scene = SceneManager.GetActiveScene();
     }
 
@@ -258,20 +261,33 @@ public class AnimaCon : MonoBehaviour
     public void EventInGame(string Event)
     {
         //Este método recibe dos parámetros de tipo string el uno almacena el tipo de evento que está por suceder y el otro el nombre del parámetro , necesario para establecer el booleano a la componente animator
-        
+
         switch (Event)
         {
             case "Time":// En caso del evento llamarse Time
                 if (indextime == 0)//En caso de que el número aleatorio sea igual a 0
                 {
-                    StartCoroutine(StartEvenTAnimationTime(indextime,ValueNecesary[0].ParameterAnimator, ValueNecesary[0].TimeCourrutine));//Se llama a la corrutina para dar tiempo a visualizar la animación pasando por parámetro la posición de la animación, parámetro que se tiene que activar y tiempo de la corrutina, para mostrar la animación
+                    StartCoroutine(StartEvenTAnimationTime(indextime, ValueNecesary[0].ParameterAnimator, ValueNecesary[0].TimeCourrutine));//Se llama a la corrutina para dar tiempo a visualizar la animación pasando por parámetro la posición de la animación, parámetro que se tiene que activar y tiempo de la corrutina, para mostrar la animación
                 } else if (indextime == 1)//En caso que el número aleatorio sea igual a 1
                 {
-                    StartCoroutine(StartEvenTAnimationTime(indextime, ValueNecesary[1].ParameterAnimator,ValueNecesary[1].TimeCourrutine));
+                    StartCoroutine(StartEvenTAnimationTime(indextime, ValueNecesary[1].ParameterAnimator, ValueNecesary[1].TimeCourrutine));
                 }
-                else if(indextime==2)//En caso que el número aleatorio sea igual a 2
+                else if (indextime == 2)//En caso que el número aleatorio sea igual a 2
                 {
                     StartCoroutine(StartEvenTAnimationTime(indextime, ValueNecesary[2].ParameterAnimator, ValueNecesary[2].TimeCourrutine));
+                }
+                break;
+
+            case "Vida":
+                //TODO: Llamar y establecer los valores que pasrán la corrutina por parámetro
+                if (indexvidas == 0)
+                {
+
+                } else if (indexvidas == 1)
+                {
+
+                } else if (indexvidas == 2) { 
+                
                 }
                 break;
         }
@@ -287,7 +303,7 @@ public class AnimaCon : MonoBehaviour
         EventTime[AnimationParameter].SetBool(ParameterAnimator, false);//Se activa la animación de salida de la eventualidad
         ObjectAnimation.SetActive(false);//Deshabilitamos el objeto encargado dehabilitar el Raycast Para evitar que los botones de las trivias activen otra animación
     }
-        
+    //TODO: Crear la corrutina para el caso de la eventualidad del tiempo         
   
     [System.Serializable]
     public class ParameterAndTime
