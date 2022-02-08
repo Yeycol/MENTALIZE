@@ -50,6 +50,7 @@ public class ActivarOpciones : MonoBehaviour
         AudioManager.shareaudio.Efectos[17].UnPause();//Despausamos el sonido de la frase A toda Máquina
         AudioManager.shareaudio.Efectos[18].UnPause();//Despausamos la frase Se te acaba el timpo Tic Tac
         AudioManager.shareaudio.Efectos[19].UnPause();//Despausamos la frase Mira el reloj no te queda tiempo
+        AudioManager.shareaudio.Efectos[20].UnPause();//Despausamos el sonido de la frase Concentrate tu puedes hacerlo mejor
         Pausa.enabled = false;//Desactivamos el canvas
         //TODO: Aun faltan establecer condicionales para la Pausa tanto en estado Menú como In game
         if (Contador.sharecont.scene.name == "Tienda" || Contador.sharecont.scene.name == "SelectModoJuego" || Contador.sharecont.scene.name == "Inicio")//Se evalua si el nombre de la escena es Tienda

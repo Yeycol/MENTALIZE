@@ -43,6 +43,7 @@ public class Contador : MonoBehaviour
         }
         GuardadoMonedas = GameObject.Find("ControlNiveles").GetComponent<Guardado>();//Localización de la clase guardado a traves d ela busqueda del objeto ControlNiveles
         scene = SceneManager.GetActiveScene();//GetActiveScene es un método que nos permite obtener la escena activa actualmente
+        ResetSound();
     }
     void Start()
     {
@@ -124,7 +125,8 @@ public class Contador : MonoBehaviour
         }
         if ((int)currentTime == 20)
         { //Esta condicional solo sucede siempre y cuando el tiempo sea igual a 20
-                AnimaCon.ShareAnimation.EventInGame("Time");//Se llama al método encargado de evaluar en que eventualidad estamos y proceder a reproducir la animación de acuerdo l número aleatorio conseguido   
+            //TODO: No olvidar arreglar un pequeño bug de que la aniamción pueda volverse a repetir en esta instacia, esto solo debe suceder una vez
+            AnimaCon.ShareAnimation.EventInGame("Time");//Se llama al método encargado de evaluar en que eventualidad estamos y proceder a reproducir la animación de acuerdo l número aleatorio conseguido   
         }else if ((int)currentTime == 10){
             //Si el tiempo es igual a 10 se hacen las siguientes acciones
                 AudioManager.shareaudio.Efectos[3].Play();//Iniciamos el Audio del efecto del Alarma cuando se acaba el tiempo
@@ -144,6 +146,7 @@ public class Contador : MonoBehaviour
             }
         }
 
+      
        
     }
 
@@ -219,6 +222,7 @@ public class Contador : MonoBehaviour
             GameManager.shareInstance.GameOver();//Pasamos a estado de Juego Game Over
 
         }
+       
     }
 
     public static void PointsAdd()
