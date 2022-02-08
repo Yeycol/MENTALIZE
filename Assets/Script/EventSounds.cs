@@ -66,6 +66,10 @@ public class EventSounds : MonoBehaviour
     {
         AudioManager.shareaudio.Efectos[19].Play();
     }
+    public void PLayConcentrateTuPuedesHacerloMejor()
+    {
+        AudioManager.shareaudio.Efectos[20].Play();
+    }
     public void EvaluateMusicIngame()
     {
         //Método encargado de evaluar que música debe sonar en Ingame

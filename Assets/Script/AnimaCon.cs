@@ -17,7 +17,7 @@ public class AnimaCon : MonoBehaviour
     public GameObject ObjectAnimation;//Hace referencia al objeto padre que contiene en su interior a los demás hijos que son las animaciones
     public ParameterAndTime[]ValueNecesary;//Array que contiene los strings de los nombres de los parámetros para activar la animación
     public int indextime;//Varibale de tipo entera que será utilizada para sacar un entero aleatorio del Array EventTime
-    public int indexvidas;//Variable de tipo entero que alamcenará el entero aleatorio para las eventualidades de vida 
+    public int indexvidas;//Variable de tipo entero que almacenará el entero aleatorio para las eventualidades de vida 
     //Referencia a los parámetros de las animaciones
     const string START_PIZARRA = "startPizarra";//Variable costante que hace referencia al parámetro booleano de la pizarra
     const string ACTIVE_OVER = "Active";// Variable constante que hace referencia al parámetro booleano de la interfaz de Game Over
@@ -110,8 +110,10 @@ public class AnimaCon : MonoBehaviour
     public void DesactivateAlert()
     {
         //Método encargado  de desactivar la alerta con animación
+
             StartCoroutine(DescativateCanvasAlert());// Damos un tiempo de llamado al método para que el canvas no desaparesca al instante
-    }
+
+   }
 
     IEnumerator DescativateCanvasAlert()
     {
@@ -143,6 +145,7 @@ public class AnimaCon : MonoBehaviour
             AudioManager.shareaudio.Efectos[17].mute = false;//Desmuteamos el sonido de la frase A toda Máquina
             AudioManager.shareaudio.Efectos[18].mute = false;//Desmuteamos el sonido de la frase Se te acaba el tiempo
             AudioManager.shareaudio.Efectos[19].mute = false;//Desmuteamos el sonido de la frase Mira el Reloj no te queda tiempo
+            AudioManager.shareaudio.Efectos[20].mute = false;//Desmuteamos el sonido de la frase Concentrate tu puedes hacerlo mejor
         }
         else if (GameManager.shareInstance.currentgameState == GameState.menu)//Solo si estamos en menú sucederá lo del interior
         {
@@ -156,6 +159,7 @@ public class AnimaCon : MonoBehaviour
             AudioManager.shareaudio.Efectos[17].mute = false;//Desmuteamos el sonido de la frase A toda Máquina
             AudioManager.shareaudio.Efectos[18].mute = false;//Desmuteamos el sonido de la frase Se te acaba el tiempo
             AudioManager.shareaudio.Efectos[19].mute = false;//Desmuteamos el sonido de la frase Mira el Reloj no te queda tiempo
+            AudioManager.shareaudio.Efectos[20].mute = false;//Desmuteamos el sonido de la frase Concentrate tu puedes hacerlo mejor
         }
     
     }
@@ -282,12 +286,12 @@ public class AnimaCon : MonoBehaviour
                 //TODO: Llamar y establecer los valores que pasrán la corrutina por parámetro
                 if (indexvidas == 0)
                 {
-
+                    StartCoroutine(StartEventAnimationHealth(indexvidas, ValueNecesary[3].ParameterAnimator, ValueNecesary[3].TimeCourrutine));
                 } else if (indexvidas == 1)
                 {
-
-                } else if (indexvidas == 2) { 
-                
+                    StartCoroutine(StartEventAnimationHealth(indexvidas, ValueNecesary[3].ParameterAnimator, ValueNecesary[3].TimeCourrutine));
+                } else if (indexvidas == 2) {
+                    StartCoroutine(StartEventAnimationHealth(indexvidas, ValueNecesary[3].ParameterAnimator, ValueNecesary[3].TimeCourrutine));
                 }
                 break;
         }
@@ -299,11 +303,22 @@ public class AnimaCon : MonoBehaviour
         ObjectAnimation.SetActive(true);//Hablitamos el objeto con Raycast engargado de evitar que los botones sean presionados cuando la animación estaá activa 
         EventTime[AnimationParameter].SetBool(ParameterAnimator, true);//Se activa la animación de acuerdo al entero obtenido en el ramdom y el nombre del parámetro pasado por parámetro
         yield return new WaitForSeconds(TimeCorru);
-        Contador.sharecont.IntroAnimation = false;//Se indica que el comportamiento de Contador deje de tomar en cuenta los frames
         EventTime[AnimationParameter].SetBool(ParameterAnimator, false);//Se activa la animación de salida de la eventualidad
+        Contador.sharecont.IntroAnimation = false;//Se indica que el comportamiento de Contador deje de tomar en cuenta los frames
         ObjectAnimation.SetActive(false);//Deshabilitamos el objeto encargado dehabilitar el Raycast Para evitar que los botones de las trivias activen otra animación
     }
-    //TODO: Crear la corrutina para el caso de la eventualidad del tiempo         
+    //TODO: Crear la corrutina para el caso de la eventualidad del tiempo
+    IEnumerator StartEventAnimationHealth(int ReferencesIndex, string ReferencesParameter, float RefrencesTimeCorrutine)
+    {
+      
+        Contador.sharecont.IntroAnimation = true;
+        ObjectAnimation.SetActive(true);
+        EventVidas[ReferencesIndex].SetBool(ReferencesParameter, true);
+        yield return new WaitForSeconds(RefrencesTimeCorrutine);
+        EventVidas[ReferencesIndex].SetBool(ReferencesParameter, false);
+        Contador.sharecont.IntroAnimation = false;
+        ObjectAnimation.SetActive(false); 
+    }
   
     [System.Serializable]
     public class ParameterAndTime

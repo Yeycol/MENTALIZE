@@ -15,6 +15,7 @@ public class ManagerQuiz : MonoBehaviour
     public QuizDb g_quizDB = null; // Variable de tipo de la clase QuizDb, la cual contiene una lista de las preguntas
     public  QuizUi g_quizUI = null; //Variable de tipo de la clase QuizUi, la cual contiene el método para contruir las opciones en los botones
     public Control_Button Control;// Se localiza un objeto por referencia en este caso la clase que nos permita activar y desativar la interacción con los botones
+    public string OnePlay = "Si";//Variable de tipo string que controla las veces que se debe ejecutar las animaciones en In Game
     private void Start()
     {
         GameManager.shareInstance.StarGame();//Establecemos como modo en partida
@@ -81,9 +82,14 @@ public class ManagerQuiz : MonoBehaviour
     {
         //Método que tiene la finalidad de ser usado para pasar a la siguiente pregunta
         // Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
-        AnimaCon.ShareAnimation.StopHeart();//Se llama al método encargado de reproducir la animación  del corazón restaurandose
-        yield return new WaitForSeconds(0.30f);
+        AnimaCon.ShareAnimation.StopHeart();//Se llama al método encargado de reproducir la animación  del corazón restaurandoses
+        yield return new WaitForSeconds(1f);
         //Contador.sharecont.IntroAnimation = false;
+        if (GameManager.shareInstance.currentgameState == GameState.InGame && Contador.sharecont.vidas == 1 && OnePlay =="Si")
+        {
+            OnePlay = "No";
+            AnimaCon.ShareAnimation.EventInGame("Vida");
+        }
         Nexquestion();
     }
 
