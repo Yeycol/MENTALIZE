@@ -134,6 +134,8 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[18].Stop();//Paramos el sonido de Se te caba Tiempo Tic Tac
             AudioManager.shareaudio.Efectos[19].Stop();//Paramos el sonido de la frase Mira el reloj no te queda tiempo 
             AudioManager.shareaudio.Efectos[20].Stop();//Paramos el sonido de la frase Concentrate tu puedes hacerlo mejor
+            AudioManager.shareaudio.Efectos[21].Stop();//Paramos el sonido de la frase Ey no te distraigas tienes una vida menos
+            AudioManager.shareaudio.Efectos[22].Stop();//Paramos el sonido de la frase Mira en donde presionas tienes una vida menos
             AudioManager.shareaudio.Efectos[0].Play();//Activa el sonido llamado OverGame
             ManagerScene.shareMscen.OffAlert();//Se desactiva la alerta en caso de que este activa al pasar a Game Over
             AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva la animación del evento Time End
@@ -153,6 +155,8 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[18].Stop();//Paramos el sonido de Se te caba Tiempo Tic Tac
             AudioManager.shareaudio.Efectos[19].Stop();//Paramos el sonido de la frase Mira el reloj no te queda tiempo 
             AudioManager.shareaudio.Efectos[20].Stop();//Paramos el sonido de la frase Concentrate tu puedes hacerlo mejor
+            AudioManager.shareaudio.Efectos[21].Stop();//Paramos el sonido de la frase Ey no te distraigas tienes una vida menos
+            AudioManager.shareaudio.Efectos[22].Stop();//Paramos el sonido de la frase Mira en donde presionas tienes una vida menos
             AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva la animación del evento Time End
             ManagerScene.shareMscen.OffAlert();//Se desactiva la alerta en caso de que este activa al pasar a Win
             //AnimaCon.ShareAnimation.DesactivatePizarra();//Al perder partida se desactiva la animación de la pizarra
@@ -185,7 +189,9 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[17].Pause();//Se pausa la Frase A toda Máquina gogo
             AudioManager.shareaudio.Efectos[18].Pause();//Se pausa la Frase Se te acaba el Tiempo
             AudioManager.shareaudio.Efectos[19].Pause();//Se pausa el sonido de la frase Mira el Reloj no te queda tiempo
-            AudioManager.shareaudio.Efectos[20].Pause();//Se pause el sonido de la frase Concentrate tu puedes hacerlo mejor
+            AudioManager.shareaudio.Efectos[20].Pause();//Se pausa el sonido de la frase Concentrate tu puedes hacerlo mejor
+            AudioManager.shareaudio .Efectos[21].Pause();//Se pausa el sonido de la frase Ey no te distraigas te queda una vida menos 
+            AudioManager.shareaudio.Efectos[22].Pause();//Se pausa el sonido de la frase Mira en donde presionas tienes una vida menos 
         } else if (newGameState == GameState.Alert)
         { 
             //TODO: Recuerda que cada que agregues algun Efecto de sonido nuevo debes asignarle su estado cuando pase a Alert
@@ -205,6 +211,8 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[18].mute = true;//Muteamos la frase Se te aca el Tiempo Tic Tac
             AudioManager.shareaudio.Efectos [19].mute = true;//Muteamos el sonido de la frase Mira el Reloj
             AudioManager.shareaudio.Efectos[20].mute = true;//Mutemaos el sonido de la frase Concentrate tu puedes hacerlo mejor
+            AudioManager.shareaudio.Efectos[21].mute = true;//Muteamos el sonido de la frase Ey no te distraigas tienes una vida menos
+            AudioManager.shareaudio.Efectos[22].mute=true;//Muteamos el sonido de la frase Mira donde presionas tienes una vida menos         
             ManagerScene.shareMscen.ActiveAlert();//Llamamos al canvas de alerta
         }
         /*Se establece que la variable currentState la cual es mostrada de
