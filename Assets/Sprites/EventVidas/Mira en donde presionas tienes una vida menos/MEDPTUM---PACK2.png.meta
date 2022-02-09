@@ -1,0 +1,720 @@
+fileFormatVersion: 2
+guid: c9aac269db10ca141b38f1253f4bb0cb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3740658254393893792
+    second: MEDPTUM-26
+  - first:
+      213: -5780666609892527580
+    second: MEDPTUM-27
+  - first:
+      213: 7891728116507269681
+    second: MEDPTUM-28
+  - first:
+      213: 2788894549205898942
+    second: MEDPTUM-29
+  - first:
+      213: 3896403456088155350
+    second: MEDPTUM-30
+  - first:
+      213: -6555217404726426640
+    second: MEDPTUM-31
+  - first:
+      213: 3414066000190081686
+    second: MEDPTUM-32
+  - first:
+      213: -8449700141847919953
+    second: MEDPTUM-33
+  - first:
+      213: -1467947550788228763
+    second: MEDPTUM-34
+  - first:
+      213: 3957583217456418762
+    second: MEDPTUM-35
+  - first:
+      213: 7064743699292802882
+    second: MEDPTUM-36
+  - first:
+      213: -3694492457075856541
+    second: MEDPTUM-37
+  - first:
+      213: -5609206396394440060
+    second: MEDPTUM-38
+  - first:
+      213: 2250607182484452465
+    second: MEDPTUM-39
+  - first:
+      213: 940252663774807645
+    second: MEDPTUM-40
+  - first:
+      213: 572900027431266759
+    second: MEDPTUM-41
+  - first:
+      213: 2883117484248061520
+    second: MEDPTUM-42
+  - first:
+      213: -7408180827828381462
+    second: MEDPTUM-43
+  - first:
+      213: 1221954352931598030
+    second: MEDPTUM-44
+  - first:
+      213: -4230650756184029422
+    second: MEDPTUM-45
+  - first:
+      213: -3485123647366882599
+    second: MEDPTUM-46
+  - first:
+      213: 3133892620363497780
+    second: MEDPTUM-47
+  - first:
+      213: -2980564268588097495
+    second: MEDPTUM-48
+  - first:
+      213: 7596027554328232758
+    second: MEDPTUM-49
+  - first:
+      213: -5344501724280459366
+    second: MEDPTUM-50
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 49
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MEDPTUM-26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c18b0f223861cc0800000000000000
+      internalID: -3740658254393893792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-27
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 422f4687852f6cfa0800000000000000
+      internalID: -5780666609892527580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-28
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13ad068e8ec058d60800000000000000
+      internalID: 7891728116507269681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-29
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6d079f0d424b620800000000000000
+      internalID: 2788894549205898942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-30
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d42dbd9c4ec21630800000000000000
+      internalID: 3896403456088155350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f3c2dd50803705a0800000000000000
+      internalID: -6555217404726426640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-32
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69a811d40f2316f20800000000000000
+      internalID: 3414066000190081686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-33
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa2469a4d72acba80800000000000000
+      internalID: -8449700141847919953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-34
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569ec56ea7dc0abe0800000000000000
+      internalID: -1467947550788228763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-35
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acf8985d7f82ce630800000000000000
+      internalID: 3957583217456418762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24fc681c6f20b0260800000000000000
+      internalID: 7064743699292802882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-37
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36b22ae3fa68abcc0800000000000000
+      internalID: -3694492457075856541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-38
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48a7f0750881822b0800000000000000
+      internalID: -5609206396394440060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-39
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 174bde8ee43cb3f10800000000000000
+      internalID: 2250607182484452465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-40
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d568967e0d27c0d00800000000000000
+      internalID: 940252663774807645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c92ad22a8953f700800000000000000
+      internalID: 572900027431266759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-42
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 056d2569314e20820800000000000000
+      internalID: 2883117484248061520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-43
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae81e6d89cad03990800000000000000
+      internalID: -7408180827828381462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-44
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eceea32820145f010800000000000000
+      internalID: 1221954352931598030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-45
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217c9ec5d85b945c0800000000000000
+      internalID: -4230650756184029422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9da1268f18a52afc0800000000000000
+      internalID: -3485123647366882599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-47
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4310cf0fbb2dd7b20800000000000000
+      internalID: 3133892620363497780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-48
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 920a594e698e2a6d0800000000000000
+      internalID: -2980564268588097495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-49
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63340dfa0d28a6960800000000000000
+      internalID: 7596027554328232758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEDPTUM-50
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9fecc68ff384d5b0800000000000000
+      internalID: -5344501724280459366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,720 @@
+fileFormatVersion: 2
+guid: da5f06a2a5593ef408bf412c2f4091dd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8822052057939857824
+    second: ENTDTQUV-51
+  - first:
+      213: 6579852155570080418
+    second: ENTDTQUV-52
+  - first:
+      213: 7958292728517006689
+    second: ENTDTQUV-53
+  - first:
+      213: -5999395927082586256
+    second: ENTDTQUV-54
+  - first:
+      213: 6145628862511953934
+    second: ENTDTQUV-55
+  - first:
+      213: 5002414034417818655
+    second: ENTDTQUV-56
+  - first:
+      213: 8005698607605411947
+    second: ENTDTQUV-57
+  - first:
+      213: 8876820497609094589
+    second: ENTDTQUV-58
+  - first:
+      213: 445142874335547097
+    second: ENTDTQUV-59
+  - first:
+      213: 3648019227691678250
+    second: ENTDTQUV-60
+  - first:
+      213: 6407984990573663352
+    second: ENTDTQUV-61
+  - first:
+      213: -409464611633166196
+    second: ENTDTQUV-62
+  - first:
+      213: 4523513222736161428
+    second: ENTDTQUV-63
+  - first:
+      213: 4299492323096603077
+    second: ENTDTQUV-64
+  - first:
+      213: -615040505846367833
+    second: ENTDTQUV-65
+  - first:
+      213: 6017069935057732858
+    second: ENTDTQUV-66
+  - first:
+      213: 3075601253575704687
+    second: ENTDTQUV-67
+  - first:
+      213: 6729998058160972617
+    second: ENTDTQUV-68
+  - first:
+      213: 1008882081228861939
+    second: ENTDTQUV-69
+  - first:
+      213: 8267874408010493936
+    second: ENTDTQUV-70
+  - first:
+      213: -1154203194978855735
+    second: ENTDTQUV-71
+  - first:
+      213: -9118964555057119103
+    second: ENTDTQUV-72
+  - first:
+      213: 1927906282734678168
+    second: ENTDTQUV-73
+  - first:
+      213: -8217453669641529456
+    second: ENTDTQUV-74
+  - first:
+      213: 1820264265686447663
+    second: ENTDTQUV-75
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 49
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ENTDTQUV-51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06ead700566c19580800000000000000
+      internalID: -8822052057939857824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-52
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aac7578ca4505b50800000000000000
+      internalID: 6579852155570080418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-53
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16594dd5219817e60800000000000000
+      internalID: 7958292728517006689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-54
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07f2153c03dddbca0800000000000000
+      internalID: -5999395927082586256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-55
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08b967b3e8a94550800000000000000
+      internalID: 6145628862511953934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c17e47f052c6540800000000000000
+      internalID: 5002414034417818655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-57
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b60f825b774f91f60800000000000000
+      internalID: 8005698607605411947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-58
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db575ee063dc03b70800000000000000
+      internalID: 8876820497609094589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-59
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de0113f5177d2600800000000000000
+      internalID: 445142874335547097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-60
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2a7b58d82e50a230800000000000000
+      internalID: 3648019227691678250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8749d21e56cbde850800000000000000
+      internalID: 6407984990573663352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-62
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c88038bea1a415af0800000000000000
+      internalID: -409464611633166196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-63
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49aa8f93f4fb6ce30800000000000000
+      internalID: 4523513222736161428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-64
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c921b8fc7ddaab30800000000000000
+      internalID: 4299492323096603077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-65
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a9fc862befe677f0800000000000000
+      internalID: -615040505846367833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af48cc3e93de08350800000000000000
+      internalID: 6017069935057732858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-67
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f60402e7b0bbeaa20800000000000000
+      internalID: 3075601253575704687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-68
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 943e0cba391c56d50800000000000000
+      internalID: 6729998058160972617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-69
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f137e758e4400e00800000000000000
+      internalID: 1008882081228861939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-70
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ff220118f36db270800000000000000
+      internalID: 8267874408010493936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c41aa43f427bffe0800000000000000
+      internalID: -1154203194978855735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-72
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18041703d0ee27180800000000000000
+      internalID: -9118964555057119103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-73
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 890f4a6bc8c41ca10800000000000000
+      internalID: 1927906282734678168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-74
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09759c6ec6db5fd80800000000000000
+      internalID: -8217453669641529456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ENTDTQUV-75
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f26f39994b0e24910800000000000000
+      internalID: 1820264265686447663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

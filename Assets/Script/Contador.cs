@@ -35,6 +35,8 @@ public class Contador : MonoBehaviour
     public Text UI_WinText;//Variable tipo texto que mostrará la cantidad de monedas ganadas en el Canvas Win
     public Slider[] SliderInicio;//Array de sliders que hacen referencia a los puntos ganados e impresos en la barra de progreso
     public bool IntroAnimation = false;//Variable de tipo boooleano encargada de hace rque el tiempo vaya mas lento cuando tengamos una animación activa
+    public string OnePlay = "Si";//Variable de tipo string que controla las veces que se debe ejecutar las animaciones en In Game
+    public bool ActiveTime=true;
     void Awake()
     {
         if (sharecont == null)
@@ -43,7 +45,7 @@ public class Contador : MonoBehaviour
         }
         GuardadoMonedas = GameObject.Find("ControlNiveles").GetComponent<Guardado>();//Localización de la clase guardado a traves d ela busqueda del objeto ControlNiveles
         scene = SceneManager.GetActiveScene();//GetActiveScene es un método que nos permite obtener la escena activa actualmente
-        ResetSound();
+        ResetSound();//Se llama al método encargado de parar los sonidos para que ninguno de la anterior escena sea escuchado
     }
     void Start()
     {
@@ -125,14 +127,18 @@ public class Contador : MonoBehaviour
         }
         if ((int)currentTime == 20)
         { //Esta condicional solo sucede siempre y cuando el tiempo sea igual a 20
-            //TODO: No olvidar arreglar un pequeño bug de que la aniamción pueda volverse a repetir en esta instacia, esto solo debe suceder una vez
-            AnimaCon.ShareAnimation.EventInGame("Time");//Se llama al método encargado de evaluar en que eventualidad estamos y proceder a reproducir la animación de acuerdo l número aleatorio conseguido   
+          //TODO: No olvidar arreglar un pequeño bug de que la aniamción pueda volverse a repetir en esta instacia, esto solo debe suceder una vez
+            if (ActiveTime)
+            {
+                ActiveTime = false;
+                AnimaCon.ShareAnimation.EventInGame("Time");//Se llama al método encargado de evaluar en que eventualidad estamos y proceder a reproducir la animación de acuerdo l número aleatorio conseguido   
+            }
         }else if ((int)currentTime == 10){
             //Si el tiempo es igual a 10 se hacen las siguientes acciones
                 AudioManager.shareaudio.Efectos[3].Play();//Iniciamos el Audio del efecto del Alarma cuando se acaba el tiempo
                 AnimaCon.ShareAnimation.ActiveRedTime();// Se habilita la animación de Reloj Rojo
                 
-            }
+        }
         else if ((int)currentTime == 7)//Si el tiempo actual es igual a 7 e entra a la condicional
         {
             if (Oneintro == "Si")//Dentro de este if anidado se evalua si la variable booleana OneIntro es verdadera
@@ -145,9 +151,16 @@ public class Contador : MonoBehaviour
                 }
             }
         }
+        if (GameManager.shareInstance.currentgameState == GameState.InGame && TimeReferences != 0 && vidas == 1 && OnePlay == "Si" &&(int)currentTime!=20)
+        {
+            OnePlay = "No";
+            AnimaCon.ShareAnimation.EventInGame("Vida");
+        }
+        if ((int)currentTime == 21&&ActiveTime)
+        {
+            AnimaCon.ShareAnimation.ObjectAnimation.SetActive(true);
+        }
 
-      
-       
     }
 
     public void EventEndLevel()
@@ -298,6 +311,8 @@ public class Contador : MonoBehaviour
         AudioManager.shareaudio.Efectos[17].Stop();//Se para la Frase A toda Máquina gogo
         AudioManager.shareaudio.Efectos[18].Stop();//Se para la frase de Se te acaba Tiempo Tic Tac
         AudioManager.shareaudio.Efectos[19].Stop();//Paramos el sonido de la frase Mira el reloj no te queda tiempo
+        AudioManager.shareaudio.Efectos[20].Stop();//Paramos el sonido de la frace Concentrate tu puedes hacerlo mejor
+        AudioManager.shareaudio.Efectos[21].Stop();//Paramos el sonido de la frase Hey no te distraigas te queda una vida
         AudioManager.shareaudio.Efectos[13].Stop();//Se para el sonido del WiGame
         AudioManager.shareaudio.Efectos[0].Stop();//Se para el sonido del OverGame
     }
