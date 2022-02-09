@@ -15,6 +15,7 @@ public class ManagerQuiz : MonoBehaviour
     public QuizDb g_quizDB = null; // Variable de tipo de la clase QuizDb, la cual contiene una lista de las preguntas
     public  QuizUi g_quizUI = null; //Variable de tipo de la clase QuizUi, la cual contiene el método para contruir las opciones en los botones
     public Control_Button Control;// Se localiza un objeto por referencia en este caso la clase que nos permita activar y desativar la interacción con los botones
+    public string OnePlay = "Si";//Variable de tipo string que controla las veces que se debe ejecutar las animaciones en In Game
     private void Start()
     {
         GameManager.shareInstance.StarGame();//Establecemos como modo en partida
@@ -40,7 +41,6 @@ public class ManagerQuiz : MonoBehaviour
 
     private void GiveAnswer(OptionButton optionButton)
     {
-        Contador.sharecont.IntroAnimation = true;
         //Método que se va a llamar cuando el jugador seleecione un respuesta
         //Ya sea correcto o incorrecto pasará a la siguiente pregunta, se verificará si la respuesta coorrecta o no 
         StartCoroutine(Answeroutine(optionButton));// Iniciamos la corrutina 
@@ -48,6 +48,7 @@ public class ManagerQuiz : MonoBehaviour
 
     private IEnumerator Answeroutine(OptionButton optionButton)
     {
+
         /* En este método estamos estableciendo una corrutina que pausa la ejecución 
            para luego devolversela a Unity, la finalidad de este es que nos permita ver el efecto de colores si
         la respuesta no es correccta, sino aplicamos corrutina pasará en un instante a la siguiente pregunta sin dejarnos ver efectos*/
@@ -59,15 +60,18 @@ public class ManagerQuiz : MonoBehaviour
         if (optionButton.Option.correct == false)
         {
             //En el caso de haber seleccionado una respuesta incorrecta, se hace las siguientes acciones
-            AudioManager.shareaudio.Efectos[2].Play();//Reproducimos el sonido de Answer Bad
+            Contador.sharecont.IntroAnimation = true;
             StartCoroutine(WaitforNave());//Se llama a la corrutina encargada de pausar la ejecución para ver la animación cuando la repsuesta es incorrecta 
+            AudioManager.shareaudio.Efectos[2].Play();//Reproducimos el sonido de Answer Bad
+            Control.OutlineRed(0);//Llamamos al método encargado de poner el outline de los botones para que los coloque en rojo
         }
         else if (optionButton.Option.correct == true)
         {
             //En el caso de que se haya seleccionado una respuesta correcta, se hacen las siguientes acciones
+            Contador.sharecont.IntroAnimation = true;
+            StartCoroutine(WaitforNaveCorrect());// Se llama a la corrutina encargada de pausar la ejecución para poder visualizar la animación cuando la respuesta es correcta
             AudioManager.shareaudio.Efectos[1].Play();//Reproducimos el sonido de Answer Good
             Control.OutlineGreen();// Llamamos al método encargado de poner el outline de los botones para que los coloque en verde 
-            StartCoroutine(WaitforNaveCorrect());// Se llama a la corrutina encargada de pausar la ejecución para poder visualizar la animación cuando la respuesta es correcta
         }
 
            
@@ -79,8 +83,13 @@ public class ManagerQuiz : MonoBehaviour
         //Método que tiene la finalidad de ser usado para pasar a la siguiente pregunta
         // Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
         AnimaCon.ShareAnimation.StopHeart();//Se llama al método encargado de reproducir la animación  del corazón restaurandoses
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1f);
         //Contador.sharecont.IntroAnimation = false;
+        if (GameManager.shareInstance.currentgameState == GameState.InGame && Contador.sharecont.vidas == 1 && OnePlay =="Si")
+        {
+            OnePlay = "No";
+            AnimaCon.ShareAnimation.EventInGame("Vida");
+        }
         Nexquestion();
     }
 

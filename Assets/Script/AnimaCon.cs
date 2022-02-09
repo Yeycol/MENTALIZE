@@ -146,8 +146,6 @@ public class AnimaCon : MonoBehaviour
             AudioManager.shareaudio.Efectos[18].mute = false;//Desmuteamos el sonido de la frase Se te acaba el tiempo
             AudioManager.shareaudio.Efectos[19].mute = false;//Desmuteamos el sonido de la frase Mira el Reloj no te queda tiempo
             AudioManager.shareaudio.Efectos[20].mute = false;//Desmuteamos el sonido de la frase Concentrate tu puedes hacerlo mejor
-            AudioManager.shareaudio .Efectos[21].mute = false;//Desmuteamos el sonido de la frase Ey no te distraigas tienes una vida menos
-            AudioManager .shareaudio .Efectos[22].mute = false;//Desmuteamos el sonido de la frase Mira en donde presionas tienes una vida menos
         }
         else if (GameManager.shareInstance.currentgameState == GameState.menu)//Solo si estamos en menú sucederá lo del interior
         {
@@ -162,8 +160,6 @@ public class AnimaCon : MonoBehaviour
             AudioManager.shareaudio.Efectos[18].mute = false;//Desmuteamos el sonido de la frase Se te acaba el tiempo
             AudioManager.shareaudio.Efectos[19].mute = false;//Desmuteamos el sonido de la frase Mira el Reloj no te queda tiempo
             AudioManager.shareaudio.Efectos[20].mute = false;//Desmuteamos el sonido de la frase Concentrate tu puedes hacerlo mejor
-            AudioManager.shareaudio.Efectos[21].mute = false;//Desmuteamos el sonido de la frase Ey no te distraigas tienes una vida menos
-            AudioManager.shareaudio.Efectos[22].mute = false;//Desmuteamos el sonido de la frase Mira en donde presionas tienes una vida menos
         }
     
     }
@@ -269,8 +265,7 @@ public class AnimaCon : MonoBehaviour
     public void EventInGame(string Event)
     {
         //Este método recibe dos parámetros de tipo string el uno almacena el tipo de evento que está por suceder y el otro el nombre del parámetro , necesario para establecer el booleano a la componente animator
-        Contador.sharecont.IntroAnimation = true;//Se indica que el comportamiento EventTime de la clase Contador debe tomar en cuenta los frmaes para ser llamado
-        ObjectAnimation.SetActive(true);
+
         switch (Event)
         {
             case "Time":// En caso del evento llamarse Time
@@ -294,9 +289,9 @@ public class AnimaCon : MonoBehaviour
                     StartCoroutine(StartEventAnimationHealth(indexvidas, ValueNecesary[3].ParameterAnimator, ValueNecesary[3].TimeCourrutine));
                 } else if (indexvidas == 1)
                 {
-                    StartCoroutine(StartEventAnimationHealth(indexvidas, ValueNecesary[4].ParameterAnimator, ValueNecesary[4].TimeCourrutine));
+                    StartCoroutine(StartEventAnimationHealth(indexvidas, ValueNecesary[3].ParameterAnimator, ValueNecesary[3].TimeCourrutine));
                 } else if (indexvidas == 2) {
-                    StartCoroutine(StartEventAnimationHealth(indexvidas, ValueNecesary[5].ParameterAnimator, ValueNecesary[5].TimeCourrutine));
+                    StartCoroutine(StartEventAnimationHealth(indexvidas, ValueNecesary[3].ParameterAnimator, ValueNecesary[3].TimeCourrutine));
                 }
                 break;
         }
@@ -304,6 +299,8 @@ public class AnimaCon : MonoBehaviour
     }
     IEnumerator StartEvenTAnimationTime(int AnimationParameter, string ParameterAnimator, float TimeCorru)
     { 
+        Contador.sharecont.IntroAnimation = true;//Se indica que el comportamiento EventTime de la clase Contador debe tomar en cuenta los frmaes para ser llamado
+        ObjectAnimation.SetActive(true);//Hablitamos el objeto con Raycast engargado de evitar que los botones sean presionados cuando la animación estaá activa 
         EventTime[AnimationParameter].SetBool(ParameterAnimator, true);//Se activa la animación de acuerdo al entero obtenido en el ramdom y el nombre del parámetro pasado por parámetro
         yield return new WaitForSeconds(TimeCorru);
         EventTime[AnimationParameter].SetBool(ParameterAnimator, false);//Se activa la animación de salida de la eventualidad
@@ -313,6 +310,9 @@ public class AnimaCon : MonoBehaviour
     //TODO: Crear la corrutina para el caso de la eventualidad del tiempo
     IEnumerator StartEventAnimationHealth(int ReferencesIndex, string ReferencesParameter, float RefrencesTimeCorrutine)
     {
+      
+        Contador.sharecont.IntroAnimation = true;
+        ObjectAnimation.SetActive(true);
         EventVidas[ReferencesIndex].SetBool(ReferencesParameter, true);
         yield return new WaitForSeconds(RefrencesTimeCorrutine);
         EventVidas[ReferencesIndex].SetBool(ReferencesParameter, false);

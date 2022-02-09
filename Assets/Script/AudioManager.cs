@@ -62,8 +62,6 @@ public class AudioManager : MonoBehaviour
         Efectos[18].volume = Efectos1.value;//Otorgmaos el valor del slider al volumen del objeto que contiene la componete audio source de la frase Se te acaba el tiempo   
         Efectos[19].volume = Efectos1.value;//Otrogamos el valor del slider a la propiedad volumen del objeto encargado de reproducir la frase Mira el Reloj no te queda tiempo
         Efectos[20].volume=Efectos1.value;//Otorgamos el valor del slider a la propieda volumen del objeto que contiene el sonido de la frase Concentrate tu puedes hacerlo mejor
-        Efectos[21].volume = Efectos1.value;//Otrogamos el valor del slider a la propiedad volumen del objeto que contiene el sonido d ela frase Ey no te distraigas te queda una vida
-        Efectos[22].volume=Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la frase Mira en donde presionas tienes una vida menos
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
 
@@ -97,9 +95,7 @@ public class AudioManager : MonoBehaviour
         Efectos[17].volume = Efectos1.value;
         Efectos[18].volume = Efectos1.value;
         Efectos[19].volume = Efectos1.value;
-        Efectos[20].volume = Efectos1.value;
-        Efectos[21].volume = Efectos1.value;
-        Efectos[22].volume = Efectos1.value;
+        Efectos[20].volume = Efectos1.value;    
         PlayerPrefs.SetFloat("Efect", Efectos1.value);
         PlayerPrefs.Save();
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
