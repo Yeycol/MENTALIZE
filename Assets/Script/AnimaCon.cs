@@ -14,10 +14,12 @@ public class AnimaCon : MonoBehaviour
     public static AnimaCon ShareAnimation;
     public Animator[] EventTime = new Animator[3];//Array que contiene las animaciones para las eventualidades del tiempo 
     public Animator[] EventVidas = new Animator[3];//Array que contiene la componente Animator de los objetos de la animación para cuando se pierde vidas  
+    public Animator[] EventWin = new Animator[3];// Array que contendrá la componente Aniamtor que controlará las animaciones para esta eventualidad
     public GameObject ObjectAnimation;//Hace referencia al objeto padre que contiene en su interior a los demás hijos que son las animaciones
     public ParameterAndTime[]ValueNecesary;//Array que contiene los strings de los nombres de los parámetros para activar la animación
     public int indextime;//Varibale de tipo entera que será utilizada para sacar un entero aleatorio del Array EventTime
     public int indexvidas;//Variable de tipo entero que almacenará el entero aleatorio para las eventualidades de vida 
+    public int indexwin;//Variable de tipo entero que almacenará un entero aleatorio de la posición del array que contiene los animators para Win
     //Referencia a los parámetros de las animaciones
     const string START_PIZARRA = "startPizarra";//Variable costante que hace referencia al parámetro booleano de la pizarra
     const string ACTIVE_OVER = "Active";// Variable constante que hace referencia al parámetro booleano de la interfaz de Game Over
@@ -66,6 +68,7 @@ public class AnimaCon : MonoBehaviour
         }
         indextime = Random.Range(0, EventTime.Length);//Se genera un número entero aleatorio desde cero hasta la cantidad de objetos que tenga el array EventTime 
         indexvidas = Random.Range(0, EventVidas.Length);//El número aleatorio generado por el método Range es almacenado en la variable entera, este número aleatorio es escogido desde 0 hasta la cantidad de elementos que tenga el array
+        indexwin=Random.Range(0, EventWin.Length);//El número aleatorio generado por el método Range es almacenado en esta variable
         scene = SceneManager.GetActiveScene();
     }
 
@@ -299,6 +302,21 @@ public class AnimaCon : MonoBehaviour
                     StartCoroutine(StartEventAnimationHealth(indexvidas, ValueNecesary[5].ParameterAnimator, ValueNecesary[5].TimeCourrutine));
                 }
                 break;
+
+            case "Win":
+                if (indexwin == 0)
+                {
+                    StartCoroutine(StartEventWinGame(indexwin, ValueNecesary[6].ParameterAnimator, ValueNecesary[6].TimeCourrutine));
+                }
+                else if (indexwin == 1)
+                {
+                    StartCoroutine(StartEventWinGame(indexwin, ValueNecesary[6].ParameterAnimator, ValueNecesary[6].TimeCourrutine));
+                }
+                else if (indexwin == 2)
+                {
+                    StartCoroutine(StartEventWinGame(indexwin, ValueNecesary[6].ParameterAnimator, ValueNecesary[6].TimeCourrutine));
+                }
+                break;
         }
         
     }
@@ -319,7 +337,17 @@ public class AnimaCon : MonoBehaviour
         Contador.sharecont.IntroAnimation = false;
         ObjectAnimation.SetActive(false); 
     }
-  
+     
+    IEnumerator StartEventWinGame(int ReferencesPosition,string ReferencesPar,float ReferencesTimeCo)
+    {
+
+        EventWin[ReferencesPosition].SetBool(ReferencesPar, true);
+        yield return new WaitForSeconds(ReferencesTimeCo);
+        EventWin[ReferencesPosition].SetBool(ReferencesPar, false);
+        Contador.sharecont.IntroAnimation = false;
+        ObjectAnimation.SetActive(false);
+    }
+
     [System.Serializable]
     public class ParameterAndTime
     {

@@ -186,7 +186,6 @@ public class Contador : MonoBehaviour
                     moneda_ui.text = moneda.ToString();//Se imprime su valor para actualizar los datos
                     GuardadoMonedas.GuardarMonedas();//Se hace el guardado de monedas y puntos solo si se gana
                     ControlNiveles.shareLvl.DesbloquearNivel();//Método encargado de desbloquear los niveles ganados
-
                 }
                 else
                 {
@@ -313,6 +312,8 @@ public class Contador : MonoBehaviour
         AudioManager.shareaudio.Efectos[19].Stop();//Paramos el sonido de la frase Mira el reloj no te queda tiempo
         AudioManager.shareaudio.Efectos[20].Stop();//Paramos el sonido de la frace Concentrate tu puedes hacerlo mejor
         AudioManager.shareaudio.Efectos[21].Stop();//Paramos el sonido de la frase Hey no te distraigas te queda una vida
+        AudioManager.shareaudio.Efectos[22].Stop();//Paramos el sonido de la frase Mira en donde presionas tienes una vida menos
+        AudioManager.shareaudio.Efectos[23].Stop();//Paramos el sonido de la frase Hit Hit Hurra|
         AudioManager.shareaudio.Efectos[13].Stop();//Se para el sonido del WiGame
         AudioManager.shareaudio.Efectos[0].Stop();//Se para el sonido del OverGame
     }
