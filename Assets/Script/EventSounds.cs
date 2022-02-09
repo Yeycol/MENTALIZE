@@ -78,6 +78,10 @@ public class EventSounds : MonoBehaviour
     {
         AudioManager.shareaudio.Efectos[22].Play();
     }
+    public void PlayHitHitHurra()
+    {
+        AudioManager.shareaudio.Efectos[23].Play();
+    }
     public void EvaluateMusicIngame()
     {
         //Método encargado de evaluar que música debe sonar en Ingame
