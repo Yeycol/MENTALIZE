@@ -82,6 +82,18 @@ public class EventSounds : MonoBehaviour
     {
         AudioManager.shareaudio.Efectos[23].Play();
     }
+    public void PlayJiJiJi()
+    {
+        AudioManager.shareaudio.Efectos[24].Play();
+    }
+    public void PlayKaboomVamosPorOtra()
+    {
+        AudioManager.shareaudio.Efectos[25].Play();
+    }
+    public void PlayEsoFueExcelenteQuieresIrPorMuffins()
+    {
+        AudioManager.shareaudio.Efectos[26].Play();
+    }
     public void EvaluateMusicIngame()
     {
         //Método encargado de evaluar que música debe sonar en Ingame
