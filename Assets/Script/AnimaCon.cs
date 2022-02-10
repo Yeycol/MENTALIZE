@@ -14,7 +14,7 @@ public class AnimaCon : MonoBehaviour
     public static AnimaCon ShareAnimation;
     public Animator[] EventTime = new Animator[3];//Array que contiene las animaciones para las eventualidades del tiempo 
     public Animator[] EventVidas = new Animator[3];//Array que contiene la componente Animator de los objetos de la animación para cuando se pierde vidas  
-    public Animator[] EventWin = new Animator[3];// Array que contendrá la componente Aniamtor que controlará las animaciones para esta eventualidad
+    public Animator[] EventWin = new Animator[4];// Array que contendrá la componente Aniamtor que controlará las animaciones para esta eventualidad
     public GameObject ObjectAnimation;//Hace referencia al objeto padre que contiene en su interior a los demás hijos que son las animaciones
     public ParameterAndTime[]ValueNecesary;//Array que contiene los strings de los nombres de los parámetros para activar la animación
     public int indextime;//Varibale de tipo entera que será utilizada para sacar un entero aleatorio del Array EventTime
@@ -310,13 +310,16 @@ public class AnimaCon : MonoBehaviour
                 }
                 else if (indexwin == 1)
                 {
-                    StartCoroutine(StartEventWinGame(indexwin, ValueNecesary[6].ParameterAnimator, ValueNecesary[6].TimeCourrutine));
+                    StartCoroutine(StartEventWinGame(indexwin, ValueNecesary[7].ParameterAnimator, ValueNecesary[7].TimeCourrutine));
                 }
                 else if (indexwin == 2)
                 {
-                    StartCoroutine(StartEventWinGame(indexwin, ValueNecesary[6].ParameterAnimator, ValueNecesary[6].TimeCourrutine));
+                    StartCoroutine(StartEventWinGame(indexwin, ValueNecesary[8].ParameterAnimator, ValueNecesary[8].TimeCourrutine));
+                } else if (indexwin == 3)
+                {
+                    StartCoroutine(StartEventWinGame(indexwin, ValueNecesary[9].ParameterAnimator, ValueNecesary[9].TimeCourrutine));
                 }
-                break;
+                    break;
         }
         
     }

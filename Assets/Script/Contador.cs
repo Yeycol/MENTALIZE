@@ -314,6 +314,9 @@ public class Contador : MonoBehaviour
         AudioManager.shareaudio.Efectos[21].Stop();//Paramos el sonido de la frase Hey no te distraigas te queda una vida
         AudioManager.shareaudio.Efectos[22].Stop();//Paramos el sonido de la frase Mira en donde presionas tienes una vida menos
         AudioManager.shareaudio.Efectos[23].Stop();//Paramos el sonido de la frase Hit Hit Hurra|
+        AudioManager.shareaudio.Efectos[24].Stop();//Paramos el sonido de la frase JIJIJI
+        AudioManager.shareaudio.Efectos[25].Stop();//Paramos el sonido de la frase KABOM Vamos por otra
+        AudioManager.shareaudio.Efectos[26].Stop();//Paramos el sonido de la frase Eso fue excelente quieres ir por MUFFINS
         AudioManager.shareaudio.Efectos[13].Stop();//Se para el sonido del WiGame
         AudioManager.shareaudio.Efectos[0].Stop();//Se para el sonido del OverGame
     }

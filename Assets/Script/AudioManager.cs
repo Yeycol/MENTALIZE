@@ -65,6 +65,9 @@ public class AudioManager : MonoBehaviour
         Efectos[21].volume = Efectos1.value;//Otrogamos el valor del slider a la propiedad volumen del objeto que contiene el sonido d ela frase Ey no te distraigas te queda una vida
         Efectos[22].volume=Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la frase Mira en donde presionas tienes una vida menos
         Efectos[23].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del componente Source que contine el sonido de la frase Hit Hit Hurra
+        Efectos[24].volume = Efectos1.value;//Ortorgamos el valor del slider a la propieda volumen del objeto que contiene el sonido de la frase JIJIJI Jugamos de nuevo eso fue divertido
+        Efectos[25].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la frase KABOM Vamos por otra
+        Efectos[26].volume = Efectos1.value;//Otorgamos el valor de slider a la propiedad volume del objeto que contiene el sonido  de la frase Eso fue excelente, quieres ir por muffins
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
 
@@ -102,6 +105,9 @@ public class AudioManager : MonoBehaviour
         Efectos[21].volume = Efectos1.value;
         Efectos[22].volume = Efectos1.value;
         Efectos[23].volume = Efectos1.value;
+        Efectos[24].volume = Efectos1.value;
+        Efectos[25].volume = Efectos1.value;
+        Efectos[26].volume = Efectos1.value;
         PlayerPrefs.SetFloat("Efect", Efectos1.value);
         PlayerPrefs.Save();
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
