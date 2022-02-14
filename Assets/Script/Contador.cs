@@ -12,7 +12,7 @@ public class Contador : MonoBehaviour
     public static Contador sharecont;
     public int contador; // Variable de tipo entero que almacena los números del contador de la trivia 
     public int vidas; //Variable de tipo entero que almacena la cantidad de vidas
-   public int puntos;//Variable pública de tipo entero en la cual se almacenarán los puntos que se van obteniendo
+    public int puntos;//Variable pública de tipo entero en la cual se almacenarán los puntos que se van obteniendo
     public Text textcont;// Variable de tipo Texto utilizada para que adquiera los valores de contador
     public Text text_health;// Variable de tipo Texto para que adquiera el valor de las vidas
     public Text time_ui;//Variable de tipo texto para que adquiera  el valor del cronómetro
@@ -36,7 +36,7 @@ public class Contador : MonoBehaviour
     public Slider[] SliderInicio;//Array de sliders que hacen referencia a los puntos ganados e impresos en la barra de progreso
     public bool IntroAnimation = false;//Variable de tipo boooleano encargada de hace rque el tiempo vaya mas lento cuando tengamos una animación activa
     public string OnePlay = "Si";//Variable de tipo string que controla las veces que se debe ejecutar las animaciones en In Game
-    public bool ActiveTime=true;
+    public bool RepeatAnimation=true;//Booleano que permite establecer si debe o no repetirse la animación
     void Awake()
     {
         if (sharecont == null)
@@ -60,8 +60,9 @@ public class Contador : MonoBehaviour
         CargarEquipament();//Se llama al método encargado de Cargar vi    das extras y el tiempo extra pasado por referencia etc
         InicializarDatosInterfaz();//Cuando inicia el juego debemos imprimer el valor que hayan adquirido las variables al iniciar el juego     
     }
-    private void FixedUpdate()
+     private void FixedUpdate()
     {
+       
         //Aqui se esta evaluando a cada frame, si estamos en en modo juego ejecutará las instrucciones establecidas en las condicionales
         if (GameManager.shareInstance.currentgameState == GameState.InGame)
         {
@@ -86,7 +87,7 @@ public class Contador : MonoBehaviour
                 EventEndLevel();//Método encargado de controlar la lógica de ganado, guardado y desbloquedo de niveles
             }
         }
-    }
+    } 
 
     public void InicializarDatosInterfaz()
     {
@@ -125,13 +126,16 @@ public class Contador : MonoBehaviour
             GameManager.shareInstance.GameOver();
 
         }
+        
         if ((int)currentTime == 20)
         { //Esta condicional solo sucede siempre y cuando el tiempo sea igual a 20
           //TODO: No olvidar arreglar un pequeño bug de que la aniamción pueda volverse a repetir en esta instacia, esto solo debe suceder una vez
-            if (ActiveTime)
+            if (RepeatAnimation)//Si el repetir la animación es verdadero
             {
-                ActiveTime = false;
-                AnimaCon.ShareAnimation.EventInGame("Time");//Se llama al método encargado de evaluar en que eventualidad estamos y proceder a reproducir la animación de acuerdo l número aleatorio conseguido   
+                RepeatAnimation = false;//Se establece como falso si es la primera vez que ingresa
+                RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = true;//Se indica que debe activarse el Canvas de la clase RealTimeAnimation
+                RealTimeAnimation.ShareRealTimeAnimator.EventInGame("Time");//A la misma clase se le indica que ventualidad es la que esta por pasar
+                
             }
         }else if ((int)currentTime == 10){
             //Si el tiempo es igual a 10 se hacen las siguientes acciones
@@ -146,20 +150,24 @@ public class Contador : MonoBehaviour
                 //La animación solo se activará si estamos en estado de juego InGame
                 if (GameManager.shareInstance.currentgameState == GameState.InGame)
                 {
-                    StartCoroutine(WaitExtraTime());//Si es el caso de ser verdad se llama a la corrutina encargada de habilitar y deshabilitar las animaciones
+                    RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = true;//Se indica que debe activarse el Canvas de la clase RealTimeAnimation
                     Oneintro = "No";//La primera vez que entre en este condicional debe ser la única vez, puesto que se pasará false para que en el siguiente frame no haya la posibilidad de repetir la eventualidad
+                    StartCoroutine(WaitExtraTime());//Si es el caso de ser verdad se llama a la corrutina encargada de habilitar y deshabilitar las animaciones
                 }
             }
         }
+        /*
         if (GameManager.shareInstance.currentgameState == GameState.InGame && TimeReferences != 0 && vidas == 1 && OnePlay == "Si" &&(int)currentTime!=20)
         {
             OnePlay = "No";
             AnimaCon.ShareAnimation.EventInGame("Vida");
         }
+        */
+        /*
         if ((int)currentTime == 21&&ActiveTime)
         {
             AnimaCon.ShareAnimation.ObjectAnimation.SetActive(true);
-        }
+        }*/
 
     }
 
@@ -208,6 +216,7 @@ public class Contador : MonoBehaviour
     public void resetcont()
     {
         ResetSound();//Llamamos al método encargado de resetear los sonidos de la anterior Escena
+        RealTimeAnimation.ShareRealTimeAnimator.RamdomIndex();
         //Método encargado de resetear la Trivia
         switch (scene.name)
         {
@@ -287,14 +296,19 @@ public class Contador : MonoBehaviour
     {
         IntroAnimation = true;// Se activa la lentitud al tiempo para que la animación no haga sentir que el jugador a perdido tiempo
         AudioManager.shareaudio.Efectos[3].Stop();  
-        AnimaCon.ShareAnimation.ObjectAnimation.SetActive(true) ;//Lalamamos al método encargado de desahabilitar los botones de la Trivia
         AnimaCon.ShareAnimation.DesactivateRedTime();//Desactivamos la animación cuando el tiempo se está acabando
-        AnimaCon.ShareAnimation.ActiveAnimationExtraTime();//Activamos la animación de tiempo extra
+        RealTimeAnimation.ShareRealTimeAnimator.ActiveAnimationExtraTime();//Activamos la animación de tiempo extra
         yield return new WaitForSeconds(2.3f);
         currentTime += TimeReferences;//Se incrementa el tiempo actual de acuerdo al valor que otrogue la carta
-        AnimaCon.ShareAnimation.ObjectAnimation.SetActive(false);//Activamos nuevamente los botones de las trivias para que se pueda seleccionar las respuestas sin ningun problema
         IntroAnimation = false;// Se le indica a la variable booleano que quite la lentitud a tiempo y asi volver todo a la normalidad puesto que no hay animación activa 
-        AnimaCon.ShareAnimation.DesactiveAnimationExtraTime();//Desactivamos la animación de tiempo extra
+        RealTimeAnimation.ShareRealTimeAnimator.DesactiveAnimationExtraTime();//Desactivamos la animación de tiempo extra
+        StartCoroutine(WaitForCanvas());
+    }
+    IEnumerator WaitForCanvas()
+    {
+        //Corrutina destinada a dar tiempo a la animación de salida
+        yield return new WaitForSeconds(0.9f);
+        RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = false;
     }
     public void ResetSound()
     {

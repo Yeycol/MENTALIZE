@@ -12,10 +12,7 @@ public class QuizUi : MonoBehaviour
     public GameObject q_question;// Esta variable almacenará el texto de la pregunta 
     public TextMeshProUGUI questions;
     public List<OptionButton> q_buttonl = null; // Esta lista nos permitirá tener una referencia de los botones que hemos creado(Button Option)
-    private void Awake()
-    {
-       questions = q_question.GetComponent<TextMeshProUGUI>();
-    }
+ 
     public void Construcman(Questions q , Action <OptionButton> callback)// Pasamos como parámetro el question retornada por el método question random ,por que es lo que vamos a requerir para trabajar dentro del método
     {
         // Método que construirá el objeto para así poderlo utilizar
