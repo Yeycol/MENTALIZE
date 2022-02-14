@@ -67185,7 +67185,6 @@ MonoBehaviour:
   Ido_Perfil: 0
   Ido_Fondo: 0
   Equipado: No
-  Equipado_Perfil: No
   Equipado_Fondo: No
   scene:
     m_Handle: 0
@@ -84078,6 +84077,9 @@ MonoBehaviour:
   monedaextra: 0
   UI_WinText: {fileID: 0}
   SliderInicio: []
+  IntroAnimation: 0
+  OnePlay: Si
+  RepeatAnimation: 1
 --- !u!4 &1541005370
 Transform:
   m_ObjectHideFlags: 0
@@ -106143,6 +106145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36962888034341e42a005657ee6247cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene:
+    m_Handle: 0
   AnimationLis:
   - {fileID: 0}
   - {fileID: 0}
@@ -106155,13 +106159,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1412195529}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 406965804}
   - {fileID: 1095942974}
   - {fileID: 825152080}
   - {fileID: 606534385}
+  ObjectAnimation: {fileID: 0}
 --- !u!4 &1959711124
 Transform:
   m_ObjectHideFlags: 0

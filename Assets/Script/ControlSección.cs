@@ -19,7 +19,6 @@ public class ControlSección : MonoBehaviour
     public int Ido_Perfil;//Variable de tipo entero que almacena el Id del objeto equipado en este caso para los perfiles
     public int Ido_Fondo;//Variable de tipo entero que almacena el Id del objeto  equipado en este caso para los Fondos
     public string Equipado = "No";//Variable de tipo string, cuya finalidad el limitar el cargado de los botones Equipados en las cartas, para evitar en las demás escenas el Error: Null Refrences
-    public string Equipado_Perfil = "No";//Variable de tipo string, cuya finalidad es limitar el cargado de los botones Equipados en los Perfiles, con la finalidad de evitar en las demás escenas el Error: Null References
     public string Equipado_Fondo = "No";//Variable de tipo string cuya finalidad es de limitar el cargado de los botones y fondos equipados
     public Scene scene;// Variable privada de tipo escena que se utilizará para controlar y condicionar con las escenas
     public RectTransform[] ObjectsShop;//Arrays que almacenaran la posición, tamaño, anclaje y pivote de los Game Objects.
@@ -73,7 +72,6 @@ public class ControlSección : MonoBehaviour
         Ido_Perfil = PlayerPrefs.GetInt("Id_Perfil");//Inicializamos la variable Ido_Perfil de acuerdo a lo almacenado en el Key Id_Perfil del PlayerPrefs
         Ido_Fondo = PlayerPrefs.GetInt("Id_Fondo");//Inicializamos la variable Ido_Fondo de acuerdo a lo almacenado en el key Id_Fondo del Player Prefs
         Equipado = PlayerPrefs.GetString("Equipado");//Inicializamos la variable Equipado de acuerdo a lo almacenado en el key del player prefs
-        Equipado_Perfil = PlayerPrefs.GetString("Equipado_Perfil");//Inicializamos la variable Equipado_Perfil de acuerdo almacenado en el key del player prefs
         Equipado_Fondo = PlayerPrefs.GetString("Equipado_Fondo");//Inicializamos la variable Equipado_Fondo de acuerdo almacenado en el key del player prefs
     }
     public void CargadoIdobjetos()
@@ -113,7 +111,7 @@ public class ControlSección : MonoBehaviour
         {
             LoadEquipament();//Cargará el Id del botón que se equipo en este caso para las cartas
         }
-        if (Equipado_Perfil == "Si" && scene.name == "Tienda" || scene.name == "SelectModoJuego")//Si la variable string Equipado_Perfil es igual a Si y si estamos en la tienda
+        if ( scene.name == "Tienda" || scene.name == "SelectModoJuego")//Si la variable string Equipado_Perfil es igual a Si y si estamos en la tienda
         {
             LoadPerfiles();//Cargará el Id del botón Equipado en este caso para los perfiles
         }
@@ -128,6 +126,12 @@ public class ControlSección : MonoBehaviour
         for (int i = 0; i < ListaObjetos.Count; i++)
         {
             ListaObjetos[i].Precio.text = ListaObjetos[i].Price.ToString();// Se muestra en UI el valor entero de los precios enteros
+            //Este for esta en bucle hasta la cantidad de elementos que tenga la ListaObjetos
+            ListaObjetos[i].Botones.AddEventListener(i, OnShopItemBtnClicked);/*Se añade a cada botón AddListener,
+            esperando que se presione alguno de ellos para que este llame al método encargado de establecer que ya 
+            se ha comprado un item y pasar por referencia un entero del botón seleccionado*/
+
+            //En esta sección limitamos el cargado de los objetos equipados
             if (i == 22 || i >= 38)// Si los Id de las posiciones de la ListaObjetos  es igual 22 o mayores a 38
             {
                 ListaObjetos[i].Precio.gameObject.SetActive(false);//Se desactiva el game Object que tiene la componente texto que muestra los precios por UI
@@ -135,14 +139,7 @@ public class ControlSección : MonoBehaviour
                 ListaObjetos[i].Txt_Buttons.text = "CONSEGUIR";//Se cambia el texto de los botones de comprar a conseguir
             }
         }
-        for (int i = 0; i < ListaObjetos.Count; i++)
-        {
-            //Este for esta en bucle hasta la cantidad de elementos que tenga la ListaObjetos
-            ListaObjetos[i].Botones.AddEventListener(i, OnShopItemBtnClicked);/*Se añade a cada botón AddListener,
-            esperando que se presione alguno de ellos para que este llame al método encargado de establecer que ya 
-            se ha comprado un item y pasar por referencia un entero del botón seleccionado*/
-        }
-        //En esta sección limitamos el cargado de los objetos equipados
+
     
     }
 
@@ -595,7 +592,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[23].IsPurchased == true)//En caso de que IsPurchased este verdadero 
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 23);//Se guardara el Id 23 en el Player Prefs Id_Perfil  
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");//Se guarda un "Si " en el PLayer Prefs Equipado_Perfil con la finalidad de controlar el cargado de los elementos equipados
                     ReferenPerBack.PreverSaveIdPerfil(23,"Sr.Buck");// Se envía al método de la clase ReferenPerandBak, para que estos guarden el id y puedan ser cargados en otra escena, en este caso para los perfiles 
                     Button_Equipar[23].interactable = false;//Se desactiva la interacción del botón equipar en la posición del caso
                     Txt_Equipar[23].text = "Equipado";//Se pone el texto del boton del equipado en Equipado
@@ -609,7 +605,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[24].IsPurchased == true)
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 24);
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");
                     ReferenPerBack.PreverSaveIdPerfil(24,"Yuyo");
                     Button_Equipar[24].interactable = false;
                     Txt_Equipar[24].text = "Equipado";
@@ -623,7 +618,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[25].IsPurchased == true)
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 25);
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");
                     ReferenPerBack.PreverSaveIdPerfil(25,"Blue");
                     Button_Equipar[25].interactable = false;
                     Txt_Equipar[25].text = "Equipado";
@@ -637,7 +631,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[26].IsPurchased == true)
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 26);
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");
                     ReferenPerBack.PreverSaveIdPerfil(26,"Oreo");
                     Button_Equipar[26].interactable = false;
                     Txt_Equipar[26].text = "Equipado";
@@ -651,7 +644,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[27].IsPurchased == true)
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 27);
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");
                     ReferenPerBack.PreverSaveIdPerfil(27,"Andrew");
                     Button_Equipar[27].interactable = false;
                     Txt_Equipar[27].text = "Equipado";
@@ -665,7 +657,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[28].IsPurchased == true)
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 28);
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");
                     ReferenPerBack.PreverSaveIdPerfil(28,"Xoana");
                     Button_Equipar[28].interactable = false;
                     Txt_Equipar[28].text = "Equipado";
@@ -679,7 +670,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[29].IsPurchased == true)
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 29);
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");
                     ReferenPerBack.PreverSaveIdPerfil(29,"Coco");
                     Button_Equipar[29].interactable = false;
                     Txt_Equipar[29].text = "Equipado";
@@ -693,7 +683,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[30].IsPurchased == true)
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 30);
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");
                     ReferenPerBack.PreverSaveIdPerfil(30,"Celeste");
                     Button_Equipar[30].interactable = false;
                     Txt_Equipar[30].text = "Equipado";
@@ -707,7 +696,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[31].IsPurchased == true)
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 31);
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");
                     ReferenPerBack.PreverSaveIdPerfil(31,"Nick");
                     Button_Equipar[31].interactable = false;
                     Txt_Equipar[31].text = "Equipado";
@@ -721,7 +709,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[32].IsPurchased == true)
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 32);
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");
                     ReferenPerBack.PreverSaveIdPerfil(32,"Juan");
                     Button_Equipar[32].interactable = false;
                     Txt_Equipar[32].text = "Equipado";
@@ -735,7 +722,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[33].IsPurchased == true)
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 33);
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");
                     ReferenPerBack.PreverSaveIdPerfil(33,"Shock");
                     Button_Equipar[33].interactable = false;
                     Txt_Equipar[33].text = "Equipado";
@@ -749,7 +735,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[34].IsPurchased == true)
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 34);
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");
                     ReferenPerBack.PreverSaveIdPerfil(34,"Yume");
                     Button_Equipar[34].interactable = false;
                     Txt_Equipar[34].text = "Equipado";
@@ -763,7 +748,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[35].IsPurchased == true)
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 35);
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");
                     ReferenPerBack.PreverSaveIdPerfil(35,"Napoleón");
                     Button_Equipar[35].interactable = false;
                     Txt_Equipar[35].text = "Equipado";
@@ -777,7 +761,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[36].IsPurchased == true)
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 36);
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");
                     ReferenPerBack.PreverSaveIdPerfil(36,"Nube");
                     Button_Equipar[36].interactable = false;
                     Txt_Equipar[36].text = "Equipado";
@@ -792,7 +775,6 @@ public class ControlSección : MonoBehaviour
                 if (ListaObjetos[37].IsPurchased == true)
                 {
                     PlayerPrefs.SetInt("Id_Perfil", 37);
-                    PlayerPrefs.SetString("Equipado_Perfil", "Si");
                     ReferenPerBack.PreverSaveIdPerfil(37,"Manchas");
                     Button_Equipar[37].interactable = false;
                     Txt_Equipar[37].text = "Equipado";

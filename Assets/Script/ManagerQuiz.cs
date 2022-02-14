@@ -27,6 +27,7 @@ public class ManagerQuiz : MonoBehaviour
         //Método encargado de indicar al constructor que debe mostrar las opciones, solo si estamos en estado de juego InGame
         if (GameManager.shareInstance.currentgameState == GameState.InGame|| GameManager.shareInstance.currentgameState == GameState.Alert)
         {
+            RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = false ;
             Contador.sharecont.IntroAnimation = false;
             Control.OffOutlineRed();//Se llama al método encargado de restablecer el color de los Outline originales
             Control.activebutton(); // Si estamos en modo de juego llamará al método que activa la interacción con los botones
@@ -40,6 +41,7 @@ public class ManagerQuiz : MonoBehaviour
 
     private void GiveAnswer(OptionButton optionButton)
     {
+        RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = true;
         Contador.sharecont.IntroAnimation = true;
         //Método que se va a llamar cuando el jugador seleecione un respuesta
         //Ya sea correcto o incorrecto pasará a la siguiente pregunta, se verificará si la respuesta coorrecta o no 
@@ -88,7 +90,7 @@ public class ManagerQuiz : MonoBehaviour
     {
         //Método que tiene la finalidad de ser usado para pasar a la siguiente pregunta 
         // Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
-        AnimaCon.ShareAnimation.DesactiveNaveCorrect();//Se llama al método encargado de reproducir la animación de la nave saliendo de escena
+        RealTimeAnimation.ShareRealTimeAnimator.DesactiveNaveCorrect();//Se llama al método encargado de reproducir la animación de la nave saliendo de escena
         yield return new WaitForSeconds(1.6f);
         //Contador.sharecont.IntroAnimation=false;//Luego de que las acciones establecidas en la corrutina se cumpla se le indica al comportamiento Event Time de la Clase Contador que ya no se tengan en cuenta la cantidad de frames para ser llamado  
         Nexquestion();
@@ -97,7 +99,7 @@ public class ManagerQuiz : MonoBehaviour
     IEnumerator WaitforHeart()
     { 
         AnimaCon.ShareAnimation.StartHeart();//Se llama al método encargado de reproducir la animación del corazón rompiendose
-        AnimaCon.ShareAnimation.DesactiveNaveError();//Se llama al método encargado de reproducir la animación de la Nave Saliendo de escena
+        RealTimeAnimation.ShareRealTimeAnimator.DesactiveNaveError();//Se llama al método encargado de reproducir la animación de la Nave Saliendo de escena
         yield return new WaitForSeconds(1.1f);//Tiempo que se le otroga a la corrutina para que haga las acciones anteriores
         Contador.ResetHealth();//Método encargado de restar las vidas cuando se seleccione la respuesta incorrecta
         /*Para que lo anterior se pueda visualizar, se da un tiempo para invocar al método encargado
@@ -109,7 +111,7 @@ public class ManagerQuiz : MonoBehaviour
     }
     IEnumerator WaitforNave()
     {
-        AnimaCon.ShareAnimation.ActiveNaveError();//Se llama al método encargado de reproducir la animación de la entrada de la nave y disparo 
+        RealTimeAnimation.ShareRealTimeAnimator.ActiveNaveError();//Se llama al método encargado de reproducir la animación de la entrada de la nave y disparo 
         yield return new WaitForSeconds(1.3f);//Tiempo que se le otorga a la corrutina para que haga las acciones anteriores
         /*Luego de que se ejecuten las acciones de la corrutina, se llama a otra corrutina encargada de 
          reproducir la animación del corazón y de pasar a la siguiente pregunta*/       
@@ -117,7 +119,7 @@ public class ManagerQuiz : MonoBehaviour
     }
     IEnumerator WaitforNaveCorrect()
     {
-        AnimaCon.ShareAnimation.ActiveNaveCorrect();//Se llama al método encargado de reproducir la animación de la entrada de la nave para cuando se responde bien 
+        RealTimeAnimation.ShareRealTimeAnimator.ActiveNaveCorrect();//Se llama al método encargado de reproducir la animación de la entrada de la nave para cuando se responde bien 
         yield return new WaitForSeconds(1f);//Tiempo que se le otroga a la corrutina para que haga las acciones anteriores
         Contador.PointsAdd();//Método encargado de sumar los puntos si se seleccioná la respuesta correcta
         if (Contador.sharecont.contador <=5)//Condicional que evalua si el valor es menor igual a 5, permitiendo limitar el llamado de el método que pasa a la siguiente pregunta        

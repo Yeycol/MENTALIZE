@@ -224,7 +224,7 @@ public class GameManager : MonoBehaviour
     {
         //Esta corrutina permite darle tiempo a la animación dle Active Over 
         //De esa forma evitar perdida de FPS Al ejecutar simultaneas animaciones
-        AnimaCon.ShareAnimation.EventInGame("Win");//LLamamos al método encargado de habilitar las animaciones por eventualidad
+        //AnimaCon.ShareAnimation.EventInGame("Win");//LLamamos al método encargado de habilitar las animaciones por eventualidad
         yield return new WaitForSeconds(2f);//Tiempo que se le asigna a la corrutina para que ejecute las acciones establecidas
         AnimaCon.ShareAnimation.AtivateConfeti();//Llamamos al método encargado de habilitar la animación del Confeti
     }

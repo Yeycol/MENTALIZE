@@ -708,7 +708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 22022df05b2087741a0b26fed3c57715, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1316,7 +1316,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849139006}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 6d7b4038081f8c24a8f1b478f7ecc523, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 733bd70039024244daa2e8fface1e29c, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 812079635}
@@ -1325,7 +1325,7 @@ VideoPlayer:
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
   m_RenderMode: 0
-  m_AspectRatio: 4
+  m_AspectRatio: 1
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
@@ -1450,6 +1450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36962888034341e42a005657ee6247cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene:
+    m_Handle: 0
   AnimationLis:
   - {fileID: 0}
   - {fileID: 0}
@@ -1461,6 +1463,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 1412195529}
+  ObjectAnimation: {fileID: 0}
 --- !u!4 &1959711124
 Transform:
   m_ObjectHideFlags: 0
