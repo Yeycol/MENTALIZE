@@ -376,6 +376,9 @@ MonoBehaviour:
   monedaextra: 0
   UI_WinText: {fileID: 0}
   SliderInicio: []
+  IntroAnimation: 0
+  OnePlay: Si
+  RepeatAnimation: 1
 --- !u!4 &118113198
 Transform:
   m_ObjectHideFlags: 0
@@ -2793,11 +2796,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36962888034341e42a005657ee6247cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene:
+    m_Handle: 0
   AnimationLis:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 1183190373}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

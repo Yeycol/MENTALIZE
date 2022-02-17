@@ -8,8 +8,8 @@ public class ReferencesPause : MonoBehaviour
     public void ReturnMenu()
     {
      //Método encargado de volver al menú del videojuego
-        ActivarOpciones.shareOp.OffCanvasPause();//Llamamos a un método encargado de desactivar el canvas de la pausa sin necesidad de pasarle In game
-        ControlNiveles.shareLvl.CambiarNivel(7);//Llamamos al método encargado de cambiar el nivel con las transiciones, pasamos como parámetro el número de la escena que corresponde al menú
+        ActivarOpciones.shareOp.DesactivatePause();//Llamamos a un método encargado de desactivar el canvas de la pausa sin necesidad de pasarle In game
+        ControlNiveles.shareLvl.CambiarNivel(2);//Llamamos al método encargado de cambiar el nivel con las transiciones, pasamos como parámetro el número de la escena que corresponde al menú
     }
 
     public void ResetOpciones()

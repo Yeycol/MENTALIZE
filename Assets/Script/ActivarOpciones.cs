@@ -4,8 +4,8 @@ using UnityEngine;
 //Este script está encargado de activar la interfaz de pausa en cualquier escena a partir de las referencias establecidas en el anterior script
 public class ActivarOpciones : MonoBehaviour
 {
-    public Canvas Pausa;//Variable de tipo canvas que hace referencia a la interfaz de pausa
     public static ActivarOpciones shareOp;//Variable estática de tipo de esta misma clase, la misma que servirá para crear una instancia compartida
+
     private void Awake()
     {
         if (shareOp == null)
@@ -17,12 +17,9 @@ public class ActivarOpciones : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+       
     }
-    void Start()
-    {
-        Pausa = GameObject.FindGameObjectWithTag("Pausa").GetComponent<Canvas>();//Una vez recuperado este objeto, se prosigue a localizar un objeto que tenga el nombre pause, para recuperar su componente canvas y poderlo controlar
-    }
+
 
     public void ActivePause()
     {
@@ -31,11 +28,11 @@ public class ActivarOpciones : MonoBehaviour
                             // Cuando timeScale es = 1 el tiempo pasa tan rápido como el tiempo real
                             // Cuando timeScale es = 0,5 el tiempo pasa 2 veces mas lento que el tiempo real
                             // Cuando lo establecemos en 0 actua como pausa
-        Pausa.enabled = true;//Activamos el canvas localizado
+        AudioManager.shareaudio.ReferAudio.enabled = true;//Activamos el canvas localizado
         AudioManager.shareaudio.CargarSlider();//Método encargado de cargar las configuraciones almacenadas la última vez de la música
         AudioManager.shareaudio.CargarEfectos();//Método encargado de cargar las configuraciones almacenada la última vez de los efectos
         GameManager.shareInstance.PauseMenu();//Pasamos a modo de juego pausa
-    }
+        }
     public void DesactivatePause()
     {
         //Desactiva el Canvas que muestra las opciones de pausa
@@ -53,20 +50,14 @@ public class ActivarOpciones : MonoBehaviour
         AudioManager.shareaudio.Efectos[20].UnPause();//Despausamos el sonido de la frase Concentrate tu puedes hacerlo mejor
         AudioManager.shareaudio.Efectos[21].UnPause();//Despausamos el sonido de la frase Ey no te distraigas tienes una vida menos
         AudioManager.shareaudio.Efectos[22].UnPause();//Despausamos el sonido de la frase mira en donde presionas tienes una vida menos
-        Pausa.enabled = false;//Desactivamos el canvas
+        AudioManager.shareaudio.ReferAudio.enabled = false;//Desactivamos el canvas
         //TODO: Aun faltan establecer condicionales para la Pausa tanto en estado Menú como In game
-        if (Contador.sharecont.scene.name == "Tienda" || Contador.sharecont.scene.name == "SelectModoJuego" || Contador.sharecont.scene.name == "Inicio")//Se evalua si el nombre de la escena es Tienda
+        if (Contador.sharecont.scene.name == "Tienda" || Contador.sharecont.scene.name == "SelectModoJuego" || Contador.sharecont.scene.name == "Inicio"||Contador.sharecont.scene.name== "SelectLevel (Trivias)")//Se evalua si el nombre de la escena es Tienda
             GameManager.shareInstance.BackToMenu();//Se pasará el estado de juego a Menu
         else//Sino es el caso se pasará a en partida
             GameManager.shareInstance.StarGame();//Se pasará estado de juego en partida  
     }
-   public void OffCanvasPause()
-    {
-        //La función de este método es pasar al menú sin establecer modo de juego Ingame
-        Time.timeScale = 1f;
-        Pausa.enabled = false;//Se desactiva el canvas de pausa
-        
-    }
+
    
 
 

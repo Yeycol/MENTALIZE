@@ -5,13 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EventSounds : MonoBehaviour
 {
-    public Scene scene;
-    void Awake()
-    {
-     scene = SceneManager.GetActiveScene();
-        EvaluateMusicIngame();//Llamamos al método  encargado de establecer la música de Ingame
-    }
-  
+
     public void Disparo()
     {
         AudioManager.shareaudio.Efectos[6].Play();
@@ -43,13 +37,9 @@ public class EventSounds : MonoBehaviour
     {
         AudioManager.shareaudio.Efectos[12].Play();
     }
-   public void PlayMusicTrivias()
-    {
-            AudioManager.shareaudio.Efectos[15].Play();
-        AudioManager.shareaudio.Efectos[15].loop = true;
-    }
    public void PlayMusicSpaceYue()
     {
+        //TODO: Establecer el sonido de Space Yue en un objeto que no este en ninguna otra escena
         AudioManager.shareaudio.Efectos[16].Play();
         AudioManager.shareaudio.Efectos[16].loop = true;
     }
@@ -94,17 +84,9 @@ public class EventSounds : MonoBehaviour
     {
         AudioManager.shareaudio.Efectos[26].Play();
     }
-    public void EvaluateMusicIngame()
+    public void PlayCuantoMasdificilEsLaVictoria()
     {
-        //Método encargado de evaluar que música debe sonar en Ingame
-        //TODO: Aun falta establecer las demás condicionales cuando existan mas niveles
-        if (scene.name == "Level 1" || scene.name == "Level 2")
-        {
-            PlayMusicTrivias();
-        }
-        else if (scene.name == "SelectLevelSpace")
-        {
-            PlayMusicSpaceYue();
-        }
+        AudioManager.shareaudio.Efectos[27].Play();
     }
+   
 }

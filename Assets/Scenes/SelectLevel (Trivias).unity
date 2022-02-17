@@ -8528,7 +8528,7 @@ MonoBehaviour:
   SliderInicio: []
   IntroAnimation: 0
   OnePlay: Si
-  ActiveTime: 1
+  RepeatAnimation: 1
 --- !u!4 &1652577665
 Transform:
   m_ObjectHideFlags: 0
@@ -8859,11 +8859,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 1094038254}
-  - {fileID: 0}
-  - {fileID: 0}
-  ObjectAnimation: {fileID: 0}
 --- !u!4 &1722035972
 Transform:
   m_ObjectHideFlags: 0

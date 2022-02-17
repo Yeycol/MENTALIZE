@@ -5,9 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - groupbutton
-  - Pausa
   - Load
-  - RealTimeAnimation
   layers:
   - Default
   - TransparentFX

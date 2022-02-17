@@ -121,8 +121,7 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[16].UnPause();
             ManagerScene.shareMscen.OffOver();//Desactiva la interfaz de usuario al perder partida
             ManagerScene.shareMscen.OffWin();//Desactiva la interfaz de usuario al ganar partida
-            AnimaCon.ShareAnimation.DesactivateConfeti();//Método encargado de desactivar la animación del confeti
-            //AnimaCon.ShareAnimation.ActivePizarra();//Activa la animación d ela pizarra al empezar la aprtida
+            //AnimaCon.ShareAnimation.ActivePizarra();
 
         }
         else if (newGameState == GameState.GameOver)
@@ -163,6 +162,7 @@ public class GameManager : MonoBehaviour
             ManagerScene.shareMscen.ActiveWin();//Se activa el Canvas de la Interfaz de Usuario al ganar la Partida
             AnimaCon.ShareAnimation.ActiveWin();//Se habilita la animación  de la Interfaz de Usuario
             AnimaCon.ShareAnimation.StartPadlock();//Se activa la animación del evento Padlock
+            RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = true;
             StartCoroutine(WaitForConfeti());//Llamamos a la corrutina encargada de habilitar la animación del Confeti
         }
         else if (newGameState == GameState.Load)
@@ -183,7 +183,7 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[8].Pause();//Pausamos el Efeco Salida Nave
             AudioManager.shareaudio.Efectos[9].Pause();//Pausamos el Efeco Roto
             AudioManager.shareaudio.Efectos[10].Pause();//Pausamos el Efeco Abducir Nave
-            AudioManager.shareaudio.Efectos[14].Pause();//Al pasar en esta pausa se deben deshabilitar las canciones en determinada escena para proceder con su configuración
+            AudioManager.shareaudio.Efectos[14].Pause();//Al pasar en esta pausa se deben deshabilitar las canciones en determinada escena para proceder con su configuración*/
             AudioManager.shareaudio.Efectos[15].Pause();// Al pasar a pausa se para un momento la música de Trivias
             AudioManager.shareaudio.Efectos[16].Pause();//Se pausa la música de Space Yue
             AudioManager.shareaudio.Efectos[17].Pause();//Se pausa la Frase A toda Máquina gogo
@@ -191,7 +191,8 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[19].Pause();//Se pausa el sonido de la frase Mira el Reloj no te queda tiempo
             AudioManager.shareaudio.Efectos[20].Pause();//Se pausa el sonido de la frase Concentrate tu puedes hacerlo mejor
             AudioManager.shareaudio .Efectos[21].Pause();//Se pausa el sonido de la frase Ey no te distraigas te queda una vida menos 
-            AudioManager.shareaudio.Efectos[22].Pause();//Se pausa el sonido de la frase Mira en donde presionas tienes una vida menos 
+            AudioManager.shareaudio.Efectos[22].Pause();//Se pausa el sonido de la frase Mira en donde presionas tienes una vida menos
+     
         } else if (newGameState == GameState.Alert)
         { 
             //TODO: Recuerda que cada que agregues algun Efecto de sonido nuevo debes asignarle su estado cuando pase a Alert
@@ -222,11 +223,22 @@ public class GameManager : MonoBehaviour
    
     IEnumerator WaitForConfeti()
     {
+
         //Esta corrutina permite darle tiempo a la animación dle Active Over 
         //De esa forma evitar perdida de FPS Al ejecutar simultaneas animaciones
         //AnimaCon.ShareAnimation.EventInGame("Win");//LLamamos al método encargado de habilitar las animaciones por eventualidad
+        RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[4].gameObject.SetActive(true);//Habilitamos el objeto del confeti para poder activar la animación del Confeti
+        RealTimeAnimation.ShareRealTimeAnimator.StartAnimationConfeti();//Activamos la animación del confeti para cuando sale la interfaz de win
         yield return new WaitForSeconds(2f);//Tiempo que se le asigna a la corrutina para que ejecute las acciones establecidas
-        AnimaCon.ShareAnimation.AtivateConfeti();//Llamamos al método encargado de habilitar la animación del Confeti
+        StartCoroutine(WaitForWin());//Llamamos a la corrutina encargada de dar tiempo para llamar a la animación de holograma
+    }
+    IEnumerator WaitForWin()
+    {
+       //Corrutina que espera un segundo para poder llmar a la animación de Win Game
+        yield return new WaitForSeconds(1f);
+        RealTimeAnimation.ShareRealTimeAnimator.EventInGame("Win");//Pasamos el caso al método para activar una animación de manera aleatoria
+
+
     }
 
    

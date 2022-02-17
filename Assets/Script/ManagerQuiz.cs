@@ -17,6 +17,9 @@ public class ManagerQuiz : MonoBehaviour
     public Control_Button Control;// Se localiza un objeto por referencia en este caso la clase que nos permita activar y desativar la interacción con los botones
     private void Start()
     {
+        AudioManager.shareaudio.Efectos[15].Play();//Reproducimos la música destinada para las trivias
+        AudioManager.shareaudio.Efectos[15].loop = true;//Establecemos en bucle la música 
+        RealTimeAnimation.ShareRealTimeAnimator.RamdomIndex();//Llamamos al método encargado de generar nuevos Index de las animaciones en trivias 
         GameManager.shareInstance.StarGame();//Establecemos como modo en partida
         Nexquestion();// Lo llamamos para tener la primera pregunta
     }
@@ -27,8 +30,10 @@ public class ManagerQuiz : MonoBehaviour
         //Método encargado de indicar al constructor que debe mostrar las opciones, solo si estamos en estado de juego InGame
         if (GameManager.shareInstance.currentgameState == GameState.InGame|| GameManager.shareInstance.currentgameState == GameState.Alert)
         {
-            RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = false ;
-            Contador.sharecont.IntroAnimation = false;
+            RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[1].gameObject.SetActive(false);//Se desahabilita la aniamción del objeto NaveCorrect 
+            RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[0].gameObject.SetActive(false);//Se desahabilita la animación del objeeto NaveError
+            RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = false;//Desahabilitamos el canvas de la clase RealTimeAnimations
+            Contador.sharecont.IntroAnimation = false;//Desahabilitamos el tiempo lento cuando una animación está activa
             Control.OffOutlineRed();//Se llama al método encargado de restablecer el color de los Outline originales
             Control.activebutton(); // Si estamos en modo de juego llamará al método que activa la interacción con los botones
             Contador.sumar();//LLama al metodo encargado de sumar el contador de la trivia
@@ -41,8 +46,8 @@ public class ManagerQuiz : MonoBehaviour
 
     private void GiveAnswer(OptionButton optionButton)
     {
-        RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = true;
-        Contador.sharecont.IntroAnimation = true;
+        RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = true;//Habilitamos el Canvas de la clase RealTimeAnimation
+        Contador.sharecont.IntroAnimation = true;//Habilitamos el tiempo lento para cuando una animación está activa
         //Método que se va a llamar cuando el jugador seleecione un respuesta
         //Ya sea correcto o incorrecto pasará a la siguiente pregunta, se verificará si la respuesta coorrecta o no 
         StartCoroutine(Answeroutine(optionButton));// Iniciamos la corrutina 
@@ -61,12 +66,14 @@ public class ManagerQuiz : MonoBehaviour
         if (optionButton.Option.correct == false)
         {
             //En el caso de haber seleccionado una respuesta incorrecta, se hace las siguientes acciones
+            RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[0].gameObject.SetActive(true);//Habilitamos el objeto de la aniamación NaveError
             AudioManager.shareaudio.Efectos[2].Play();//Reproducimos el sonido de Answer Bad
             StartCoroutine(WaitforNave());//Se llama a la corrutina encargada de pausar la ejecución para ver la animación cuando la repsuesta es incorrecta 
         }
         else if (optionButton.Option.correct == true)
         {
             //En el caso de que se haya seleccionado una respuesta correcta, se hacen las siguientes acciones
+            RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[1].gameObject.SetActive(true);//Habilitamos el objeto de la animación NaveCorrect
             AudioManager.shareaudio.Efectos[1].Play();//Reproducimos el sonido de Answer Good
             Control.OutlineGreen();// Llamamos al método encargado de poner el outline de los botones para que los coloque en verde 
             StartCoroutine(WaitforNaveCorrect());// Se llama a la corrutina encargada de pausar la ejecución para poder visualizar la animación cuando la respuesta es correcta

@@ -106156,14 +106156,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 1412195529}
   - {fileID: 0}
   - {fileID: 406965804}
   - {fileID: 1095942974}
   - {fileID: 825152080}
   - {fileID: 606534385}
-  ObjectAnimation: {fileID: 0}
 --- !u!4 &1959711124
 Transform:
   m_ObjectHideFlags: 0
