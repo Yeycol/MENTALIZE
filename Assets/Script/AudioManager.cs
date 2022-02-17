@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource [] Efectos;//Array de efectos que hacen referencia al conjunto de efectos que deseamos regular el volumen
     public Image Mute1;//Refencia  de la imagen que tiene un símbolo que da a expresar que se muteo totalmente la música
     public Image Mute2;//Refencia  de la imagen que tiene un símbolo que da a expresar que se muteo totalmente los efectos
-
+    public Canvas ReferAudio;//Referencia al canvas del audio
 
     private void Awake()
     {
@@ -68,6 +68,7 @@ public class AudioManager : MonoBehaviour
         Efectos[24].volume = Efectos1.value;//Ortorgamos el valor del slider a la propieda volumen del objeto que contiene el sonido de la frase JIJIJI Jugamos de nuevo eso fue divertido
         Efectos[25].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la frase KABOM Vamos por otra
         Efectos[26].volume = Efectos1.value;//Otorgamos el valor de slider a la propiedad volume del objeto que contiene el sonido  de la frase Eso fue excelente, quieres ir por muffins
+        Efectos[27].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene la frase Cuanto más dificil es la victoria mayor es la felicidad al ganar
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
 
@@ -108,6 +109,7 @@ public class AudioManager : MonoBehaviour
         Efectos[24].volume = Efectos1.value;
         Efectos[25].volume = Efectos1.value;
         Efectos[26].volume = Efectos1.value;
+        Efectos[27].volume = Efectos1.value;
         PlayerPrefs.SetFloat("Efect", Efectos1.value);
         PlayerPrefs.Save();
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute

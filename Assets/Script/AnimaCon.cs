@@ -11,10 +11,7 @@ public class AnimaCon : MonoBehaviour
 {
     public Scene scene;
     public List<Animator> AnimationLis = null;//Lista de las animaciones a controlar
-    public static AnimaCon ShareAnimation;
-   
-    public GameObject ObjectAnimation;//Hace referencia al objeto padre que contiene en su interior a los demás hijos que son las animaciones
-        
+    public static AnimaCon ShareAnimation;    
     //Referencia a los parámetros de las animaciones
     const string START_PIZARRA = "startPizarra";//Variable costante que hace referencia al parámetro booleano de la pizarra
     const string ACTIVE_OVER = "Active";// Variable constante que hace referencia al parámetro booleano de la interfaz de Game Over
@@ -24,7 +21,6 @@ public class AnimaCon : MonoBehaviour
     const string ACTIVE_CANDADO = "StartJumpCan";//Variable constante que hace referencia al parámetro del candado en Game Over
     const string ACTIVE_PADLOCK = "StartDesblock";//Variable constante que hace referencia al parámetro del candado del Win 
     const string START_WIN = "StartWin";//Variable constante que hace referencia al parámetro booleano d ela interfaz Win
-    const string START_CONFETI = "StartConfeti";//Variable constante que hace referencia al parámetro booleano que controla la animación del confeti
     const string START_HEART = "StartHeart";//Variable constante que hace referencia al parámetro booleano que controla la animación 
     const string START_CEROMONEY = "StartCero";//Variable constante que hace referencia al parámetro booleano que controla la animación al no tener dinero
     const string START_NOLOGRO = "StartNoLogro";//Variable constante que hace referencia al parámetro booleano que controla la animación al no poder conseguir algo por no tener el logro desbloqueado
@@ -38,13 +34,13 @@ public class AnimaCon : MonoBehaviour
        5 = Animación del Candado en Interfaz Game Over
        6 = Animación de Candado al Desbloquear un Nivel
        7 = Animación de la interfaz de Win
-       8 = Animación del Confeti al Ganar Partida
-       9 = Animación del Panel para las transiciones de Escena
-       10 = Animación del corazón cuando es disparado 
-       11 = Animación de cantidad de monedas insuficientes para compra
-       12 = Animación de objeto no conseguido por logro desbloqueado faltante
-       13 = Animación de objeto no disponible por que aun no ha sido comprado 
-       14 = Animación de nuevo objeto conseguido, ya sea cuando suceda la eventualidad de comprado o desbloqueaod por logro
+       8 = Animación del Confeti al Ganar Partida//Remover
+       8 = Animación del Panel para las transiciones de Escena
+       9 = Animación del corazón cuando es disparado 
+       10 = Animación de cantidad de monedas insuficientes para compra
+       11 = Animación de objeto no conseguido por logro desbloqueado faltante
+       12 = Animación de objeto no disponible por que aun no ha sido comprado 
+       13 = Animación de nuevo objeto conseguido, ya sea cuando suceda la eventualidad de comprado o desbloqueaod por logro
       */
     private void Awake()
     {
@@ -85,14 +81,6 @@ public class AnimaCon : MonoBehaviour
     public void ActiveWin()
     {
     AnimationLis[7].SetBool(START_WIN, true);//Activamos la animación de win
-    }
-    public void AtivateConfeti()
-    {
-        AnimationLis[8].SetBool(START_CONFETI, true);//Se activa animación del confeti
-    }
-    public void DesactivateConfeti()
-    {
-        AnimationLis[8].SetBool(START_CONFETI, false);//Se desactiva animación del confeti
     }
 
     public void DesactivateAlert()
@@ -158,11 +146,11 @@ public class AnimaCon : MonoBehaviour
 
     public void StartHeart()
     {
-        AnimationLis[10].SetBool(START_HEART, true);
+        AnimationLis[9].SetBool(START_HEART, true);
     }
     public void StopHeart()
     {
-        AnimationLis[10].SetBool(START_HEART, false);
+        AnimationLis[9].SetBool(START_HEART, false);
     }
     public void WaitPadlock()
     {
@@ -184,47 +172,47 @@ public class AnimaCon : MonoBehaviour
     public void ActiveEventCeroMoney()
     {
         //Activa la animación cuando no hay suficientes monedas para comprar
-        AnimationLis[11].SetBool(START_CEROMONEY, true);
+        AnimationLis[10].SetBool(START_CEROMONEY, true);
     }
     public void DesactiveEventCeroMoney()
     {
         //Desactiva la animación cuando no hay suficientes monedas para comprar
-        AnimationLis[11].SetBool(START_CEROMONEY, false);
+        AnimationLis[10].SetBool(START_CEROMONEY, false);
     }
 
     public void ActivateNologro()
     {
         //Método que se encarga de activar la animación de logro aun no desbloqueado
-        AnimationLis[12].SetBool(START_NOLOGRO, true);
+        AnimationLis[11].SetBool(START_NOLOGRO, true);
     }
 
     public void DesactivateNologro()
     {
         //Método que se encarga de desactivar la animación de logro aun no desbloqueado
-        AnimationLis[12].SetBool(START_NOLOGRO, false);
+        AnimationLis[11].SetBool(START_NOLOGRO, false);
     }
 
     public void ActiveNocompra()
     {
         //Método que se encarga de activar la aniamción que muestra que aun no se ha comprado
-        AnimationLis[13].SetBool(START_NOCOMPRA,true);
+        AnimationLis[12].SetBool(START_NOCOMPRA,true);
     }
 
     public void DesactiveNocompra()
     {
         //Método que se encarga de desactivar la aniamción que muestra que aun no se ha comprado
-        AnimationLis[13].SetBool(START_NOCOMPRA, false);
+        AnimationLis[12].SetBool(START_NOCOMPRA, false);
     }
 
     public void ActiveAnimationObjectGet()
     {
         //Método encargado de inicializar la animación de los items conseguidos
-        AnimationLis[14].SetBool(START_ITEMCONSEGUIDO, true);
+        AnimationLis[13].SetBool(START_ITEMCONSEGUIDO, true);
     }
     public void DesactivateAnimationObjectGet()
     {
         //Método encargado de deshabilitar la animación de los items conseguidos
-        AnimationLis[14].SetBool(START_ITEMCONSEGUIDO, false);
+        AnimationLis[13].SetBool(START_ITEMCONSEGUIDO, false);
     }
     
 

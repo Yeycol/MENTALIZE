@@ -57,7 +57,7 @@ public class ControlNiveles : MonoBehaviour
     }
     IEnumerator AnimatorTransitionScene(int Nivel)
     {
-        AnimaCon.ShareAnimation.AnimationLis[9].SetTrigger("ExitScene");//Referencia al parámetro booleano que se reinicia desde controlador cuando se efectúa una trasicción 
+        AnimaCon.ShareAnimation.AnimationLis[8].SetTrigger("ExitScene");//Referencia al parámetro booleano que se reinicia desde controlador cuando se efectúa una trasicción 
        
         yield return new WaitForSeconds(0.9f);// Tiempo que se le da a la corrutina para realizar las acciones                                     // Una vez que termina la corrutina se carga la siguienre escena pasada por parámetro
         SceneManager.LoadScene(Nivel);
@@ -65,7 +65,7 @@ public class ControlNiveles : MonoBehaviour
 
     IEnumerator AnimatorTransitionSceneMenu(int Nivel)
     {
-        AnimaCon.ShareAnimation.AnimationLis[9].SetTrigger("ExitScene");
+        AnimaCon.ShareAnimation.AnimationLis[8].SetTrigger("ExitScene");
         yield return new WaitForSeconds(0.9f);
         ManagerScene.shareMscen.LoadMenu(Nivel);
     }

@@ -133,7 +133,6 @@ public class Contador : MonoBehaviour
             if (RepeatAnimation)//Si el repetir la animación es verdadero
             {
                 RepeatAnimation = false;//Se establece como falso si es la primera vez que ingresa
-                RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = true;//Se indica que debe activarse el Canvas de la clase RealTimeAnimation
                 RealTimeAnimation.ShareRealTimeAnimator.EventInGame("Time");//A la misma clase se le indica que ventualidad es la que esta por pasar
                 
             }
@@ -150,11 +149,20 @@ public class Contador : MonoBehaviour
                 //La animación solo se activará si estamos en estado de juego InGame
                 if (GameManager.shareInstance.currentgameState == GameState.InGame)
                 {
-                    RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = true;//Se indica que debe activarse el Canvas de la clase RealTimeAnimation
+                   
+                    RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[2].gameObject.SetActive(true);
+                    RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[3].gameObject.SetActive(true);
                     Oneintro = "No";//La primera vez que entre en este condicional debe ser la única vez, puesto que se pasará false para que en el siguiente frame no haya la posibilidad de repetir la eventualidad
                     StartCoroutine(WaitExtraTime());//Si es el caso de ser verdad se llama a la corrutina encargada de habilitar y deshabilitar las animaciones
                 }
             }
+        }
+       else if ((int)currentTime == 21 && RepeatAnimation)//Esta condicional evalua si el tiempo actual es igual a 21 y si el booleano es verdadero para evitar repeticiones 
+        {
+            RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = true;//Se indica que debe activarse el Canvas de la clase RealTimeAnimation
+        }else if ((int)currentTime == 8 && Oneintro=="Si")
+        {
+            RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = true;//Se indica que debe activarse el Canvas de la clase RealTimeAnimation
         }
         /*
         if (GameManager.shareInstance.currentgameState == GameState.InGame && TimeReferences != 0 && vidas == 1 && OnePlay == "Si" &&(int)currentTime!=20)
@@ -163,11 +171,6 @@ public class Contador : MonoBehaviour
             AnimaCon.ShareAnimation.EventInGame("Vida");
         }
         */
-        /*
-        if ((int)currentTime == 21&&ActiveTime)
-        {
-            AnimaCon.ShareAnimation.ObjectAnimation.SetActive(true);
-        }*/
 
     }
 
@@ -215,8 +218,10 @@ public class Contador : MonoBehaviour
     }
     public void resetcont()
     {
+        RealTimeAnimation.ShareRealTimeAnimator.StoptAnimationConfeti();//Paramos la animación del confeti para que no termine de pararse al recargar escena
+        RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = false;//Desahabilitamos el canvas para que este no este habilitado al reiniciar escena
+        RealTimeAnimation.ShareRealTimeAnimator.ResetIndex();//Reseteamos los objetos activos de los index generados
         ResetSound();//Llamamos al método encargado de resetear los sonidos de la anterior Escena
-        RealTimeAnimation.ShareRealTimeAnimator.RamdomIndex();
         //Método encargado de resetear la Trivia
         switch (scene.name)
         {
@@ -291,7 +296,6 @@ public class Contador : MonoBehaviour
         monedaextra = PlayerPrefs.GetInt("ExtraMoneda");//Se establece la cantidad de monedas extras que se darán al ganar una partida
 
     }
- 
     IEnumerator WaitExtraTime()
     {
         IntroAnimation = true;// Se activa la lentitud al tiempo para que la animación no haga sentir que el jugador a perdido tiempo
@@ -302,36 +306,41 @@ public class Contador : MonoBehaviour
         currentTime += TimeReferences;//Se incrementa el tiempo actual de acuerdo al valor que otrogue la carta
         IntroAnimation = false;// Se le indica a la variable booleano que quite la lentitud a tiempo y asi volver todo a la normalidad puesto que no hay animación activa 
         RealTimeAnimation.ShareRealTimeAnimator.DesactiveAnimationExtraTime();//Desactivamos la animación de tiempo extra
-        StartCoroutine(WaitForCanvas());
+        StartCoroutine(WaitForCanvas());//Se llama al Canvas encargado de dar tiempo para la animación de salida
     }
     IEnumerator WaitForCanvas()
     {
         //Corrutina destinada a dar tiempo a la animación de salida
         yield return new WaitForSeconds(0.9f);
+        RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[2].gameObject.SetActive(false);
+        RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[3].gameObject.SetActive(false);
         RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = false;
     }
     public void ResetSound()
     {
         //Método encargado de parar los sonidos de la anterior escena al resetearse
         AudioManager.shareaudio.Efectos[3].Stop();//Para el sonido de Time End
-        AudioManager.shareaudio.Efectos[6].Stop();//Para el Efecto Disparo
+        /*AudioManager.shareaudio.Efectos[6].Stop();//Para el Efecto Disparo
         AudioManager.shareaudio.Efectos[7].Stop();//Para el Efecto Llegada Nave
         AudioManager.shareaudio.Efectos[8].Stop();//Para el Efeco Salida Nave
         AudioManager.shareaudio.Efectos[9].Stop();//Para el Efeco Roto
-        AudioManager.shareaudio.Efectos[10].Stop();//Para el Efeco Abducir Nave
+        AudioManager.shareaudio.Efectos[10].Stop();//Para el Efeco Abducir Nave*/
         AudioManager.shareaudio.Efectos[15].Stop();// Para  la música de Trivias d ela anterior escena
         AudioManager.shareaudio.Efectos[16].Stop();//Para la música de Space Yue
-        AudioManager.shareaudio.Efectos[17].Stop();//Se para la Frase A toda Máquina gogo
+       /* AudioManager.shareaudio.Efectos[17].Stop();//Se para la Frase A toda Máquina gogo
         AudioManager.shareaudio.Efectos[18].Stop();//Se para la frase de Se te acaba Tiempo Tic Tac
         AudioManager.shareaudio.Efectos[19].Stop();//Paramos el sonido de la frase Mira el reloj no te queda tiempo
         AudioManager.shareaudio.Efectos[20].Stop();//Paramos el sonido de la frace Concentrate tu puedes hacerlo mejor
         AudioManager.shareaudio.Efectos[21].Stop();//Paramos el sonido de la frase Hey no te distraigas te queda una vida
-        AudioManager.shareaudio.Efectos[22].Stop();//Paramos el sonido de la frase Mira en donde presionas tienes una vida menos
-        AudioManager.shareaudio.Efectos[23].Stop();//Paramos el sonido de la frase Hit Hit Hurra|
+        AudioManager.shareaudio.Efectos[22].Stop();//Paramos el sonido de la frase Mira en donde presionas tienes una vida menos*/
+        AudioManager.shareaudio.Efectos[23].Stop();//Paramos el sonido de la frase Hit Hit Hurra
         AudioManager.shareaudio.Efectos[24].Stop();//Paramos el sonido de la frase JIJIJI
         AudioManager.shareaudio.Efectos[25].Stop();//Paramos el sonido de la frase KABOM Vamos por otra
         AudioManager.shareaudio.Efectos[26].Stop();//Paramos el sonido de la frase Eso fue excelente quieres ir por MUFFINS
+        AudioManager.shareaudio.Efectos[27].Stop();//Paramos el sonido de la frase Cuanto más dificil es la victoria mayor es la felicidad al ganar
         AudioManager.shareaudio.Efectos[13].Stop();//Se para el sonido del WiGame
         AudioManager.shareaudio.Efectos[0].Stop();//Se para el sonido del OverGame
     }
+
+   
 }

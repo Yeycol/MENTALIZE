@@ -15,7 +15,6 @@ public class Video : MonoBehaviour
     {
         ControlNiveles.shareLvl.ReferCar.GuardarPreverLoad(7);//Llamamos al método encargado de enviar el entero de la escena que debe ser cargada después de la pantalla de carga
         GameManager.shareInstance.LoadPartyandGame();//Llamamos al método que se encarga de pasar al estado de Carga
-        AudioManager.shareaudio.Efectos[14].Pause();//Establecemos en pause por que al pasar modo de juego Load este tiene establecido en su método despausar la musica del menu, colocarlo en Play y que esta se repita en bucle
         StartCoroutine(Wait_Intro());//Se llama a la corrutina
     }
     IEnumerator Wait_Intro()

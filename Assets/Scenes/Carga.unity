@@ -1461,9 +1461,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 1412195529}
-  ObjectAnimation: {fileID: 0}
+  - {fileID: 1412195529}
 --- !u!4 &1959711124
 Transform:
   m_ObjectHideFlags: 0
