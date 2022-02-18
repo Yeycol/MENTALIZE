@@ -1,0 +1,720 @@
+fileFormatVersion: 2
+guid: eeb12e535d43a7e49bcd12e5f6b56068
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2685310392066560891
+    second: NTSMSI-26
+  - first:
+      213: 7583620520876873969
+    second: NTSMSI-27
+  - first:
+      213: 3754730416796279885
+    second: NTSMSI-28
+  - first:
+      213: 4108361683989684532
+    second: NTSMSI-29
+  - first:
+      213: 1670651627692128014
+    second: NTSMSI-30
+  - first:
+      213: 3287293805301959099
+    second: NTSMSI-31
+  - first:
+      213: -169225902228102978
+    second: NTSMSI-32
+  - first:
+      213: 3912337823535996354
+    second: NTSMSI-33
+  - first:
+      213: 3802925892699303582
+    second: NTSMSI-34
+  - first:
+      213: -8720318946516652451
+    second: NTSMSI-35
+  - first:
+      213: -6664086847040042616
+    second: NTSMSI-36
+  - first:
+      213: 1921800307456961169
+    second: NTSMSI-37
+  - first:
+      213: 3104971935970669765
+    second: NTSMSI-38
+  - first:
+      213: 1663202878715361548
+    second: NTSMSI-39
+  - first:
+      213: 7836083400783488821
+    second: NTSMSI-40
+  - first:
+      213: -7144168623511606155
+    second: NTSMSI-41
+  - first:
+      213: 1335649802533676322
+    second: NTSMSI-42
+  - first:
+      213: -7284734606649864235
+    second: NTSMSI-43
+  - first:
+      213: 2333319253514792040
+    second: NTSMSI-44
+  - first:
+      213: 1685895727615127037
+    second: NTSMSI-45
+  - first:
+      213: 5268356017531799858
+    second: NTSMSI-46
+  - first:
+      213: -1090792582979534398
+    second: NTSMSI-47
+  - first:
+      213: -4935648813543250263
+    second: NTSMSI-48
+  - first:
+      213: 9111642529751006448
+    second: NTSMSI-49
+  - first:
+      213: -1687100033667302867
+    second: NTSMSI-50
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 49
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NTSMSI-26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c25310d6cdbbad0800000000000000
+      internalID: -2685310392066560891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-27
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f89a3a1fae6e3960800000000000000
+      internalID: 7583620520876873969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-28
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d442f70bb6b7b1430800000000000000
+      internalID: 3754730416796279885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-29
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 431e70f3f25d30930800000000000000
+      internalID: 4108361683989684532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-30
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 7339
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e07740ccdc85f2710800000000000000
+      internalID: 1670651627692128014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb98d519c40de9d20800000000000000
+      internalID: 3287293805301959099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-32
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb026e240f9c6adf0800000000000000
+      internalID: -169225902228102978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-33
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd1035a58a6b4630800000000000000
+      internalID: 3912337823535996354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-34
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9e2a7d53f4b6c430800000000000000
+      internalID: 3802925892699303582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-35
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 5557
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e24c0de143bf680800000000000000
+      internalID: -8720318946516652451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88943d902586483a0800000000000000
+      internalID: -6664086847040042616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-37
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19a653f823b9baa10800000000000000
+      internalID: 1921800307456961169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-38
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c4b6116683171b20800000000000000
+      internalID: 3104971935970669765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-39
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c097c37c432e41710800000000000000
+      internalID: 1663202878715361548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-40
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 3775
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537e80ee55c5fbc60800000000000000
+      internalID: 7836083400783488821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57c69140d70dadc90800000000000000
+      internalID: -7144168623511606155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-42
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22527583b6e298210800000000000000
+      internalID: 1335649802533676322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-43
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dfc3afa87c67ea90800000000000000
+      internalID: -7284734606649864235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-44
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c2455af7d916020800000000000000
+      internalID: 2333319253514792040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-45
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 1993
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfd29d46b31856710800000000000000
+      internalID: 1685895727615127037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239464f82e5fc1940800000000000000
+      internalID: 5268356017531799858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-47
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c1cfdfcce9bcd0f0800000000000000
+      internalID: -1090792582979534398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-48
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a62da4ed8d018bb0800000000000000
+      internalID: -4935648813543250263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-49
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc7622fa9e037e70800000000000000
+      internalID: 9111642529751006448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NTSMSI-50
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 211
+        width: 1000
+        height: 1782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2af5b045773698e0800000000000000
+      internalID: -1687100033667302867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -12,7 +12,6 @@ public class ManagerScene : MonoBehaviour
     public Canvas GameOver;//Referencia al Canvas llamado GameOver
     public Canvas Alert;// Referencia al Canvas llamado Alert
     public Canvas SceneAnima;//Referencia al canvas encargado de hacer la transición al pasar a otra escena
-    public Button[] ButtonsInterface;//Array que hace referencia a los botones de las trivias que sirven apra habilitar su interacción cuando se muestre por completo el Win y el Over del Canvas
     public Canvas[] Descripciones;//Referencia  a los canvas que tienen las descripciones d elos objetos comprados
 
     private void Awake()
@@ -48,10 +47,6 @@ public class ManagerScene : MonoBehaviour
     {
         //Activa el Canvas Win 
         Win.enabled = true;
-        if (GameManager.shareInstance.currentgameState == GameState.InGame)//Se limita el del método a solo cuando el nombre de la escena sea igual a InGame
-        {
-            StartCoroutine(EnableButton());//Corrutina encargada de habilitar los botones de la interfaz Win
-        }
     }
 
     public void OffWin()
@@ -63,10 +58,6 @@ public class ManagerScene : MonoBehaviour
     {
         //Activa el Canvas del Game Over
         GameOver.enabled = true;
-        if (GameManager.shareInstance.currentgameState == GameState.InGame)//Se limita el del método a solo cuando el nombre de la escena sea igual a InGame
-        {
-            StartCoroutine(EnableButton());//Corrutina encargada de habilitar los botones de la interfaz Over
-        }
     }
     public void OffOver()
     {
@@ -105,19 +96,6 @@ public class ManagerScene : MonoBehaviour
 #else //Si estamos en un dispositivo móvil quitamos la aplicación
          Application.Quit();
 #endif
-    }
-    IEnumerator EnableButton()
-    {
-        //Esta corrutina se encarga de habilitar los botones solo hasta que las animaciones de la interfaz aparescan 
-        //Evitando ir al menu o repetir partida sin ver los botones
-        yield return new WaitForSeconds(1.5f);//Tiempo que se le asigna a la corrutina para hacer las acciones estañecidas
-        ButtonsInterface[0].interactable = true;//Reset del Over
-        ButtonsInterface[1].interactable = true;//Salir del Over
-        ButtonsInterface[2].interactable = true;//Cerrar del Over
-        ButtonsInterface[3].interactable = true;//Salir del Win
-        ButtonsInterface[4].interactable = true;//Reintentar Win 
-        ButtonsInterface[5].interactable = true;//Continuar Win 
-        ButtonsInterface[6].interactable = true;//Cerrar Win
     }
 
     public void ActiveEventDescripciones(int IdObjectDecrip)

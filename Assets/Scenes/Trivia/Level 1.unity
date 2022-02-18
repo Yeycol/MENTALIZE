@@ -295,7 +295,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 51423001}
   m_OnClick:
     m_PersistentCalls:
@@ -548,7 +548,7 @@ MonoBehaviour:
   IntroAnimation: 0
   OnePlay: Si
   RepeatAnimation: 1
-  BlockButTrivias: {fileID: 0}
+  dbprueba: {fileID: 591647261}
 --- !u!4 &98125071
 Transform:
   m_ObjectHideFlags: 0
@@ -671,8 +671,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb40f455c8151b40bbcdf34df3010f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene:
-    m_Handle: 0
 --- !u!1 &173601163
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +748,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 173601166}
   m_OnClick:
     m_PersistentCalls:
@@ -979,8 +977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb40f455c8151b40bbcdf34df3010f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene:
-    m_Handle: 0
 --- !u!4 &225059531
 Transform:
   m_ObjectHideFlags: 0
@@ -1948,7 +1944,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 634586894}
   m_OnClick:
     m_PersistentCalls:
@@ -1965,7 +1961,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 225059530}
         m_TargetAssemblyTypeName: EventSounds, Assembly-CSharp
         m_MethodName: ButtonSelect
         m_Mode: 1
@@ -2470,7 +2466,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &858293646
 RectTransform:
@@ -2666,7 +2662,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 885593395}
   m_OnClick:
     m_PersistentCalls:
@@ -2985,8 +2981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb40f455c8151b40bbcdf34df3010f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene:
-    m_Handle: 0
 --- !u!1 &952170507
 GameObject:
   m_ObjectHideFlags: 0
@@ -4499,7 +4493,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1504238205}
   m_OnClick:
     m_PersistentCalls:
@@ -4600,14 +4594,6 @@ MonoBehaviour:
   GameOver: {fileID: 858293645}
   Alert: {fileID: 952170510}
   SceneAnima: {fileID: 470241103}
-  ButtonsInterface:
-  - {fileID: 1751228380}
-  - {fileID: 51423000}
-  - {fileID: 634586893}
-  - {fileID: 1504238204}
-  - {fileID: 173601165}
-  - {fileID: 1847726558}
-  - {fileID: 885593394}
   Descripciones: []
 --- !u!4 &1509874916
 Transform:
@@ -6191,6 +6177,7 @@ MonoBehaviour:
   Ido_Fondo: 0
   Equipado: No
   Equipado_Fondo: No
+  Equipado_Perfil: No
   scene:
     m_Handle: 0
   ObjectsShop:
@@ -6217,6 +6204,7 @@ MonoBehaviour:
   Perfil: {fileID: 0}
   Fondo: {fileID: 0}
   ReferenPerBack: {fileID: 0}
+  EvaluateCart: 0
 --- !u!114 &1709251652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6426,7 +6414,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1751228381}
   m_OnClick:
     m_PersistentCalls:
@@ -6609,7 +6597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e909e38414fb643a783a6228e019b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pausa: {fileID: 0}
 --- !u!4 &1836050724
 Transform:
   m_ObjectHideFlags: 0
@@ -6796,7 +6783,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1847726559}
   m_OnClick:
     m_PersistentCalls:

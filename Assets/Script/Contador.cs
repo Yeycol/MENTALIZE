@@ -37,6 +37,7 @@ public class Contador : MonoBehaviour
     public bool IntroAnimation = false;//Variable de tipo boooleano encargada de hace rque el tiempo vaya mas lento cuando tengamos una animación activa
     public string OnePlay = "Si";//Variable de tipo string que controla las veces que se debe ejecutar las animaciones en In Game
     public bool RepeatAnimation=true;//Booleano que permite establecer si debe o no repetirse la animación
+ 
     void Awake()
     {
         if (sharecont == null)
@@ -218,7 +219,10 @@ public class Contador : MonoBehaviour
     }
     public void resetcont()
     {
-        RealTimeAnimation.ShareRealTimeAnimator.StoptAnimationConfeti();//Paramos la animación del confeti para que no termine de pararse al recargar escena
+        if (GameManager.shareInstance.currentgameState==GameState.Win)
+        {
+            RealTimeAnimation.ShareRealTimeAnimator.StoptAnimationConfeti();//Paramos la animación del confeti para que no termine de pararse al recargar escena
+        }
         RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = false;//Desahabilitamos el canvas para que este no este habilitado al reiniciar escena
         RealTimeAnimation.ShareRealTimeAnimator.ResetIndex();//Reseteamos los objetos activos de los index generados
         ResetSound();//Llamamos al método encargado de resetear los sonidos de la anterior Escena
@@ -338,6 +342,8 @@ public class Contador : MonoBehaviour
         AudioManager.shareaudio.Efectos[25].Stop();//Paramos el sonido de la frase KABOM Vamos por otra
         AudioManager.shareaudio.Efectos[26].Stop();//Paramos el sonido de la frase Eso fue excelente quieres ir por MUFFINS
         AudioManager.shareaudio.Efectos[27].Stop();//Paramos el sonido de la frase Cuanto más dificil es la victoria mayor es la felicidad al ganar
+        AudioManager.shareaudio.Efectos[28].Stop();//Paramos el sonido de la frase Nos equivocamos es momento de nutrir nuestras mentes
+        AudioManager.shareaudio.Efectos[29].Stop();//Paramos el sonido de la frase No te sientas mal sigue intentndolo
         AudioManager.shareaudio.Efectos[13].Stop();//Se para el sonido del WiGame
         AudioManager.shareaudio.Efectos[0].Stop();//Se para el sonido del OverGame
     }

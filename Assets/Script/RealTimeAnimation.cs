@@ -8,9 +8,11 @@ public class RealTimeAnimation : MonoBehaviour
     public int indextime;//Varibale de tipo entera que será utilizada para sacar un entero aleatorio del Array EventTime
     public int indexvidas;//Variable de tipo entero que almacenará el entero aleatorio para las eventualidades de vida 
     public int indexwin;//Variable de tipo entero que almacenará un entero aleatorio de la posición del array que contiene los animators para Win
+    public int indexover;//Variable de tipo entera que almacena el entero aleatorio que permitirá habilitar la animación para Over
     public Animator[] EventTime = new Animator[3];//Array que contiene las animaciones para las eventualidades del tiempo 
     public Animator[] EventVidas = new Animator[3];//Array que contiene la componente Animator de los objetos de la animación para cuando se pierde vidas  
     public Animator[] EventWin = new Animator[4];// Array que contendrá la componente Aniamtor que controlará las animaciones para esta eventualidad
+    public Animator[] EventOver =new Animator[3];//Array que contendrá la componente Animator de las animaciones
     public Animator[] EventCorrectAndError = new Animator[4]; //Array que almacena las componenetes animator de los objetos que contienen las animaciones para esta eventualidad
     public ParameterAndTime[] ValueNecesary;//Array que contiene los strings de los nombres de los parámetros para activar la animación
     public Canvas Refer;//Hace referiencia al Canvas Que contiene las animaciones
@@ -21,10 +23,14 @@ public class RealTimeAnimation : MonoBehaviour
         {
             ShareRealTimeAnimator = this;
             DontDestroyOnLoad(gameObject);
-        } else
+        }
+        else
         {
             Destroy(gameObject);
         }
+        
+        
+
     }
     public void RamdomIndex()
     {
@@ -32,10 +38,12 @@ public class RealTimeAnimation : MonoBehaviour
         indextime = Random.Range(0, EventTime.Length);//Se genera un número entero aleatorio desde cero hasta la cantidad de objetos que tenga el array EventTime 
         indexvidas = Random.Range(0, EventVidas.Length);//El número aleatorio generado por el método Range es almacenado en la variable entera, este número aleatorio es escogido desde 0 hasta la cantidad de elementos que tenga el array
         indexwin = Random.Range(0, EventWin.Length);//El número aleatorio generado por el método Range es almacenado en esta variable
+        indexover = Random.Range(0,EventOver.Length);//El número aleatorio generado en el método Range es almacenado en la variable indexover
         //Según el index generado habilitamos los objetos de los arrays que contienen las animaciones con la finalidad de reducir los batches
         EventTime[indextime].gameObject.SetActive(true);
         //EventVidas[indexvidas].gameObject.SetActive(true);
         EventWin[indexwin].gameObject.SetActive(true);
+        EventOver[indexover].gameObject.SetActive(true);
         BlockTrivias.SetActive(true);//Habilitamos el objeto que permite quitar la interacción de los botones
     }
 
@@ -45,6 +53,7 @@ public class RealTimeAnimation : MonoBehaviour
         EventTime[indextime].gameObject.SetActive(false);
         //EventVidas[indexvidas].gameObject.SetActive(false);
         EventWin[indexwin].gameObject.SetActive(false);
+        EventOver[indexover].gameObject.SetActive(false);
     }
 
     public void EventInGame(string Event)
@@ -102,6 +111,21 @@ public class RealTimeAnimation : MonoBehaviour
                     StartCoroutine(StartEventWinGame( ValueNecesary[9].ParameterAnimator, ValueNecesary[9].TimeCourrutine));
                 }
                 break;
+
+            case "Over":
+                if (indexover == 0)
+                {
+                    StartCoroutine(StartEventOver(ValueNecesary[10].ParameterAnimator, ValueNecesary[10].TimeCourrutine));
+                }
+                else if (indexover == 1)
+                {
+                    StartCoroutine(StartEventOver(ValueNecesary[11].ParameterAnimator, ValueNecesary[11].TimeCourrutine));
+                }
+                else if (indexover == 2)
+                {
+                    StartCoroutine(StartEventOver(ValueNecesary[12].ParameterAnimator, ValueNecesary[12].TimeCourrutine));
+                }
+                break;
         }
 
     }
@@ -139,6 +163,15 @@ public class RealTimeAnimation : MonoBehaviour
         Contador.sharecont.IntroAnimation = false;
         StartCoroutine(WaitForReset());//LLamamos a la corrutina después de un tiempo establecidopara que habilite los botones del canvas y poder reiniciar
 
+    }
+    
+    IEnumerator StartEventOver( string ReferencesOverPar, float ReferTimerCo)
+    {
+        EventOver[indexover].SetBool(ReferencesOverPar,true);
+        yield return new WaitForSeconds(ReferTimerCo);
+        EventOver[indexover].SetBool(ReferencesOverPar, false);
+        Contador.sharecont.IntroAnimation=false;
+        StartCoroutine(WaitForReset());
     }
     IEnumerator WaitForReset()
     {
