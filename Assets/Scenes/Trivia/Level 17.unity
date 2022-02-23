@@ -645,7 +645,7 @@ MonoBehaviour:
   scene:
     m_Handle: 0
   GuardadoMonedas: {fileID: 1301416259}
-  pointsinv: 85
+  pointsinv: 115
   Oneintro: No
   TimeReferences: 0
   monedawin: 0
@@ -655,9 +655,9 @@ MonoBehaviour:
   IntroAnimation: 0
   RepeatAnimation: 1
   maxvaluecontador: 10
-  MaxPoints: 95
-  OneMinPoints: 92
-  TwoMinPoints: 94
+  MaxPoints: 125
+  OneMinPoints: 122
+  TwoMinPoints: 124
   ReferContinue: {fileID: 1847726558}
 --- !u!4 &98125071
 Transform:
@@ -1855,16 +1855,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuestionLis:
-  - {fileID: 5898274828660455053, guid: 9d45720bbd471064bbf5400f683e1394, type: 3}
-  - {fileID: 9127312168294093242, guid: 81cd3b7203f6bd1419e59c450b6f36e7, type: 3}
-  - {fileID: 2101063411446674574, guid: 4096475fbd34866479dc7bffbd4fa11e, type: 3}
-  - {fileID: 2973419617268160733, guid: 25342964d1ad4fd44b9f9b69d46a3959, type: 3}
-  - {fileID: 3123096031964738476, guid: 49c882649234a174da3cde82240b4f85, type: 3}
-  - {fileID: 3123096031964738476, guid: 05df6c1ba3be4ea4db0ac12e9b51c26f, type: 3}
-  - {fileID: 3123096031964738476, guid: 66b9f4c1371ec9244aeeb2c222905923, type: 3}
-  - {fileID: 3123096031964738476, guid: 33313c403f2906b4494faf63f2276b8a, type: 3}
-  - {fileID: 3123096031964738476, guid: cc9aa442659abc8469b790614b2c5128, type: 3}
-  - {fileID: 3123096031964738476, guid: 85d198c360d9bfc4ca673e72304410c8, type: 3}
+  - {fileID: 5898274828660455053, guid: 746958c51e06137428e05ac4a8e48e61, type: 3}
+  - {fileID: 9127312168294093242, guid: d91164620a4acd0419c9132cf0bbfea8, type: 3}
+  - {fileID: 2101063411446674574, guid: 8144ad24f05ee0b49a1457f923a4c5e0, type: 3}
+  - {fileID: 2973419617268160733, guid: 6b706c746dd874744a3bd313d216ace8, type: 3}
+  - {fileID: 3123096031964738476, guid: a92b1d8be0e5f5144a2fb064a9597617, type: 3}
+  - {fileID: 3123096031964738476, guid: db815393fb914da43b88bb2e45fb8465, type: 3}
+  - {fileID: 3123096031964738476, guid: 50a2ac0496ce1e3468e7219fd4b55ae9, type: 3}
+  - {fileID: 3123096031964738476, guid: ecfef1d18b2d6a344af248b0e888bf7c, type: 3}
+  - {fileID: 3123096031964738476, guid: 55abea5de46a71d489d14f37090883a9, type: 3}
+  - {fileID: 3123096031964738476, guid: 95e2e26c4dba29f42ad6655f255b6a74, type: 3}
 --- !u!4 &591647262
 Transform:
   m_ObjectHideFlags: 0
@@ -4343,7 +4343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ec869af9c590c458c4fd066fe3bf4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lvlcurrent: 14
+  Lvlcurrent: 17
   Buttonslevel: []
   Imagelevel: []
   Level: []
@@ -5101,9 +5101,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level 15
-
-'
+  m_Text: Level 18
 --- !u!222 &1581444432
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6967,7 +6965,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 21
+          m_IntArgument: 24
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7511,7 +7509,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Nivel 15 - 95pts
+  m_Text: Nivel 18 - 125pts
 --- !u!222 &2053562586
 CanvasRenderer:
   m_ObjectHideFlags: 0

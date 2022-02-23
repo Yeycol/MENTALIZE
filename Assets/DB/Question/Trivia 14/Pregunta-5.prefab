@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQU\xC9 ES UNA RECTA SECANTE?"
+  text: "\xBFEN CU\xC1L DE LOS SIGUIENTES PA\xCDSES NO HAY NING\xDAN DESIERTO?"
   options:
-  - text: RECTA QUE CORTA UNA CURVA EN DOS PUNTOS
+  - text: "ESPA\xD1A"
+    correct: 0
+  - text: CHILE
+    correct: 0
+  - text: MONGOLIA
+    correct: 0
+  - text: ALEMANIA
     correct: 1
-  - text: RECTA EXTERIOR A UNA CIRCUNFERENCIA
-    correct: 0
-  - text: RECTA QUE CORTA EN UN PUNTO A UNA CURVA
-    correct: 0
-  - text: NINGUNA ES CORRECTA
-    correct: 0

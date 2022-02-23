@@ -275,6 +275,18 @@ public class Contador : MonoBehaviour
             case "Level 14":
                 ControlNiveles.shareLvl.CambiarNivel(20);//Llamamos a la escena del Nivel 7
                 break;
+            case "Level 15":
+                ControlNiveles.shareLvl.CambiarNivel(21);//Llamamos a la escena del Nivel 7
+                break;
+            case "Level 16":
+                ControlNiveles.shareLvl.CambiarNivel(22);//Llamamos a la escena del Nivel 7
+                break;
+            case "Level 17":
+                ControlNiveles.shareLvl.CambiarNivel(23);//Llamamos a la escena del Nivel 7
+                break;
+            case "Level 18":
+                ControlNiveles.shareLvl.CambiarNivel(24);//Llamamos a la escena del Nivel 7
+                break;
         }
     }
     public static void ResetHealth()

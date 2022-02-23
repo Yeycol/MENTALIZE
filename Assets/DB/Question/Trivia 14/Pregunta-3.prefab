@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFCUAL ES EL NUMERO ANTERIOR A 1000?"
+  text: "\xBFCU\xC1L ES EL R\xCDO M\xC1S CAUDALOSO DEL MUNDO?"
   options:
-  - text: 1001
+  - text: EL ORINOCO
     correct: 0
-  - text: 999
+  - text: EL NILO
+    correct: 0
+  - text: EL AMAZONAS
     correct: 1
-  - text: 1000
-    correct: 0
-  - text: 99
+  - text: EL CONGO
     correct: 0

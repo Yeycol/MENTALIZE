@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3123096031964738477}
   - component: {fileID: 3123096031964738476}
   m_Layer: 0
-  m_Name: Pregunta-7
+  m_Name: Pregunta-9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQU\xC9 CIUDAD SE CONOC\xCDA COMO NUEVA \xC1MSTERDAM?"
+  text: "C\xC1LCULO R\xC1PIDO: 10(20)X5(4)/2"
   options:
-  - text: "LOS \xC1NGELES"
+  - text: 1000
     correct: 0
-  - text: NUEVA YORK
+  - text: 5000
+    correct: 0
+  - text: 2000
     correct: 1
-  - text: CHICAGO
-    correct: 0
-  - text: BOSTON
+  - text: 756
     correct: 0

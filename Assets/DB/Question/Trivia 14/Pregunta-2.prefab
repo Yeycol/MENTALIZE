@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFCUAL ES EL NOMBRE DEL POLIEDRO DE 20 CARAS?"
+  text: "\xBFDE QU\xC9 PA\xCDS ES EL PANDA EL ANIMAL NACIONAL?"
   options:
-  - text: DODECAEDRO
+  - text: "CANAD\xC1"
     correct: 0
-  - text: VEINTAGONO
+  - text: TANZANIA
     correct: 0
-  - text: ICOSAEDRO
+  - text: CHINA
     correct: 1
-  - text: 'TETRADECAEDRO '
+  - text: AUSTRALIA
     correct: 0

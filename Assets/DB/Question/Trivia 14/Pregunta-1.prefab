@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "A CUANTO EQUIVALE \u03A0(PI)"
+  text: "\xBFEN QU\xC9 CONTINENTE QUEDA CHILE?"
   options:
-  - text: 3.3333
+  - text: ASIA
     correct: 0
-  - text: 4.1443
-    correct: 0
-  - text: 3.1499
-    correct: 0
-  - text: 3.1416
+  - text: "AM\xC9RICA"
     correct: 1
+  - text: EUROPA
+    correct: 0
+  - text: "\xC1FRICA"
+    correct: 0

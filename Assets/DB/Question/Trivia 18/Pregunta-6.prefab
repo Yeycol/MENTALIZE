@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3123096031964738477}
   - component: {fileID: 3123096031964738476}
   m_Layer: 0
-  m_Name: Pregunta-7
+  m_Name: Pregunta-6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQU\xC9 CIUDAD SE CONOC\xCDA COMO NUEVA \xC1MSTERDAM?"
+  text: "\xBFCU\xC1NTOS LADOS TIENE UN HEX\xC1GONO?"
   options:
-  - text: "LOS \xC1NGELES"
+  - text: 7 LADOS
     correct: 0
-  - text: NUEVA YORK
+  - text: ' 8 LADOS'
+    correct: 0
+  - text: ' 5 LADOS'
+    correct: 0
+  - text: 6 LADOS
     correct: 1
-  - text: CHICAGO
-    correct: 0
-  - text: BOSTON
-    correct: 0

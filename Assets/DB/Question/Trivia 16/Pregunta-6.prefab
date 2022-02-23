@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3123096031964738477}
   - component: {fileID: 3123096031964738476}
   m_Layer: 0
-  m_Name: Pregunta-7
+  m_Name: Pregunta-6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQU\xC9 CIUDAD SE CONOC\xCDA COMO NUEVA \xC1MSTERDAM?"
+  text: "\xBFQUI\xC9N TIENE EXCEPCIONES EN LAS REGLAS DE ACENTUACI\xD3N?"
   options:
-  - text: "LOS \xC1NGELES"
+  - text: "AGUDAS Y ESDR\xDAJULAS"
     correct: 0
-  - text: NUEVA YORK
+  - text: GRAVES
+    correct: 0
+  - text: AGUDAS Y GRAVES
     correct: 1
-  - text: CHICAGO
-    correct: 0
-  - text: BOSTON
+  - text: "ESDRUJULAS Y SOBRESDR\xDAJULA"
     correct: 0
