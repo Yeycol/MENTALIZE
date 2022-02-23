@@ -46,6 +46,7 @@ public class ManagerQuiz : MonoBehaviour
 
     private void GiveAnswer(OptionButton optionButton)
     {
+        //Contador.sharecont.EventEndLevel();//Llamamos al método que nos permitirá saber si realmente ya hemos terminadoel nivel
         RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = true;//Habilitamos el Canvas de la clase RealTimeAnimation
         Contador.sharecont.IntroAnimation = true;//Habilitamos el tiempo lento para cuando una animación está activa
         //Método que se va a llamar cuando el jugador seleecione un respuesta
@@ -63,14 +64,14 @@ public class ManagerQuiz : MonoBehaviour
             hace una evaluación de una expresión y dependiendo el resultado nos asignará un resultado u otro.
            Podemos verlo como un if “express” para algo sencillo.*/
         //Condicionales que evalua si el boleano del botón seleccionado es true o false
-        if (optionButton.Option.correct == false)
+        if (optionButton.Option.correct == false && Contador.sharecont.contador <= Contador.sharecont.maxvaluecontador)
         {
             //En el caso de haber seleccionado una respuesta incorrecta, se hace las siguientes acciones
             RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[0].gameObject.SetActive(true);//Habilitamos el objeto de la aniamación NaveError
             AudioManager.shareaudio.Efectos[2].Play();//Reproducimos el sonido de Answer Bad
             StartCoroutine(WaitforNave());//Se llama a la corrutina encargada de pausar la ejecución para ver la animación cuando la repsuesta es incorrecta 
         }
-        else if (optionButton.Option.correct == true)
+        else if (optionButton.Option.correct == true && Contador.sharecont.contador<= Contador.sharecont.maxvaluecontador)
         {
             //En el caso de que se haya seleccionado una respuesta correcta, se hacen las siguientes acciones
             RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[1].gameObject.SetActive(true);//Habilitamos el objeto de la animación NaveCorrect
@@ -111,10 +112,7 @@ public class ManagerQuiz : MonoBehaviour
         Contador.ResetHealth();//Método encargado de restar las vidas cuando se seleccione la respuesta incorrecta
         /*Para que lo anterior se pueda visualizar, se da un tiempo para invocar al método encargado
          de llamar al ´método que´pasa a la siguiente pregunta*/
-        if (Contador.sharecont.contador <= 5)//Condicional que evalua si el valor es menor igual a 5, permitiendo limitar el llamado de el método que pasa a la siguiente pregunta
-        {
             StartCoroutine(NextError());//Corrutina que se llama para dar un tiempo a la reproducción de las animaciones
-        }
     }
     IEnumerator WaitforNave()
     {
@@ -126,13 +124,11 @@ public class ManagerQuiz : MonoBehaviour
     }
     IEnumerator WaitforNaveCorrect()
     {
+        Contador.PointsAdd();//Método encargado de sumar los puntos si se seleccioná la respuesta correcta
         RealTimeAnimation.ShareRealTimeAnimator.ActiveNaveCorrect();//Se llama al método encargado de reproducir la animación de la entrada de la nave para cuando se responde bien 
         yield return new WaitForSeconds(1f);//Tiempo que se le otroga a la corrutina para que haga las acciones anteriores
-        Contador.PointsAdd();//Método encargado de sumar los puntos si se seleccioná la respuesta correcta
-        if (Contador.sharecont.contador <= 5)
-        { //Condicional que evalua si el valor es menor igual a 5, permitiendo limitar el llamado de el método que pasa a la siguiente pregunta        
+          //Condicional que evalua si el valor es menor igual a 5, permitiendo limitar el llamado de el método que pasa a la siguiente pregunta        
             StartCoroutine(NextCorrect());//Corrutina que se llama para dar un tiempo a la reproducción de las animaciones
-        }
     }
 }
 

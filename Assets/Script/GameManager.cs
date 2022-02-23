@@ -121,8 +121,7 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[16].UnPause();
             ManagerScene.shareMscen.OffOver();//Desactiva la interfaz de usuario al perder partida
             ManagerScene.shareMscen.OffWin();//Desactiva la interfaz de usuario al ganar partida
-            //AnimaCon.ShareAnimation.ActivePizarra();
-
+            
         }
         else if (newGameState == GameState.GameOver)
         {
@@ -163,7 +162,6 @@ public class GameManager : MonoBehaviour
             //AnimaCon.ShareAnimation.DesactivatePizarra();//Al perder partida se desactiva la animación de la pizarra
             ManagerScene.shareMscen.ActiveWin();//Se activa el Canvas de la Interfaz de Usuario al ganar la Partida
             AnimaCon.ShareAnimation.ActiveWin();//Se habilita la animación  de la Interfaz de Usuario
-            AnimaCon.ShareAnimation.StartPadlock();//Se activa la animación del evento Padlock
             RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = true;//Activamos el canvas de las animaciones
             StartCoroutine(WaitForConfeti());//Llamamos a la corrutina encargada de habilitar la animación del Confeti
         }
@@ -231,13 +229,13 @@ public class GameManager : MonoBehaviour
         //AnimaCon.ShareAnimation.EventInGame("Win");//LLamamos al método encargado de habilitar las animaciones por eventualidad
         RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[4].gameObject.SetActive(true);//Habilitamos el objeto del confeti para poder activar la animación del Confeti
         RealTimeAnimation.ShareRealTimeAnimator.StartAnimationConfeti();//Activamos la animación del confeti para cuando sale la interfaz de win
-        yield return new WaitForSeconds(1.5f);//Tiempo que se le asigna a la corrutina para que ejecute las acciones establecidas
+        yield return new WaitForSeconds(1f);//Tiempo que se le asigna a la corrutina para que ejecute las acciones establecidas
         StartCoroutine(WaitForWin());//Llamamos a la corrutina encargada de dar tiempo para llamar a la animación de holograma
     }
     IEnumerator WaitForWin()
     {
        //Corrutina que espera un segundo para poder llmar a la animación de Win Game
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         RealTimeAnimation.ShareRealTimeAnimator.EventInGame("Win");//Pasamos el caso al método para activar una animación de manera aleatoria
 
 

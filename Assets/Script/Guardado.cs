@@ -10,14 +10,16 @@ public class Guardado : MonoBehaviour
 {
     private string RutaArchivo;//Variable que almacenará la ruta en la que vamos almacenar los niveles desbloqueados
     private string RutaArchivo1;//Variable que almacenará la ruta en la que vamos almacenar las monedas
-    private string RutaArchivo2;
+    private string RutaArchivo2;//Variable que almacenará ruta en donde almacenaremos un array de enteros
+    private string RutaArchivo3;//Variable que almacenará ruta en donde se guardará el entero de los puntos ganados
     static bool PrimeraVez = true;//Booleano utilizado para hacer el cargado de los niveles por única vez
     public List<int> Cero = null;//Lista vacía en caso de que no exista el fichero
     private void Awake()
     {
-        RutaArchivo = Application.persistentDataPath + "/datos.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte del juego 
-        RutaArchivo1 = Application.persistentDataPath + "/datos1.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte del juego 
-        RutaArchivo2 = Application.persistentDataPath + "/ObjectBuy.dat";
+        RutaArchivo = Application.persistentDataPath + "/LvlDate.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte el juego 
+        RutaArchivo1 = Application.persistentDataPath + "/CoinDate.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte el juego 
+        RutaArchivo2 = Application.persistentDataPath + "/ObjectBuyDate.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte el juego
+        RutaArchivo3 = Application.persistentDataPath + "/PointsDate.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte el juego
         if (PrimeraVez)//Evalua si es el bolleano es verdad, se carga los niveles desbloqueados, si n es el caso no ingresa a la condicional
         {
             Cargar();//Método encargado de cargar los datos almacenados
@@ -57,7 +59,7 @@ public class Guardado : MonoBehaviour
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file1 = File.Create(RutaArchivo1);
-        Monedas datos1 = new Monedas(Contador.sharecont.moneda,Contador.sharecont.puntos);
+        Monedas datos1 = new Monedas(Contador.sharecont.moneda);
         bf.Serialize(file1, datos1);
         file1.Close();
     }
@@ -69,12 +71,34 @@ public class Guardado : MonoBehaviour
             FileStream file1 = File.Open(RutaArchivo1, FileMode.Open);
             Monedas datos1 = (Monedas)bf.Deserialize(file1);
             Contador.sharecont.moneda = datos1.monedas;
-            Contador.sharecont.puntos = datos1.points;
             file1.Close();
         }
         else
         {
             Contador.sharecont.moneda = 0;
+        }
+    }
+
+    public void GuardarPoints()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file3 = File.Create(RutaArchivo3);
+        Puntos datos3 = new Puntos (Contador.sharecont.puntos);
+        bf.Serialize(file3, datos3);
+        file3.Close();
+    }
+    public void CargarPoints()
+    {
+        if (File.Exists(RutaArchivo3))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file3 = File.Open(RutaArchivo3, FileMode.Open);
+            Puntos datos3 = (Puntos)bf.Deserialize(file3);
+            Contador.sharecont.puntos = datos3.GetPoints();
+            file3.Close();
+        }
+        else
+        {
             Contador.sharecont.puntos = 0;
         }
     }
@@ -120,14 +144,28 @@ class GuardadodeDatos{
 class Monedas
 {
     public int monedas;
-    public int points;
-    public Monedas(int MonedasGanadas, int puntosganados)
+
+    public Monedas(int MonedasGanadas)
     {
         monedas = MonedasGanadas;
-        points = puntosganados;
     }
 }
 
+[System.Serializable]
+class Puntos
+{
+    private int PointsSave;
+
+    public Puntos(int PuntosGanados)
+    {
+        PointsSave = PuntosGanados;
+    }
+    public int GetPoints()
+    {
+        return PointsSave;
+    }
+    
+}
 [System.Serializable]
 class IdObjetos
 {

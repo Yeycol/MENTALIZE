@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFDE QUE COLOR ES EL CIELO?"
+  text: "\xBFDE QUE COLOR ES NUESTRO CIELO?"
   options:
   - text: BLANCO
     correct: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ActivarOpciones : MonoBehaviour
 {
     public static ActivarOpciones shareOp;//Variable estática de tipo de esta misma clase, la misma que servirá para crear una instancia compartida
-
+    public Control_Button ReferControlButton;//Refencia a la clase que s eencarga de controlar los botones de las trivias
     private void Awake()
     {
         if (shareOp == null)
@@ -35,6 +35,7 @@ public class ActivarOpciones : MonoBehaviour
         }
     public void DesactivatePause()
     {
+        
         //Desactiva el Canvas que muestra las opciones de pausa
         Time.timeScale = 1f;
         //TODO:Recuerda Reactivar el Audio cuando ya se desactive el Canvas de la Pausa
@@ -52,11 +53,16 @@ public class ActivarOpciones : MonoBehaviour
         AudioManager.shareaudio.Efectos[22].UnPause();//Despausamos el sonido de la frase mira en donde presionas tienes una vida menos
         AudioManager.shareaudio.ReferAudio.enabled = false;//Desactivamos el canvas
         //TODO: Aun faltan establecer condicionales para la Pausa tanto en estado Menú como In game
-        if (Contador.sharecont.scene.name == "Tienda" || Contador.sharecont.scene.name == "SelectModoJuego" || Contador.sharecont.scene.name == "Inicio"||Contador.sharecont.scene.name== "SelectLevel (Trivias)")//Se evalua si el nombre de la escena es Tienda
+        if (Contador.sharecont.scene.name == "Tienda" || Contador.sharecont.scene.name == "SelectModoJuego" || Contador.sharecont.scene.name == "Inicio" || Contador.sharecont.scene.name == "SelectLevel (Trivias)")//Se evalua si el nombre de la escena es Tienda
+        {
             GameManager.shareInstance.BackToMenu();//Se pasará el estado de juego a Menu
-        else//Sino es el caso se pasará a en partida
+        }
+        else
+        { //Sino es el caso se pasará a en partida
             GameManager.shareInstance.StarGame();//Se pasará estado de juego en partida  
+        }
     }
+ 
 
    
 

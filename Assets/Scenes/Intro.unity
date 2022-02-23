@@ -1291,8 +1291,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 456155942}
-        m_TargetAssemblyTypeName: ReferencesPause, Assembly-CSharp
+      - m_Target: {fileID: 456155944}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: ResetOpciones
         m_Mode: 1
         m_Arguments:
@@ -2143,7 +2143,6 @@ GameObject:
   m_Component:
   - component: {fileID: 456155945}
   - component: {fileID: 456155944}
-  - component: {fileID: 456155942}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -2151,18 +2150,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &456155942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456155941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8209be5c7d6b02f45930bdf150ddae3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &456155944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3149,9 +3136,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 456155942}
-        m_TargetAssemblyTypeName: ReferencesPause, Assembly-CSharp
-        m_MethodName: DesactivateOpciones
+      - m_Target: {fileID: 456155944}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6690,8 +6677,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 456155942}
-        m_TargetAssemblyTypeName: ReferencesPause, Assembly-CSharp
+      - m_Target: {fileID: 456155944}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: ReturnMenu
         m_Mode: 1
         m_Arguments:
@@ -6834,9 +6821,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 456155942}
-        m_TargetAssemblyTypeName: ReferencesPause, Assembly-CSharp
-        m_MethodName: DesactivateOpciones
+      - m_Target: {fileID: 456155944}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: ResetOpciones
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

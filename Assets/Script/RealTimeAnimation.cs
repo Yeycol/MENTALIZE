@@ -176,7 +176,7 @@ public class RealTimeAnimation : MonoBehaviour
     IEnumerator WaitForReset()
     {
         //Corrutina encargada de permitir resetear después de la salida de una animación 
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.3f);
         BlockTrivias.SetActive(false);//Desactivamos el obejto que permite evitar la interacción con el GUI
     }
     public void ActiveNaveCorrect()
@@ -224,7 +224,7 @@ public class RealTimeAnimation : MonoBehaviour
         EventCorrectAndError[4].Update(0f);
         RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[4].gameObject.SetActive(false);//Desactivamos el objeto de confeti para evitar acumulación de batches  
     }
-  
+
 }
 
 [System.Serializable]

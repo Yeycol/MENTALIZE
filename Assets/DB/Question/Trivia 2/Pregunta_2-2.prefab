@@ -43,7 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQU\xC9 CIVILIZACI\xD3N ANTIGUA TEN\xCDA FARAONES COMO GOBERNANTES?"
+  text: "\xBFQU\xC9 CIVILIZACI\xD3N ANTIGUA TEN\xCDA  FARAONES COMO LEG\xCDTIMOS
+    GOBERNANTES?"
   options:
   - text: "TURQU\xCDA"
     correct: 0

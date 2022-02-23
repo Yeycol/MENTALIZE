@@ -13,7 +13,6 @@ public class ManagerScene : MonoBehaviour
     public Canvas Alert;// Referencia al Canvas llamado Alert
     public Canvas SceneAnima;//Referencia al canvas encargado de hacer la transición al pasar a otra escena
     public Canvas[] Descripciones;//Referencia  a los canvas que tienen las descripciones d elos objetos comprados
-
     private void Awake()
     {
         if (shareMscen == null)
@@ -24,6 +23,7 @@ public class ManagerScene : MonoBehaviour
         {
             Destroy(gameObject);
         }
+       
     }
 
     private void Start()
@@ -66,7 +66,8 @@ public class ManagerScene : MonoBehaviour
     }
     public void LoadMenu( int ReferencesMenus)
     {
-        GameManager.shareInstance.BackToMenu();
+     
+            GameManager.shareInstance.BackToMenu();
         SceneManager.LoadScene(ReferencesMenus);
     }
 
