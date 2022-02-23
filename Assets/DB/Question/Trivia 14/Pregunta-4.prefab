@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFCUANTOS METROS ES UN HECT\xD3METRO?"
+  text: "\xBFCU\xC1LES SON LOS COLORES DE LA BANDERA DE BOLIVIA? "
   options:
-  - text: 10 METROS
-    correct: 0
-  - text: 1 METRO
-    correct: 0
-  - text: '100 METROS '
+  - text: ROJO, AMARILLO Y VERDE
     correct: 1
-  - text: 1000 METROS
+  - text: VERDE, AZUL Y AMARILLO
+    correct: 0
+  - text: ROJO, NARANJA Y VERDE
+    correct: 0
+  - text: AMARILLO, VERDE Y BLANCO
     correct: 0

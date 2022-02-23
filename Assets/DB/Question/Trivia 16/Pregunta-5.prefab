@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3123096031964738477}
   - component: {fileID: 3123096031964738476}
   m_Layer: 0
-  m_Name: Pregunta-7
+  m_Name: Pregunta-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQU\xC9 CIUDAD SE CONOC\xCDA COMO NUEVA \xC1MSTERDAM?"
+  text: "\xBFQU\xC9 SON LAS PALABRAS POLIS\xC9MICAS?"
   options:
-  - text: "LOS \xC1NGELES"
+  - text: 'LAS QUE TIENEN UN MISMO LEXEMA '
     correct: 0
-  - text: NUEVA YORK
+  - text: LAS QUE NO TIENEN SIGNIFICADO
+    correct: 0
+  - text: "LAS QUE TIENEN M\xC1S DE UN SIGNIFICADO"
     correct: 1
-  - text: CHICAGO
-    correct: 0
-  - text: BOSTON
+  - text: NO EXISTEN
     correct: 0

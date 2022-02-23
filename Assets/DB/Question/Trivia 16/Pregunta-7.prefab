@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQU\xC9 CIUDAD SE CONOC\xCDA COMO NUEVA \xC1MSTERDAM?"
+  text: LOS SUNTANTIVOS...
   options:
-  - text: "LOS \xC1NGELES"
+  - text: NO PUEDEN DENOTAR ACCIONES
     correct: 0
-  - text: NUEVA YORK
+  - text: SON EXPRESIONES REFERENCIALES
+    correct: 0
+  - text: PUEDEN TENER COMPLEMENTOS
     correct: 1
-  - text: CHICAGO
-    correct: 0
-  - text: BOSTON
+  - text: NECESITAN UN DETERMINANTE
     correct: 0

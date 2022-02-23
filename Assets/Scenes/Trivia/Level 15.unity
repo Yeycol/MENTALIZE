@@ -645,7 +645,7 @@ MonoBehaviour:
   scene:
     m_Handle: 0
   GuardadoMonedas: {fileID: 1301416259}
-  pointsinv: 85
+  pointsinv: 95
   Oneintro: No
   TimeReferences: 0
   monedawin: 0
@@ -655,9 +655,9 @@ MonoBehaviour:
   IntroAnimation: 0
   RepeatAnimation: 1
   maxvaluecontador: 10
-  MaxPoints: 95
-  OneMinPoints: 92
-  TwoMinPoints: 94
+  MaxPoints: 105
+  OneMinPoints: 102
+  TwoMinPoints: 104
   ReferContinue: {fileID: 1847726558}
 --- !u!4 &98125071
 Transform:
@@ -4343,7 +4343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ec869af9c590c458c4fd066fe3bf4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lvlcurrent: 14
+  Lvlcurrent: 15
   Buttonslevel: []
   Imagelevel: []
   Level: []
@@ -5101,7 +5101,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level 15
+  m_Text: 'Level 16
 
 '
 --- !u!222 &1581444432
@@ -6967,7 +6967,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 21
+          m_IntArgument: 22
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7511,7 +7511,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Nivel 15 - 95pts
+  m_Text: Nivel 16 - 105pts
 --- !u!222 &2053562586
 CanvasRenderer:
   m_ObjectHideFlags: 0

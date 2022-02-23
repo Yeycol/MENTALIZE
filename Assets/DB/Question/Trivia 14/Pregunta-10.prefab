@@ -43,14 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "UN PERRO PESA 20 KILOS Y UN CACHORRO PESA 10 KILOS MENOS\xBFCU\xC1NTO PESA
-    EL CACHORRO?"
+  text: "\xBFCU\xC1L ES EL PUNTO M\xC1S ALTO DE PER\xDA?"
   options:
-  - text: 10 KILOS
+  - text: "HUASCAR\xC1N"
     correct: 1
-  - text: 5 KILOS
+  - text: EL REVENTADOR
     correct: 0
-  - text: 25 KILOS
+  - text: CHIMBORAZO
     correct: 0
-  - text: 8 KILOS
+  - text: ALPAMAYO
     correct: 0

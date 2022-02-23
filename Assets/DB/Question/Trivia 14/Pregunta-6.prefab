@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "C\xC1LCULO MENTAL R\xC1PIDO: \xBFCU\xC1NTO ES 23X5 MENOS 6?"
+  text: "\xBFDOND\xC9 DESEMBOCA EL R\xCDO AMAZONAS?"
   options:
-  - text: 332
+  - text: "OC\xC9ANO \xCDNDICO"
     correct: 0
-  - text: 154
+  - text: "OC\xC9ANO ANT\xC1RTICO"
     correct: 0
-  - text: 130
+  - text: "OC\xC9ANO PAC\xCDFICO"
     correct: 0
-  - text: 109
+  - text: "OC\xC9ANO ATL\xC1NTICO"
     correct: 1

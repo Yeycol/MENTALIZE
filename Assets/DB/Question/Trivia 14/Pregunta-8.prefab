@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFCU\xC1NTO ES UN LUSTRO?"
+  text: "\xBFQUE PA\xCDS PARECE UNA BOTA?"
   options:
-  - text: "1 A\xD1O"
+  - text: "ESPA\xD1A"
     correct: 0
-  - text: "10 A\xD1OS"
+  - text: BERLIN
     correct: 0
-  - text: "5 A\xD1OS"
+  - text: ROMA
+    correct: 0
+  - text: ITALIA
     correct: 1
-  - text: "8 A\xD1OS"
-    correct: 0
