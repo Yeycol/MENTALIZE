@@ -69,6 +69,8 @@ public class AudioManager : MonoBehaviour
         Efectos[25].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la frase KABOM Vamos por otra
         Efectos[26].volume = Efectos1.value;//Otorgamos el valor de slider a la propiedad volume del objeto que contiene el sonido  de la frase Eso fue excelente, quieres ir por muffins
         Efectos[27].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene la frase Cuanto más dificil es la victoria mayor es la felicidad al ganar
+        Efectos[28].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la frase Nos equivocamos es momento de nutrir nuestras mentes
+        Efectos[29].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la frase No te sientas mal sigue intentandolo
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
 
@@ -110,6 +112,8 @@ public class AudioManager : MonoBehaviour
         Efectos[25].volume = Efectos1.value;
         Efectos[26].volume = Efectos1.value;
         Efectos[27].volume = Efectos1.value;
+        Efectos[28].volume = Efectos1.value;
+        Efectos[29].volume = Efectos1.value;
         PlayerPrefs.SetFloat("Efect", Efectos1.value);
         PlayerPrefs.Save();
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
@@ -149,5 +153,26 @@ public class AudioManager : MonoBehaviour
             Mute1.enabled = true;//Habilita la imagen de mute
             Mute2.enabled = false;//Deshabilita la imagen de mute
         }
-    } 
+    }
+
+    public void ReturnMenu()
+    {
+        //Método encargado de volver al menú del videojuego
+        ActivarOpciones.shareOp.DesactivatePause();//Llamamos a un método encargado de desactivar el canvas de la pausa sin necesidad de pasarle In game
+        ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al método encargado de desahabilitar los botones de las trivias
+        ControlNiveles.shareLvl.CambiarNivel(6);//Llamamos al método encargado de cambiar el nivel con las transiciones, pasamos como parámetro el número de la escena que corresponde al menú
+    }
+
+    public void ResetOpciones()
+    {
+        //Método encargado de resetear la partida en modo pausa
+        Contador.sharecont.resetcont();//Se llama al método encargado de resetear la partida
+        ActivarOpciones.shareOp.DesactivatePause();//Se llama el método encargado de desactivar la interfaz de Pausa y pasar al modo de juego In Game
+        //ActivarOpciones.shareOp.OffCanvasPause();
+    }
+   public void PlayGame()
+    {
+        //Método encargado de Desactivar la pausa
+        ActivarOpciones.shareOp.DesactivatePause();
+    }
 }

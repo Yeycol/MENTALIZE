@@ -157,15 +157,6 @@ MonoBehaviour:
   GameOver: {fileID: 0}
   Alert: {fileID: 0}
   SceneAnima: {fileID: 2131891075}
-  ButtonsInterface:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   Descripciones: []
 --- !u!4 &186068463
 Transform:
@@ -1052,7 +1043,7 @@ MonoBehaviour:
   m_text: Recuerda revisar tus logros desbloqueados, quizas tengas recompensas obtenidas.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7b750697315a0294288652bf8483bc43, type: 2}
-  m_sharedMaterial: {fileID: 5531520228444636303, guid: 7b750697315a0294288652bf8483bc43, type: 2}
+  m_sharedMaterial: {fileID: -5503467683488809169, guid: 7b750697315a0294288652bf8483bc43, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

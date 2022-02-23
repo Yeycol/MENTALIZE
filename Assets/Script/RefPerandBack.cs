@@ -43,7 +43,7 @@ public class RefPerandBack : MonoBehaviour
     public void LoadPreverSaveId()
     {
         Perfil = PlayerPrefs.GetInt("ID_PERFIL");//Otorgamos el entero del Key del Player Prefs en la variable entera Perfil
-        if (scene.name != "Tienda" && scene.name != "SelectModoJuego")
+        if (scene.name != "Tienda" && scene.name != "SelectModoJuego" && scene.name != "Inicio")
         {
             Nameuser.text = PlayerPrefs.GetString("NameUser"); // Se carga el texto pasado por parámetro a la variable tipo texto que mostrará el nombre de usuario por UI 
             if (Nameuser.text == "")

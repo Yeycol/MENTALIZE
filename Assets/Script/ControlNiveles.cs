@@ -42,7 +42,7 @@ public class ControlNiveles : MonoBehaviour
     {
         //Este método recibe como parámetro un entero del indice de la escena a la que queremos dirigirnos 
         
-        if (Nivel == 7 || Nivel == 2 || Nivel == 4 ||Nivel==8)// Si el número de la escena pasada por argumento es igual a los valores establecidos en el condicional
+        if (Nivel == 6 || Nivel == 2||Nivel==8||Nivel==7)// Si el número de la escena pasada por argumento es igual a los valores establecidos en el condicional
         {
             //Entonces llamará a la corrrutina encargada de cargar la escena del menú
             StartCoroutine(AnimatorTransitionSceneMenu(Nivel));
@@ -59,8 +59,8 @@ public class ControlNiveles : MonoBehaviour
     {
         AnimaCon.ShareAnimation.AnimationLis[8].SetTrigger("ExitScene");//Referencia al parámetro booleano que se reinicia desde controlador cuando se efectúa una trasicción 
        
-        yield return new WaitForSeconds(0.9f);// Tiempo que se le da a la corrutina para realizar las acciones                                     // Una vez que termina la corrutina se carga la siguienre escena pasada por parámetro
-        SceneManager.LoadScene(Nivel);
+        yield return new WaitForSeconds(0.9f);// Tiempo que se le da a la corrutina para realizar las acciones                                     
+        SceneManager.LoadScene(Nivel);//Una vez que termina la corrutina se carga la siguiente escena pasada por parámetro
     }
 
     IEnumerator AnimatorTransitionSceneMenu(int Nivel)
@@ -69,13 +69,22 @@ public class ControlNiveles : MonoBehaviour
         yield return new WaitForSeconds(0.9f);
         ManagerScene.shareMscen.LoadMenu(Nivel);
     }
-
+     
     public void EventButtonPass(int referenceButton)
     {
-        GameManager.shareInstance.LoadPartyandGame();//Pasamos estado de juego a partida
-        ReferCar.GuardarPreverLoad(referenceButton);//LLamamos al método encargado de guardar el entero que nos permitirá acceder a la siguiente escena
-        CambiarNivel(5);//Por predeterminado iremos a la escena de carga antes de cargar la escena del juego
-        
+        if (GameManager.shareInstance.currentgameState==GameState.Win)
+        {
+            GameManager.shareInstance.LoadPartyandGame(true);//Pasamos estado de juego a partida
+            ReferCar.GuardarPreverLoad(referenceButton);//LLamamos al método encargado de guardar el entero que nos permitirá acceder a la siguiente escena
+            CambiarNivel(4);//Por predeterminado iremos a la escena de carga antes de cargar la escena del juego
+        } else
+        {
+            GameManager.shareInstance.LoadPartyandGame();//Pasamos estado de juego a partida
+            ReferCar.GuardarPreverLoad(referenceButton);//LLamamos al método encargado de guardar el entero que nos permitirá acceder a la siguiente escena
+            CambiarNivel(4);//Por predeterminado iremos a la escena de carga antes de cargar la escena del juego
+        }
+           
+    
     }
 
 public void DesbloquearNivel()
@@ -117,26 +126,7 @@ public void FalseButton()
                 LevelShadow[i].effectColor = ShadowColor;
                 Level[i].fontSize = 80;
                 LevelShadow[i].effectDistance = new Vector2(8f,2f);
-                Level[0].text = "1";
-                Level[1].text = "2";
-                Level[2].text = "3";
-                Level[3].text = "4";
-                Level[4].text = "5";
-                Level[5].text = "6";
-                Level[6].text = "7";
-                Level[7].text = "8";
-                Level[8].text = "9";
-                Level[9].text = "10";
-                Level[10].text = "11";
-                Level[11].text = "12";
-                Level[12].text = "13";
-                Level[13].text = "14";
-                Level[14].text = "15";
-                Level[15].text = "16";
-                Level[16].text = "17";
-                Level[17].text = "18";
-                Level[18].text = "19";
-                Level[19].text = "20";
+                Level[i].text = (i+1).ToString();
             }
 
         }

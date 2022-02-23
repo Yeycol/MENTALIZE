@@ -88,5 +88,13 @@ public class EventSounds : MonoBehaviour
     {
         AudioManager.shareaudio.Efectos[27].Play();
     }
-   
+
+    public void PlayNosEquivocamosEsmomentoDeNutrir()
+    {
+        AudioManager.shareaudio.Efectos[28].Play();
+    }
+   public void PlayNoTeSientasMalSigueIntentandolo()
+    {
+       AudioManager.shareaudio.Efectos[29].Play();
+    }
 }

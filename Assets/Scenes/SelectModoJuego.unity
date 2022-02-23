@@ -804,14 +804,14 @@ RectTransform:
   m_GameObject: {fileID: 295772472}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9857008, y: 0.9857008, z: 0.9857008}
   m_Children: []
   m_Father: {fileID: 242639819}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0000019073486, y: -82}
+  m_AnchoredPosition: {x: 26.562498, y: -83.7905}
   m_SizeDelta: {x: 94.7571, y: 94.75702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &295772474
@@ -962,8 +962,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 38, y: -128.7832}
-  m_SizeDelta: {x: 439.02, y: 70.43359}
+  m_AnchoredPosition: {x: 44.562508, y: -132.72798}
+  m_SizeDelta: {x: 510.9616, y: 67.8642}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &420022071
 MonoBehaviour:
@@ -998,7 +998,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MODOS DE JUEGO
+  m_Text: SELECCION DE MODO
 --- !u!222 &420022072
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1020,7 +1020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0.65882355, g: 0.38431373, b: 0.105882354, a: 1}
-  m_EffectDistance: {x: 4, y: -4}
+  m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
 --- !u!1 &489258375
 GameObject:
@@ -1427,8 +1427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.29411766, g: 0, b: 0.28235295, a: 1}
-  m_EffectDistance: {x: 1, y: -3}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!114 &584630689
 MonoBehaviour:
@@ -1647,15 +1647,6 @@ MonoBehaviour:
   GameOver: {fileID: 0}
   Alert: {fileID: 1563898388}
   SceneAnima: {fileID: 580789140}
-  ButtonsInterface:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   Descripciones:
   - {fileID: 0}
   - {fileID: 0}
@@ -2795,7 +2786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e909e38414fb643a783a6228e019b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pausa: {fileID: 0}
+  ReferControlButton: {fileID: 0}
 --- !u!4 &1395344280
 Transform:
   m_ObjectHideFlags: 0
@@ -2887,8 +2878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb40f455c8151b40bbcdf34df3010f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene:
-    m_Handle: 0
 --- !u!4 &1534258376
 Transform:
   m_ObjectHideFlags: 0
@@ -3403,8 +3392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.29411766, g: 0, b: 0.28235295, a: 1}
-  m_EffectDistance: {x: 1, y: -3}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!114 &1735460235
 MonoBehaviour:
@@ -4158,7 +4147,7 @@ MonoBehaviour:
   moneda: 0
   scene:
     m_Handle: 0
-  GuardadoMonedas: {fileID: 0}
+  GuardadoMonedas: {fileID: 1813439930}
   pointsinv: 0
   Oneintro: No
   TimeReferences: 0
@@ -4169,3 +4158,7 @@ MonoBehaviour:
   IntroAnimation: 0
   OnePlay: Si
   RepeatAnimation: 1
+  maxvaluecontador: 0
+  MaxPoints: 0
+  OneMinPoints: 0
+  TwoMinPoints: 0

@@ -9414,15 +9414,6 @@ MonoBehaviour:
   GameOver: {fileID: 0}
   Alert: {fileID: 1531371855}
   SceneAnima: {fileID: 2131891075}
-  ButtonsInterface:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   Descripciones:
   - {fileID: 240201790}
   - {fileID: 706734286}
@@ -9762,7 +9753,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 62.759357, y: -33.280087}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &191705817
@@ -12523,7 +12514,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &240201791
 RectTransform:
@@ -19084,7 +19075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e909e38414fb643a783a6228e019b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pausa: {fileID: 0}
+  ReferControlButton: {fileID: 0}
 --- !u!4 &337946637
 Transform:
   m_ObjectHideFlags: 0
@@ -23329,7 +23320,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2cebdc561a9766c4ea82d9612a3b73eb, type: 3}
     m_FontSize: 35
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
     m_MaxSize: 35
@@ -50513,10 +50504,10 @@ RectTransform:
   m_Father: {fileID: 1992122310}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5255401, y: 0.8444575}
-  m_AnchorMax: {x: 0.91762024, y: 0.8982287}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -0.68790054, y: -1.3981018}
+  m_AnchorMin: {x: 0.5255401, y: 0.8591437}
+  m_AnchorMax: {x: 0.91754013, y: 0.9105161}
+  m_AnchoredPosition: {x: -1.0522461, y: 0.5215454}
+  m_SizeDelta: {x: -0.68790054, y: 0.6018982}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &927221035
 MonoBehaviour:
@@ -50531,7 +50522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.69219476, g: 0.69219476, b: 0.8018868, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -50540,18 +50531,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2cebdc561a9766c4ea82d9612a3b73eb, type: 3}
-    m_FontSize: 30
+    m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 50
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Habilidades '
+  m_Text: HABILIDADES
 --- !u!222 &927221036
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -50572,7 +50563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.29411766, g: 0, b: 0.28235295, a: 1}
+  m_EffectColor: {r: 0.07450981, g: 0.09019608, b: 0.1254902, a: 1}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
 --- !u!1 &927258048
@@ -56695,8 +56686,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.5764706, g: 0.39215687, b: 0.12156863, a: 1}
-  m_EffectDistance: {x: 2, y: -3}
+  m_EffectColor: {r: 0.21568629, g: 0.30980393, b: 0.5294118, a: 1}
+  m_EffectDistance: {x: 3, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!114 &1047720187
 MonoBehaviour:
@@ -56711,7 +56702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.72156864, b: 0.18039216, a: 1}
+  m_Color: {r: 0.41960788, g: 0.627451, b: 0.95294124, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -56719,19 +56710,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 759e44af5d101b64daf07174cdf15041, type: 3}
-    m_FontSize: 35
+    m_Font: {fileID: 12800000, guid: 2cebdc561a9766c4ea82d9612a3b73eb, type: 3}
+    m_FontSize: 38
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\xBFQUI\xC9N FUE?"
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 6
+  m_Text: "\xBFQUIEN FUE?"
 --- !u!222 &1047720188
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -67186,6 +67177,7 @@ MonoBehaviour:
   Ido_Fondo: 0
   Equipado: No
   Equipado_Fondo: No
+  Equipado_Perfil: No
   scene:
     m_Handle: 0
   ObjectsShop:
@@ -67220,6 +67212,7 @@ MonoBehaviour:
   Perfil: {fileID: 1901570468}
   Fondo: {fileID: 1098273842}
   ReferenPerBack: {fileID: 969958791}
+  EvaluateCart: 0
 --- !u!1 &1224540889
 GameObject:
   m_ObjectHideFlags: 0
@@ -68468,8 +68461,8 @@ MonoBehaviour:
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: +1 vida extra
 --- !u!222 &1255669006
@@ -68938,10 +68931,10 @@ RectTransform:
   m_Father: {fileID: 1512989491}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.13874727, y: 0.20635772}
+  m_AnchorMax: {x: 0.88000005, y: 0.79359627}
+  m_AnchoredPosition: {x: 0.6460266, y: -1.2184486}
+  m_SizeDelta: {x: -2.2838974, y: 1.0332985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1262673314
 MonoBehaviour:
@@ -68975,8 +68968,8 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: EQUIPAR
+    m_LineSpacing: 2
+  m_Text: EQUIPADO
 --- !u!222 &1262673315
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -68998,7 +68991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0.29411766, g: 0, b: 0.28235295, a: 1}
-  m_EffectDistance: {x: 4, y: -4}
+  m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
 --- !u!1 &1262696552
 GameObject:
@@ -70198,8 +70191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb40f455c8151b40bbcdf34df3010f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene:
-    m_Handle: 0
 --- !u!1 &1281148587
 GameObject:
   m_ObjectHideFlags: 0
@@ -80073,7 +80064,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 843960121}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.19211657
+  m_Size: 0.19211656
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -80929,7 +80920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.049270038, y: 0.148}
   m_AnchorMax: {x: 0.96146, y: 0.52888846}
-  m_AnchoredPosition: {x: -1, y: -0.0058898926}
+  m_AnchoredPosition: {x: -1, y: -0.005859375}
   m_SizeDelta: {x: 1.3291998, y: -0.05019951}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1491273901
@@ -80975,7 +80966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.30980393, g: 0.6901961, b: 0.57164705, a: 0.48235294}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.54509807}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -84069,7 +84060,7 @@ MonoBehaviour:
   moneda: 0
   scene:
     m_Handle: 0
-  GuardadoMonedas: {fileID: 0}
+  GuardadoMonedas: {fileID: 1763270858}
   pointsinv: 0
   Oneintro: No
   TimeReferences: 0
@@ -84080,6 +84071,10 @@ MonoBehaviour:
   IntroAnimation: 0
   OnePlay: Si
   RepeatAnimation: 1
+  maxvaluecontador: 0
+  MaxPoints: 0
+  OneMinPoints: 0
+  TwoMinPoints: 0
 --- !u!4 &1541005370
 Transform:
   m_ObjectHideFlags: 0
@@ -84243,7 +84238,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2cebdc561a9766c4ea82d9612a3b73eb, type: 3}
+    m_Font: {fileID: 12800000, guid: e680674459470ee4c9f78be52e8afcf0, type: 3}
     m_FontSize: 35
     m_FontStyle: 1
     m_BestFit: 0
@@ -84255,7 +84250,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xBFQuien fue?"
+  m_Text: 
 --- !u!222 &1543217549
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -98651,8 +98646,8 @@ MonoBehaviour:
     y cient\xEDfico tambien por pintar la mona lisa y la ultima cena que fueron dos
     de sus artes mas famosas."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7b750697315a0294288652bf8483bc43, type: 2}
-  m_sharedMaterial: {fileID: 5531520228444636303, guid: 7b750697315a0294288652bf8483bc43, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 252f4abb177536145b92c105c9b4b62f, type: 2}
+  m_sharedMaterial: {fileID: 1793655721030591750, guid: 252f4abb177536145b92c105c9b4b62f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -98676,15 +98671,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 25
   m_fontSizeMax: 40
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 8
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -98975,7 +98970,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2cebdc561a9766c4ea82d9612a3b73eb, type: 3}
     m_FontSize: 35
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
     m_MaxSize: 35
@@ -109107,7 +109102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.7788086, y: 2.5153198}
+  m_AnchoredPosition: {x: 0.7788086, y: 2.5153809}
   m_SizeDelta: {x: 14.0644, y: 5.0305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2010920641

@@ -13,7 +13,7 @@ public class AnimaCon : MonoBehaviour
     public List<Animator> AnimationLis = null;//Lista de las animaciones a controlar
     public static AnimaCon ShareAnimation;    
     //Referencia a los parámetros de las animaciones
-    const string START_PIZARRA = "startPizarra";//Variable costante que hace referencia al parámetro booleano de la pizarra
+    const string START_FALSEPADLOCK= "StartFalsePadlock";//Variable costante que hace referencia al parámetro booleano de la animación del false PadLock
     const string ACTIVE_OVER = "Active";// Variable constante que hace referencia al parámetro booleano de la interfaz de Game Over
     const string ACTIVE_ALERT = "startAlert";//Variable constante que hace referencia al parámetro de la alerta para salir de partida
     const string ACTIVE_REDTIME = "EventStart";//Variable constante que hace referencia al parámetro de  la animación del fondo del reloj
@@ -26,7 +26,7 @@ public class AnimaCon : MonoBehaviour
     const string START_NOLOGRO = "StartNoLogro";//Variable constante que hace referencia al parámetro booleano que controla la animación al no poder conseguir algo por no tener el logro desbloqueado
     const string START_NOCOMPRA = "StartNoCompra";//Variable constante que hace referencia al parámetro booleano que controla la animación al no poder equipar algo por no estar comprado
     const string START_ITEMCONSEGUIDO = "StartNewObject";//Variable constante de tipo string que hace referencia al parámetro booleano que controla la animación de item conseguido
-    /* 0 = Animación d ela Pizarra en las Trivias
+    /* 0 = Animación del FalsePadLock
        1 = Animación de la Interfaz de Game Over
        2 = Animación de la Alerta para salida (background)
        3 = Animación Fondo Red del Reloj Digital
@@ -58,13 +58,13 @@ public class AnimaCon : MonoBehaviour
         AnimationLis[2].SetBool(ACTIVE_ALERT, true);// Activamos la animación de la alerta
     }
 
-    public void ActivePizarra()
+    public void ActiveFalsePadLock()
     {
-        AnimationLis[0].SetBool(START_PIZARRA, true);//Se activa la animación de la pizarra
+        AnimationLis[0].SetBool(START_FALSEPADLOCK, true);//Se activa la animación del desbloqueo falso
     }
-    public void DesactivatePizarra()
+    public void DesactivateFalsePadLock()
     {
-        AnimationLis[0].SetBool(START_PIZARRA, false);//Desactivamos la animación de la pizarra
+        AnimationLis[0].SetBool(START_FALSEPADLOCK, false);//Desactivamos la animación del desbloqueo falso
     }
     public void ActivateOver()
     {
@@ -215,6 +215,19 @@ public class AnimaCon : MonoBehaviour
         AnimationLis[13].SetBool(START_ITEMCONSEGUIDO, false);
     }
     
+    public void DesactivateConfeti()
+    {
+        //Método encargado de forzar el reinicio de la animación del confeti
+        RealTimeAnimation.ShareRealTimeAnimator.StoptAnimationConfeti();
+        RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = false;//Desahabilitamos el canvas para que este no este habilitado al reiniciar escena
+        RealTimeAnimation.ShareRealTimeAnimator.ResetIndex();//Reseteamos los objetos activos de los index generados    
+    }
+    public void DesactivateAnimationGameOver()
+    {
+        //Método encargado de reiniciar la animación para Game Over
+        RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = false;//Desahabilitamos el canvas para que este no este habilitado al reiniciar escena
+        RealTimeAnimation.ShareRealTimeAnimator.ResetIndex();//Reseteamos los objetos activos de los index generados    
+    }
 
 }
 
