@@ -49,7 +49,7 @@ MonoBehaviour:
     correct: 0
   - text: PEZ PAYASO
     correct: 0
-  - text: PEZ REMO
+  - text: "PEZ LE\xD3N"
     correct: 0
   - text: PEZ ROCA
     correct: 1
