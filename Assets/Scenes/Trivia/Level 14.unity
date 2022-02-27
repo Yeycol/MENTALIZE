@@ -657,7 +657,8 @@ MonoBehaviour:
   maxvaluecontador: 10
   MaxPoints: 95
   OneMinPoints: 92
-  TwoMinPoints: 94
+  TwoMinPoints: 93
+  ThreeMinPoints: 94
   ReferContinue: {fileID: 1847726558}
 --- !u!4 &98125071
 Transform:

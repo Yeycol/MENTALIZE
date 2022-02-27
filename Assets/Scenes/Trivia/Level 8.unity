@@ -656,8 +656,9 @@ MonoBehaviour:
   RepeatAnimation: 1
   maxvaluecontador: 5
   MaxPoints: 40
-  OneMinPoints: 38
-  TwoMinPoints: 39
+  OneMinPoints: 37
+  TwoMinPoints: 38
+  ThreeMinPoints: 39
   ReferContinue: {fileID: 1847726558}
 --- !u!4 &98125071
 Transform:

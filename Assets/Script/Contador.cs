@@ -40,6 +40,7 @@ public class Contador : MonoBehaviour
     public int MaxPoints;//Variable de tipo entero que almacena el valor max de puntos para ganar
     public int OneMinPoints;//Variable de tipo entera que almacena el primer valor minimo para ganar partida
     public int TwoMinPoints;//Variable de tipo entera que almacena el segundo valor minimo para ganar partida
+    public int ThreeMinPoints;//Variable de tipo entera que almacena el tercer valor minimo para ganar partida 
     public Button ReferContinue;//Varibale de tipo button que prentende desactivar la interacción del botón continuar
     void Awake()
     {
@@ -179,7 +180,7 @@ public class Contador : MonoBehaviour
             if (contador == maxvaluecontador+1)
             {
                 //Si es el caso esta aplicará esta condicional donde se llamará a un método si se consigue los puntos requeridos
-                if (pointsinv == OneMinPoints || pointsinv ==TwoMinPoints)
+                if (pointsinv == OneMinPoints || pointsinv ==TwoMinPoints|| pointsinv == ThreeMinPoints)
                 {
                     /*En esta primera condicional se evalua si los puntos invisibles son iguales a 3
                      0 4, entonces al entrar en esta condicional unicamente se mostrarán los valores
@@ -286,6 +287,24 @@ public class Contador : MonoBehaviour
                 break;
             case "Level 18":
                 ControlNiveles.shareLvl.CambiarNivel(24);//Llamamos a la escena del Nivel 7
+                break;
+            case "Level 19":
+                ControlNiveles.shareLvl.CambiarNivel(25);//Llamamos a la escena del Nivel 7
+                break;
+            case "Level 20":
+                ControlNiveles.shareLvl.CambiarNivel(26);//Llamamos a la escena del Nivel 7
+                break;
+            case "Level 21":
+                ControlNiveles.shareLvl.CambiarNivel(27);//Llamamos a la escena del Nivel 7
+                break;
+            case "Level 22":
+                ControlNiveles.shareLvl.CambiarNivel(28);//Llamamos a la escena del Nivel 7
+                break;
+            case "Level 23":
+                ControlNiveles.shareLvl.CambiarNivel(29);//Llamamos a la escena del Nivel 7
+                break;
+            case "Level 24":
+                ControlNiveles.shareLvl.CambiarNivel(30);//Llamamos a la escena del Nivel 7
                 break;
         }
     }
