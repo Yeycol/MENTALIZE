@@ -657,7 +657,8 @@ MonoBehaviour:
   maxvaluecontador: 10
   MaxPoints: 125
   OneMinPoints: 122
-  TwoMinPoints: 124
+  TwoMinPoints: 123
+  ThreeMinPoints: 124
   ReferContinue: {fileID: 1847726558}
 --- !u!4 &98125071
 Transform:
@@ -1855,16 +1856,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuestionLis:
-  - {fileID: 5898274828660455053, guid: 746958c51e06137428e05ac4a8e48e61, type: 3}
-  - {fileID: 9127312168294093242, guid: d91164620a4acd0419c9132cf0bbfea8, type: 3}
-  - {fileID: 2101063411446674574, guid: 8144ad24f05ee0b49a1457f923a4c5e0, type: 3}
-  - {fileID: 2973419617268160733, guid: 6b706c746dd874744a3bd313d216ace8, type: 3}
-  - {fileID: 3123096031964738476, guid: a92b1d8be0e5f5144a2fb064a9597617, type: 3}
-  - {fileID: 3123096031964738476, guid: db815393fb914da43b88bb2e45fb8465, type: 3}
-  - {fileID: 3123096031964738476, guid: 50a2ac0496ce1e3468e7219fd4b55ae9, type: 3}
-  - {fileID: 3123096031964738476, guid: ecfef1d18b2d6a344af248b0e888bf7c, type: 3}
-  - {fileID: 3123096031964738476, guid: 55abea5de46a71d489d14f37090883a9, type: 3}
-  - {fileID: 3123096031964738476, guid: 95e2e26c4dba29f42ad6655f255b6a74, type: 3}
+  - {fileID: 5898274828660455053, guid: d1946a2b57a46ea419797f1f421c99fa, type: 3}
+  - {fileID: 9127312168294093242, guid: a6db3b0c8836cd24695ff9c8c2849e12, type: 3}
+  - {fileID: 2101063411446674574, guid: 6a8d177d379951241a2aa9fd35cec52e, type: 3}
+  - {fileID: 2973419617268160733, guid: fe8e52c95ceddb8499278bf21693dbb8, type: 3}
+  - {fileID: 3123096031964738476, guid: 34b2f8be9c221924fb47221619f9fca8, type: 3}
+  - {fileID: 3123096031964738476, guid: 6e0a542cc9128d2438e09e929546dc75, type: 3}
+  - {fileID: 3123096031964738476, guid: 547932362d56bd94bb104f3a1eb5cb89, type: 3}
+  - {fileID: 3123096031964738476, guid: a7f401e51e63dc346ae32eab9112044f, type: 3}
+  - {fileID: 3123096031964738476, guid: afabe890246ecdf478d5e48f3538c8dd, type: 3}
+  - {fileID: 3123096031964738476, guid: fb10708855b335e42bcf38dc63218058, type: 3}
 --- !u!4 &591647262
 Transform:
   m_ObjectHideFlags: 0

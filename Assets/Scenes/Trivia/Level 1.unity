@@ -653,12 +653,12 @@ MonoBehaviour:
   UI_WinText: {fileID: 1368673924}
   SliderInicio: []
   IntroAnimation: 0
-  OnePlay: Si
   RepeatAnimation: 1
   maxvaluecontador: 5
   MaxPoints: 5
-  OneMinPoints: 3
-  TwoMinPoints: 4
+  OneMinPoints: 2
+  TwoMinPoints: 3
+  ThreeMinPoints: 4
   ReferContinue: {fileID: 1847726558}
 --- !u!4 &98125071
 Transform:
@@ -1337,7 +1337,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7b750697315a0294288652bf8483bc43, type: 2}
-  m_sharedMaterial: {fileID: 115455113891567267, guid: 7b750697315a0294288652bf8483bc43, type: 2}
+  m_sharedMaterial: {fileID: -5503467683488809169, guid: 7b750697315a0294288652bf8483bc43, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

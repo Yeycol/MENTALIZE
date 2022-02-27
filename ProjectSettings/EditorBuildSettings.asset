@@ -80,4 +80,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Trivia/Level 18.unity
     guid: d95ccb3618c07174d84c14731dfa1871
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 19.unity
+    guid: 7053c38bbc13cc8489ae84598643fbf9
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 20.unity
+    guid: 2b6816ab111d2474a8f2fafc430b78f9
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 21.unity
+    guid: c564e45aedcb18948baa5b04a232f880
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 22.unity
+    guid: 082b4ac8df7a288418c882e8dc4950fe
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 23.unity
+    guid: 263e5d8c3868e704a86f2b2f82a9d8ea
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 24.unity
+    guid: faf26a96112d9f8498790f75d01a2f7e
   m_configObjects: {}

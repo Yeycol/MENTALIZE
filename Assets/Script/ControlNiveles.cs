@@ -124,7 +124,7 @@ public void FalseButton()
                 Imagelevel[i].sprite = Resources.Load<Sprite>("Sprite/Desbloqueado");//Le asignamos al array de componentes imágenes el cargado de una de las imágenes almacenada en resources
                 Level[i].color = ActiveColor;// Cambiamos el color de la componente texto
                 LevelShadow[i].effectColor = ShadowColor;
-                Level[i].fontSize = 80;
+                Level[i].fontSize = 70;
                 LevelShadow[i].effectDistance = new Vector2(8f,2f);
                 Level[i].text = (i+1).ToString();
             }

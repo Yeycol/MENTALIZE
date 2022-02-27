@@ -653,12 +653,12 @@ MonoBehaviour:
   UI_WinText: {fileID: 1368673924}
   SliderInicio: []
   IntroAnimation: 0
-  OnePlay: Si
   RepeatAnimation: 1
   maxvaluecontador: 5
   MaxPoints: 25
-  OneMinPoints: 23
-  TwoMinPoints: 24
+  OneMinPoints: 22
+  TwoMinPoints: 23
+  ThreeMinPoints: 24
   ReferContinue: {fileID: 1847726558}
 --- !u!4 &98125071
 Transform:
