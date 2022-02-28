@@ -235,76 +235,184 @@ public class Contador : MonoBehaviour
             /*Al pasar a una nueva escena las variables y configuraciones que se estaban ejecutando
              en la anterior escena estas se restablecen dando el efecto de reseteo de partida*/
             case "Level 1":
-                ControlNiveles.shareLvl.CambiarNivel(1);//Llamamos a la escena del Nivel 1
+                ControlNiveles.shareLvl.CambiarNivel(1);
                 break;
             case "Level 2":
-                ControlNiveles.shareLvl.CambiarNivel(8);//Llamamos a la escena del Nivel 2
+                ControlNiveles.shareLvl.CambiarNivel(8);
                 break;
             case "Level 3":
-                ControlNiveles.shareLvl.CambiarNivel(9);//Llamamos a la escena del Nivel 3
+                ControlNiveles.shareLvl.CambiarNivel(9);
                 break;
             case "Level 4":
-                ControlNiveles.shareLvl.CambiarNivel(10);//Llamamos a la escena del Nivel 4
+                ControlNiveles.shareLvl.CambiarNivel(10);
                 break;
             case "Level 5":
-                ControlNiveles.shareLvl.CambiarNivel(11);//Llamamos a la escena del Nivel 5
+                ControlNiveles.shareLvl.CambiarNivel(11);
                 break;
             case "Level 6":
-                ControlNiveles.shareLvl.CambiarNivel(12);//Llamamos a la escena del Nivel 6
+                ControlNiveles.shareLvl.CambiarNivel(12);
                 break;
             case "Level 7":
-                ControlNiveles.shareLvl.CambiarNivel(13);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(13);
                 break;
             case "Level 8":
-                ControlNiveles.shareLvl.CambiarNivel(14);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(14);
                 break;
             case "Level 9":
-                ControlNiveles.shareLvl.CambiarNivel(15);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(15);
                 break;
             case "Level 10":
-                ControlNiveles.shareLvl.CambiarNivel(16);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(16);
                 break;
             case "Level 11":
-                ControlNiveles.shareLvl.CambiarNivel(17);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(17);
                 break;
             case "Level 12":
-                ControlNiveles.shareLvl.CambiarNivel(18);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(18);
                 break;
             case "Level 13":
-                ControlNiveles.shareLvl.CambiarNivel(19);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(19);
                 break;
             case "Level 14":
-                ControlNiveles.shareLvl.CambiarNivel(20);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(20);
                 break;
             case "Level 15":
-                ControlNiveles.shareLvl.CambiarNivel(21);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(21);
                 break;
             case "Level 16":
-                ControlNiveles.shareLvl.CambiarNivel(22);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(22);
                 break;
             case "Level 17":
-                ControlNiveles.shareLvl.CambiarNivel(23);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(23);
                 break;
             case "Level 18":
-                ControlNiveles.shareLvl.CambiarNivel(24);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(24);
                 break;
             case "Level 19":
-                ControlNiveles.shareLvl.CambiarNivel(25);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(25);
                 break;
             case "Level 20":
-                ControlNiveles.shareLvl.CambiarNivel(26);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(26);
                 break;
             case "Level 21":
-                ControlNiveles.shareLvl.CambiarNivel(27);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(27);
                 break;
             case "Level 22":
-                ControlNiveles.shareLvl.CambiarNivel(28);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(28);
                 break;
             case "Level 23":
-                ControlNiveles.shareLvl.CambiarNivel(29);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(29);
                 break;
             case "Level 24":
-                ControlNiveles.shareLvl.CambiarNivel(30);//Llamamos a la escena del Nivel 7
+                ControlNiveles.shareLvl.CambiarNivel(30);
+                break;
+            case "Level 25":
+                ControlNiveles.shareLvl.CambiarNivel(31);
+                break;
+            case "Level 26":
+                ControlNiveles.shareLvl.CambiarNivel(32);
+                break;
+            case "Level 27":
+                ControlNiveles.shareLvl.CambiarNivel(33);
+                break;
+            case "Level 28":
+                ControlNiveles.shareLvl.CambiarNivel(34);
+                break;
+            case "Level 29":
+                ControlNiveles.shareLvl.CambiarNivel(35);
+                break;
+            case "Level 30":
+                ControlNiveles.shareLvl.CambiarNivel(36);
+                break;
+            case "Level 31":
+                ControlNiveles.shareLvl.CambiarNivel(37);
+                break;
+            case "Level 32":
+                ControlNiveles.shareLvl.CambiarNivel(38);
+                break;
+            case "Level 33":
+                ControlNiveles.shareLvl.CambiarNivel(39);
+                break;
+            case "Level 34":
+                ControlNiveles.shareLvl.CambiarNivel(40);
+                break;
+            case "Level 35":
+                ControlNiveles.shareLvl.CambiarNivel(41);
+                break;
+            case "Level 36":
+                ControlNiveles.shareLvl.CambiarNivel(42);
+                break;
+            case "Level 37":
+                ControlNiveles.shareLvl.CambiarNivel(43);
+                break;
+            case "Level 38":
+                ControlNiveles.shareLvl.CambiarNivel(44);
+                break;
+            case "Level 39":
+                ControlNiveles.shareLvl.CambiarNivel(45);
+                break;
+            case "Level 40":
+                ControlNiveles.shareLvl.CambiarNivel(46);
+                break;
+            case "Level 41":
+                ControlNiveles.shareLvl.CambiarNivel(47);
+                break;
+            case "Level 42":
+                ControlNiveles.shareLvl.CambiarNivel(48);
+                break;
+            case "Level 43":
+                ControlNiveles.shareLvl.CambiarNivel(49);
+                break;
+            case "Level 44":
+                ControlNiveles.shareLvl.CambiarNivel(50);
+                break;
+            case "Level 45":
+                ControlNiveles.shareLvl.CambiarNivel(51);
+                break;
+            case "Level 46":
+                ControlNiveles.shareLvl.CambiarNivel(52);
+                break;
+            case "Level 47":
+                ControlNiveles.shareLvl.CambiarNivel(53);
+                break;
+            case "Level 48":
+                ControlNiveles.shareLvl.CambiarNivel(54);
+                break;
+            case "Level 49":
+                ControlNiveles.shareLvl.CambiarNivel(55);
+                break;
+            case "Level 50":
+                ControlNiveles.shareLvl.CambiarNivel(56);
+                break;
+            case "Level 51":
+                ControlNiveles.shareLvl.CambiarNivel(57);
+                break;
+            case "Level 52":
+                ControlNiveles.shareLvl.CambiarNivel(58);
+                break;
+            case "Level 53":
+                ControlNiveles.shareLvl.CambiarNivel(59);
+                break;
+            case "Level 54":
+                ControlNiveles.shareLvl.CambiarNivel(60);
+                break;
+            case "Level 55":
+                ControlNiveles.shareLvl.CambiarNivel(61);
+                break;
+            case "Level 56":
+                ControlNiveles.shareLvl.CambiarNivel(62);
+                break;
+            case "Level 57":
+                ControlNiveles.shareLvl.CambiarNivel(63);
+                break;
+            case "Level 58":
+                ControlNiveles.shareLvl.CambiarNivel(64);
+                break;
+            case "Level 59":
+                ControlNiveles.shareLvl.CambiarNivel(65);
+                break;
+            case "Level 60":
+                ControlNiveles.shareLvl.CambiarNivel(66);
                 break;
         }
     }

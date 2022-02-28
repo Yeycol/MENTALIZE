@@ -14,18 +14,7 @@ public class Control_Button : MonoBehaviour
     public Color Origin = Color.black;//Variable de tipo color utilizada para restablecer el color incial de el Outline del texto de las opciones
     public Outline b1, b2, b3, b4;//Variable de tipo Outline, sirve para lozalizar por referencia el outline de los Textos de los botones
     public int ButtonSelection;//Variable de tipo entera que almacena el número de boton cliqueado
-    void Update()
-    {
-       /* if (GameManager.shareInstance.currentgameState == GameState.GameOver ||
-           GameManager.shareInstance.currentgameState == GameState.Win ||
-           GameManager.shareInstance.currentgameState == GameState.Pause)
-        {
-            //Se evalua si nos encontramos en estos estados de juego para que los botones no sean presionados al estar en Game Over, Win o Pausa
-            DesactivateButton();
-        }
-       */
-
-    }
+ 
 
     public void activebutton()
     {

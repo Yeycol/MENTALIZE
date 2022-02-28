@@ -659,12 +659,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 52
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -804,12 +804,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 36
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -949,12 +949,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 48
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1094,12 +1094,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 39
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1429,12 +1429,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 51
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2099,12 +2099,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 47
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2339,12 +2339,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 45
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2579,12 +2579,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 63
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2724,12 +2724,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 46
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3014,12 +3014,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 37
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3489,12 +3489,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 49
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3634,12 +3634,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 54
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4169,12 +4169,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 40
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4505,12 +4505,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 43
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5080,12 +5080,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 65
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5320,12 +5320,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 41
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5750,12 +5750,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 64
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6336,12 +6336,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 53
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6576,12 +6576,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 34
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -8411,12 +8411,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 60
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -8746,12 +8746,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 57
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -9785,12 +9785,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 56
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10215,12 +10215,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 32
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10895,12 +10895,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 58
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11230,12 +11230,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 35
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11615,12 +11615,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 42
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11760,12 +11760,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 59
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12246,12 +12246,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 38
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12726,12 +12726,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 62
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -14938,12 +14938,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 50
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -15178,12 +15178,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 31
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -15960,12 +15960,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 55
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -16535,12 +16535,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 44
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -16930,12 +16930,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 61
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17539,12 +17539,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 66
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17877,12 +17877,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515657929}
         m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
+        m_MethodName: EventButtonPass
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 33
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
