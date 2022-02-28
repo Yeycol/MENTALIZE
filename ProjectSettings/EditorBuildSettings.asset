@@ -98,4 +98,112 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Trivia/Level 24.unity
     guid: faf26a96112d9f8498790f75d01a2f7e
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 25.unity
+    guid: f09306ba953e50b43b9552c2560755e5
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 26.unity
+    guid: 5e68f0252c98f434ca1c8c805c641159
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 27.unity
+    guid: 79c5646d4e5892d44a7c02ed1dbeb5b5
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 28.unity
+    guid: 9c31c5ff669667c46901136eb7fb52ac
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 29.unity
+    guid: 8b6c536db6066704db04d5502e90abd7
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 30.unity
+    guid: 328fbc5f8dc9c9e40afbe0da9a2ead93
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 31.unity
+    guid: ec9be5cb0875b894690cc7def7100d84
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 32.unity
+    guid: 7bb71a274c2d7e7429d78aaf4a2fbb4b
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 33.unity
+    guid: ff31e6ed64d583240ba9278f4feffde3
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 34.unity
+    guid: 6f93365bb1181f34295e0780ac4c6310
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 35.unity
+    guid: 15d89bcf76ef8534db5d543e5ab39add
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 36.unity
+    guid: 0152fc7e37e636341aa02616851129ef
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 37.unity
+    guid: ab03e1f4338779840b94979091f1a093
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 38.unity
+    guid: 2a619d5ec054ebd4eb59be9acd129fc0
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 39.unity
+    guid: ae039d35788f67f40bd7d4bba41c85a2
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 40.unity
+    guid: 9b78db2ba6dea104e9d50e5295b52f06
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 41.unity
+    guid: a04951dd44dfee64f8b3afa24b27dd25
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 42.unity
+    guid: c577239c582c566428e7a4866f7ed95b
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 43.unity
+    guid: a9a05023b649fe9409aab405fefdf09b
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 44.unity
+    guid: e0e4319d2fdddc2489dec8fc2620dbae
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 45.unity
+    guid: 927ae6a8876a2f64d9a3bb5e78d3048f
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 46.unity
+    guid: 8fbbd9abd5b241249ad5dbf9f545a71e
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 47.unity
+    guid: eaf56808dfd5d9f4ab060adfdedbaebc
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 48.unity
+    guid: f2ed942b542c7ba4fa6928176f8de472
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 49.unity
+    guid: 01b61b60adb3be34e9ac1901bf1c8657
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 50.unity
+    guid: b0f9eea60c600cf408b88e8bed777cd0
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 51.unity
+    guid: bebad837a6c6d014d98937ae4b9b8c35
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 52.unity
+    guid: bbddce9c682b6d14697fe8f952c078ce
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 53.unity
+    guid: 549b4bdfee040a1488d7745ebe8659a1
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 54.unity
+    guid: 5224b349dbc136d4f95aef5739366062
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 55.unity
+    guid: 35d27d043685efc4786b9390f72c8e91
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 56.unity
+    guid: 609cbc81d7187104da4cfc23ab171e52
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 57.unity
+    guid: 8388d423605ecf240ad2b6478ec6590e
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 58.unity
+    guid: f67a465da4fbabe4585a1091ba0da3ee
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 59.unity
+    guid: a3c1c8514c39f3b4384b0c3309005092
+  - enabled: 1
+    path: Assets/Scenes/Trivia/Level 60.unity
+    guid: 4da7e15b34e84934ba2d6ced0c6513f0
   m_configObjects: {}
