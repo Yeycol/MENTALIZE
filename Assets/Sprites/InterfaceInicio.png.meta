@@ -1,0 +1,576 @@
+fileFormatVersion: 2
+guid: b4df9c8e38dd9bd4485279d0ea841a24
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9030940317233222972
+    second: ButtonScrollTrivias
+  - first:
+      213: 2774322741939615650
+    second: ButonScrollSpaceYue
+  - first:
+      213: -3426627831318709338
+    second: Button_Desblock
+  - first:
+      213: -6307158846610305808
+    second: LogroExploradorExperto
+  - first:
+      213: -6450033351315647618
+    second: De Dioses
+  - first:
+      213: -1018301167810379013
+    second: Button_Block
+  - first:
+      213: -5278158875953269957
+    second: ButtonMododeJuegos
+  - first:
+      213: 2762085003635605901
+    second: LogroAlpinistadeNiveles
+  - first:
+      213: 4165335530292583780
+    second: IconTrivias
+  - first:
+      213: -8140926264355541393
+    second: ColeccionistaBronce
+  - first:
+      213: 7116999244266003389
+    second: ColeccionistadePlata
+  - first:
+      213: -6115358703691667915
+    second: iconPortafoliodeLogros
+  - first:
+      213: -7902092909266596800
+    second: IconHabilidades
+  - first:
+      213: -5638457961252926319
+    second: IconLogros
+  - first:
+      213: 5051680009105536550
+    second: LogroColeccionistaNato
+  - first:
+      213: -4817152787201036741
+    second: Button_CanvasLogros
+  - first:
+      213: 861066012982593763
+    second: ScrollBackGroundTrivias
+  - first:
+      213: -1616479825834211930
+    second: ScrollBackgroundSpaceYue
+  - first:
+      213: 619768862718355423
+    second: ButtonPortafolioVersiones
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ButtonScrollTrivias
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 3335
+        width: 746
+        height: 728
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca6f8321a7aba280800000000000000
+      internalID: -9030940317233222972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButonScrollSpaceYue
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 3335
+        width: 701
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a73995b5df508620800000000000000
+      internalID: 2774322741939615650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Desblock
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 3328
+        width: 723
+        height: 704
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6abf7c8742c2270d0800000000000000
+      internalID: -3426627831318709338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogroExploradorExperto
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 2546
+        width: 585
+        height: 649
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc84dd12787878a0800000000000000
+      internalID: -6307158846610305808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: De Dioses
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 2548
+        width: 590
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e73986937d0ec76a0800000000000000
+      internalID: -6450033351315647618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Block
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 2780
+        width: 559
+        height: 496
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf20c4aab744ed1f0800000000000000
+      internalID: -1018301167810379013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonMododeJuegos
+      rect:
+        serializedVersion: 2
+        x: 1775
+        y: 1864
+        width: 531
+        height: 566
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b33faba977630c6b0800000000000000
+      internalID: -5278158875953269957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogroAlpinistadeNiveles
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 993
+        width: 761
+        height: 627
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8142293da5e45620800000000000000
+      internalID: 2762085003635605901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconTrivias
+      rect:
+        serializedVersion: 2
+        x: 1827
+        y: 163
+        width: 526
+        height: 632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46d176d889e3ec930800000000000000
+      internalID: 4165335530292583780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ColeccionistaBronce
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 169
+        width: 555
+        height: 663
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6ea07ee1be950f80800000000000000
+      internalID: -8140926264355541393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ColeccionistadePlata
+      rect:
+        serializedVersion: 2
+        x: 3349
+        y: 169
+        width: 636
+        height: 670
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbbd23dea19a4c260800000000000000
+      internalID: 7116999244266003389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iconPortafoliodeLogros
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 1828
+        width: 565
+        height: 632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5366d58d8a1e12ba0800000000000000
+      internalID: -6115358703691667915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconHabilidades
+      rect:
+        serializedVersion: 2
+        x: 3275
+        y: 1814
+        width: 703
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04c0809bd50265290800000000000000
+      internalID: -7902092909266596800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconLogros
+      rect:
+        serializedVersion: 2
+        x: 2498
+        y: 1017
+        width: 620
+        height: 623
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19ccb8aab5c20c1b0800000000000000
+      internalID: -5638457961252926319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogroColeccionistaNato
+      rect:
+        serializedVersion: 2
+        x: 3217
+        y: 930
+        width: 748
+        height: 771
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6267dad043c2b1640800000000000000
+      internalID: 5051680009105536550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_CanvasLogros
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 1473
+        height: 2459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3e691aff09062db0800000000000000
+      internalID: -4817152787201036741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrollBackGroundTrivias
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 3607
+        width: 1701
+        height: 427
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e84df70afe13fb00800000000000000
+      internalID: 861066012982593763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrollBackgroundSpaceYue
+      rect:
+        serializedVersion: 2
+        x: 2291
+        y: 3052
+        width: 1695
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a50192b92c1199e0800000000000000
+      internalID: -1616479825834211930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonPortafolioVersiones
+      rect:
+        serializedVersion: 2
+        x: 2290
+        y: 2538
+        width: 1712
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd7ec293f7cd99800800000000000000
+      internalID: 619768862718355423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

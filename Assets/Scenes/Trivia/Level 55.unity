@@ -655,10 +655,10 @@ MonoBehaviour:
   IntroAnimation: 0
   RepeatAnimation: 1
   maxvaluecontador: 10
-  MaxPoints: 405
-  OneMinPoints: 402
-  TwoMinPoints: 403
-  ThreeMinPoints: 404
+  MaxPoints: 505
+  OneMinPoints: 502
+  TwoMinPoints: 503
+  ThreeMinPoints: 504
   ReferContinue: {fileID: 1847726558}
 --- !u!4 &98125071
 Transform:
@@ -4754,6 +4754,9 @@ MonoBehaviour:
   Alert: {fileID: 952170510}
   SceneAnima: {fileID: 470241103}
   Descripciones: []
+  ListadeLogros: {fileID: 0}
+  PortafolioDeVersiones: {fileID: 0}
+  NoteOfVer: {fileID: 0}
 --- !u!4 &1509874916
 Transform:
   m_ObjectHideFlags: 0
