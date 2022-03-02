@@ -1,18 +1,21 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;//Librer�a que permite usar los m�todos para controlar las escenas
-
+using UnityEngine.SceneManagement;//Librería que permite usar los métodos para controlar las escenas
+using TMPro;
 public class ManagerScene : MonoBehaviour
 {
-    public static ManagerScene shareMscen;//Variable de tipo st�tica utilizada para hacer un singleton o instancia compartida
+    public static ManagerScene shareMscen;//Variable de tipo stática utilizada para hacer un singleton o instancia compartida
     public Canvas Gameview;//Referencia al Canvas llamada Ingame
     public Canvas Win;//Referencia al Canvas llamado Win
     public Canvas GameOver;//Referencia al Canvas llamado GameOver
     public Canvas Alert;// Referencia al Canvas llamado Alert
-    public Canvas SceneAnima;//Referencia al canvas encargado de hacer la transici�n al pasar a otra escena
+    public Canvas SceneAnima;//Referencia al canvas encargado de hacer la transición al pasar a otra escena
     public Canvas[] Descripciones;//Referencia  a los canvas que tienen las descripciones d elos objetos comprados
+    public Canvas ListadeLogros;//Variable de tipo Canvas que hace referencia al canvas que permitirá mostrar la lista de logros conseguidos
+    public Canvas PortafolioDeVersiones;//Variable de tipo Canvas que hace referencia al canvas que mostrará La interfaz del pritafolio de Versiones
+    public TextMeshProUGUI NoteOfVer;//Variable de tipo Tesh Mesh Pro que mostrará el texto d elas descripciones d ela nota de versión
     private void Awake()
     {
         if (shareMscen == null)
@@ -29,8 +32,7 @@ public class ManagerScene : MonoBehaviour
     private void Start()
     {
         //Es llamado cada vez que se inicia en una nueva escena
-        ActiveCanvasAnimaScene();//M�todo encargado de activar el canvas de las transiciones
-
+        ActiveCanvasAnimaScene();//Método encargado de activar el canvas de las transiciones
     }
 
     public void ActiveGameView()
@@ -66,9 +68,8 @@ public class ManagerScene : MonoBehaviour
     }
     public void LoadMenu( int ReferencesMenus)
     {
-     
-            GameManager.shareInstance.BackToMenu();
-        SceneManager.LoadScene(ReferencesMenus);
+        GameManager.shareInstance.BackToMenu();//Pasamos aa estado de menú
+        SceneManager.LoadScene(ReferencesMenus);//Cargamos directamente la escena pasada por parámetro
     }
 
     public void ActiveAlert()
@@ -85,27 +86,63 @@ public class ManagerScene : MonoBehaviour
 
     public void ActiveCanvasAnimaScene()
     {
-        //M�todo encargado de habilitar el canvas de las trancisiones entre escenas
+        //Método encargado de habilitar el canvas de las trancisiones entre escenas
         SceneAnima.enabled = true;
     }
 
     public void QuitApplication()
     {
-        //M�todo encargado de salir del juego
+        //Método encargado de salir del juego
 #if UNITY_EDITOR //Si nos encontramos en el editor, apagamos el play del editor
         UnityEditor.EditorApplication.isPlaying = false;
-#else //Si estamos en un dispositivo m�vil quitamos la aplicaci�n
+#else //Si estamos en un dispositivo móvil quitamos la aplicación
          Application.Quit();
 #endif
     }
-
+    public void CanvasListadeLogros()
+    {
+        //Método encargado de habilitar el canvas que mostrará los elementos GUI de los logros
+        ListadeLogros.enabled = true;
+    }
+    public void DesactivateCanvasListadeLogros()
+    {
+        //Método encargado de desahabilitar el canvas de la Lista de Objetos
+        ListadeLogros.enabled = false;
+    }
+    public void ActivatePortafolioDeVersiones() {
+        //Método que habilita la interfaz del Portafolio de Versiones
+    NumForText(0);//Pasamos cero al método para que establezca el texto predeterminado
+    PortafolioDeVersiones.enabled = true;
+    }
+    public void DesactivatePortafolioDeVersiones()
+    {
+        //Método que desabilita la interfaz del Portafolio de Versiones
+        PortafolioDeVersiones.enabled = false;
+    }
+    public void NumForText(int NumOfbutton)
+    {
+        //Método encargado de establecerle el texto a la variable TextMeshPro que mostrará las notas de versiones
+        if (NumOfbutton == 0)//Si es el caso de ser cero hará lo siguiente
+        {
+            NoteOfVer.SetText("2022/03/1 — Ver 1.0 " + "\n● Se cambiaron los colores de las cartas, a unos mas vivos." +
+                "\n● Se arreglo el bug de las animaciones, al resetear la partida.");
+        }
+        else if (NumOfbutton == 1)
+        {
+            NoteOfVer.SetText("Sin Fecha — Ver 2.0");
+        }
+        else if (NumOfbutton == 2)
+        {
+            NoteOfVer.SetText("Sin Fecha — Ver 3.0");
+        }
+    }
     public void ActiveEventDescripciones(int IdObjectDecrip)
     {
-        //M�todo que recibe por par�metro el entero de l bot�n de las descripciones d ela carta presionado
+        //Método que recibe por parámetro el entero de l botón de las descripciones d ela carta presionado
         switch (IdObjectDecrip)
         {
             case 0://Si es cero el entero enviado por referencia 
-                Descripciones[0].enabled = true;   //Se habilitar� el cambas del array ubicado en la posici�n cero
+                Descripciones[0].enabled = true;   //Se habilitará el cambas del array ubicado en la posición cero
                 break;
 
             case 1:
@@ -183,10 +220,10 @@ public class ManagerScene : MonoBehaviour
 
     public void DesactiveEventDescripciones(int IdObjectDecrip)
     {
-        //M�todo que recibe por par�metro el entero de el bot�n de las descripciones de la carta presionada
+        //Método que recibe por parámetro el entero de el botón de las descripciones de la carta presionada
         switch (IdObjectDecrip)
         {
-            case 0://Si el n�mero pasado por referencia en este caso es 0 desabilita el canvas del array guardado en esa posici�n 
+            case 0://Si el número pasado por referencia en este caso es 0 desabilita el canvas del array guardado en esa posición 
                 Descripciones[0].enabled = false;
                 break;
 

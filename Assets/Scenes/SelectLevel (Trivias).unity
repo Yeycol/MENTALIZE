@@ -10411,6 +10411,9 @@ MonoBehaviour:
   Alert: {fileID: 1423793810}
   SceneAnima: {fileID: 434927624}
   Descripciones: []
+  ListadeLogros: {fileID: 0}
+  PortafolioDeVersiones: {fileID: 0}
+  NoteOfVer: {fileID: 0}
 --- !u!4 &1287460660
 Transform:
   m_ObjectHideFlags: 0

@@ -16,7 +16,6 @@ public class Carga : MonoBehaviour
     public int Preverload;//Varaible que almacenará el entero de la escena a cargar
     void Awake()
     {
-          
         scene = SceneManager.GetActiveScene();
         if (scene.name == "Carga")
         {
@@ -48,11 +47,10 @@ public class Carga : MonoBehaviour
     {
 
             int index = Random.Range(0, Frases.Length);//Devuelve un entero aleatorio desde 0 hasta la cantidad de elementos del array
-            Muestra.text = Frases[index].text;//Se iguala la variable tipo text de GUI con el indice de tipo entero obtenido de manera aleatoria
+            Muestra.SetText(Frases[index].text);//Se iguala la variable tipo text de GUI con el indice de tipo entero obtenido de manera aleatoria
             //Se espera que se reproduzca el video
             yield return  new WaitForSeconds(14f);
             ControlNiveles.shareLvl.CambiarNivel(PreviewLevel);
-        // ControlNiveles.shareLvl.CambiarNivel(PreviewLevel);//Se llama al método encargado de cambiar la escena de menu a partir del pasado por parametro de un entero
     }
     
 }

@@ -110,7 +110,9 @@ public class Contador : MonoBehaviour
             if (scene.name == "Inicio")
             {
                 SliderInicio[0].value = puntos;
-                points_ui.text = puntos.ToString() + "/500";//Se imprime los puntos con el valor máximo en las barras de progreso del Inicio
+                SliderInicio[1].value = puntos;
+                points_ui.text = puntos.ToString() + "/555pts";//Se imprime los puntos con el valor máximo en las barras de progreso del Inicio
+                UI_WinText.text =puntos.ToString()+ "/555pts";
             }
         }
         
