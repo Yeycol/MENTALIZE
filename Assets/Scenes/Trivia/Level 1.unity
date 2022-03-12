@@ -640,7 +640,7 @@ MonoBehaviour:
   currentTime: 0
   range: /5
   value_Points: 1
-  value_moneda: 1
+  value_moneda: 20
   moneda: 0
   scene:
     m_Handle: 0
@@ -1779,8 +1779,6 @@ MonoBehaviour:
   Perfil: 0
   Background: 0
   Nameuser: {fileID: 2139086098}
-  scene:
-    m_Handle: 0
   ObjectsUser:
   - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
   - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
@@ -4348,6 +4346,8 @@ MonoBehaviour:
   ActiveColor: {r: 0, g: 0, b: 0, a: 0}
   ShadowColor: {r: 0, g: 0, b: 0, a: 0}
   ReferCar: {fileID: 497460352}
+  BlockButton: {fileID: 0}
+  DesblockButton: {fileID: 0}
 --- !u!4 &1301416258
 Transform:
   m_ObjectHideFlags: 0
@@ -4376,6 +4376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cero: 
+  Cero1: 
 --- !u!1 &1368673921
 GameObject:
   m_ObjectHideFlags: 0
@@ -4749,6 +4750,10 @@ MonoBehaviour:
   Alert: {fileID: 952170510}
   SceneAnima: {fileID: 470241103}
   Descripciones: []
+  ListadeLogros: {fileID: 0}
+  PortafolioDeVersiones: {fileID: 0}
+  NoteOfVer: {fileID: 0}
+  ReferencesButtonPor: []
 --- !u!4 &1509874916
 Transform:
   m_ObjectHideFlags: 0
@@ -6336,7 +6341,6 @@ MonoBehaviour:
   - {fileID: -7320327026737435274, guid: 4f5a4ca0f010b294580379f2f43093c5, type: 3}
   Perfil: {fileID: 0}
   Fondo: {fileID: 0}
-  ReferenPerBack: {fileID: 0}
   EvaluateCart: 0
 --- !u!114 &1709251652
 MonoBehaviour:

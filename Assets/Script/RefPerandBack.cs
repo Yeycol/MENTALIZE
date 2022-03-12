@@ -10,11 +10,17 @@ public class RefPerandBack : MonoBehaviour
     public Image Per,Fon; //Variables de tipo Image, que serán usadas para cambiar el sprite de la componente imagen, dependiendo del Perfil y FondoEquipado
     public int Perfil, Background;//Variables de Tipo Entero utilizadas para almacenar los Id de los objetos Equipados
     public Text Nameuser;//Hace referencia al objeto UI que contiene la componente texto para mostrar por interfaz el nombre de usuario
-    public Scene scene;//Variable pública de tipo Scene utilizada para obtener la escena activa
     public Sprite [] ObjectsUser;//Array de Sprites que almacenará las imágenes de los objetos desbloqueados
+    public static RefPerandBack ShareRefPerFon;
     private void Awake() 
     {
-        scene=SceneManager.GetActiveScene();//Obtenemos la Escena Activa 
+        if (ShareRefPerFon==null)
+        {
+            ShareRefPerFon = this;
+        } else
+        {
+            Destroy(gameObject);
+        }
     }
     void Start()
     {
@@ -43,15 +49,17 @@ public class RefPerandBack : MonoBehaviour
     public void LoadPreverSaveId()
     {
         Perfil = PlayerPrefs.GetInt("ID_PERFIL");//Otorgamos el entero del Key del Player Prefs en la variable entera Perfil
-        if (scene.name != "Tienda" && scene.name != "SelectModoJuego" && scene.name != "Inicio")
+        if (GameManager.shareInstance.currentgameState == GameState.InGame)
         {
             Nameuser.text = PlayerPrefs.GetString("NameUser"); // Se carga el texto pasado por parámetro a la variable tipo texto que mostrará el nombre de usuario por UI 
             if (Nameuser.text == "")
             {
                 Nameuser.text = "Nevul";
             }
-        } 
+        }else if (GameManager.shareInstance.currentgameState == GameState.menu)
+        {
             Background = PlayerPrefs.GetInt("ID_FONDO");//Otorgamos el entero del Key del PLayer Prefs en la variable entera Fondo
+        }
     }
     public void RefreshObjectPerfil()
     {

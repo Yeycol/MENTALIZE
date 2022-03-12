@@ -20,6 +20,8 @@ public class ControlNiveles : MonoBehaviour
     public static ControlNiveles shareLvl;// Variable que hace referencia a esta misma clase, servirá para hacerla una instancia compartida   
     private Scene Getscene;
     public Carga ReferCar;// Variable de tipo de clase carga que es encargada de almacenar un entero de la escena previa que debe ser cargado después de la pantalla de carga
+    public Sprite BlockButton;//Variable de tipo Sprite que almacena la imagen cuando el botón está bloqueado 
+    public Sprite DesblockButton;//Variable de tipo Sprite que almacena la imagen cuando el botón esta desbloqueado
     private void Awake()
     {
         if (shareLvl == null)
@@ -101,14 +103,14 @@ public void DesbloquearNivel()
 public void FalseButton()
     {
         //Método encargado de colocar los botones bloqueados
-            for (int i = 0; i < Buttonslevel.Length; i++)//Bucle que repite su ciclo hasta la cantidad de botones almacenados en el array
-            {
+        for (int i = 0; i < Buttonslevel.Length; i++)//Bucle que repite su ciclo hasta la cantidad de botones almacenados en el array
+        {
             //Dentro del  ciclo se evalua si los botones de la lista tienen desahabilitado la interacción entonces cargan una imagen de la carpeta de resources
             if (Buttonslevel[i].interactable == false)
-                {
+            {
                 Level[i].fontSize = 80;
                 LevelShadow[i].effectDistance = new Vector2(5f, -0.5f);
-                Imagelevel[i].sprite = Resources.Load<Sprite>("Sprite/Bloqueado");//Le asignamos al array de componentes imágenes el cargado de una de las imágenes almacenada en resources
+                Imagelevel[i].sprite = BlockButton;//Se cambia el sprite de acuerdo a la posición i, en este caso cuando deben estar bloqueados los botones
                  Level[i].text = "?";//Le asignamos a los arrays tipo texto el signo de interrogación
                 }
             }
@@ -121,10 +123,10 @@ public void FalseButton()
             Buttonslevel[i].interactable = true;//Se habilita los botones para poder cambiar de nivel (escena)
             if (Buttonslevel[i].interactable == true)// Hacemos esto solo si los botones tienen la interacción habilitada
             {
-                Imagelevel[i].sprite = Resources.Load<Sprite>("Sprite/Desbloqueado");//Le asignamos al array de componentes imágenes el cargado de una de las imágenes almacenada en resources
+                Imagelevel[i].sprite = DesblockButton;//Se cambia el sprite de acuerdo a la posición i, en este caso cuando deben estar desbloqueados los botones
                 Level[i].color = ActiveColor;// Cambiamos el color de la componente texto
                 LevelShadow[i].effectColor = ShadowColor;
-                Level[i].fontSize = 70;
+                Level[i].fontSize = 68;
                 LevelShadow[i].effectDistance = new Vector2(8f,2f);
                 Level[i].text = (i+1).ToString();
             }
