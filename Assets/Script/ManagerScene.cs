@@ -15,7 +15,9 @@ public class ManagerScene : MonoBehaviour
     public Canvas[] Descripciones;//Referencia  a los canvas que tienen las descripciones d elos objetos comprados
     public Canvas ListadeLogros;//Variable de tipo Canvas que hace referencia al canvas que permitirá mostrar la lista de logros conseguidos
     public Canvas PortafolioDeVersiones;//Variable de tipo Canvas que hace referencia al canvas que mostrará La interfaz del pritafolio de Versiones
-    public TextMeshProUGUI NoteOfVer;//Variable de tipo Tesh Mesh Pro que mostrará el texto d elas descripciones d ela nota de versión
+    public TextMeshProUGUI NoteOfVer;//Variable de tipo Tesh Mesh Pro que mostrará el texto d elas descripciones d ela nota de versión 
+    public Image[] ReferencesButtonPor;//Array de tipo imagen que hacen referencia a las imágenes de los botones de Portafolio de Versiones 
+  
     private void Awake()
     {
         if (shareMscen == null)
@@ -110,7 +112,7 @@ public class ManagerScene : MonoBehaviour
         ListadeLogros.enabled = false;
     }
     public void ActivatePortafolioDeVersiones() {
-        //Método que habilita la interfaz del Portafolio de Versiones
+    //Método que habilita la interfaz del Portafolio de Versiones
     NumForText(0);//Pasamos cero al método para que establezca el texto predeterminado
     PortafolioDeVersiones.enabled = true;
     }
@@ -121,18 +123,26 @@ public class ManagerScene : MonoBehaviour
     }
     public void NumForText(int NumOfbutton)
     {
+        ReferencesButtonPor[NumOfbutton].color = Color.black;//Según el entero pasado por parámetro establecemos la imagen del botón en negro
         //Método encargado de establecerle el texto a la variable TextMeshPro que mostrará las notas de versiones
         if (NumOfbutton == 0)//Si es el caso de ser cero hará lo siguiente
         {
+            //En el caso de  que el entero pasado por parámetro sea O
+            ReferencesButtonPor[1].color = Color.white;//Establecemos en blanco los botones que no han sido presionados, dependiendo de la posición pasado por parámetro
+            ReferencesButtonPor[2].color = Color.white;
             NoteOfVer.SetText("2022/03/1 — Ver 1.0 " + "\n● Se cambiaron los colores de las cartas, a unos mas vivos." +
                 "\n● Se arreglo el bug de las animaciones, al resetear la partida.");
         }
         else if (NumOfbutton == 1)
         {
+            ReferencesButtonPor[0].color = Color.white;
+            ReferencesButtonPor[2].color = Color.white;
             NoteOfVer.SetText("Sin Fecha — Ver 2.0");
         }
         else if (NumOfbutton == 2)
         {
+            ReferencesButtonPor[0].color = Color.white;
+            ReferencesButtonPor[1].color = Color.white;
             NoteOfVer.SetText("Sin Fecha — Ver 3.0");
         }
     }

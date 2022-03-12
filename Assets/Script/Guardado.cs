@@ -12,14 +12,17 @@ public class Guardado : MonoBehaviour
     private string RutaArchivo1;//Variable que almacenará la ruta en la que vamos almacenar las monedas
     private string RutaArchivo2;//Variable que almacenará ruta en donde almacenaremos un array de enteros
     private string RutaArchivo3;//Variable que almacenará ruta en donde se guardará el entero de los puntos ganados
+    private string RutaArchivo4;//Variable de tipo string que almacena la ruta en donde se alamacenará los id d elos logros desbloqueados
     static bool PrimeraVez = true;//Booleano utilizado para hacer el cargado de los niveles por única vez
     public List<int> Cero = null;//Lista vacía en caso de que no exista el fichero
+    public List<bool> Cero1;//Lista de booleanos que almacenan valores inciiales en false
     private void Awake()
     {
         RutaArchivo = Application.persistentDataPath + "/LvlDate.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte el juego 
         RutaArchivo1 = Application.persistentDataPath + "/CoinDate.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte el juego 
         RutaArchivo2 = Application.persistentDataPath + "/ObjectBuyDate.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte el juego
         RutaArchivo3 = Application.persistentDataPath + "/PointsDate.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte el juego
+        RutaArchivo4 = Application.persistentDataPath + "/AchievementsDate.dat";
         if (PrimeraVez)//Evalua si es el bolleano es verdad, se carga los niveles desbloqueados, si n es el caso no ingresa a la condicional
         {
             Cargar();//Método encargado de cargar los datos almacenados
@@ -121,7 +124,7 @@ public class Guardado : MonoBehaviour
             FileStream file2 = File.Open(RutaArchivo2, FileMode.Open);//Se crea un puntero pero esta vez para abrir el archivo en la ruta guardada
             IdObjetos datos2 = (IdObjetos)bf.Deserialize(file2);// Se deserializa el archivo en la ruta que especificamos abrir, no se pueden enviar binarios al Unity y esperar que funcione 
             //Pero si podemos convertir nuestro archivo deserializado a un tipo de dato específico
-            ControlSección.ShareTienda.IdObjetos = datos2.Idonjectos.ToList(); ;// Se iguala la variable de la clase control Selección a la variable de la clase de IdObjetos
+            ControlSección.ShareTienda.IdObjetos = datos2.GetList().ToList(); // Se iguala la variable de la clase control Selección a la variable de la clase de IdObjetos
             //Para que reciba el dato almacenado en su interior, para ello copeamos la lista de la clase IdObjetos y la asignamos a la variable d ela clase control selección
             file2.Close();
         }
@@ -130,6 +133,37 @@ public class Guardado : MonoBehaviour
             //Sino existe el fichero se copeará una lista vacía 
             ControlSección.ShareTienda.IdObjetos = Cero.ToList();
         }
+    }
+
+    public void GuardarLogros()
+    {
+        //Método encargado de guardar la lista del Id de Logros Desbloqueados
+        BinaryFormatter bf = new BinaryFormatter();//Permite crear un formato binario el cual gestionará el trabajo de serialización
+        FileStream file4 = File.Create(RutaArchivo4);//Se crea un puntero en donde crear el archivo, donde se pasa por parámetro la ruta
+        IdLogrosObject datos4 = new IdLogrosObject (ControlLogro.ShareLogro.IdLogros, ControlLogro.ShareLogro.Recolected);//Se crea una instancia de la clase IdLogrosObject Y llamamos al constructor el cual le pasamos la lista que vamos a serializar como parámetro
+        bf.Serialize(file4, datos4);//Guardamos el parámetro enviado al método de la clase IdLogrosObject en el archivo con ruta que creamos
+        file4.Close();//Cerrramos el archivo que hemos creado
+    }
+    public void CargarLogros()
+    {
+        if (File.Exists(RutaArchivo4))//Se pregunta por la existencia del archivo que creamos al guardar
+        {
+            //Si existe este lo cargará
+            BinaryFormatter bf = new BinaryFormatter();//Se crea nuevamente un formato binario el cual gestionara el trabajo de deserialización
+            FileStream file4 = File.Open(RutaArchivo4, FileMode.Open);//Se crea un puntero pero esta vez para abrir el archivo en la ruta guardada
+            IdLogrosObject datos4 = (IdLogrosObject)bf.Deserialize(file4);// Se deserializa el archivo en la ruta que especificamos abrir, no se pueden enviar binarios al Unity y esperar que funcione, para ello se convierte en el formato que deseamos (Casting)
+            //Pero si podemos convertir nuestro archivo deserializado a un tipo de dato específico
+            ControlLogro.ShareLogro.IdLogros = datos4.GetListIdLogros().ToList(); // Se incializa los datos de las demás variables de acuerdo a los datos almacenados
+            ControlLogro.ShareLogro.Recolected = datos4.GetListRecolected().ToList();
+            //Para que reciba el dato almacenado en su interior, para ello copeamos la lista de la clase IdObjetos y la asignamos a la variable d ela clase control selección
+            file4.Close();
+        }
+        else
+        {
+            ControlLogro.ShareLogro.IdLogros=Cero.ToList();
+            ControlLogro.ShareLogro.Recolected = Cero1.ToList();
+        }
+
     }
 }
 [System.Serializable]
@@ -169,9 +203,36 @@ class Puntos
 [System.Serializable]
 class IdObjetos
 {
-    public List<int> Idonjectos=null;//Lista que almacernará la copia de la lista pasada por referencia
+    private List<int> Idonjectos=null;//Lista que almacernará la copia de la lista pasada por referencia
+
     public IdObjetos(List<int>ObjeRef)
     {
         Idonjectos = ObjeRef.ToList();//Se copia la lista pasada por referencia
+    }
+    public List<int> GetList()
+    {
+        return Idonjectos;
+    }
+}
+[System.Serializable]
+class IdLogrosObject
+{
+
+    private List<int> IdLogrosId;//Lista de tipo entero que almacenará el id del logro desbloqueado
+    private List<bool> Recolecteds;// Lista de tipo booleano que almacena si se ha recogido una recompensa
+    private List<bool> OneDesblock;//Lista de tipo booleano que almacena el control de desbloqueo de logros
+    public IdLogrosObject(List<int> ReferencesLogrosId, List<bool> ReferencesRecoled)
+    {
+        IdLogrosId = ReferencesLogrosId;//Se copia la lista pasada por referencia
+        Recolecteds = ReferencesRecoled;
+    }
+
+    public List<int> GetListIdLogros()
+    {
+        //Método encargado de retornar la lista cuando se inicialice la lista de esta clase en el constructor
+        return IdLogrosId;
+    }
+    public List<bool>GetListRecolected(){
+        return Recolecteds;
     }
 }

@@ -58,9 +58,6 @@ public class Contador : MonoBehaviour
         PlayerPrefs.DeleteKey("ExtraMoneda");
         PlayerPrefs.DeleteKey("Time");
         PlayerPrefs.DeleteKey("Live");*/
-        if (scene.name!= "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace" && scene.name != "SelectModoJuego"&& scene.name!="Tienda" && scene.name != "Inicio") {
-            GuardadoMonedas.CargarList();
-        }
         CargarEquipament();//Se llama al método encargado de Cargar vi    das extras y el tiempo extra pasado por referencia etc
         InicializarDatosInterfaz();//Cuando inicia el juego debemos imprimer el valor que hayan adquirido las variables al iniciar el juego     
     }

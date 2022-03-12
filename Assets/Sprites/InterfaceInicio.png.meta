@@ -4,61 +4,61 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -9030940317233222972
-    second: ButtonScrollTrivias
+    second: Button_Trivia
   - first:
       213: 2774322741939615650
-    second: ButonScrollSpaceYue
+    second: Button_SpaceYue
   - first:
       213: -3426627831318709338
-    second: Button_Desblock
+    second: ButtonDesblock
   - first:
       213: -6307158846610305808
     second: LogroExploradorExperto
   - first:
       213: -6450033351315647618
-    second: De Dioses
+    second: LogroSoloDioses
   - first:
       213: -1018301167810379013
-    second: Button_Block
+    second: ButtonBlock
   - first:
       213: -5278158875953269957
-    second: ButtonMododeJuegos
+    second: ProgressTrivias
   - first:
       213: 2762085003635605901
-    second: LogroAlpinistadeNiveles
+    second: ProgressSpaceYue
   - first:
       213: 4165335530292583780
-    second: IconTrivias
+    second: Button_PorVer
   - first:
       213: -8140926264355541393
-    second: ColeccionistaBronce
-  - first:
-      213: 7116999244266003389
-    second: ColeccionistadePlata
-  - first:
-      213: -6115358703691667915
-    second: iconPortafoliodeLogros
-  - first:
-      213: -7902092909266596800
-    second: IconHabilidades
-  - first:
-      213: -5638457961252926319
     second: IconLogros
   - first:
+      213: 7116999244266003389
+    second: Button_MododeJuego
+  - first:
+      213: -6115358703691667915
+    second: IconPorVer
+  - first:
+      213: -7902092909266596800
+    second: IconHabilidad
+  - first:
+      213: -5638457961252926319
+    second: IconAlpinista
+  - first:
       213: 5051680009105536550
-    second: LogroColeccionistaNato
+    second: IconLogro
   - first:
       213: -4817152787201036741
-    second: Button_CanvasLogros
+    second: LogroColeccionistaNato
   - first:
       213: 861066012982593763
-    second: ScrollBackGroundTrivias
+    second: LogroExpertoenTrivias
   - first:
       213: -1616479825834211930
-    second: ScrollBackgroundSpaceYue
+    second: LogroColeccionistaBronce
   - first:
       213: 619768862718355423
-    second: ButtonPortafolioVersiones
+    second: LogroColeccionistaPlata
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -148,7 +148,7 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 50
+    textureFormat: 47
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -160,13 +160,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ButtonScrollTrivias
+      name: Button_Trivia
       rect:
         serializedVersion: 2
-        x: 40
-        y: 3335
-        width: 746
-        height: 728
+        x: 62
+        y: 3350
+        width: 700
+        height: 700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,13 +181,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButonScrollSpaceYue
+      name: Button_SpaceYue
       rect:
         serializedVersion: 2
-        x: 824
-        y: 3335
-        width: 701
-        height: 702
+        x: 833
+        y: 3343
+        width: 687
+        height: 686
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,13 +202,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_Desblock
+      name: ButtonDesblock
       rect:
         serializedVersion: 2
-        x: 1546
-        y: 3328
-        width: 723
-        height: 704
+        x: 1649
+        y: 3428
+        width: 534
+        height: 509
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,10 +226,10 @@ TextureImporter:
       name: LogroExploradorExperto
       rect:
         serializedVersion: 2
-        x: 106
-        y: 2546
-        width: 585
-        height: 649
+        x: 158
+        y: 2562
+        width: 504
+        height: 622
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,13 +244,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: De Dioses
+      name: LogroSoloDioses
       rect:
         serializedVersion: 2
-        x: 766
-        y: 2548
-        width: 590
-        height: 640
+        x: 815
+        y: 2559
+        width: 527
+        height: 620
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,13 +265,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_Block
+      name: ButtonBlock
       rect:
         serializedVersion: 2
-        x: 1615
-        y: 2780
-        width: 559
-        height: 496
+        x: 1622
+        y: 2784
+        width: 544
+        height: 488
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,13 +286,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonMododeJuegos
+      name: ProgressTrivias
       rect:
         serializedVersion: 2
-        x: 1775
-        y: 1864
-        width: 531
-        height: 566
+        x: 2316
+        y: 3609
+        width: 1687
+        height: 425
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,13 +307,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LogroAlpinistadeNiveles
+      name: ProgressSpaceYue
       rect:
         serializedVersion: 2
-        x: 1591
-        y: 993
-        width: 761
-        height: 627
+        x: 2299
+        y: 3058
+        width: 1688
+        height: 427
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,13 +328,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IconTrivias
+      name: Button_PorVer
       rect:
         serializedVersion: 2
-        x: 1827
-        y: 163
-        width: 526
-        height: 632
+        x: 2309
+        y: 2541
+        width: 1689
+        height: 423
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,13 +349,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ColeccionistaBronce
+      name: IconLogros
       rect:
         serializedVersion: 2
-        x: 2568
-        y: 169
-        width: 555
-        height: 663
+        x: 45
+        y: 0
+        width: 1460
+        height: 2449
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,13 +370,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ColeccionistadePlata
+      name: Button_MododeJuego
       rect:
         serializedVersion: 2
-        x: 3349
-        y: 169
-        width: 636
-        height: 670
+        x: 1772
+        y: 1861
+        width: 539
+        height: 572
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -391,13 +391,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: iconPortafoliodeLogros
+      name: IconPorVer
       rect:
         serializedVersion: 2
-        x: 2556
+        x: 2565
         y: 1828
-        width: 565
-        height: 632
+        width: 553
+        height: 627
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,13 +412,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IconHabilidades
+      name: IconHabilidad
       rect:
         serializedVersion: 2
-        x: 3275
-        y: 1814
-        width: 703
-        height: 633
+        x: 3324
+        y: 1821
+        width: 639
+        height: 617
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -433,13 +433,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IconLogros
+      name: IconAlpinista
       rect:
         serializedVersion: 2
-        x: 2498
-        y: 1017
-        width: 620
-        height: 623
+        x: 1592
+        y: 995
+        width: 750
+        height: 620
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -454,13 +454,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LogroColeccionistaNato
+      name: IconLogro
       rect:
         serializedVersion: 2
-        x: 3217
-        y: 930
-        width: 748
-        height: 771
+        x: 2517
+        y: 1018
+        width: 597
+        height: 618
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -475,13 +475,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_CanvasLogros
+      name: LogroColeccionistaNato
       rect:
         serializedVersion: 2
-        x: 40
-        y: 0
-        width: 1473
-        height: 2459
+        x: 3261
+        y: 936
+        width: 703
+        height: 763
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -496,13 +496,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScrollBackGroundTrivias
+      name: LogroExpertoenTrivias
       rect:
         serializedVersion: 2
-        x: 2306
-        y: 3607
-        width: 1701
-        height: 427
+        x: 1841
+        y: 169
+        width: 502
+        height: 618
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -517,13 +517,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScrollBackgroundSpaceYue
+      name: LogroColeccionistaBronce
       rect:
         serializedVersion: 2
-        x: 2291
-        y: 3052
-        width: 1695
-        height: 435
+        x: 2607
+        y: 179
+        width: 507
+        height: 651
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -538,13 +538,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonPortafolioVersiones
+      name: LogroColeccionistaPlata
       rect:
         serializedVersion: 2
-        x: 2290
-        y: 2538
-        width: 1712
-        height: 430
+        x: 3363
+        y: 181
+        width: 605
+        height: 634
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
