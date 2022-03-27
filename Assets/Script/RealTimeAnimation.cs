@@ -171,7 +171,7 @@ public class RealTimeAnimation : MonoBehaviour
         yield return new WaitForSeconds(ReferTimerCo);
         EventOver[indexover].SetBool(ReferencesOverPar, false);
         Contador.sharecont.IntroAnimation=false;
-        StartCoroutine(WaitForReset());
+        StartCoroutine(WaitForCanvas());
     }
     IEnumerator WaitForReset()
     {
@@ -222,7 +222,7 @@ public class RealTimeAnimation : MonoBehaviour
         //Método encargado de habilitar la animación del confeti
         EventCorrectAndError[4].Rebind();
         EventCorrectAndError[4].Update(0f);
-        RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[4].gameObject.SetActive(false);//Desactivamos el objeto de confeti para evitar acumulación de batches  
+        EventCorrectAndError[4].gameObject.SetActive(false);//Desactivamos el objeto de confeti para evitar acumulación de batches  
     }
 
 }

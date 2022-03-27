@@ -19,6 +19,7 @@ public class ManagerQuiz : MonoBehaviour
     {
         AudioManager.shareaudio.Efectos[15].Play();//Reproducimos la música destinada para las trivias
         AudioManager.shareaudio.Efectos[15].loop = true;//Establecemos en bucle la música 
+        RealTimeAnimation.ShareRealTimeAnimator.ResetIndex();
         RealTimeAnimation.ShareRealTimeAnimator.RamdomIndex();//Llamamos al método encargado de generar nuevos Index de las animaciones en trivias 
         GameManager.shareInstance.StarGame();//Establecemos como modo en partida
         Nexquestion();// Lo llamamos para tener la primera pregunta
@@ -30,8 +31,6 @@ public class ManagerQuiz : MonoBehaviour
         //Método encargado de indicar al constructor que debe mostrar las opciones, solo si estamos en estado de juego InGame
         if (GameManager.shareInstance.currentgameState == GameState.InGame || GameManager.shareInstance.currentgameState == GameState.Alert)
         {
-            RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[1].gameObject.SetActive(false);//Se desahabilita la aniamción del objeto NaveCorrect 
-            RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[0].gameObject.SetActive(false);//Se desahabilita la animación del objeeto NaveError
             RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = false;//Desahabilitamos el canvas de la clase RealTimeAnimations
             Contador.sharecont.IntroAnimation = false;//Desahabilitamos el tiempo lento cuando una animación está activa
             Control.OffOutlineRed();//Se llama al método encargado de restablecer el color de los Outline originales
@@ -39,7 +38,6 @@ public class ManagerQuiz : MonoBehaviour
             Contador.sumar();//LLama al metodo encargado de sumar el contador de la trivia
             g_quizUI.Construcman(g_quizDB.questionrandom(), GiveAnswer);
             //Este método permitirá obtener la siguiente pregunta 
-
         }
 
     }
@@ -90,7 +88,7 @@ public class ManagerQuiz : MonoBehaviour
         // Pasamos a la siguiente pregunta sin importar que esta sea incorrecta o correcta
         AnimaCon.ShareAnimation.StopHeart();//Se llama al método encargado de reproducir la animación  del corazón restaurandoses
         yield return new WaitForSeconds(0.8f);
-        //Contador.sharecont.IntroAnimation = false;
+        RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[0].gameObject.SetActive(false);//Se desahabilita la animación del objeeto NaveError
         Nexquestion();
     }
 
@@ -101,6 +99,7 @@ public class ManagerQuiz : MonoBehaviour
         RealTimeAnimation.ShareRealTimeAnimator.DesactiveNaveCorrect();//Se llama al método encargado de reproducir la animación de la nave saliendo de escena
         yield return new WaitForSeconds(1.8f);
         //Contador.sharecont.IntroAnimation=false;//Luego de que las acciones establecidas en la corrutina se cumpla se le indica al comportamiento Event Time de la Clase Contador que ya no se tengan en cuenta la cantidad de frames para ser llamado  
+        RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[1].gameObject.SetActive(false);//Se desahabilita la aniamción del objeto NaveCorrect 
         Nexquestion();
     }
 

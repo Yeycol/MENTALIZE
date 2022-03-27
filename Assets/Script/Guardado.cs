@@ -220,7 +220,6 @@ class IdLogrosObject
 
     private List<int> IdLogrosId;//Lista de tipo entero que almacenará el id del logro desbloqueado
     private List<bool> Recolecteds;// Lista de tipo booleano que almacena si se ha recogido una recompensa
-    private List<bool> OneDesblock;//Lista de tipo booleano que almacena el control de desbloqueo de logros
     public IdLogrosObject(List<int> ReferencesLogrosId, List<bool> ReferencesRecoled)
     {
         IdLogrosId = ReferencesLogrosId;//Se copia la lista pasada por referencia

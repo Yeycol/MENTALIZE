@@ -97,7 +97,7 @@ public class AnimaCon : MonoBehaviour
         AnimationLis[2].SetBool(ACTIVE_ALERT, false);// Desactivamos  la animación de la alerta
         yield return new WaitForSeconds(0.3f);
         ManagerScene.shareMscen.OffAlert();//Desactivamos el canvas de la alerta
-        if (scene.name == "SelectLevel (Trivias)" || scene.name == "SelectLevelSpace" || scene.name == "Tienda" || scene.name == "SelectModoJuego")
+        if (scene.name == "SelectLevel (Trivias)" || scene.name == "SelectLevelSpace" || scene.name == "Tienda" || scene.name == "SelectModoJuego" || scene.name=="Inicio")
         {
             //Se pasa a modo de juego en menú solo si estamos en las escenas establecidas en la condicional
             GameManager.shareInstance.BackToMenu();
@@ -220,13 +220,6 @@ public class AnimaCon : MonoBehaviour
         //Método encargado de forzar el reinicio de la animación del confeti
         RealTimeAnimation.ShareRealTimeAnimator.StoptAnimationConfeti();
         RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = false;//Desahabilitamos el canvas para que este no este habilitado al reiniciar escena
-        RealTimeAnimation.ShareRealTimeAnimator.ResetIndex();//Reseteamos los objetos activos de los index generados    
-    }
-    public void DesactivateAnimationGameOver()
-    {
-        //Método encargado de reiniciar la animación para Game Over
-        RealTimeAnimation.ShareRealTimeAnimator.Refer.enabled = false;//Desahabilitamos el canvas para que este no este habilitado al reiniciar escena
-        RealTimeAnimation.ShareRealTimeAnimator.ResetIndex();//Reseteamos los objetos activos de los index generados    
     }
 
 }

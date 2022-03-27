@@ -38,6 +38,7 @@ public class ControlSección : MonoBehaviour
         public Text Precio;//Variable tipo text que mostrará el precio de los items por GUI 
         public Image UI_Monedas;//Variable tipo image que hace referencia a las monedas de interfaz gráfica
         public bool IsPurchased = false;//Variable tipo booleano que servirá para saber si el item ya ha sido comprado 
+        public Image LetreroMonedas;//Variable de tipo image que pretende almacenar el letrero  elas monedas de la tienda 
     }
     private void Awake()
     {
@@ -97,6 +98,7 @@ public class ControlSección : MonoBehaviour
             ListaObjetos[ReferencesIdList].Botones.interactable = false;//Se desactiva la interacción de los botones de comprar
             ListaObjetos[ReferencesIdList].UI_Monedas.enabled = false;//Se desactiva el icono que representa las monedas
             ListaObjetos[ReferencesIdList].Precio.enabled = false;//Se desactiva el precio UI, para que no salga el precio de los items comprados
+            ListaObjetos[ReferencesIdList].LetreroMonedas.enabled = false;//Se desactiva la imagen del letrero de las monedas
             if (ReferencesIdList >=23)
             {
                 // Si el entero del Id comprado es mayor o igual a 23
@@ -112,7 +114,7 @@ public class ControlSección : MonoBehaviour
 
         if (EvaluateCart == 0)
         {
-            for (int i = 0; i <= 22; i++)
+            for (int i = 0; i <= 21; i++)
             {
                 Button_Equipar[i].interactable = true;
                 Txt_Equipar[i].text = "Equipar";
@@ -124,14 +126,16 @@ public class ControlSección : MonoBehaviour
         //Se muestra por GUI los precios de cada item según su índice hasta la cantidad de Objetos presentes en la lista
         for (int i = 0; i < ListaObjetos.Count; i++)
         {
-            ListaObjetos[i].Precio.text = ListaObjetos[i].Price.ToString();// Se muestra en UI el valor entero de los precios enteros
-            //Este for esta en bucle hasta la cantidad de elementos que tenga la ListaObjetos
-            ListaObjetos[i].Botones.AddEventListener(i, OnShopItemBtnClicked);/*Se añade a cada botón AddListener,
+            if (i != 22)
+            {
+                ListaObjetos[i].Precio.text = ListaObjetos[i].Price.ToString();// Se muestra en UI el valor entero de los precios enteros
+                                                                               //Este for esta en bucle hasta la cantidad de elementos que tenga la ListaObjetos
+                ListaObjetos[i].Botones.AddEventListener(i, OnShopItemBtnClicked);/*Se añade a cada botón AddListener,
             esperando que se presione alguno de ellos para que este llame al método encargado de establecer que ya 
             se ha comprado un item y pasar por referencia un entero del botón seleccionado*/
-
+            }
             //En esta sección limitamos el cargado de los objetos equipados
-            if (i == 22 || i >= 38)// Si los Id de las posiciones de la ListaObjetos  es igual 22 o mayores a 38
+            if (i == 21 || i >= 38)// Si los Id de las posiciones de la ListaObjetos  es igual 22 o mayores a 38
             {
                 ListaObjetos[i].Precio.gameObject.SetActive(false);//Se desactiva el game Object que tiene la componente texto que muestra los precios por UI
                 ListaObjetos[i].UI_Monedas.gameObject.SetActive(false);//Se desactiva el Game Object que contiene la componente imagen que muestra el icon de monedas
@@ -160,12 +164,12 @@ public class ControlSección : MonoBehaviour
     {
         //Esta condicional limita los objetos con id 22 y mayores por que estos serán conseguidos solo de forma desbloqueable
         //Es decir que si aun no se ha desbloqueado el logro estos no podran ser desbloqueados ni comprados.
-        if (itemIndex == 22 || itemIndex >= 38 )
+        if (itemIndex == 21 || itemIndex >= 38 )
         {
             StartCoroutine(Nologro());//Se llama a la corrutina encargada de mostrar la animación cuando aun no se ha desbloqueado un logro
         }
 
-        if (Contador.sharecont.moneda >= ListaObjetos[itemIndex].Price && itemIndex!=22&&itemIndex<=37)//Si el valor de la variable d ela clase contador moneda es maypr que el precio establecido en la posición del Objeto a comprar 
+        if (Contador.sharecont.moneda >= ListaObjetos[itemIndex].Price && itemIndex!=21&&itemIndex<=37)//Si el valor de la variable d ela clase contador moneda es maypr que el precio establecido en la posición del Objeto a comprar 
         {
             Contador.sharecont.moneda -= ListaObjetos[itemIndex].Price;//Se decrementa el valor de la variable moneda de acuerdo al precio que tenga el obejto de la lista 
             Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();//Imprimimos el valor que tenga la moneda en ese momento ya decrementado
@@ -176,6 +180,7 @@ public class ControlSección : MonoBehaviour
             ListaObjetos[itemIndex].Botones.interactable = false;//Se desactiva la interacción de los botones de comprar
             ListaObjetos[itemIndex].UI_Monedas.enabled = false;//Se deja de mostrar el Sprite de las monedas
             ListaObjetos[itemIndex].Precio.enabled = false;//Se deja de mostrar el Text del precio
+            ListaObjetos[itemIndex].LetreroMonedas.enabled = false;//Se deja de mostrar el letrero de las monedas
             IdObjetos.Add(itemIndex);//Se añade a la lista el Id entero del objeto comprado
             GuardadoListas.GuardarList();//Se guarda estas compras, llamando a la clase Guardado(GuardadoList)
             if (itemIndex >= 23)//Si en este caso el entero pasado por referencia es mayor o igual a 23 
@@ -195,7 +200,7 @@ public class ControlSección : MonoBehaviour
                 ControlLogro.ShareLogro.PassCaseCompra("Oro");
             }
         }
-        else if(itemIndex!=22 && itemIndex <= 37)
+        else if(itemIndex!=21 && itemIndex <= 37)
         {
             StartCoroutine(TimeCeroMoney());//Llamamos a la corrutina encargada de dar tiempo para ver los efectos cuando no se tiene el suficiente dinero
         }
@@ -214,7 +219,7 @@ public class ControlSección : MonoBehaviour
         {
             /*Siempre que presionemos este boton antes de activar el Game Object reseteara las posiciones del Content Cartas, lo que hace es establecer los valores predeterminados*/
             //Left //Bottom
-            ObjectsShop[0].offsetMin = new Vector2(0, -10540);
+            ObjectsShop[0].offsetMin = new Vector2(0, -8974);
             //Right //Top
             ObjectsShop[0].offsetMax = new Vector2(0, 0);
             GUIControl[0].SetActive(true);
@@ -276,7 +281,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[0].interactable = false;//Desahabilitamos el botón de la posición cero del array de botones equipar
                     Txt_Equipar[0].text = "Equipado";//Se cambia el texto del botón a equipado
-                    Contador.sharecont.SaveEquipament(1, 20, "Si", 1);//Se llama a un método de la clase contador el cual se encarga de pasar por referencia la vidas, tiempo, monedas extras y si se debe aplicar lo equipado
+                    Contador.sharecont.SaveEquipament(1,5, "Si",2);//Se llama a un método de la clase contador el cual se encarga de pasar por referencia la vidas, tiempo, monedas extras y si se debe aplicar lo equipado
                 }
                 else if (ListaObjetos[0].IsPurchased == false)
                 {
@@ -291,7 +296,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[1].interactable = false;
                     Txt_Equipar[1].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 10, "Si", 3);
+                    Contador.sharecont.SaveEquipament(1,8, "Si",3);
                 }
                 else if (ListaObjetos[1].IsPurchased == false)
                 {
@@ -307,7 +312,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[2].interactable = false;
                     Txt_Equipar[2].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(5, 20, "Si", 10);
+                    Contador.sharecont.SaveEquipament(1,10, "Si",2);
                 }
                 else if (ListaObjetos[2].IsPurchased == false)
                 {
@@ -323,7 +328,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[3].interactable = false;
                     Txt_Equipar[3].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(2,7, "Si",3);
                 }
                 else if (ListaObjetos[3].IsPurchased == false)
                 {
@@ -339,7 +344,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[4].interactable = false;
                     Txt_Equipar[4].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(1,4, "Si",5);
                 }
                 else if (ListaObjetos[4].IsPurchased == false)
                 {
@@ -355,7 +360,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[5].interactable = false;
                     Txt_Equipar[5].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(2,6, "Si",2);
                 }
                 else if (ListaObjetos[5].IsPurchased == false)
                 {
@@ -371,7 +376,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[6].interactable = false;
                     Txt_Equipar[6].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(1,6, "Si",3);
                 }
                 else if (ListaObjetos[6].IsPurchased == false)
                 {
@@ -387,7 +392,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[7].interactable = false;
                     Txt_Equipar[7].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(1,7,"Si",2);
                 }
                 else if (ListaObjetos[7].IsPurchased == false)
                 {
@@ -403,7 +408,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[8].interactable = false;
                     Txt_Equipar[8].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(1,5,"Si",3);
                 }
                 else if (ListaObjetos[8].IsPurchased == false)
                 {
@@ -419,7 +424,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[9].interactable = false;
                     Txt_Equipar[9].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(1,9, "Si",1);
                 }
                 else if (ListaObjetos[9].IsPurchased == false)
                 {
@@ -435,7 +440,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[10].interactable = false;
                     Txt_Equipar[10].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(3,22, "Si",12);
                 }
                 else if (ListaObjetos[10].IsPurchased == false)
                 {
@@ -451,7 +456,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[11].interactable = false;
                     Txt_Equipar[11].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(3,25, "Si",18);
                 }
                 else if (ListaObjetos[11].IsPurchased == false)
                 {
@@ -467,7 +472,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[12].interactable = false;
                     Txt_Equipar[12].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(3,30, "Si",20);
                 }
                 else if (ListaObjetos[12].IsPurchased == false)
                 {
@@ -483,7 +488,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[13].interactable = false;
                     Txt_Equipar[13].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(3,50, "Si",30);
                 }
                 else if (ListaObjetos[13].IsPurchased == false)
                 {
@@ -499,7 +504,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[14].interactable = false;
                     Txt_Equipar[14].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(2,15, "Si",9);
                 }
                 else if (ListaObjetos[14].IsPurchased == false)
                 {
@@ -515,7 +520,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[15].interactable = false;
                     Txt_Equipar[15].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(2,20, "Si",5);
                 }
                 else if (ListaObjetos[15].IsPurchased == false)
                 {
@@ -531,7 +536,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[16].interactable = false;
                     Txt_Equipar[16].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(2,12, "Si",5);
                 }
                 else if (ListaObjetos[16].IsPurchased == false)
                 {
@@ -547,7 +552,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[17].interactable = false;
                     Txt_Equipar[17].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(3,10, "Si",4);
                 }
                 else if (ListaObjetos[17].IsPurchased == false)
                 {
@@ -563,7 +568,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[18].interactable = false;
                     Txt_Equipar[18].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(2,10, "Si",6);
                 }
                 else if (ListaObjetos[18].IsPurchased == false)
                 {
@@ -579,7 +584,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[19].interactable = false;
                     Txt_Equipar[19].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(2,15, "Si",12);
                 }
                 else if (ListaObjetos[19].IsPurchased == false)
                 {
@@ -595,7 +600,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[20].interactable = false;
                     Txt_Equipar[20].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(2,18,"Si",6);
                 }
                 else if (ListaObjetos[20].IsPurchased == false)
                 {
@@ -611,7 +616,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetInt("ValCart", 1);
                     Button_Equipar[21].interactable = false;
                     Txt_Equipar[21].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
+                    Contador.sharecont.SaveEquipament(3,50, "Si",30);
                 }
                 else if (ListaObjetos[21].IsPurchased == false)
                 {
