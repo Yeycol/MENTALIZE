@@ -17,7 +17,7 @@ public class ManagerScene : MonoBehaviour
     public Canvas PortafolioDeVersiones;//Variable de tipo Canvas que hace referencia al canvas que mostrará La interfaz del pritafolio de Versiones
     public TextMeshProUGUI NoteOfVer;//Variable de tipo Tesh Mesh Pro que mostrará el texto d elas descripciones d ela nota de versión 
     public Image[] ReferencesButtonPor;//Array de tipo imagen que hacen referencia a las imágenes de los botones de Portafolio de Versiones 
-  
+    public Object[] ReferencesObject;
     private void Awake()
     {
         if (shareMscen == null)
@@ -104,15 +104,21 @@ public class ManagerScene : MonoBehaviour
     public void CanvasListadeLogros()
     {
         //Método encargado de habilitar el canvas que mostrará los elementos GUI de los logros
+        Descripciones[22].enabled = true;
+        Descripciones[23].enabled = false;
         ListadeLogros.enabled = true;
     }
     public void DesactivateCanvasListadeLogros()
     {
         //Método encargado de desahabilitar el canvas de la Lista de Objetos
+        Descripciones[22].enabled = false;
+        Descripciones[23].enabled = true;
         ListadeLogros.enabled = false;
     }
     public void ActivatePortafolioDeVersiones() {
-    //Método que habilita la interfaz del Portafolio de Versiones
+        //Método que habilita la interfaz del Portafolio de Versiones
+    Descripciones[22].enabled = true;
+    Descripciones[23].enabled = false;
     NumForText(0);//Pasamos cero al método para que establezca el texto predeterminado
     PortafolioDeVersiones.enabled = true;
     }
@@ -120,6 +126,8 @@ public class ManagerScene : MonoBehaviour
     {
         //Método que desabilita la interfaz del Portafolio de Versiones
         PortafolioDeVersiones.enabled = false;
+        Descripciones[22].enabled = false;
+        Descripciones[23].enabled = true;
     }
     public void NumForText(int NumOfbutton)
     {
@@ -148,7 +156,10 @@ public class ManagerScene : MonoBehaviour
     }
     public void ActiveEventDescripciones(int IdObjectDecrip)
     {
-        //Método que recibe por parámetro el entero de l botón de las descripciones d ela carta presionado
+
+        Descripciones[23].enabled = false;//Desahabilitamos el canvas de la tienda, para reducir los batches
+        Descripciones[22].enabled = true;//Habilitamos el fondo de las interfaces de Descripciones
+        //Método que recibe por parámetro el entero de l botón de las descripciones d ela carta presionado 
         switch (IdObjectDecrip)
         {
             case 0://Si es cero el entero enviado por referencia 
@@ -230,6 +241,8 @@ public class ManagerScene : MonoBehaviour
 
     public void DesactiveEventDescripciones(int IdObjectDecrip)
     {
+        Descripciones[23].enabled = true;//Habilitamos el canvas de la tienda
+        Descripciones[22].enabled = false;//Deshabilitamos el canvas del fondo de las Descripciones
         //Método que recibe por parámetro el entero de el botón de las descripciones de la carta presionada
         switch (IdObjectDecrip)
         {
