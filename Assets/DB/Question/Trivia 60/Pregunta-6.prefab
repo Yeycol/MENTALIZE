@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQUI\xC9N FUE EL \xDALTIMO ZAR DE RUSIA?"
+  text: "\xBFPOR QU\xC9 SE OSCURECEN LAS PATATAS CUANDO SE PELAN O SE CORTAN?"
   options:
-  - text: MARTIN II
-    correct: 1
-  - text: "NICOL\xC1S III"
+  - text: LIBERA POLIFENOLOXIDASA
     correct: 0
-  - text: "NICOL\xC1S II"
+  - text: POR CONTACTO CON BACTERIAS
     correct: 0
-  - text: ALEJANDO MAGNO
+  - text: POR FALTA DE OXIGENO
+    correct: 0
+  - text: POR FALTA DE HIGIENE EN SUPERFICIE
     correct: 0

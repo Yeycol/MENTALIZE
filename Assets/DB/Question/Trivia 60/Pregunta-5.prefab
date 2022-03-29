@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQU\xC9 VOLC\xC1N DEVASTO POMPEYA?"
+  text: "\xBFQU\xC9 NO CONTIENE UN PINTALABIOS?"
   options:
-  - text: EL ETNA
+  - text: "DI\xD3XIDO DE TITANIO "
     correct: 0
-  - text: EL SANTA HELENA
+  - text: ACEITES Y CERAS
     correct: 0
-  - text: EL SANTA MARTA
+  - text: AGENTE EMOLIENTE
     correct: 0
-  - text: EL VESUBIO
-    correct: 1
+  - text: "ESTA\xD1O DILUIDO"
+    correct: 0

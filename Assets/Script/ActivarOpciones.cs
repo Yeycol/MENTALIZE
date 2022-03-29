@@ -35,8 +35,7 @@ public class ActivarOpciones : MonoBehaviour
         }
     public void DesactivatePause()
     {
-        
-        //Desactiva el Canvas que muestra las opciones de pausa
+        //Desactiva el Canvas que muestra las opciones de pausa                              
         Time.timeScale = 1f;
         //TODO:Recuerda Reactivar el Audio cuando ya se desactive el Canvas de la Pausa
         AudioManager.shareaudio.Efectos[3].UnPause();//Se desmutea el efecto TimeEnd

@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: 
+  text: "\xBFQU\xC9 LLEVAN LAS SARTENES PARA QUE NO SE PEGUE LA COMIDA?"
   options:
-  - text: "C\xC9LULAS DE BETZ"
-    correct: 0
+  - text: POLITETRAFLUORETILENO
+    correct: 1
   - text: ORO
     correct: 0
   - text: ALUMINIO
-    correct: 1
-  - text: COBRE
+    correct: 0
+  - text: ACEITES Y CERAS
     correct: 0

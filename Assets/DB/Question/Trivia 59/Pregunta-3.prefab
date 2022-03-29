@@ -43,14 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQU\xC9 ARTE NACI\xD3 EN LA CIUDAD GRIEGA DE ATENAS EN EL A\xD1O DE 536
-    A.C"
+  text: "\xBFQU\xC9 A\xD1O RECIBI\xD3 EL PREMIO NOBEL DE F\xCDSICA, NIELS BOHR?"
   options:
-  - text: ' IMPRESIONISMO'
+  - text: 1917
     correct: 0
-  - text: OPERA
+  - text: 1894
     correct: 0
-  - text: EL TEATRO
+  - text: 1878
+    correct: 0
+  - text: 1922
     correct: 1
-  - text: "LA POES\xCDA"
-    correct: 0

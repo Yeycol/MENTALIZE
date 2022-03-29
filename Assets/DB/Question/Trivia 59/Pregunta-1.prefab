@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: 
+  text: "\xBFCU\xC1L ES LA FORMULA DE EQUIVALENCIA ENTRE MASA Y ENERG\xCDA?"
   options:
-  - text: "C\xC9LULAS DE BETZ"
+  - text: I=p.i.n
     correct: 0
-  - text: ORO
+  - text: t=x/v
     correct: 0
-  - text: ALUMINIO
+  - text: 'm=Ep/(h*g) '
+    correct: 0
+  - text: "E=m.c\xB2"
     correct: 1
-  - text: COBRE
-    correct: 0

@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFCU\xC1L ES EL ANTIGUO NOMBRE DE SAN PETERSBURGO?"
+  text: "\xBFCU\xC1NTO ES LA VELOCIDAD DE LA LUZ?"
   options:
-  - text: STALINGRADO
+  - text: 196 981 728m/s
     correct: 0
-  - text: MELINGRANDO
+  - text: 389 699 568m/s
     correct: 0
-  - text: LENINGRADO
+  - text: 299 792 458m/s
     correct: 1
-  - text: GRAN PENISKAN
+  - text: 563 782 527m/s
     correct: 0

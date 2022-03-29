@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFEN QUE LUGAR HAY ACTUALMENTE PINTURAS DEL MESOL\xCDTICO?"
+  text: "\xBFPOR QU\xC9 LAS SALES CONDUCEN LA CORRIENTE?"
   options:
-  - text: ESTADOS UNIDOS
+  - text: SON SEMICONDUCTORES
     correct: 0
-  - text: CHINA
+  - text: TIENEN PARTICULAS DE HIERRO
     correct: 0
-  - text: "ESPA\xD1A"
+  - text: SON ELECTROLITOS
     correct: 1
-  - text: "PER\xDA"
+  - text: "TIENEN UN \xC1TOMO"
     correct: 0

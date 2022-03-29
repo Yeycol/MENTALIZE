@@ -1,46 +1,43 @@
 fileFormatVersion: 2
-guid: 7500e0b2b37dccb439c12926ac2f12b8
+guid: 1941e345d49cc024cb75d427799972de
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4566069554668651674
-    second: Fondo-Level
+      213: 1830032965530963224
+    second: FondoTrivias
   - first:
-      213: -9047368478409622075
-    second: BarraMenu
+      213: -3904795227589798158
+    second: LetreroNeon
   - first:
-      213: -4027161885581454392
-    second: Compras
+      213: -3429342120900708417
+    second: MandoTrivias
   - first:
-      213: -6963747842116883247
+      213: 5172736190537535451
+    second: FondoSelectTrivias
+  - first:
+      213: -1097258339152863407
     second: Tienda
   - first:
-      213: 5497349147830483161
+      213: -4690404672045913050
+    second: Inicio
+  - first:
+      213: -1120541746549794871
     second: Inventario
   - first:
-      213: 8824408689741666072
-    second: Conector
-  - first:
-      213: -2938154005482436472
+      213: -5975423056224148401
     second: Menu
   - first:
-      213: -3886195483270850034
+      213: 6034712738905783124
     second: Play
   - first:
-      213: 3995631639653988088
-    second: Pantalla de los niveles 5000x3000_8
+      213: 619986986658222912
+    second: Restart
   - first:
-      213: 4144251996888864776
-    second: Pausa
+      213: -3887745384209591016
+    second: InterfacePausa
   - first:
-      213: -31651445005507979
-    second: Barra
-  - first:
-      213: 2169156167556648014
-    second: PantallaDigital
-  - first:
-      213: 2700949209171471866
-    second: Recargar
+      213: -2437836408048091623
+    second: InterfaceOpciones
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -130,7 +127,7 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 47
+    textureFormat: 51
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -142,64 +139,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fondo-Level
+      name: FondoTrivias
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 1538
-        height: 2719
+        x: 132
+        y: 106
+        width: 1552
+        height: 2749
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66bbf3e9eef02a0c0800000000000000
-      internalID: -4566069554668651674
+      spriteID: 81d4ab54945956910800000000000000
+      internalID: 1830032965530963224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BarraMenu
+      name: LetreroNeon
       rect:
         serializedVersion: 2
-        x: 1647
-        y: 2469
-        width: 1548
-        height: 333
+        x: 1809
+        y: 2517
+        width: 1451
+        height: 432
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cdf35ccd4a417280800000000000000
-      internalID: -9047368478409622075
+      spriteID: 2f69ed2dd616fc9c0800000000000000
+      internalID: -3904795227589798158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Compras
+      name: MandoTrivias
       rect:
         serializedVersion: 2
-        x: 3298
-        y: 2262
-        width: 441
-        height: 470
+        x: 1828
+        y: 1984
+        width: 1427
+        height: 427
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c3dce41a95ac18c0800000000000000
-      internalID: -4027161885581454392
+      spriteID: fb7bd6ea2878860d0800000000000000
+      internalID: -3429342120900708417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FondoSelectTrivias
+      rect:
+        serializedVersion: 2
+        x: 1844
+        y: 53
+        width: 1420
+        height: 1812
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdf0cc1b82049c740800000000000000
+      internalID: 5172736190537535451
       vertices: []
       indices: 
       edges: []
@@ -208,19 +226,40 @@ TextureImporter:
       name: Tienda
       rect:
         serializedVersion: 2
-        x: 3868
-        y: 2271
-        width: 438
-        height: 468
+        x: 3481
+        y: 2675
+        width: 266
+        height: 266
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dcea3dab3ccb5f90800000000000000
-      internalID: -6963747842116883247
+      spriteID: 15f55f3aa51c5c0f0800000000000000
+      internalID: -1097258339152863407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inicio
+      rect:
+        serializedVersion: 2
+        x: 3839
+        y: 2681
+        width: 263
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ceed53dc558eeb0800000000000000
+      internalID: -4690404672045913050
       vertices: []
       indices: 
       edges: []
@@ -229,40 +268,19 @@ TextureImporter:
       name: Inventario
       rect:
         serializedVersion: 2
-        x: 4392
-        y: 2271
-        width: 430
-        height: 455
+        x: 4160
+        y: 2675
+        width: 262
+        height: 261
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d87bba7ce18a4c40800000000000000
-      internalID: 5497349147830483161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Conector
-      rect:
-        serializedVersion: 2
-        x: 1692
-        y: 1956
-        width: 1425
-        height: 426
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8171ce813f8967a70800000000000000
-      internalID: 8824408689741666072
+      spriteID: 9c757e8e7390370f0800000000000000
+      internalID: -1120541746549794871
       vertices: []
       indices: 
       edges: []
@@ -271,19 +289,19 @@ TextureImporter:
       name: Menu
       rect:
         serializedVersion: 2
-        x: 3324
-        y: 1875
-        width: 318
-        height: 318
+        x: 3506
+        y: 2349
+        width: 256
+        height: 257
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88804dfbf749937d0800000000000000
-      internalID: -2938154005482436472
+      spriteID: f44a417b368031da0800000000000000
+      internalID: -5975423056224148401
       vertices: []
       indices: 
       edges: []
@@ -292,124 +310,82 @@ TextureImporter:
       name: Play
       rect:
         serializedVersion: 2
-        x: 3903
-        y: 1885
-        width: 320
-        height: 318
+        x: 3844
+        y: 2368
+        width: 252
+        height: 253
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0ad9e34cc5711ac0800000000000000
-      internalID: -3886195483270850034
+      spriteID: 45bf004434b9fb350800000000000000
+      internalID: 6034712738905783124
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pantalla de los niveles 5000x3000_8
+      name: Restart
       rect:
         serializedVersion: 2
-        x: 1720
-        y: 0
-        width: 1418
-        height: 1838
+        x: 4166
+        y: 2364
+        width: 260
+        height: 261
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f633e67ec5537730800000000000000
-      internalID: 3995631639653988088
+      spriteID: 043d02921e2aa9800800000000000000
+      internalID: 619986986658222912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pausa
+      name: InterfacePausa
       rect:
         serializedVersion: 2
-        x: 3590
-        y: 694
-        width: 1187
+        x: 3377
+        y: 1173
+        width: 1186
         height: 1130
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8089346eb37538930800000000000000
-      internalID: 4144251996888864776
+      spriteID: 815d505db24fb0ac0800000000000000
+      internalID: -3887745384209591016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Barra
+      name: InterfaceOpciones
       rect:
         serializedVersion: 2
-        x: 3293
-        y: 545
-        width: 756
-        height: 85
+        x: 3377
+        y: 9
+        width: 1186
+        height: 1129
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 572a1dfad2d8f8ff0800000000000000
-      internalID: -31651445005507979
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PantallaDigital
-      rect:
-        serializedVersion: 2
-        x: 3249
-        y: 46
-        width: 1443
-        height: 431
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4ccf8daa046a1e10800000000000000
-      internalID: 2169156167556648014
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Recargar
-      rect:
-        serializedVersion: 2
-        x: 4442
-        y: 1870
-        width: 339
-        height: 344
-      alignment: 9
-      pivot: {x: 1.6435972, y: 0.48529556}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: afda909def2bb7520800000000000000
-      internalID: 2700949209171471866
+      spriteID: 91e77cdf3b01b2ed0800000000000000
+      internalID: -2437836408048091623
       vertices: []
       indices: 
       edges: []

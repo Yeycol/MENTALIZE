@@ -6,12 +6,14 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager shareaudio;//Variable que servirá para hacer la clase una instancia compartida
-    public Slider Musica1,Efectos1;//Variable de tipo Slider que servirá para hacer referencia a los sliders que controlan la regulación de volumen 
-    public AudioSource [] Efectos;//Array de efectos que hacen referencia al conjunto de efectos que deseamos regular el volumen
+    public Slider Musica1, Efectos1;//Variable de tipo Slider que servirá para hacer referencia a los sliders que controlan la regulación de volumen 
+    public AudioSource[] Efectos;//Array de efectos que hacen referencia al conjunto de efectos que deseamos regular el volumen
     public Image Mute1;//Refencia  de la imagen que tiene un símbolo que da a expresar que se muteo totalmente la música
     public Image Mute2;//Refencia  de la imagen que tiene un símbolo que da a expresar que se muteo totalmente los efectos
     public Canvas ReferAudio;//Referencia al canvas del audio
-
+    public GameObject[] ButtonInterfacePause = new GameObject[2];//Referencia de los botones del canvas de la pausa
+    public Image FondInterfaceCanvas;//Variable de tipo Image que pretende almacenar el objeto con la componente image
+    public Sprite [] IntercambioImage= new Sprite[2];//Variable de tipo sprite que almacenará el sprite de interfaceOpciones
     private void Awake()
     {
       if (shareaudio == null)
@@ -39,11 +41,11 @@ public class AudioManager : MonoBehaviour
     public void Inicializar()
     {
         //Este método esta encargado de dar play a la música, efectos y de indicar su volumén inciial
-        Musica1.value = PlayerPrefs.GetFloat("Mus", 1f);//Obtenemos el valor para el slider de la música el valor float 1
+        Musica1.value = 1f;//Obtenemos el valor para el slider de la música el valor float 1
         Efectos[14].volume = Musica1.value;//El valor que tenga el slider de la música tambien lo tendrá el volumen de la instancia de Audio Source
         Efectos[15].volume = Musica1.value;//Efecto 15 hace referencia a la música de las trivias
         Efectos[16].volume = Musica1.value;//Efecto 16 hace referencia a la música de Space Yue
-        Efectos1.value= PlayerPrefs.GetFloat("Efect", 1f);
+        Efectos1.value= 1f;
         Efectos[0].volume = Efectos1.value;//Otorgamos el valor del slider al volumen del efecto de Over 
         Efectos[1].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Answer Good
         Efectos[2].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Answer Bad
@@ -121,6 +123,16 @@ public class AudioManager : MonoBehaviour
     public void CargarSlider()
     {
         //Se encarga de cargar los valores guardados en la variable de player prefs, es decir le otorgamos el valor almacenado en el player prefs al slider de la música
+        if(GameManager.shareInstance.currentgameState==GameState.menu) {//Si estamos en modo de juego menú
+            ButtonInterfacePause[0].SetActive(false);//Desactiva los botones de la interfaz
+            ButtonInterfacePause[1].SetActive(false);
+            FondInterfaceCanvas.sprite = IntercambioImage[0];//Cambiamos el sprite de la componente image para opciones
+        } else if(GameManager.shareInstance.currentgameState == GameState.InGame)//Si estamos en Ingame
+        {
+            ButtonInterfacePause[0].SetActive(true);//Habilitamos los otros botones necesarios en Ingame 
+            ButtonInterfacePause[1].SetActive(true);
+            FondInterfaceCanvas.sprite = IntercambioImage[1];//Cambiamos el sprite  de la componente image para Pausa
+        }
         Musica1.value = PlayerPrefs.GetFloat("Mus");
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
@@ -158,8 +170,8 @@ public class AudioManager : MonoBehaviour
     public void ReturnMenu()
     {
         //Método encargado de volver al menú del videojuego
-        ActivarOpciones.shareOp.DesactivatePause();//Llamamos a un método encargado de desactivar el canvas de la pausa sin necesidad de pasarle In game
         ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al método encargado de desahabilitar los botones de las trivias
+        ActivarOpciones.shareOp.DesactivatePause();//Llamamos a un método encargado de desactivar el canvas de la pausa sin necesidad de pasarle In game
         ControlNiveles.shareLvl.CambiarNivel(6);//Llamamos al método encargado de cambiar el nivel con las transiciones, pasamos como parámetro el número de la escena que corresponde al menú
     }
 
@@ -167,6 +179,7 @@ public class AudioManager : MonoBehaviour
     {
         //Método encargado de resetear la partida en modo pausa
         Contador.sharecont.resetcont();//Se llama al método encargado de resetear la partida
+        ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al método encargado de desahabilitar los botones de las trivias
         ActivarOpciones.shareOp.DesactivatePause();//Se llama el método encargado de desactivar la interfaz de Pausa y pasar al modo de juego In Game
         //ActivarOpciones.shareOp.OffCanvasPause();
     }

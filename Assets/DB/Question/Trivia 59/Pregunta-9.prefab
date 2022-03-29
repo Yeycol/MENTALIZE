@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQUI\xC9N DIJO QUE LA TIERRA GIRABA ALREDEDOR DEL SOL?"
+  text: "MAGNITUD F\xCDSICA DEFINIDA POR UNA UNIDAD ES LLAMADA:"
   options:
-  - text: "ART\xDARICO"
+  - text: MAGNITUD UNITARIA
     correct: 0
-  - text: NEWTON
+  - text: MAGNITUD CRECIENTE
     correct: 0
-  - text: GALILEO GALILEI
+  - text: "MAGNITUD \xDANICA"
     correct: 0
-  - text: ARISTARCO DE SAMOS
+  - text: MAGNITUD ESCALAR
     correct: 1

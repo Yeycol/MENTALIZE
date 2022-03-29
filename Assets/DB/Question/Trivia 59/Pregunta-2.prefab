@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFEN QUE LUGAR DEL MUNDO SE DI\xD3 EL ORIGEN DE LA HUMANIDAD?"
+  text: "\xBFQUI\xC9N ES EL PADRE DEL BING BANG? "
   options:
-  - text: "PER\xDA"
-    correct: 0
-  - text: CHINA
-    correct: 0
-  - text: INDIA
-    correct: 0
-  - text: "\xC1FRICA"
+  - text: 'GEORGES LEMAITRE '
     correct: 1
+  - text: EDWIN HUBBLE
+    correct: 0
+  - text: ALBERT EINSTEIN
+    correct: 0
+  - text: GALILEO GALILEI
+    correct: 0

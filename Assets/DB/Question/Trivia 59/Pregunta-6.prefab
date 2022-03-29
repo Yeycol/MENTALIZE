@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQUI\xC9N FUE EL \xDALTIMO ZAR DE RUSIA?"
+  text: "\xBFCU\xC1L ES LA F\xD3RMULA DE LA LEY DE HOCKEY?"
   options:
-  - text: MARTIN II
+  - text: F=-k
+    correct: 0
+  - text: "H=\xB1k*2(x)"
+    correct: 0
+  - text: x/Fs=E
+    correct: 0
+  - text: Fs=k*x
     correct: 1
-  - text: "NICOL\xC1S III"
-    correct: 0
-  - text: "NICOL\xC1S II"
-    correct: 0
-  - text: ALEJANDO MAGNO
-    correct: 0

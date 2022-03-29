@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFDE QUE NACIONALIDAD ERA ADOLF HITLER?"
+  text: "UN BUS VA A 50m/s. \xBFCU\xC1NTO TIEMPO LE TOMARA RECORRER 650M?"
   options:
-  - text: "NACI\xD3 EN ALEMANIA"
+  - text: 14 seg
     correct: 0
-  - text: "NACI\xD3 EN RUSIA"
+  - text: 15 seg
     correct: 0
-  - text: "NACI\xD3 EN POLONIA"
-    correct: 0
-  - text: "NACI\xD3 EN AUSTRIA"
+  - text: 13 seg
     correct: 1
+  - text: 12 seg
+    correct: 0

@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFA QUE EMPERADOR ROMANO ASESINO UN GRUPO DE SENADORES?"
+  text: "\xBFC\xD3MO SE LLAMA A LA RADIACI\xD3N DE LOS AGUJEROS NEGROS?"
   options:
-  - text: JULIO CESAR
+  - text: "RADIACI\xD3N ESTELAR"
+    correct: 0
+  - text: "RADIACI\xD3N DE HAWKING"
     correct: 1
-  - text: "NER\xD3N"
+  - text: "RADIACI\xD3N HOKEY"
     correct: 0
-  - text: "CAL\xCDGULA"
-    correct: 0
-  - text: ALEJANDRO MAGNO
+  - text: "RADIACI\xD3N OSCURA"
     correct: 0

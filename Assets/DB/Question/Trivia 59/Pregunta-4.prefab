@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFEN QUE LUGAR HAY ACTUALMENTE PINTURAS DEL MESOL\xCDTICO?"
+  text: "\xBFCU\xC1L ES EL IS\xD3TOPO M\xC1S USADO EN ARMAS NUCLEARES?"
   options:
-  - text: ESTADOS UNIDOS
+  - text: TANTALIO-182
     correct: 0
-  - text: CHINA
-    correct: 0
-  - text: "ESPA\xD1A"
+  - text: PLUTONIO-239
     correct: 1
-  - text: "PER\xDA"
+  - text: IRIDIO-192
+    correct: 0
+  - text: "HIDR\xD3GENO-1"
     correct: 0

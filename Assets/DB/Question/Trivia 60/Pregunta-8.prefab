@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFA QUE EMPERADOR ROMANO ASESINO UN GRUPO DE SENADORES?"
+  text: "F\xD3RMULA DE PRESI\xD3N HIDROST\xC1TICA:"
   options:
-  - text: JULIO CESAR
-    correct: 1
-  - text: "NER\xD3N"
+  - text: "H\xB7D\xB7G"
     correct: 0
-  - text: "CAL\xCDGULA"
+  - text: H/O(0.5)
     correct: 0
-  - text: ALEJANDRO MAGNO
+  - text: H.O/2
+    correct: 0
+  - text: M(H+G)
     correct: 0

@@ -43,14 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQU\xC9 ARTE NACI\xD3 EN LA CIUDAD GRIEGA DE ATENAS EN EL A\xD1O DE 536
-    A.C"
+  text: "\xBFQU\xC9 GAS LLEVAN LOS REFRESCOS?"
   options:
-  - text: ' IMPRESIONISMO'
+  - text: "HIDR\xD3GENO"
     correct: 0
-  - text: OPERA
-    correct: 0
-  - text: EL TEATRO
+  - text: "DI\xD3XIDO DE CARBONO"
     correct: 1
-  - text: "LA POES\xCDA"
+  - text: HIERRO
+    correct: 0
+  - text: LITIO
     correct: 0

@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f991697ba5554f87757b1f73f2b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\xBFQUI\xC9N DIJO QUE LA TIERRA GIRABA ALREDEDOR DEL SOL?"
+  text: "F\xD3RMULA VELOCIDAD INICIAL:"
   options:
-  - text: "ART\xDARICO"
+  - text: VF(2)-(V+T)
     correct: 0
-  - text: NEWTON
+  - text: "2(D/T) \u2013 VF"
     correct: 0
-  - text: GALILEO GALILEI
+  - text: 3(D)-VF
     correct: 0
-  - text: ARISTARCO DE SAMOS
-    correct: 1
+  - text: VF-(T+3)
+    correct: 0
