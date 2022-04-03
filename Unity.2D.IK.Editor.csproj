@@ -47,15 +47,15 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\IK\Editor\IKEditorManager.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\IK\Editor\Inspectors\CCDSolver2DEditor.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\IK\Editor\Inspectors\IKManager2DEditor.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\IK\Editor\Inspectors\LimbSolver2DEditor.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\IK\Editor\IKGizmos.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\IK\Editor\Inspectors\Solver2DEditor.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\IK\Editor\AssemblyInfo.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\IK\Editor\Inspectors\FabrikSolver2DEditor.cs" />
-     <None Include="Library\PackageCache\com.unity.2d.animation@5.1.0\IK\Editor\Unity.2D.IK.Editor.asmdef" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\IK\Editor\IKEditorManager.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\IK\Editor\Inspectors\CCDSolver2DEditor.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\IK\Editor\Inspectors\IKManager2DEditor.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\IK\Editor\Inspectors\LimbSolver2DEditor.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\IK\Editor\IKGizmos.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\IK\Editor\Inspectors\Solver2DEditor.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\IK\Editor\AssemblyInfo.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\IK\Editor\Inspectors\FabrikSolver2DEditor.cs" />
+     <None Include="Library\PackageCache\com.unity.2d.animation@5.1.1\IK\Editor\Unity.2D.IK.Editor.asmdef" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Programas/Unity/Editor/2020.3.6f1/2020.3.28f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

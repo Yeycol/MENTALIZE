@@ -47,26 +47,26 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\SpriteSkin.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\TransformAccessJob.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\NativeArrayHelper.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\SpriteSkinBatch.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\UpdateBoundsJob.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\SpriteSkinManager.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\AssemblyInfo.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\DeformSpriteSystem.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\SpriteSkinUtility.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\Components.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\SpriteLib\SpriteLibrary.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\NativeCustomSlice.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\SpriteLib\SpriteResolver.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\UpdateBoundsSystem.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\SpriteSkinEntity.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\SpriteLib\SpriteLibraryAsset.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\PrepareSkinningSystem.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\BufferManager.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\SpriteSkinComposite.cs" />
-     <None Include="Library\PackageCache\com.unity.2d.animation@5.1.0\Runtime\Unity.2D.Animation.Runtime.asmdef" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\SpriteSkin.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\TransformAccessJob.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\NativeArrayHelper.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\SpriteSkinBatch.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\UpdateBoundsJob.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\SpriteSkinManager.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\AssemblyInfo.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\DeformSpriteSystem.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\SpriteSkinUtility.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\Components.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\SpriteLib\SpriteLibrary.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\NativeCustomSlice.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\SpriteLib\SpriteResolver.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\UpdateBoundsSystem.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\SpriteSkinEntity.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\SpriteLib\SpriteLibraryAsset.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\PrepareSkinningSystem.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\BufferManager.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\SpriteSkinComposite.cs" />
+     <None Include="Library\PackageCache\com.unity.2d.animation@5.1.1\Runtime\Unity.2D.Animation.Runtime.asmdef" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Programas/Unity/Editor/2020.3.6f1/2020.3.28f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
