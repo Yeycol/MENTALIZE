@@ -49,14 +49,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\GameManager.cs" />
+    <Compile Include="Assets\Script\SpaceYue\MovingPlatform.cs" />
     <Compile Include="Assets\Script\Option.cs" />
     <Compile Include="Assets\Script\Control_Button.cs" />
+    <Compile Include="Assets\Script\SpaceYue\LevelBlock.cs" />
     <Compile Include="Assets\Script\ManagerQuiz.cs" />
     <Compile Include="Assets\Script\ControlResolution.cs" />
+    <Compile Include="Assets\Script\SpaceYue\LevelManager.cs" />
     <Compile Include="Assets\Script\Carga.cs" />
     <Compile Include="Assets\Script\Questions.cs" />
     <Compile Include="Assets\Script\QuizUi.cs" />
     <Compile Include="Assets\Script\QuizDb.cs" />
+    <Compile Include="Assets\Script\SpaceYue\Collectable.cs" />
     <Compile Include="Assets\Script\ActivarOpciones.cs" />
     <Compile Include="Assets\Script\SafeArea.cs" />
     <Compile Include="Assets\Script\Guardado.cs" />
@@ -66,24 +70,20 @@
     <Compile Include="Assets\Script\ControlNiveles.cs" />
     <Compile Include="Assets\Script\AudioManager.cs" />
     <Compile Include="Assets\Script\BuyEvent.cs" />
+    <Compile Include="Assets\Script\SpaceYue\CameraFollow.cs" />
     <Compile Include="Assets\Script\Contador.cs" />
+    <Compile Include="Assets\Script\SpaceYue\ExitZone.cs" />
+    <Compile Include="Assets\Script\SpaceYue\KillZone.cs" />
     <Compile Include="Assets\Script\EventSounds.cs" />
     <Compile Include="Assets\Script\ControlSección.cs" />
+    <Compile Include="Assets\Script\SpaceYue\Enemy.cs" />
+    <Compile Include="Assets\Script\SpaceYue\PlayerBar.cs" />
+    <Compile Include="Assets\Script\SpaceYue\GameView.cs" />
     <Compile Include="Assets\Script\AnimaCon.cs" />
     <Compile Include="Assets\Script\ManagerScene.cs" />
     <Compile Include="Assets\Script\Video.cs" />
     <Compile Include="Assets\Script\RefPerandBack.cs" />
-    <Compile Include="Assets\Script\SpaceYue\ExitZone.cs" />
     <Compile Include="Assets\Script\SpaceYue\PlayerController.cs" />
-    <Compile Include="Assets\Script\SpaceYue\LevelBlock.cs" />
-    <Compile Include="Assets\Script\SpaceYue\KillZone.cs" />
-    <Compile Include="Assets\Script\SpaceYue\Collectable.cs" />
-    <Compile Include="Assets\Script\SpaceYue\Enemy.cs" />
-    <Compile Include="Assets\Script\SpaceYue\CameraFollow.cs" />
-    <Compile Include="Assets\Script\SpaceYue\PlayerBar.cs" />
-    <Compile Include="Assets\Script\SpaceYue\GameView.cs" />
-    <Compile Include="Assets\Script\SpaceYue\LevelManager.cs" />
-    <Compile Include="Assets\Script\SpaceYue\MovingPlatform.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Programas/Unity/Editor/2020.3.6f1/2020.3.28f1/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/il2cpp/Managed/UnityEngine.dll</HintPath>
     </Reference>
