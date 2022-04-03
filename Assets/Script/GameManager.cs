@@ -4,6 +4,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 // Aqui se creará el enumerado que contendrá los estados del juego
 public enum GameState
 {
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
     public GameState currentgameState = GameState.menu;// Variable publica del tipo enumerado inicializada en el menú, es pública por lo tanto se podrá visualizar en la Interfaz de Unity
     public static GameManager shareInstance; // Variable que hace referencia a un singleton 
     private bool HabiliteAudioLoad;//Variable de tipo booleano en la que se pretende almacenar un booleano para saber si se debe dar play o no a la canción de las trivias
+    public Scene scene;//Variable de tipo Scena que pretende guardar la escena actual
+    public int collectedObject = 0;// Asignacion de valor inicial de objetos recolectables
     void Awake()
     {
         // El primero que llegue a esta línea será el único que controle el game manager
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
          Destroy(gameObject);
         }
         Application.targetFrameRate = 60;//Se indica al videojuego que intente renderizar a una velocidad de fotogramas específicos  
+        scene = SceneManager.GetActiveScene();//Obtenemos la escena actual en la que nos encontremos
     }
 
 
@@ -116,12 +120,20 @@ public class GameManager : MonoBehaviour
         }
         else if (newGameState == GameState.InGame)
         {
-            AudioManager.shareaudio.Efectos[14].Pause();//Al llegar ha In game es necesario pausar la canción del menú
-            AudioManager.shareaudio.Efectos[15].UnPause();//Quitamos la pausa de las canciones de la partida siempre y cuando tengan la orden play establecida
-            AudioManager.shareaudio.Efectos[16].UnPause();
-            ManagerScene.shareMscen.OffOver();//Desactiva la interfaz de usuario al perder partida
-            ManagerScene.shareMscen.OffWin();//Desactiva la interfaz de usuario al ganar partida
-            
+            if (scene.name == "GameScene")
+            {
+                LevelManager.sharedInstance.RemoveAllLevelBlocks();
+                LevelManager.sharedInstance.GenerateInitialBlocks();
+            }
+            else 
+            {
+                AudioManager.shareaudio.Efectos[14].Pause();//Al llegar ha In game es necesario pausar la canción del menú
+                AudioManager.shareaudio.Efectos[15].UnPause();//Quitamos la pausa de las canciones de la partida siempre y cuando tengan la orden play establecida
+                AudioManager.shareaudio.Efectos[16].UnPause();
+                ManagerScene.shareMscen.OffOver();//Desactiva la interfaz de usuario al perder partida
+                ManagerScene.shareMscen.OffWin();//Desactiva la interfaz de usuario al ganar partida
+            }
+
         }
         else if (newGameState == GameState.GameOver)
         {
@@ -241,12 +253,9 @@ public class GameManager : MonoBehaviour
 
     }
 
-   
-
-  
-
-
-
-
+    public void CollectObject(Collectable collectable)
+    {
+        collectedObject += collectable.value;
+    }
 
 }
