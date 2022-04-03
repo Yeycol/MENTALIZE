@@ -17,7 +17,8 @@ public class ManagerScene : MonoBehaviour
     public Canvas PortafolioDeVersiones;//Variable de tipo Canvas que hace referencia al canvas que mostrará La interfaz del pritafolio de Versiones
     public TextMeshProUGUI NoteOfVer;//Variable de tipo Tesh Mesh Pro que mostrará el texto d elas descripciones d ela nota de versión 
     public Image[] ReferencesButtonPor;//Array de tipo imagen que hacen referencia a las imágenes de los botones de Portafolio de Versiones 
-    public Object[] ReferencesObject;
+    public GameObject[] ReferencesObject;//Array d etipo objeto que almacenara los objetos con las componentes imagenes para que estas expandan las imágenes y permitan una mejor visualización 
+    public GameObject[] MarcoDesripciones;//Array que contiene los objetos a deshabilitar para mostrar la imagen Epandida
     private void Awake()
     {
         if (shareMscen == null)
@@ -36,6 +37,7 @@ public class ManagerScene : MonoBehaviour
         //Es llamado cada vez que se inicia en una nueva escena
         ActiveCanvasAnimaScene();//Método encargado de activar el canvas de las transiciones
     }
+
 
     public void ActiveGameView()
     {
@@ -68,7 +70,7 @@ public class ManagerScene : MonoBehaviour
         //Desactiva el Canvas del GameOver 
         GameOver.enabled = false;
     }
-    public void LoadMenu( int ReferencesMenus)
+    public void LoadMenu(int ReferencesMenus)
     {
         GameManager.shareInstance.BackToMenu();//Pasamos aa estado de menú
         SceneManager.LoadScene(ReferencesMenus);//Cargamos directamente la escena pasada por parámetro
@@ -117,10 +119,10 @@ public class ManagerScene : MonoBehaviour
     }
     public void ActivatePortafolioDeVersiones() {
         //Método que habilita la interfaz del Portafolio de Versiones
-    Descripciones[22].enabled = true;
-    Descripciones[23].enabled = false;
-    NumForText(0);//Pasamos cero al método para que establezca el texto predeterminado
-    PortafolioDeVersiones.enabled = true;
+        Descripciones[22].enabled = true;//Activa el Canvas del fondo
+        Descripciones[23].enabled = false;//Desactiva el canvas de la Interfaz para evitar aumento de batches
+        NumForText(0);//Pasamos cero al método para que establezca el texto predeterminado
+        PortafolioDeVersiones.enabled = true;
     }
     public void DesactivatePortafolioDeVersiones()
     {
@@ -159,173 +161,42 @@ public class ManagerScene : MonoBehaviour
 
         Descripciones[23].enabled = false;//Desahabilitamos el canvas de la tienda, para reducir los batches
         Descripciones[22].enabled = true;//Habilitamos el fondo de las interfaces de Descripciones
+        Descripciones[IdObjectDecrip].enabled = true;   //Se habilita el canvas de acuerdo al valor Pasado por parámetro
         //Método que recibe por parámetro el entero de l botón de las descripciones d ela carta presionado 
-        switch (IdObjectDecrip)
-        {
-            case 0://Si es cero el entero enviado por referencia 
-                Descripciones[0].enabled = true;   //Se habilitará el cambas del array ubicado en la posición cero
-                break;
-
-            case 1:
-                Descripciones[1].enabled = true;
-                break;
-
-            case 2:
-                Descripciones[2].enabled = true;
-                break;
-            case 3:
-                Descripciones[3].enabled = true;
-                break;
-            case 4:
-                Descripciones[4].enabled = true;
-                break;
-            case 5:
-                Descripciones[5].enabled = true;
-                break;
-            case 6:
-                Descripciones[6].enabled = true;
-                break;
-            case 7:
-                Descripciones[7].enabled = true;
-                break;
-            case 8:
-                Descripciones[8].enabled = true;
-                break;
-            case 9:
-                Descripciones[9].enabled = true;
-                break;
-            case 10:
-                Descripciones[10].enabled = true;
-                break;
-            case 11:
-                Descripciones[11].enabled = true;
-                break;
-            case 12:
-                Descripciones[12].enabled = true;
-                break;
-            case 13:
-                Descripciones[13].enabled = true;
-                break;
-            case 14:
-                Descripciones[14].enabled = true;
-                break;
-            case 15:
-                Descripciones[15].enabled = true;
-                break;
-            case 16:
-                Descripciones[16].enabled = true;
-                break;
-            case 17:
-                Descripciones[17].enabled = true;
-                break;
-            case 18:
-                Descripciones[18].enabled = true;
-                break;
-            case 19:
-                Descripciones[19].enabled = true;
-                break;
-            case 20:
-                Descripciones[20].enabled = true;
-                break;
-            case 21:
-                Descripciones[21].enabled = true;
-                break;
-            case 22:
-                Descripciones[22].enabled = true;
-                break;
-            case 23:
-                Descripciones[23].enabled = true;
-                break;
-        }
     }
 
     public void DesactiveEventDescripciones(int IdObjectDecrip)
     {
+        //Método que recibe por parámetro el entero de el botón de las descripciones de la carta presionada
         Descripciones[23].enabled = true;//Habilitamos el canvas de la tienda
         Descripciones[22].enabled = false;//Deshabilitamos el canvas del fondo de las Descripciones
-        //Método que recibe por parámetro el entero de el botón de las descripciones de la carta presionada
-        switch (IdObjectDecrip)
-        {
-            case 0://Si el número pasado por referencia en este caso es 0 desabilita el canvas del array guardado en esa posición 
-                Descripciones[0].enabled = false;
-                break;
+        Descripciones[IdObjectDecrip].enabled = false;//Se desactiva el Canvas de acuerdo al Valor pasado por parámetro
+    }
+    public void PassExpansiónImage(int Expand)
+    {
+        //Método encargado de pasar por parámetro un entero que indicará que imagen de las cartas deben expandirse
+        StartCoroutine(WaitforCarta(Expand));//Iniciliamos la corrutina encarga de mostrar la imagen epandida de la carta
 
-            case 1:
-                Descripciones[1].enabled = false;
-                break;
-
-            case 2:
-                Descripciones[2].enabled = false;
-                break;
-            case 3:
-                Descripciones[3].enabled = false;
-                break;
-            case 4:
-                Descripciones[4].enabled = false;
-                break;
-            case 5:
-                Descripciones[5].enabled = false;
-                break;
-            case 6:
-                Descripciones[6].enabled = false;
-                break;
-            case 7:
-                Descripciones[7].enabled = false;
-                break;
-            case 8:
-                Descripciones[8].enabled = false;
-                break;
-            case 9:
-                Descripciones[9].enabled = false;
-                break;
-            case 10:
-                Descripciones[10].enabled = false;
-                break;
-            case 11:
-                Descripciones[11].enabled = false;
-                break;
-            case 12:
-                Descripciones[12].enabled = false;
-                break;
-            case 13:
-                Descripciones[13].enabled = false;
-                break;
-            case 14:
-                Descripciones[14].enabled = false;
-                break;
-            case 15:
-                Descripciones[15].enabled = false;
-                break;
-            case 16:
-                Descripciones[16].enabled = false;
-                break;
-            case 17:
-                Descripciones[17].enabled = false;
-                break;
-            case 18:
-                Descripciones[18].enabled = false;
-                break;
-            case 19:
-                Descripciones[19].enabled = false;
-                break;
-            case 20:
-                Descripciones[20].enabled = false;
-                break;
-            case 21:
-                Descripciones[21].enabled = false;
-                break;
-            case 22:
-                Descripciones[22].enabled = false;
-                break;
-            case 23:
-                Descripciones[23].enabled = false;
-                break;
-        }
+    }
+    IEnumerator WaitforCarta(int RexEpand)
+    {
+        MarcoDesripciones[22].SetActive(true);//Habilitamos el objeto en este caso el ojo que indicará el tiempo limite para ver la carta
+        MarcoDesripciones[RexEpand].SetActive(false);//Deshabilitamos el marco de acuerdo al valor entero pasado por parámetro
+        ReferencesObject[RexEpand].SetActive(true);//Se habilita el objeto de acuerdo al valor entero pasado por referencia 
+        yield return new WaitForSeconds(5f);
+        StartCoroutine(WaitforView(RexEpand));//Llamamos a la otra corrutina que da tiempo para que se ejecuten las animaciones del ojo y luego se deshabiliten los objetos
+    }
+    IEnumerator WaitforView(int RexEpand)
+    {
+        AnimaCon.ShareAnimation.ActivateTimeForView();//Llamamos al método encargado de activar la animación que indica el límite para ver la carta
+        yield return new WaitForSeconds(5f);
+        ReferencesObject[RexEpand].SetActive(false);//Se deshabilita el objeto de acuerdo al valor entero pasado por referencia
+        MarcoDesripciones[22].SetActive(false);//Deshabiltamos el icono de ojo 
+        MarcoDesripciones[RexEpand].SetActive(true);//Se vuelve  activar la Marco de la Carta que contiene las descripciones
     }
 
 }
- 
-  
-    
-   
+
+
+
 
