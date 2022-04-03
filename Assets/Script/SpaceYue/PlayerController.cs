@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
     // Si detecta el espacio o click derecho se desencadena el salto
     void Update()
     {   // Si estamos en partida, podemos movernos
-        if(GameManager.shareInstance.currentgameState == GameState.InGame)
+       /* if(GameManager.shareInstance.currentgameState == GameState.InGame)
         {
             if(Input.GetButtonDown("Jump")){
                 Jump(false);
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
             }
         }else{      // Si no estamos en partida, no hay velocidad en X
             rigidBody.velocity = new Vector2(0,rigidBody.velocity.y);
-        }            
+        }     */       
     }
 
     void FixedUpdate()
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
             return false;
         }
     }
-    public void Die()
+   public void Die()
     {
         travelledDistance = GetTravelledDistance();
         float previousMaxDistance = PlayerPrefs.GetFloat("maxscore", 0f);
@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
         }
 
         this.animator.SetBool(STATE_ALIVE, false);
-        GameManager.shareInstance.GameOver();
+       // GameManager.shareInstance.GameOver();
     }
 
     public void CollectHealth(int points){
@@ -178,12 +178,5 @@ public class PlayerController : MonoBehaviour
         return this.transform.position.x - startPosition.x;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "money")
-        {
-            Debug.Log("Si Funciona perro");
 
-        }
-    }
 }

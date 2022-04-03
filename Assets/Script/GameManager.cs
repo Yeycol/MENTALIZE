@@ -130,8 +130,8 @@ public class GameManager : MonoBehaviour
                 AudioManager.shareaudio.Efectos[14].Pause();//Al llegar ha In game es necesario pausar la canción del menú
                 AudioManager.shareaudio.Efectos[15].UnPause();//Quitamos la pausa de las canciones de la partida siempre y cuando tengan la orden play establecida
                 AudioManager.shareaudio.Efectos[16].UnPause();
-                ManagerScene.shareMscen.OffOver();//Desactiva la interfaz de usuario al perder partida
-                ManagerScene.shareMscen.OffWin();//Desactiva la interfaz de usuario al ganar partida
+               // ManagerScene.shareMscen.OffOver();//Desactiva la interfaz de usuario al perder partida
+                //ManagerScene.shareMscen.OffWin();//Desactiva la interfaz de usuario al ganar partida
             }
 
         }
