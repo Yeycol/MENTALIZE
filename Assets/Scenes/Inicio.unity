@@ -3749,7 +3749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.09521671, y: 0.038532}
   m_AnchorMax: {x: 0.9085627, y: 0.78625834}
-  m_AnchoredPosition: {x: -1.1989746, y: -0.8552246}
+  m_AnchoredPosition: {x: -1.1990356, y: -0.8552246}
   m_SizeDelta: {x: 2.3978, y: 1.7104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &408323679
@@ -4705,10 +4705,10 @@ RectTransform:
   m_Father: {fileID: 234449488}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.036353912, y: 0.109000005}
-  m_AnchorMax: {x: 0.96776956, y: 0.887}
-  m_AnchoredPosition: {x: -0.4553833, y: 0.8922119}
-  m_SizeDelta: {x: -2.2810974, y: 1.6443024}
+  m_AnchorMin: {x: 0.036353912, y: 0.887}
+  m_AnchorMax: {x: 1, y: 0.887}
+  m_AnchoredPosition: {x: -8.455353, y: -419.1078}
+  m_SizeDelta: {x: -18.281097, y: 841.6443}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &597697071
 MonoBehaviour:
@@ -10928,6 +10928,7 @@ MonoBehaviour:
   - {fileID: 795571907}
   - {fileID: 1408859200}
   ReferencesObject: []
+  MarcoDesripciones: []
 --- !u!4 &1873967495
 Transform:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class RealTimeAnimation : MonoBehaviour
     public Animator[] EventCorrectAndError = new Animator[4]; //Array que almacena las componenetes animator de los objetos que contienen las animaciones para esta eventualidad
     public ParameterAndTime[] ValueNecesary;//Array que contiene los strings de los nombres de los parámetros para activar la animación
     public Canvas Refer;//Hace referiencia al Canvas Que contiene las animaciones
+    public Canvas AnimationStore;//Hace referencia al Canvas encargado de mostrar las animaciones de la tienda
     public GameObject BlockTrivias;//Variable de tipo GameObject que hace referencia al objeto que es habilitado para evitar interacción
     private void Awake()
     {
@@ -224,7 +225,40 @@ public class RealTimeAnimation : MonoBehaviour
         EventCorrectAndError[4].Update(0f);
         EventCorrectAndError[4].gameObject.SetActive(false);//Desactivamos el objeto de confeti para evitar acumulación de batches  
     }
+    public void ActivateNologro()
+    {
+        //Método que se encarga de activar la animación de logro aun no desbloqueado
+        EventCorrectAndError[5].SetBool("StartNoLogro", true);
+    }
 
+    public void DesactivateNologro()
+    {
+        //Método que se encarga de desactivar la animación de logro aun no desbloqueado
+        EventCorrectAndError[5].SetBool("StartNoLogro",false);
+    }
+
+    public void ActiveAnimationObjectGet()
+    {
+        //Método encargado de inicializar la animación de los items conseguidos
+        EventCorrectAndError[6].SetBool("StartNewObject", true);
+    }
+    public void DesactivateAnimationObjectGet()
+    {
+        //Método encargado de deshabilitar la animación de los items conseguidos
+        EventCorrectAndError[6].SetBool("StartNewObject", false);
+    }
+
+    public void ActiveNocompra()
+    {
+        //Método que se encarga de activar la aniamción que muestra que aun no se ha comprado
+        EventCorrectAndError[7].SetBool("StartNoCompra", true);
+    }
+
+    public void DesactiveNocompra()
+    {
+        //Método que se encarga de desactivar la aniamción que muestra que aun no se ha comprado
+        EventCorrectAndError[7].SetBool("StartNoCompra", false);
+    }
 }
 
 [System.Serializable]

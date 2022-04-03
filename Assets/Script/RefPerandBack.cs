@@ -77,9 +77,7 @@ public class RefPerandBack : MonoBehaviour
                 PerAndBack[0].SetActive(true);
                 break;
             case 25:
-                PerAndBack[1].SetActive(false);
                 Per.sprite = ObjectsUser[2];
-                PerAndBack[0].SetActive(true);
                 break;
             case 26:
                 PerAndBack[1].SetActive(false);
@@ -165,19 +163,19 @@ public class RefPerandBack : MonoBehaviour
                 Fon.sprite = ObjectsUser[19];
                 break;
             case 43:
-                Fon.sprite = ObjectsUser[19];
-                break;
-            case 44:
                 Fon.sprite = ObjectsUser[20];
                 break;
-            case 45:
+            case 44:
                 Fon.sprite = ObjectsUser[21];
                 break;
-            case 46:
+            case 45:
                 Fon.sprite = ObjectsUser[22];
                 break;
-            case 47:
+            case 46:
                 Fon.sprite = ObjectsUser[23];
+                break;
+            case 47:
+                Fon.sprite = ObjectsUser[24];
                 break;
         }
 

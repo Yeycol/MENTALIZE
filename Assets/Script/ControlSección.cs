@@ -166,6 +166,7 @@ public class ControlSección : MonoBehaviour
         //Es decir que si aun no se ha desbloqueado el logro estos no podran ser desbloqueados ni comprados.
         if (itemIndex == 21 || itemIndex >= 38 )
         {
+            RealTimeAnimation.ShareRealTimeAnimator.AnimationStore.enabled = true;//Activamos el canvas que permite mostrar las animaciones de la tienda
             StartCoroutine(Nologro());//Se llama a la corrutina encargada de mostrar la animación cuando aun no se ha desbloqueado un logro
         }
 
@@ -173,6 +174,7 @@ public class ControlSección : MonoBehaviour
         {
             Contador.sharecont.moneda -= ListaObjetos[itemIndex].Price;//Se decrementa el valor de la variable moneda de acuerdo al precio que tenga el obejto de la lista 
             Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();//Imprimimos el valor que tenga la moneda en ese momento ya decrementado
+            RealTimeAnimation.ShareRealTimeAnimator.AnimationStore.enabled = true;//Habilitamos el canvas encargado de mostrar las animaciones para la tienda 
             StartCoroutine(WaitObjectConseguido());//Se llama a la corrutina encargada de  activar la animación cuando se obtiene un objeto nuevo 
             GuardadoListas.GuardarMonedas();//Se guarda la cantidad total de las monedas después de este proceso
             ListaObjetos[itemIndex].IsPurchased = true;//Se ha comprado se pasa a verdadero
@@ -251,7 +253,8 @@ public class ControlSección : MonoBehaviour
         //Método encargado de pasar entero por referencia cuando lso botones de equipar sean presionados
         //Esta parte del código se encarga de resetear la interacción de los botones de equipar en tiempo real
         //Importante cargar las variables de acuerdo al Key de los PlayerPrefs que corresponda los Id de los objetos equipados
-        Ido=PlayerPrefs.GetInt("Id");
+        RealTimeAnimation.ShareRealTimeAnimator.AnimationStore.enabled = true;//Habilitamos el canvas que muestra las animaciones en la tienda 
+        Ido =PlayerPrefs.GetInt("Id");
         Ido_Perfil = PlayerPrefs.GetInt("Id_Perfil");
         Ido_Fondo = PlayerPrefs.GetInt("Id_Fondo");
         if ( IdObjectEquip !=Ido && IdObjectEquip<=22)
@@ -625,18 +628,7 @@ public class ControlSección : MonoBehaviour
                 break;
 
             case 22://Si este es Veintidos entrará ente caso
-                if (ListaObjetos[22].IsPurchased == true) { 
-                    PlayerPrefs.SetInt("Id",22);
-                    PlayerPrefs.SetString("Equipado", "Si");
-                    PlayerPrefs.SetInt("ValCart", 1);
-                    Button_Equipar[22].interactable = false;
-                    Txt_Equipar[22].text = "Equipado";
-                    Contador.sharecont.SaveEquipament(3, 12, "Si", 3);
-                }
-                else if (ListaObjetos[22].IsPurchased == false)
-                {
-                    StartCoroutine(WaitNoCompra());
-                }
+                 //Caso Suspendido hasta tener 23 cartas 
                 break;
             //Empiezan los objetos de los Perfiles
             case 23://Si este es Veintitres entrará ente caso
@@ -647,7 +639,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(23,"Sr.Buck");// Se envía al método de la clase ReferenPerandBak, para que estos guarden el id y puedan ser cargados en otra escena, en este caso para los perfiles 
                     Button_Equipar[23].interactable = false;//Se desactiva la interacción del botón equipar en la posición del caso
                     Txt_Equipar[23].text = "Equipado";//Se pone el texto del boton del equipado en Equipado
-                    GUIControl[5].SetActive(false);//Se desactiva el Game Object que contiene la componente imagen en la que se encuentra el Perfil General 
+                    GUIControl[3].SetActive(false);//Se desactiva el Game Object que contiene la componente imagen en la que se encuentra el Perfil General 
                     Perfil.sprite = PerfiL_Fondo[0];//Se pasa le asigna la imagen del array de sprites a la variable de tipo Image 
                     Perfil.gameObject.SetActive(true);// Se activa el Game Object que contiene la componente Image del Perifl equipado
                 }
@@ -661,7 +653,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(24,"Yuyo");
                     Button_Equipar[24].interactable = false;
                     Txt_Equipar[24].text = "Equipado";
-                    GUIControl[5].SetActive(false);
+                    GUIControl[3].SetActive(false);
                     Perfil.sprite = PerfiL_Fondo[1];
                     Perfil.gameObject.SetActive(true);
                 }
@@ -675,7 +667,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(25,"Blue");
                     Button_Equipar[25].interactable = false;
                     Txt_Equipar[25].text = "Equipado";
-                    GUIControl[5].SetActive(false);
+                    GUIControl[3].SetActive(false);
                     Perfil.sprite = PerfiL_Fondo[2];
                     Perfil.gameObject.SetActive(true);
                 }
@@ -689,7 +681,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(26,"Oreo");
                     Button_Equipar[26].interactable = false;
                     Txt_Equipar[26].text = "Equipado";
-                    GUIControl[5].SetActive(false);
+                    GUIControl[3].SetActive(false);
                     Perfil.sprite = PerfiL_Fondo[3];
                     Perfil.gameObject.SetActive(true);
                 }
@@ -703,7 +695,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(27,"Andrew");
                     Button_Equipar[27].interactable = false;
                     Txt_Equipar[27].text = "Equipado";
-                    GUIControl[5].SetActive(false);
+                    GUIControl[3].SetActive(false);
                     Perfil.sprite = PerfiL_Fondo[4];
                     Perfil.gameObject.SetActive(true);
                 }
@@ -717,7 +709,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(28,"Xoana");
                     Button_Equipar[28].interactable = false;
                     Txt_Equipar[28].text = "Equipado";
-                    GUIControl[5].SetActive(false);
+                    GUIControl[3].SetActive(false);
                     Perfil.sprite = PerfiL_Fondo[5];
                     Perfil.gameObject.SetActive(true);
                 }
@@ -731,7 +723,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(29,"Coco");
                     Button_Equipar[29].interactable = false;
                     Txt_Equipar[29].text = "Equipado";
-                    GUIControl[5].SetActive(false);
+                    GUIControl[3].SetActive(false);
                     Perfil.sprite = PerfiL_Fondo[6];
                     Perfil.gameObject.SetActive(true);
                 }
@@ -745,7 +737,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(30,"Celeste");
                     Button_Equipar[30].interactable = false;
                     Txt_Equipar[30].text = "Equipado";
-                    GUIControl[5].SetActive(false);
+                    GUIControl[3].SetActive(false);
                     Perfil.sprite = PerfiL_Fondo[7];
                     Perfil.gameObject.SetActive(true);
                 }
@@ -759,7 +751,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(31,"Nick");
                     Button_Equipar[31].interactable = false;
                     Txt_Equipar[31].text = "Equipado";
-                    GUIControl[5].SetActive(false);
+                    GUIControl[3].SetActive(false);
                     Perfil.sprite = PerfiL_Fondo[8];
                     Perfil.gameObject.SetActive(true);
                 }
@@ -773,7 +765,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(32,"Juan");
                     Button_Equipar[32].interactable = false;
                     Txt_Equipar[32].text = "Equipado";
-                    GUIControl[5].SetActive(false);
+                    GUIControl[3].SetActive(false);
                     Perfil.sprite = PerfiL_Fondo[9];
                     Perfil.gameObject.SetActive(true);
                 }
@@ -787,7 +779,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(33,"Shock");
                     Button_Equipar[33].interactable = false;
                     Txt_Equipar[33].text = "Equipado";
-                    GUIControl[5].SetActive(false);
+                    GUIControl[3].SetActive(false);
                     Perfil.sprite = PerfiL_Fondo[10];
                     Perfil.gameObject.SetActive(true);
                 }
@@ -801,7 +793,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(34,"Yume");
                     Button_Equipar[34].interactable = false;
                     Txt_Equipar[34].text = "Equipado";
-                    GUIControl[5].SetActive(false);
+                    GUIControl[3].SetActive(false);
                     Perfil.sprite = PerfiL_Fondo[11];
                     Perfil.gameObject.SetActive(true);
                 }
@@ -815,7 +807,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(35,"Napoleón");
                     Button_Equipar[35].interactable = false;
                     Txt_Equipar[35].text = "Equipado";
-                    GUIControl[5].SetActive(false);
+                    GUIControl[3].SetActive(false);
                     Perfil.sprite = PerfiL_Fondo[12];
                     Perfil.gameObject.SetActive(true);
                 }
@@ -829,7 +821,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(36,"Nube");
                     Button_Equipar[36].interactable = false;
                     Txt_Equipar[36].text = "Equipado";
-                    GUIControl[5].SetActive(false);
+                    GUIControl[3].SetActive(false);
                     Perfil.sprite = PerfiL_Fondo[13];
                     Perfil.gameObject.SetActive(true);
                 }
@@ -844,7 +836,7 @@ public class ControlSección : MonoBehaviour
                     RefPerandBack.ShareRefPerFon.PreverSaveIdPerfil(37,"Manchas");
                     Button_Equipar[37].interactable = false;
                     Txt_Equipar[37].text = "Equipado";
-                    GUIControl[5].SetActive(false);
+                    GUIControl[3].SetActive(false);
                     Perfil.sprite = PerfiL_Fondo[14];
                     Perfil.gameObject.SetActive(true);
                 }
@@ -982,44 +974,47 @@ public class ControlSección : MonoBehaviour
     IEnumerator Nologro()
     {
         //Corrutina encargada de activar la animación cuando aun no se ha desbloqeuado determinado objeto
-        GUIControl[3].SetActive(true);//Se activa el Objeto Panel que contiene los elementos necesarios para la animación 
-        AnimaCon.ShareAnimation.ActivateNologro();//Se llama al metodo que activa la animación cuando no se ha desbloqueado Logro
+        RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[5].gameObject.SetActive(true);//Se activa el Objeto Panel que contiene los elementos necesarios para la animación 
+        RealTimeAnimation.ShareRealTimeAnimator.ActivateNologro();//Se llama al metodo que activa la animación cuando no se ha desbloqueado Logro
         yield return new WaitForSeconds(3f);
         StartCoroutine(SalidaNoLogro());//Después del  tiempo establecido en la corrutina se llama a otra que permite dar un tiempo a la otra animación de salida
     }
     IEnumerator SalidaNoLogro()
     {
-        AnimaCon.ShareAnimation.DesactivateNologro();//LLama al método encargado de desactivar la animación de salida cuando un logro aun no esta desbloqueado
+        RealTimeAnimation.ShareRealTimeAnimator.DesactivateNologro();//LLama al método encargado de desactivar la animación de salida cuando un logro aun no esta desbloqueado
         yield return new WaitForSeconds(1f);
-        GUIControl[3].SetActive(false);//Desactivamos el Objeto Panel que contiene todos los elementos necesarios para la animación
+        RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[5].gameObject.SetActive(false);//Desactivamos el Objeto Panel que contiene todos los elementos necesarios para la animación
+        RealTimeAnimation.ShareRealTimeAnimator.AnimationStore.enabled = false;//Desactivamos el canvas que muestra las animaciones de la tienda
     }
     IEnumerator WaitNoCompra()
     {
-        GUIControl[4].SetActive(true);//Activa el Objeto panel de No compra
-        AnimaCon.ShareAnimation.ActiveNocompra();//Llama al método encargado de activar la animación de aun no comprado
+        RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[7].gameObject.SetActive(true);//Activa el Objeto panel de No compra
+        RealTimeAnimation.ShareRealTimeAnimator.ActiveNocompra();//Llama al método encargado de activar la animación de aun no comprado
         yield return new WaitForSeconds(3f);
         StartCoroutine(NoCompraSalida());//Se llama a la siguiente corrutina para dar un tiempo a la salida de la animación 
     }
 
     IEnumerator NoCompraSalida()
     {
-        AnimaCon.ShareAnimation.DesactiveNocompra();//LLama al método encargado de desahabilitar la animación de aun no comprado
+        RealTimeAnimation.ShareRealTimeAnimator.DesactiveNocompra();//LLama al método encargado de desahabilitar la animación de aun no comprado
         yield return new WaitForSeconds(1f);
-        GUIControl[4].SetActive(false);//Luego del tiempo pasado a la corrutina desahabilatamos el objeto panel de No Compra
-    }
+        RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[7].gameObject.SetActive(false);//Luego del tiempo pasado a la corrutina desahabilatamos el objeto panel de No Compra
+        RealTimeAnimation.ShareRealTimeAnimator.AnimationStore.enabled=false;//Deshabilitamos el canvas que muestra las animaciones en la tienda 
+       }
 
     IEnumerator WaitObjectConseguido()
     {
-        GUIControl[6].SetActive(true);//Activa el objeto que contiene los demás elementos para la animación al obtener un objeto
-        AnimaCon.ShareAnimation.ActiveAnimationObjectGet();//Se le indica a la clase Animacon que llame a su comportamiento encargado de pasar un booleano para que se habilite la animación
+        RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[6].gameObject.SetActive(true);//Activa el objeto que contiene los demás elementos para la animación al obtener un objeto
+        RealTimeAnimation.ShareRealTimeAnimator.ActiveAnimationObjectGet();//Llamamos al método encargado de activar la animacvión para cuando un objeto es conseguido en este caso comprado
         yield return new WaitForSeconds(5f);
         StartCoroutine(EndWaitObjectConseguido());//Se llama a la corrutina encargada de dar tiempo para la salia de la animación
     }
     IEnumerator EndWaitObjectConseguido()
     {
-        AnimaCon.ShareAnimation.DesactivateAnimationObjectGet();//Se le indica a la clase AnimaCon que llame a su comportamiento encargado de activar la animación de salida al obtener un objeto
+        RealTimeAnimation.ShareRealTimeAnimator.DesactivateAnimationObjectGet();//Llamamos al método encargado de desahabilitar la animación para cuando un objeto es comprado o adquirido 
         yield return new WaitForSeconds(3f);
-        GUIControl[6].SetActive(false);//Se desactiva el obejeto que contiene los elementos para la animación de objeto obtenido
+        RealTimeAnimation.ShareRealTimeAnimator.EventCorrectAndError[6].gameObject.SetActive(false);//Se desactiva el obejeto que contiene los elementos para la animación de objeto obtenido
+        RealTimeAnimation.ShareRealTimeAnimator.AnimationStore.enabled=false;//Desahabilitamos el canvas encargado de mostrar las animaciones para la tienda 
     }
 
     public void LoadEquipament()
@@ -1033,83 +1028,57 @@ public class ControlSección : MonoBehaviour
         //Método encargado de cargar el botón que se presionó al Equipar un Perfil 
         Button_Equipar[Ido_Perfil].interactable = false;//Se desahabilita la interacción de acuerdo al valor entero almacenado en la variable Ido_Perfil
         Txt_Equipar[Ido_Perfil].text = "Equipado";//Se cambia el texto del botón de acuerdo al valor almacenado en la variable entera Ido_Perfil
+        GUIControl[3].SetActive(false);//Se desactiva el Game Object que contiene la componente Image del PerfilGeneral
+        Perfil.gameObject.SetActive(true);//Se habilita el Game Object que contiene la componente Image del Perfil
         switch (Ido_Perfil) {
-            case 23:
-                GUIControl[5].SetActive(false);//Se desactiva el Game Object que contiene la componente Image del PerfilGeneral
+            
+        case 23:
                 Perfil.sprite = PerfiL_Fondo[0];//Se le asigna un spray en n posición de la lista de sprites a la variable Perfil de tipo Image
-                Perfil.gameObject.SetActive(true);//Se habilita el Game Object que contiene la componente Image del Perfil
                 break;
-            case 24:
-                GUIControl[5].SetActive(false);
+        case 24:
                 Perfil.sprite = PerfiL_Fondo[1];
-                Perfil.gameObject.SetActive(true);
                 break;
-            case 25:
-                GUIControl[5].SetActive(false);
+        case 25:
                 Perfil.sprite = PerfiL_Fondo[2];
-                Perfil.gameObject.SetActive(true);
                 break;
-            case 26:
-                GUIControl[5].SetActive(false);
+        case 26:
                 Perfil.sprite = PerfiL_Fondo[3];
-                Perfil.gameObject.SetActive(true);
                 break;
-            case 27:
-                GUIControl[5].SetActive(false);
+        case 27:
                 Perfil.sprite = PerfiL_Fondo[4];
-                Perfil.gameObject.SetActive(true);
                 break;
-            case 28:
-                GUIControl[5].SetActive(false);
+        case 28:
                 Perfil.sprite = PerfiL_Fondo[5];
-                Perfil.gameObject.SetActive(true);
                 break;
-            case 29:
-                GUIControl[5].SetActive(false);
+        case 29:
                 Perfil.sprite = PerfiL_Fondo[6];
-                Perfil.gameObject.SetActive(true);
                 break;
-            case 30:
-                GUIControl[5].SetActive(false);
+        case 30:
                 Perfil.sprite = PerfiL_Fondo[7];
-                Perfil.gameObject.SetActive(true);
                 break;
-            case 31:
-                GUIControl[5].SetActive(false);
+        case 31:
                 Perfil.sprite = PerfiL_Fondo[8];
-                Perfil.gameObject.SetActive(true);
                 break;
-            case 32:
-                GUIControl[5].SetActive(false);
+         case 32:
                 Perfil.sprite = PerfiL_Fondo[9];
-                Perfil.gameObject.SetActive(true);
                 break;
-            case 33:
-                GUIControl[5].SetActive(false);
+        case 33:
                 Perfil.sprite = PerfiL_Fondo[10];
-                Perfil.gameObject.SetActive(true);
                 break;
-            case 34:
-                GUIControl[5].SetActive(false);
+        case 34:
                 Perfil.sprite = PerfiL_Fondo[11];
-                Perfil.gameObject.SetActive(true);
                 break;
-            case 35:
-                GUIControl[5].SetActive(false);
+        case 35:
                 Perfil.sprite = PerfiL_Fondo[12];
-                Perfil.gameObject.SetActive(true);
                 break;
-            case 36:
-                GUIControl[5].SetActive(false);
+        case 36:
                 Perfil.sprite = PerfiL_Fondo[13];
-                Perfil.gameObject.SetActive(true);
                 break;
-            case 37:
-                GUIControl[5].SetActive(false);
+        case 37:
                 Perfil.sprite = PerfiL_Fondo[14];
-                Perfil.gameObject.SetActive(true);
                 break;
         }
+     
         
     }
 
@@ -1117,8 +1086,9 @@ public class ControlSección : MonoBehaviour
     {
         Button_Equipar[Ido_Fondo].interactable = false;
         Txt_Equipar[Ido_Fondo].text = "Equipado";
-        switch (Ido_Fondo)
+        switch (Ido_Perfil)
         {
+
             case 38:
                 Fondo.sprite = PerfiL_Fondo[15];
                 break;
@@ -1150,6 +1120,7 @@ public class ControlSección : MonoBehaviour
                 Fondo.sprite = PerfiL_Fondo[24];
                 break;
         }
+
     }
     public void UnlockedGoals(int CaseDesblock)
     {

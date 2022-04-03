@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class ControlNiveles : MonoBehaviour
 {
     static public int LvlDesbloqueado;// Variable estática de tipo entero encargada de almacenar el nivel desbloqueado 
+    
     public int Lvlcurrent;//Variable de tipo entero que almacena el nivel actual
     public Button[] Buttonslevel;//Array de componentes de tipo botón que serviran para localizar estos objetos por referencia
     public Image[] Imagelevel;//Array de componentes de tipo Imagen que serviran para localizar estos objetos por referencia
