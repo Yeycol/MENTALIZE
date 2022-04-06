@@ -65,7 +65,7 @@ public class Contador : MonoBehaviour
     {
 
         //Aqui se esta evaluando a cada frame, si estamos en en modo juego ejecutará las instrucciones establecidas en las condicionales
-        if (GameManager.shareInstance.currentgameState == GameState.InGame)
+        if (GameManager.shareInstance.currentgameState == GameState.InGame && scene.name != "YueScene")
         {
             //Las siguientes condicionales estan encargadads de evaluar un booleano que permite que el llamado al método event time sea llamado a cada 5 frames 
             //Esto da el efecto que el tiempo vaya mas lento, así evitando que el tiempo sea arrebatado cuando una animación se encuentra activa 
@@ -92,13 +92,13 @@ public class Contador : MonoBehaviour
 
     public void InicializarDatosInterfaz()
     {
-        if (scene.name != "SelectLevel (Trivias)" && scene.name != "Tienda" && scene.name!="SelectLevelSpace" && scene.name!="Inicio") //Solo si estamos en escenas distintas a las mencionadas
+        if (scene.name != "SelectLevel (Trivias)" && scene.name != "Tienda" && scene.name!="SelectLevelSpace" && scene.name!="Inicio"&& scene.name != "YueScene") //Solo si estamos en escenas distintas a las mencionadas
         {
             textcont.text = contador.ToString() + range;//Se imprime el contador y el rango de la cantidad de preguntas que habrá en el nivel
             text_health.text = vidas.ToString();//Imprime las vidas en la interfaz
             currentTime = time;//Se establece que el tiempo actual es igual a el tiempo establecido en la variable publica
         }
-        if (scene.name != "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace")//Solo si la escena esdistinta a la establecida
+        if (scene.name != "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace" && scene.name != "YueScene")//Solo si la escena esdistinta a la establecida
         {
             GuardadoMonedas.CargarMonedas();// Se carga las monedas para poderlas visualizar la cantidad de monedas que se tiene
             GuardadoMonedas.CargarPoints();//Se carga los puntos para ser mostrados por interfaz
@@ -227,7 +227,7 @@ public class Contador : MonoBehaviour
     public void resetcont()
     {
         ResetSound();//Llamamos al método encargado de resetear los sonidos de la anterior Escena
-        AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva  la animación del Relo digital en In Game
+        //AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva  la animación del Relo digital en In Game
         //Método encargado de resetear la Trivia
         switch (scene.name)
         {
@@ -412,6 +412,10 @@ public class Contador : MonoBehaviour
                 break;
             case "Level 60":
                 ControlNiveles.shareLvl.CambiarNivel(66);
+                break;
+
+            case "YueScene":
+                ControlNiveles.shareLvl.CambiarNivel(67);
                 break;
         }
     }

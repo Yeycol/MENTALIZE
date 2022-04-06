@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     public GameState currentgameState = GameState.menu;// Variable publica del tipo enumerado inicializada en el menú, es pública por lo tanto se podrá visualizar en la Interfaz de Unity
     public static GameManager shareInstance; // Variable que hace referencia a un singleton 
     private bool HabiliteAudioLoad;//Variable de tipo booleano en la que se pretende almacenar un booleano para saber si se debe dar play o no a la canción de las trivias
-    public Scene scene;//Variable de tipo Scena que pretende guardar la escena actual
     public int collectedObject = 0;// Asignacion de valor inicial de objetos recolectables
     void Awake()
     {
@@ -39,7 +38,6 @@ public class GameManager : MonoBehaviour
          Destroy(gameObject);
         }
         Application.targetFrameRate = 60;//Se indica al videojuego que intente renderizar a una velocidad de fotogramas específicos  
-        scene = SceneManager.GetActiveScene();//Obtenemos la escena actual en la que nos encontremos
     }
 
 
@@ -120,19 +118,19 @@ public class GameManager : MonoBehaviour
         }
         else if (newGameState == GameState.InGame)
         {
-            if (scene.name == "GameScene")
-            {
-                LevelManager.sharedInstance.RemoveAllLevelBlocks();
-                LevelManager.sharedInstance.GenerateInitialBlocks();
-            }
-            else 
-            {
-                AudioManager.shareaudio.Efectos[14].Pause();//Al llegar ha In game es necesario pausar la canción del menú
+            /* if (scene.name == "GameScene")
+             {
+                 LevelManager.sharedInstance.RemoveAllLevelBlocks();
+                 LevelManager.sharedInstance.GenerateInitialBlocks();
+             }
+             else 
+             { }*/
+            AudioManager.shareaudio.Efectos[14].Pause();//Al llegar ha In game es necesario pausar la canción del menú
                 AudioManager.shareaudio.Efectos[15].UnPause();//Quitamos la pausa de las canciones de la partida siempre y cuando tengan la orden play establecida
                 AudioManager.shareaudio.Efectos[16].UnPause();
                // ManagerScene.shareMscen.OffOver();//Desactiva la interfaz de usuario al perder partida
                 //ManagerScene.shareMscen.OffWin();//Desactiva la interfaz de usuario al ganar partida
-            }
+      
 
         }
         else if (newGameState == GameState.GameOver)
@@ -148,7 +146,6 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[22].Stop();//Paramos el sonido de la frase Mira en donde presionas tienes una vida menos
             AudioManager.shareaudio.Efectos[0].Play();//Activa el sonido llamado OverGame
             ManagerScene.shareMscen.OffAlert();//Se desactiva la alerta en caso de que este activa al pasar a Game Over
-            AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva la animación del evento Time End
             //AnimaCon.ShareAnimation.DesactivatePizarra();//Al perder partida se desactiva la animación de la pizarra
             ManagerScene.shareMscen.ActiveOver();//Se activa el Canvas d ela Interfaz de Usuario al perder partida
             AnimaCon.ShareAnimation.ActivateOver();//Se habilita la animación  de la Interfaz de Usuario
@@ -169,7 +166,6 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[20].Stop();//Paramos el sonido de la frase Concentrate tu puedes hacerlo mejor
             AudioManager.shareaudio.Efectos[21].Stop();//Paramos el sonido de la frase Ey no te distraigas tienes una vida menos
             AudioManager.shareaudio.Efectos[22].Stop();//Paramos el sonido de la frase Mira en donde presionas tienes una vida menos
-            AnimaCon.ShareAnimation.DesactivateRedTime();//Se desactiva la animación del evento Time End
             ManagerScene.shareMscen.OffAlert();//Se desactiva la alerta en caso de que este activa al pasar a Win
             //AnimaCon.ShareAnimation.DesactivatePizarra();//Al perder partida se desactiva la animación de la pizarra
             ManagerScene.shareMscen.ActiveWin();//Se activa el Canvas de la Interfaz de Usuario al ganar la Partida
