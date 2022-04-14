@@ -73,23 +73,37 @@ public class PlayerController : MonoBehaviour
     {   // Si estamos en partida, podemos movernos
        if(GameManager.shareInstance.currentgameState == GameState.InGame)
         {
-            if(Input.GetButtonDown("Jump")){
-                Jump(false);
-            }
-            if(Input.GetButtonDown("SuperJump")){
-                Jump(true);
-            }
-
-            if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){  // Al presionar D o Flecha dere  // se da vel. de mov. positiva
-                move(runningSpeed);
-            }
-
-            if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){   // Al presionar A o Flecha izq   // se da vel. de mov. negativa
-                move(-runningSpeed);
-            }
-        }else{      // Si no estamos en partida, no hay velocidad en X
+            MoveTeclas();
+        }
+        /*else
+        {      // Si no estamos en partida, no hay velocidad en X
             rigidBody.velocity = new Vector2(0,rigidBody.velocity.y);
-        }         
+        }*/         
+    }
+
+    private void MoveTeclas()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            Jump(false);
+        }
+        if (Input.GetButtonDown("SuperJump"))
+        {
+            Jump(true);
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {  // Al presionar D o Flecha dere  // se da vel. de mov. positiva
+            move(runningSpeed);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {   // Al presionar A o Flecha izq   // se da vel. de mov. negativa
+            move(-runningSpeed);
+        }
+        else
+        {
+            move(0);
+        }
     }
 
     void FixedUpdate()
@@ -113,9 +127,11 @@ public class PlayerController : MonoBehaviour
     void move(float direction)
     {
         rigidBody.velocity = new Vector2(direction, rigidBody.velocity.y);  // Da la velocidad de mov en X y Y
-        if(rigidBody.velocity.x < 0){        // Si la direccion cambia de sentido, el sprite se da la vuelta al renderizarse
+        if(Input.GetKey(KeyCode.A))
+        {        // Si la direccion cambia de sentido, el sprite se da la vuelta al renderizarse
             flipX.flipX = true;
-        }else{                              // Sino, la renderizacion se mantiene normal
+        }else if(Input.GetKey(KeyCode.D))
+        {                              // Sino, la renderizacion se mantiene normal
             flipX.flipX = false;
         }
         
