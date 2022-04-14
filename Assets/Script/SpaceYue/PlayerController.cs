@@ -33,18 +33,20 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         flipX = GetComponent<SpriteRenderer>();    // Otorga las caracteristicas de SpriteRenderer a flipX
         GameManager.shareInstance.StarGame();//Pasamos al jugador en estado de InGame
+        
+
     }
     // Start is called before the first frame update
     void Start()
     {
         //Indicamos a la música de este modo de juego que se reproduzca en bucle 
-        AudioManager.shareaudio.Efectos[16].Play();
-        AudioManager.shareaudio.Efectos[16].loop = true;
         startPosition = this.transform.position;
         PlayerPrefs.SetFloat("maxscore", 0);
+        StartGame();
     }
 
     public void StartGame(){
+        RealTimeAnimation.ShareRealTimeAnimator.RamdomIndex();//Llamamos al método encargadod e habilitar las animaciones de la clase RealTimeAnimation
         animator.SetBool(STATE_ALIVE, true);                // Inicia la variable STATE_ALIVE con true
         animator.SetBool(STATE_ON_THE_GROUND, true);        // Inicia la variable STATE_ON_THE_GROUND con true
         
@@ -52,6 +54,8 @@ public class PlayerController : MonoBehaviour
         manaPoints = INITIAL_MANA;
 
         Invoke("RestartPosition", 0.2f);
+        AudioManager.shareaudio.Efectos[16].Play();
+        AudioManager.shareaudio.Efectos[16].loop = true;
     }
 
     void RestartPosition(){
@@ -67,7 +71,7 @@ public class PlayerController : MonoBehaviour
     // Si detecta el espacio o click derecho se desencadena el salto
     void Update()
     {   // Si estamos en partida, podemos movernos
-       /* if(GameManager.shareInstance.currentgameState == GameState.InGame)
+       if(GameManager.shareInstance.currentgameState == GameState.InGame)
         {
             if(Input.GetButtonDown("Jump")){
                 Jump(false);
@@ -85,7 +89,7 @@ public class PlayerController : MonoBehaviour
             }
         }else{      // Si no estamos en partida, no hay velocidad en X
             rigidBody.velocity = new Vector2(0,rigidBody.velocity.y);
-        }     */       
+        }         
     }
 
     void FixedUpdate()
@@ -149,7 +153,7 @@ public class PlayerController : MonoBehaviour
         }
 
         this.animator.SetBool(STATE_ALIVE, false);
-       // GameManager.shareInstance.GameOver();
+      GameManager.shareInstance.GameOver();
     }
 
     public void CollectHealth(int points){

@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;//Librería que nos permitira controlar las sce
 public class RefPerandBack : MonoBehaviour
 {
     public GameObject[] PerAndBack; //0: PerfilEquipado //1: PerfilGeneral//Referencia de Game Objects, necesarios para la desahabilitación y habilitación  
-    public Image Per,Fon; //Variables de tipo Image, que serán usadas para cambiar el sprite de la componente imagen, dependiendo del Perfil y FondoEquipado
+    public Image Per, Fon; //Variables de tipo Image, que serán usadas para cambiar el sprite de la componente imagen, dependiendo del Perfil y FondoEquipado
     public int Perfil, Background;//Variables de Tipo Entero utilizadas para almacenar los Id de los objetos Equipados
+    public string AlmName;
     public Text Nameuser;//Hace referencia al objeto UI que contiene la componente texto para mostrar por interfaz el nombre de usuario
     public Sprite [] ObjectsUser;//Array de Sprites que almacenará las imágenes de los objetos desbloqueados
     public static RefPerandBack ShareRefPerFon;
@@ -27,7 +28,8 @@ public class RefPerandBack : MonoBehaviour
             LoadPreverSaveId();//LLamamos al método encargado de cargar los key de los Player Prefs
             RefreshObjectPerfil();//LLamamos al método encargado de cargar el sprite del perfil que se haya equipado
             RefreshObjectFondo();//Llamamos al método encargao de cargar el sprite del fondo que se haya equipado
-
+            if(GameManager.shareInstance.currentgameState!=GameState.menu)//Esta condicional evalua si nos encontramos en el menu
+            RefreshNameUser();//Se llama al método encargado de establecer el nombre del perfil equipado
         /*Borrar los datos almacenados en los Key de los PLayer prefs solo si se requiere
 
         PlayerPrefs.DeleteKey("ID_PERFIL");
@@ -35,6 +37,8 @@ public class RefPerandBack : MonoBehaviour
         PlayerPrefs.DeleteKey("NameUser");*/
     }
 
+ 
+            
     public void PreverSaveIdPerfil(int IdPerfil, string NameUser)
     {
         //Método que se encargar de guardar el entero IdPerfil pasado por referencia y el nombre de usuario
@@ -49,35 +53,28 @@ public class RefPerandBack : MonoBehaviour
     public void LoadPreverSaveId()
     {
         Perfil = PlayerPrefs.GetInt("ID_PERFIL");//Otorgamos el entero del Key del Player Prefs en la variable entera Perfil
-        if (GameManager.shareInstance.currentgameState == GameState.InGame)
-        {
-            Nameuser.text = PlayerPrefs.GetString("NameUser"); // Se carga el texto pasado por parámetro a la variable tipo texto que mostrará el nombre de usuario por UI 
-            if (Nameuser.text == "")
-            {
-                Nameuser.text = "Nevul";
-            }
-        }else if (GameManager.shareInstance.currentgameState == GameState.menu)
-        {
-            Background = PlayerPrefs.GetInt("ID_FONDO");//Otorgamos el entero del Key del PLayer Prefs en la variable entera Fondo
-        }
+        Background = PlayerPrefs.GetInt("ID_FONDO");//Otorgamos el entero del Key del PLayer Prefs en la variable entera Fond0
+        AlmName = PlayerPrefs.GetString("NameUser");
     }
     public void RefreshObjectPerfil()
     {
-           switch (Perfil)
-        {
+        switch (Perfil)
+           {
             //Según el entero almacenado en la variable Perfil se cambiará el sprite del objeto que contenga la componente imagen 
             case 23:
                 PerAndBack[1].SetActive(false);
                 Per.sprite = ObjectsUser[0];
                 PerAndBack[0].SetActive(true);
-                break;
+            break;
             case 24:
                 PerAndBack[1].SetActive(false);
                 Per.sprite = ObjectsUser[1];
                 PerAndBack[0].SetActive(true);
-                break;
+            break;
             case 25:
+                PerAndBack[1].SetActive(false);
                 Per.sprite = ObjectsUser[2];
+                PerAndBack[0].SetActive(true);
                 break;
             case 26:
                 PerAndBack[1].SetActive(false);
@@ -179,5 +176,19 @@ public class RefPerandBack : MonoBehaviour
                 break;
         }
 
+    }
+
+    public void RefreshNameUser()
+    {
+     //Método que establece que nombre debe llevar de acuerdo al perfil equipado
+            if (AlmName == "")//En caso de que la variable en la cual se almaceno el string este vacía
+            {
+                Nameuser.text = "Nevul";//Establecemos el nombre por defecto Nevul cuando la variable se encuentre vacía
+            }
+            else //En caso de que haya almacenado un dato en la variable de tipo string
+            {
+                Nameuser.text = AlmName;//Entonces establece por interfa gráfica el valor almacenado
+            }
+       
     }
 }
