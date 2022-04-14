@@ -128,7 +128,7 @@ public class ControlSección : MonoBehaviour
         {
             if (i != 22)
             {
-                ListaObjetos[i].Precio.text = ListaObjetos[i].Price.ToString();// Se muestra en UI el valor entero de los precios enteros
+                ListaObjetos[i].Precio.text = ListaObjetos[i].Price.ToString();// Se muestra en UI el valor entero de los precios enteros                
                                                                                //Este for esta en bucle hasta la cantidad de elementos que tenga la ListaObjetos
                 ListaObjetos[i].Botones.AddEventListener(i, OnShopItemBtnClicked);/*Se añade a cada botón AddListener,
             esperando que se presione alguno de ellos para que este llame al método encargado de establecer que ya 
@@ -230,7 +230,7 @@ public class ControlSección : MonoBehaviour
         }
         else if (PressButton == 2)//Si en este caso es dos, habilitara el objeto Perfiles y los demas serán deshabilitados
         {
-            ObjectsShop[1].offsetMin = new Vector2(0, -6720);
+            ObjectsShop[1].offsetMin = new Vector2(0, -6699);
             //Right //Top
             ObjectsShop[1].offsetMax = new Vector2(0, 0);
             GUIControl[0].SetActive(false);

@@ -1830,7 +1830,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2211,28 +2211,28 @@ MonoBehaviour:
   PerAndBack:
   - {fileID: 379602373}
   - {fileID: 274898426}
-  Per: {fileID: 274898428}
+  Per: {fileID: 379602375}
   Fon: {fileID: 0}
   Perfil: 0
   Background: 0
   Nameuser: {fileID: 2139086098}
   ObjectsUser:
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
-  - {fileID: -7320327026737435274, guid: 4f5a4ca0f010b294580379f2f43093c5, type: 3}
+  - {fileID: -6320689724038811481, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: 768858809338995133, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: -7210988602018686239, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: 6417031793161597909, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: 6879547920274667153, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: -7653159253335512411, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: 7931463082544836921, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: 2125296511770264149, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: 7881372390570033792, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: 5990845267217279485, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: -436344665951303689, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: 5123149846606231134, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: -3752127622502049689, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: 607717921490967139, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: 3659308564099924472, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
+  - {fileID: 0}
   - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
   - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
   - {fileID: 21300000, guid: ef8399534344e084b8612419dae55794, type: 3}
@@ -7698,7 +7698,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NEVUL
+  m_Text: 
 --- !u!222 &2139086099
 CanvasRenderer:
   m_ObjectHideFlags: 0
