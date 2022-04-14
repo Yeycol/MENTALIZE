@@ -9,11 +9,14 @@ using UnityEngine.SceneManagement;
 public class ControlNiveles : MonoBehaviour
 {
     static public int LvlDesbloqueado;// Variable estática de tipo entero encargada de almacenar el nivel desbloqueado 
-    
+    static public int LvlDesbloqueoSpace;//Variable de tipo que entero que alamacenará los niveles desbloqueados para Space Yue
     public int Lvlcurrent;//Variable de tipo entero que almacena el nivel actual
+    public int LvlcurrentSpace;//Variable que almacena el nivel actual del modo de juego Space Yue
     public Button[] Buttonslevel;//Array de componentes de tipo botón que serviran para localizar estos objetos por referencia
     public Image[] Imagelevel;//Array de componentes de tipo Imagen que serviran para localizar estos objetos por referencia
     public Text[] Level;//Array de componentes de tipo texto que serviran para localizar estos objetos por referencia
+    public Button[] BotonesSpace;//Array que almacenará la referencia de los botones de la selección de niveles para Space Yue
+    public Text[] TextButtonSpace;//Array de botones que corresponden a la Selección de niveles para Space Yue
     public Shadow[] LevelShadow;
     Guardado cargaryguardar;// Variable de tipo de la clase Guardado, que servirá para hacer referencia a la clase encargada de guardar los niveles y monedas conseguidos 
     public Color ActiveColor;// Color que establecemos desde el editor de Unity para el texto de los botones
@@ -101,6 +104,16 @@ public void DesbloquearNivel()
 
         }
     }
+
+    public void DesbloquearSpace()
+    {
+        //Método encargado de desbloquear los niveles para el modo de juego Space Yue
+        if (LvlDesbloqueoSpace < LvlcurrentSpace)
+        {
+            LvlDesbloqueoSpace = LvlcurrentSpace;
+            cargaryguardar.Guardar();
+        }
+    }
 public void FalseButton()
     {
         //Método encargado de colocar los botones bloqueados
@@ -134,5 +147,18 @@ public void FalseButton()
 
         }
        
+    }
+
+    public void RefreshButtonSpace()
+    {
+        //Método encargado de msotrar los niveles desbloqueados
+        for (int i = 0; i < LvlDesbloqueoSpace+1; i++)
+        {
+            BotonesSpace[i].enabled = true;//Habilitamos la interacción de los botones, que corresponden a los niveles desbloqueados
+            if (BotonesSpace[i].enabled == true)
+            {
+                TextButtonSpace[i].text= i+1.ToString();
+            }
+        }
     }
 }
