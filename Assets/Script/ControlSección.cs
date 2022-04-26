@@ -127,6 +127,20 @@ public class ControlSección : MonoBehaviour
                 Txt_Equipar[i].text = "Equipar";
             }
         }
+
+        if (Equipado == "Si" && scene.name == "Tienda")//Si la variable string Equipado es igual a Si y si estamos en la tienda
+        {
+            LoadEquipament();//Cargará el Id del botón que se equipo en este caso para las cartas
+        }
+
+        if (Equipado_Perfil == "Si" && scene.name == "Tienda")//Si la variable string Equipado_Perfil es igual a Si y si estamos en la tienda
+        {
+            LoadPerfiles();//Cargará el Id del botón Equipado en este caso para los perfiles
+        }
+        if (Equipado_Fondo == "Si" && scene.name == "Tienda")
+        {
+            LoadFondos();//Cargará el Id del botón Equipado en este caso para los fondos
+        }
     }
     public void InicializarTienda()
     {
@@ -151,22 +165,6 @@ public class ControlSección : MonoBehaviour
             se ha comprado un item y pasar por referencia un entero del botón seleccionado*/
             }
             }
-
-        if (Equipado == "Si" && scene.name == "Tienda")//Si la variable string Equipado es igual a Si y si estamos en la tienda
-        {
-            LoadEquipament();//Cargará el Id del botón que se equipo en este caso para las cartas
-        }
-
-        if ( Equipado_Perfil=="Si" && scene.name == "Tienda" )//Si la variable string Equipado_Perfil es igual a Si y si estamos en la tienda
-        {
-            LoadPerfiles();//Cargará el Id del botón Equipado en este caso para los perfiles
-        }
-        if (Equipado_Fondo == "Si" && scene.name == "Tienda")
-        { 
-            LoadFondos();//Cargará el Id del botón Equipado en este caso para los fondos
-        }
-
-
     }
 
     public void OnShopItemBtnClicked(int itemIndex)//Se pasa por parámetro el entero de (param) del botón presionado 
