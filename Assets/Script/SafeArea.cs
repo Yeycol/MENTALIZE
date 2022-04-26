@@ -14,7 +14,7 @@ public class SafeArea : MonoBehaviour
     void Awake()
     {
         rectransform = GetComponent<RectTransform>();//Obtenemos la componente RectTransform  del objeto al cual asigneos este script
-        safeArea = Screen.safeArea;//La devolución del área segura de la pantalla en píxeles es almacena ene sta variable
+        safeArea = Screen.safeArea;//La devolución del área segura de la pantalla en píxeles es almacena en esta variable
         //Se establece los valores de safe Área en nuestra variables
         minAnchor = safeArea.position;
         maxAnchor = minAnchor + safeArea.size;

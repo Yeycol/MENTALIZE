@@ -11,11 +11,11 @@ public class RefPerandBack : MonoBehaviour
     public int Perfil, Background;//Variables de Tipo Entero utilizadas para almacenar los Id de los objetos Equipados
     public string AlmName;
     public Text Nameuser;//Hace referencia al objeto UI que contiene la componente texto para mostrar por interfaz el nombre de usuario
-    public Sprite [] ObjectsUser;//Array de Sprites que almacenará las imágenes de los objetos desbloqueados
+    public Sprite[] ObjectsUser;//Array de Sprites que almacenará las imágenes de los objetos desbloqueados
     public static RefPerandBack ShareRefPerFon;
-    private void Awake() 
+    private void Awake()
     {
-        if (ShareRefPerFon==null)
+        if (ShareRefPerFon == null)
         {
             ShareRefPerFon = this;
         } else
@@ -25,10 +25,10 @@ public class RefPerandBack : MonoBehaviour
     }
     void Start()
     {
-            LoadPreverSaveId();//LLamamos al método encargado de cargar los key de los Player Prefs
-            RefreshObjectPerfil();//LLamamos al método encargado de cargar el sprite del perfil que se haya equipado
-            RefreshObjectFondo();//Llamamos al método encargao de cargar el sprite del fondo que se haya equipado
-            if(GameManager.shareInstance.currentgameState!=GameState.menu)//Esta condicional evalua si nos encontramos en el menu
+        LoadPreverSaveId();//LLamamos al método encargado de cargar los key de los Player Prefs
+        RefreshObjectPerfil();//LLamamos al método encargado de cargar el sprite del perfil que se haya equipado
+        RefreshObjectFondo();//Llamamos al método encargao de cargar el sprite del fondo que se haya equipado
+        if (GameManager.shareInstance.currentgameState != GameState.menu)//Esta condicional evalua si nos encontramos en el menu
             RefreshNameUser();//Se llama al método encargado de establecer el nombre del perfil equipado
         /*Borrar los datos almacenados en los Key de los PLayer prefs solo si se requiere
 
@@ -37,8 +37,8 @@ public class RefPerandBack : MonoBehaviour
         PlayerPrefs.DeleteKey("NameUser");*/
     }
 
- 
-            
+
+
     public void PreverSaveIdPerfil(int IdPerfil, string NameUser)
     {
         //Método que se encargar de guardar el entero IdPerfil pasado por referencia y el nombre de usuario
@@ -53,7 +53,10 @@ public class RefPerandBack : MonoBehaviour
     public void LoadPreverSaveId()
     {
         Perfil = PlayerPrefs.GetInt("ID_PERFIL");//Otorgamos el entero del Key del Player Prefs en la variable entera Perfil
-        Background = PlayerPrefs.GetInt("ID_FONDO");//Otorgamos el entero del Key del PLayer Prefs en la variable entera Fond0
+        if (GameManager.shareInstance.currentgameState == GameState.menu)
+        {
+            Background = PlayerPrefs.GetInt("ID_FONDO");//Otorgamos el entero del Key del PLayer Prefs en la variable entera Fond0
+        }
         AlmName = PlayerPrefs.GetString("NameUser");
     }
     public void RefreshObjectPerfil()

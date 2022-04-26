@@ -470,7 +470,6 @@ GameObject:
   - component: {fileID: 56439633}
   - component: {fileID: 56439632}
   - component: {fileID: 56439631}
-  - component: {fileID: 56439634}
   m_Layer: 5
   m_Name: "Men\xFA"
   m_TagString: Untagged
@@ -562,18 +561,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &56439634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56439629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 269a4bd2f93ea15489f70f26c8f3a961, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &64459029
 GameObject:
   m_ObjectHideFlags: 0
@@ -11854,6 +11841,7 @@ MonoBehaviour:
   - {fileID: 1689918420}
   - {fileID: 380014832}
   ReferencesObject: []
+  MarcoDesripciones: []
 --- !u!4 &1287460660
 Transform:
   m_ObjectHideFlags: 0
@@ -14604,6 +14592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lvlcurrent: 0
+  LvlcurrentSpace: 0
   Buttonslevel:
   - {fileID: 1109212373}
   - {fileID: 519116620}
@@ -14665,67 +14654,6 @@ MonoBehaviour:
   - {fileID: 659854702}
   - {fileID: 521007250}
   - {fileID: 2021879718}
-  Imagelevel:
-  - {fileID: 1109212374}
-  - {fileID: 519116621}
-  - {fileID: 1421153705}
-  - {fileID: 43667016}
-  - {fileID: 962952315}
-  - {fileID: 1972591227}
-  - {fileID: 1793174834}
-  - {fileID: 1760600766}
-  - {fileID: 862419805}
-  - {fileID: 1970156123}
-  - {fileID: 1307159238}
-  - {fileID: 1137102161}
-  - {fileID: 769129683}
-  - {fileID: 1174464539}
-  - {fileID: 439451882}
-  - {fileID: 2048555518}
-  - {fileID: 785766962}
-  - {fileID: 1302549656}
-  - {fileID: 1760720152}
-  - {fileID: 1754126329}
-  - {fileID: 1497475821}
-  - {fileID: 247055482}
-  - {fileID: 1391056670}
-  - {fileID: 785889881}
-  - {fileID: 1780527764}
-  - {fileID: 1274114924}
-  - {fileID: 2138137404}
-  - {fileID: 758692998}
-  - {fileID: 1345617088}
-  - {fileID: 68231534}
-  - {fileID: 333908806}
-  - {fileID: 1454939898}
-  - {fileID: 120985314}
-  - {fileID: 452448443}
-  - {fileID: 580589685}
-  - {fileID: 1397782151}
-  - {fileID: 486724671}
-  - {fileID: 1953560621}
-  - {fileID: 295720814}
-  - {fileID: 329219853}
-  - {fileID: 269030392}
-  - {fileID: 116900915}
-  - {fileID: 352981060}
-  - {fileID: 1776550883}
-  - {fileID: 188587970}
-  - {fileID: 64459032}
-  - {fileID: 727669133}
-  - {fileID: 364466591}
-  - {fileID: 1875567276}
-  - {fileID: 1221843931}
-  - {fileID: 1091216813}
-  - {fileID: 1323444155}
-  - {fileID: 1413658043}
-  - {fileID: 1004812802}
-  - {fileID: 1969856293}
-  - {fileID: 1497531752}
-  - {fileID: 312865967}
-  - {fileID: 659854703}
-  - {fileID: 521007251}
-  - {fileID: 2021879719}
   Level:
   - {fileID: 227967569}
   - {fileID: 2141529885}
@@ -14787,6 +14715,8 @@ MonoBehaviour:
   - {fileID: 1522509628}
   - {fileID: 292068749}
   - {fileID: 190682778}
+  BotonesSpace: []
+  TextButtonSpace: []
   LevelShadow:
   - {fileID: 227967571}
   - {fileID: 2141529887}
@@ -14851,8 +14781,11 @@ MonoBehaviour:
   ActiveColor: {r: 0.10588236, g: 0.078431375, b: 0.3921569, a: 1}
   ShadowColor: {r: 0.8588236, g: 0.1254902, b: 0.4666667, a: 1}
   ReferCar: {fileID: 2103199689}
-  BlockButton: {fileID: -1018301167810379013, guid: b4df9c8e38dd9bd4485279d0ea841a24, type: 3}
-  DesblockButton: {fileID: -3426627831318709338, guid: b4df9c8e38dd9bd4485279d0ea841a24, type: 3}
+  GroupImageChange:
+  - {fileID: -1018301167810379013, guid: b4df9c8e38dd9bd4485279d0ea841a24, type: 3}
+  - {fileID: -3426627831318709338, guid: b4df9c8e38dd9bd4485279d0ea841a24, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1515657930
 Transform:
   m_ObjectHideFlags: 0
@@ -16233,6 +16166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentgameState: 1
+  collectedObject: 0
 --- !u!4 &1740628057
 Transform:
   m_ObjectHideFlags: 0

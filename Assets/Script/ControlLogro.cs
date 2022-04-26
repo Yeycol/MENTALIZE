@@ -254,6 +254,7 @@ public class ControlLogro : MonoBehaviour
                 break;
             case 6:
                 ControlSección.ShareTienda.UnlockedGoals(43);
+                ControlSección.ShareTienda.UnlockedGoals(21);
                 Contador.sharecont.moneda += 50000;
                 Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();
                 GuardadoListas.GuardarMonedas();

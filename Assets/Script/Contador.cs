@@ -452,7 +452,7 @@ public class Contador : MonoBehaviour
         sharecont.monedawin+=sharecont.value_moneda;//Se incrementa el valor de las monedas del win de acuerdo al valor que se esten dando en este nivel, con la finalidad de ser mostradas al ganar la partida en el canvas
     }
 
-    public void SaveEquipament(int vidas, float extratime,string ReferencesTurn, int MonedaExtra)
+    public void SaveEquipament(int vidas, float extratime, int MonedaExtra)
     {
         //Este método guarda los valores pasados por parámetro  que otorgaran las habilidades de la carta equipada
         PlayerPrefs.SetInt("Live", vidas);//Se almacenan las vidas Extras
