@@ -49,6 +49,7 @@ public class Guardado : MonoBehaviour
             GuardadodeDatos datos = (GuardadodeDatos)bf.Deserialize(file);// Se deserializa el archivo e la ruta que especificamos abrir, no se pueden enviar binarios al Unity y esperar que funcione 
             //Pero si podemos convertir nuestro archivo deserializado a un tipo de dato específico
             ControlNiveles.LvlDesbloqueado = datos.NivelesDesbloqueados;// Se iguala la variable de la clase control niveles a la variable de la clase de GUardadodeNiveles 
+            ControlNiveles.LvlDesbloqueoSpace = datos.NivelesDesbloqueadosSpace;
             //Para que reciba e dato almacenado en su interior
         }
         else
