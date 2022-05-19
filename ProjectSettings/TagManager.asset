@@ -6,11 +6,17 @@ TagManager:
   tags:
   - groupbutton
   - Load
+  - Coin
+  - Platform
+  - NewScene
+  - Rock
+  - Enemy
+  - Movil
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 

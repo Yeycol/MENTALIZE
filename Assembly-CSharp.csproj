@@ -92,6 +92,7 @@
     <Compile Include="Assets\Script\Video.cs" />
     <Compile Include="Assets\Script\RefPerandBack.cs" />
     <Compile Include="Assets\Script\SpaceYue\PlayerController.cs" />
+    <Compile Include="Assets\Script\SpaceYue\Oscilador.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
