@@ -158,6 +158,12 @@ MonoBehaviour:
   Alert: {fileID: 0}
   SceneAnima: {fileID: 2131891075}
   Descripciones: []
+  ListadeLogros: {fileID: 0}
+  PortafolioDeVersiones: {fileID: 0}
+  NoteOfVer: {fileID: 0}
+  ReferencesButtonPor: []
+  ReferencesObject: []
+  MarcoDesripciones: []
 --- !u!4 &186068463
 Transform:
   m_ObjectHideFlags: 0
@@ -1148,6 +1154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cero: 
+  Cero1: 
 --- !u!114 &1763270859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,6 +1175,8 @@ MonoBehaviour:
   ActiveColor: {r: 0.10588236, g: 0.078431375, b: 0.3921569, a: 1}
   ShadowColor: {r: 0, g: 0, b: 0, a: 0}
   ReferCar: {fileID: 0}
+  BlockButton: {fileID: 0}
+  DesblockButton: {fileID: 0}
 --- !u!4 &1763270860
 Transform:
   m_ObjectHideFlags: 0
