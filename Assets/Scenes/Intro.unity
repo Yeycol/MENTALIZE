@@ -4621,7 +4621,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentgameState: 1
-  collectedObject: 0
 --- !u!4 &1064666687
 Transform:
   m_ObjectHideFlags: 0

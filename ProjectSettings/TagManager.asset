@@ -11,9 +11,7 @@ TagManager:
   - NewScene
   - Rock
   - Enemy
-  - MovilV
-  - MovilH
-  - MovilL
+  - Movil
   layers:
   - Default
   - TransparentFX

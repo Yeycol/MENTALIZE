@@ -6,9 +6,9 @@ using UnityEngine;
 public class Oscilador : MonoBehaviour
 {
     [SerializeField] Vector2 posInicial;
-    [SerializeField] Vector2 dirDesplazamiento;
+    [SerializeField] Vector2 dirDesplazamiento = new Vector2(0, -15);
     [SerializeField] [Range(0,1)] float desplazamiento;
-    [SerializeField] float periodo;
+    [SerializeField] float periodo = 6;
 
     
     
