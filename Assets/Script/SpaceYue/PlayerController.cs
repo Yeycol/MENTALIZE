@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer flipX;
     Vector3 startPosition;
     float travelledDistance;
-    Rigidbody2D platformMovil;
 
     // Guarda el estado de si está vivo o en el suelo en las variables STATE_ALIVE y STATE_ON_THE_GROUND
     const string STATE_ALIVE = "isAlive";
@@ -25,18 +24,15 @@ public class PlayerController : MonoBehaviour
         MAX_HEALTH = 200, MAX_MANA = 30,
         MIN_HEALTH = 10, MIN_MANA = 0;
     public const int SUPERJUMP_COST = 2;
-    public const float SUPERJUMP_FORCE = 1.5f;
+    public const float SUPERJUMP_FORCE = 1.3f;
 
     // Obtiene las características físicas antes de inicializar, como la gravedad.
     void Awake()
     {
-        platformMovil = GameObject.FindWithTag("Movil").GetComponent<Rigidbody2D>();
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         flipX = GetComponent<SpriteRenderer>();    // Otorga las caracteristicas de SpriteRenderer a flipX
         GameManager.shareInstance.StarGame();//Pasamos al jugador en estado de InGame
-
-
     }
     // Start is called before the first frame update
     void Start()
@@ -90,12 +86,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             Jump(false);
-            this.GetComponent<Rigidbody2D>().gravityScale = 1f;
+            rigidBody.gravityScale = 1f;
         }
         else if (Input.GetMouseButtonDown(0))
         {
             Jump(true);
-            this.GetComponent<Rigidbody2D>().gravityScale = 1f;
+            rigidBody.gravityScale = 1f;
         }
 
         if (Input.GetKey(KeyCode.D))
@@ -114,18 +110,16 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (rigidBody.velocity.x != 0)
+        /*if (rigidBody.velocity.x != 0)
         {      // Si el personaje esta quieto, se cancela la animacion
             animator.enabled = true;
         }
         else if (IsTouchingTheGround() == false)
         {
             animator.enabled = true;        // Si esta en mov, la animacion se reanuda 
-        }/*else{
-            animator.enabled = false;
         }*/
         animator.SetBool(STATE_ON_THE_GROUND, IsTouchingTheGround());       // En cada frame, ubica si el jugador está o no el suelo y lo ubica en su sitio
-        Debug.DrawRay(this.transform.position, Vector2.down * 1.8f, Color.red);      // Debug permite probar cosas, en este caso dibuja un rayo rojo desde
+        Debug.DrawRay(this.transform.position, Vector2.down * 1.5f, Color.red);      // Debug permite probar cosas, en este caso dibuja un rayo rojo desde
                                                                                      // el centro del jugador hacia el suelo
         if (healthPoints <= 0)
         {
@@ -165,7 +159,7 @@ public class PlayerController : MonoBehaviour
     // Nos indica si el personaje está o no tocando el suelo
     bool IsTouchingTheGround()
     {
-        if (Physics2D.Raycast(this.transform.position, Vector2.down, 1.8f,
+        if (Physics2D.Raycast(this.transform.position, Vector2.down, 1.5f,
                             groundMask))
         {
             return true;
@@ -220,14 +214,37 @@ public class PlayerController : MonoBehaviour
     {
         return this.transform.position.x - startPosition.x;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.tag == "Movil")
+        switch (collision.gameObject.tag)
         {
-            float velPlatform = platformMovil.velocity.y;
-            rigidBody.velocity = new Vector2(0, velPlatform);
-            //this.GetComponent<Rigidbody2D>().gravityScale = 100f;
-            Debug.Log(rigidBody.velocity.y);
+            case "MovilV":
+                //rigidBody.gravityScale = 17f;
+                transform.position = new Vector2(transform.position.x, collision.transform.position.y + 1.65f);
+                break;
+            case "MovilH":
+                transform.position = new Vector2(collision.transform.position.x, transform.position.y);
+                Debug.Log("Posición alterada");
+                break;
+            case "MovilL":
+                transform.position = new Vector2(collision.transform.position.x, transform.position.y);
+                rigidBody.gravityScale = 17f;
+                Debug.Log("Posición alterada");
+                //StartCoroutine("WaitMovilL");
+                break;
+            /*default:
+                transform.position = transform.position;
+                break;*/
         }
+        /*if (collision.gameObject.tag == "Movil")
+        {
+            //rigidBody.gravityScale = 17f;
+            //Debug.Log("Posición alterada");
+        }*/
     }
+    /*IEnumerator WaitMovilL()
+    {
+        yield return new WaitForSeconds(5f);
+        transform.position = transform.position;
+    }*/
 }
