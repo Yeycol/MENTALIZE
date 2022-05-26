@@ -84,10 +84,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump(false);
+            rigidBody.gravityScale = 1f;
+
         }
         else if (Input.GetMouseButtonDown(0))
         {
             Jump(true);
+            rigidBody.gravityScale = 1f;
         }
 
         if (Input.GetKey(KeyCode.D))
@@ -248,6 +251,13 @@ public class PlayerController : MonoBehaviour
             //rigidBody.gravityScale = 17f;
             //Debug.Log("Posición alterada");
         }*/
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Nave")
+        {
+            ControlNiveles.shareLvl.CambiarNivel(69);
+        }
     }
     /*IEnumerator WaitMovilL()
     {

@@ -413,10 +413,10 @@ public class Contador : MonoBehaviour
             case "Level 60":
                 ControlNiveles.shareLvl.CambiarNivel(66);
                 break;
-
             case "YueScene":
                 ControlNiveles.shareLvl.CambiarNivel(67);
                 break;
+
         }
     }
     public static void ResetHealth()

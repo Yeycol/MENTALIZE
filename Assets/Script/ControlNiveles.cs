@@ -158,7 +158,7 @@ public void FalseButton()
         for (int i = 0; i < LvlDesbloqueoSpace+1; i++)
         {
             BotonesSpace[i].interactable = true;//Habilitamos la interacción de los botones, que corresponden a los niveles desbloqueados
-            BotonesSpace[i].image.sprite = GroupImageChange[2];
+            BotonesSpace[i].image.sprite = GroupImageChange[1];
             TextButtonSpace[i].text= (i+1).ToString();
         }
     }
@@ -169,7 +169,7 @@ public void FalseButton()
         {
             if (BotonesSpace[i].interactable == false)
             {
-                BotonesSpace[i].image.sprite = GroupImageChange[3];
+                BotonesSpace[i].image.sprite = GroupImageChange[0];
                 TextButtonSpace[i].text = " ?";
             }
         }
