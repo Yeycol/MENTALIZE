@@ -17,14 +17,14 @@ public class PlayerController : MonoBehaviour
     // Guarda el estado de si está vivo o en el suelo en las variables STATE_ALIVE y STATE_ON_THE_GROUND
     const string STATE_ALIVE = "isAlive";
     const string STATE_ON_THE_GROUND = "isOnTheGround";
-    
+
     private int healthPoints, manaPoints;
 
-    public const int INITIAL_HEALTH = 100, INITIAL_MANA = 15,
+    public const int INITIAL_HEALTH = 100, INITIAL_MANA = 30,
         MAX_HEALTH = 200, MAX_MANA = 30,
         MIN_HEALTH = 10, MIN_MANA = 0;
-    public const int SUPERJUMP_COST = 5;
-    public const float SUPERJUMP_FORCE = 1.5f;
+    public const int SUPERJUMP_COST = 2;
+    public const float SUPERJUMP_FORCE = 1.3f;
 
     // Obtiene las características físicas antes de inicializar, como la gravedad.
     void Awake()
@@ -33,8 +33,6 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         flipX = GetComponent<SpriteRenderer>();    // Otorga las caracteristicas de SpriteRenderer a flipX
         GameManager.shareInstance.StarGame();//Pasamos al jugador en estado de InGame
-        
-
     }
     // Start is called before the first frame update
     void Start()
@@ -45,11 +43,12 @@ public class PlayerController : MonoBehaviour
         StartGame();
     }
 
-    public void StartGame(){
+    public void StartGame()
+    {
         RealTimeAnimation.ShareRealTimeAnimator.RamdomIndex();//Llamamos al método encargadod e habilitar las animaciones de la clase RealTimeAnimation
         animator.SetBool(STATE_ALIVE, true);                // Inicia la variable STATE_ALIVE con true
         animator.SetBool(STATE_ON_THE_GROUND, true);        // Inicia la variable STATE_ON_THE_GROUND con true
-        
+
         healthPoints = INITIAL_HEALTH;
         manaPoints = INITIAL_MANA;
 
@@ -58,8 +57,9 @@ public class PlayerController : MonoBehaviour
         AudioManager.shareaudio.Efectos[16].loop = true;
     }
 
-    void RestartPosition(){
-        this.transform.position =startPosition;
+    void RestartPosition()
+    {
+        this.transform.position = startPosition;
         this.rigidBody.velocity = Vector2.zero;
 
         GameManager.shareInstance.collectedObject = 0;
@@ -71,41 +71,58 @@ public class PlayerController : MonoBehaviour
     // Si detecta el espacio o click derecho se desencadena el salto
     void Update()
     {   // Si estamos en partida, podemos movernos
-       if(GameManager.shareInstance.currentgameState == GameState.InGame)
-        {
-            if(Input.GetButtonDown("Jump")){
-                Jump(false);
-            }
-            if(Input.GetButtonDown("SuperJump")){
-                Jump(true);
-            }
-
-            if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){  // Al presionar D o Flecha dere  // se da vel. de mov. positiva
-                move(runningSpeed);
-            }
-
-            if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){   // Al presionar A o Flecha izq   // se da vel. de mov. negativa
-                move(-runningSpeed);
-            }
-        }else{      // Si no estamos en partida, no hay velocidad en X
+        
+        /*else
+        {      // Si no estamos en partida, no hay velocidad en X
             rigidBody.velocity = new Vector2(0,rigidBody.velocity.y);
-        }         
+        }*/
+    }
+
+    private void MoveTeclas()
+    {
+        //GetButtonDown("Jump")
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump(false);
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            Jump(true);
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {  // Al presionar D o Flecha dere  // se da vel. de mov. positiva
+            move(runningSpeed);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {   // Al presionar A o Flecha izq   // se da vel. de mov. negativa
+            move(-runningSpeed);
+        }
+        else
+        {
+            move(0);
+        }
     }
 
     void FixedUpdate()
     {
-        if(rigidBody.velocity.x != 0){      // Si el personaje esta quieto, se cancela la animacion
+        /*if (rigidBody.velocity.x != 0)
+        {      // Si el personaje esta quieto, se cancela la animacion
             animator.enabled = true;
-        }else if(IsTouchingTheGround() == false)
+        }
+        else if (IsTouchingTheGround() == false)
         {
             animator.enabled = true;        // Si esta en mov, la animacion se reanuda 
-        }/*else{
-            animator.enabled = false;
         }*/
         animator.SetBool(STATE_ON_THE_GROUND, IsTouchingTheGround());       // En cada frame, ubica si el jugador está o no el suelo y lo ubica en su sitio
         Debug.DrawRay(this.transform.position, Vector2.down * 1.6f, Color.red);      // Debug permite probar cosas, en este caso dibuja un rayo rojo desde
-                                                                                        // el centro del jugador hacia el suelo
-        if(healthPoints <= 0){
+                                                                                     // el centro del jugador hacia el suelo
+        if (GameManager.shareInstance.currentgameState == GameState.InGame)
+        {
+            MoveTeclas();
+        }
+        if (healthPoints <= 0)
+        {
             Die();
         }
     }
@@ -113,74 +130,128 @@ public class PlayerController : MonoBehaviour
     void move(float direction)
     {
         rigidBody.velocity = new Vector2(direction, rigidBody.velocity.y);  // Da la velocidad de mov en X y Y
-        if(rigidBody.velocity.x < 0){        // Si la direccion cambia de sentido, el sprite se da la vuelta al renderizarse
+        if (Input.GetKey(KeyCode.A))
+        {        // Si la direccion cambia de sentido, el sprite se da la vuelta al renderizarse
             flipX.flipX = true;
-        }else{                              // Sino, la renderizacion se mantiene normal
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {                              // Sino, la renderizacion se mantiene normal
             flipX.flipX = false;
         }
-        
+
     }
 
     // La forma en que salta, tomando la dirección, la fuerza y el modo de la fuerza
     void Jump(bool superjump)
     {
         float jumpForceFactor = jumpForce;
-        if(superjump && manaPoints >= SUPERJUMP_COST){
+        if (superjump && manaPoints >= SUPERJUMP_COST)
+        {
             manaPoints -= SUPERJUMP_COST;
             jumpForceFactor *= SUPERJUMP_FORCE;
         }
-        if(IsTouchingTheGround()){
-            rigidBody.AddForce(Vector2.up*jumpForceFactor, ForceMode2D.Impulse);
+        if (IsTouchingTheGround())
+        {
+            rigidBody.AddForce(Vector2.up * jumpForceFactor, ForceMode2D.Impulse);
         }
     }
 
     // Nos indica si el personaje está o no tocando el suelo
     bool IsTouchingTheGround()
     {
-        if(Physics2D.Raycast(this.transform.position, Vector2.down, 1.6f,
-                            groundMask)){
+        if (Physics2D.Raycast(this.transform.position, Vector2.down, 1.6f,
+                            groundMask))
+        {
             return true;
-        }else {
+        }
+        else
+        {
             return false;
         }
     }
-   public void Die()
+    public void Die()
     {
         travelledDistance = GetTravelledDistance();
         float previousMaxDistance = PlayerPrefs.GetFloat("maxscore", 0f);
-        if(travelledDistance > previousMaxDistance){
+        if (travelledDistance > previousMaxDistance)
+        {
             PlayerPrefs.SetFloat("maxscore", travelledDistance);
         }
 
         this.animator.SetBool(STATE_ALIVE, false);
-      GameManager.shareInstance.GameOver();
+        GameManager.shareInstance.GameOver();
     }
 
-    public void CollectHealth(int points){
+    public void CollectHealth(int points)
+    {
         healthPoints += points;
-        if(healthPoints >= MAX_HEALTH){
+        if (healthPoints >= MAX_HEALTH)
+        {
             healthPoints = MAX_HEALTH;
         }
     }
 
-    public void CollectMana(int points){
+    public void CollectMana(int points)
+    {
         manaPoints += points;
-        if(manaPoints >= MAX_MANA){
+        if (manaPoints >= MAX_MANA)
+        {
             manaPoints = MAX_MANA;
         }
     }
 
-    public int GetHealth(){
+    public int GetHealth()
+    {
         return healthPoints;
     }
 
-    public int GetMana(){
+    public int GetMana()
+    {
         return manaPoints;
     }
 
-    public float GetTravelledDistance(){
+    public float GetTravelledDistance()
+    {
         return this.transform.position.x - startPosition.x;
     }
-
-
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "MovilV":
+                //rigidBody.gravityScale = 17f;
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    transform.position = transform.position;
+                }
+                else
+                {
+                    transform.position = new Vector2(collision.transform.position.x, collision.transform.position.y + 1.65f);
+                }
+                break;
+            case "MovilH":
+                transform.position = new Vector2(collision.transform.position.x, transform.position.y);
+                Debug.Log("Posición alterada");
+                break;
+            case "MovilL":
+                transform.position = new Vector2(collision.transform.position.x, transform.position.y);
+                rigidBody.gravityScale = 17f;
+                Debug.Log("Posición alterada");
+                //StartCoroutine("WaitMovilL");
+                break;
+            /*default:
+                transform.position = transform.position;
+                break;*/
+        }
+        /*if (collision.gameObject.tag == "Movil")
+        {
+            //rigidBody.gravityScale = 17f;
+            //Debug.Log("Posición alterada");
+        }*/
+    }
+    /*IEnumerator WaitMovilL()
+    {
+        yield return new WaitForSeconds(5f);
+        transform.position = transform.position;
+    }*/
 }

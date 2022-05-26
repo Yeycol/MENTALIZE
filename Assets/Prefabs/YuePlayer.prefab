@@ -122,10 +122,10 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b0a32d86b69800b4ea5c1df1fefeffa0, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &3602509409207827438
 BoxCollider2D:
@@ -136,11 +136,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 3602509409207827435}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a94385eadaa224942a3a735ba0390961, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.039315224, y: -1.8608304}
+  m_Offset: {x: 0.039315224, y: -1.8147686}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -151,7 +151,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.39210558, y: 0.29996324}
+  m_Size: {x: 0.39210558, y: 0.20783949}
   m_EdgeRadius: 0
 --- !u!70 &3602509409207827437
 CapsuleCollider2D:
@@ -162,7 +162,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 3602509409207827435}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b0a32d86b69800b4ea5c1df1fefeffa0, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -181,8 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fdb51c8a3323d4fbf946a1ac8c5d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 8
-  runningSpeed: 4
+  jumpForce: 8.5
+  runningSpeed: 7
   groundMask:
     serializedVersion: 2
     m_Bits: 8
