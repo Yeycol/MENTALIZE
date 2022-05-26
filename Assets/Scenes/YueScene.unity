@@ -1944,6 +1944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: nave
       objectReference: {fileID: 0}
+    - target: {fileID: 8224560041610487970, guid: 3d35706d9003e104ebf51127f4dfdc19, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8224560041610487973, guid: 3d35706d9003e104ebf51127f4dfdc19, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -7928,7 +7932,7 @@ RectTransform:
   - {fileID: 1650374882}
   - {fileID: 497954475}
   m_Father: {fileID: 0}
-  m_RootOrder: 141
+  m_RootOrder: 143
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8469,7 +8473,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.029625002, y: 0.82037044}
   m_AnchorMax: {x: 0.10410416, y: 0.93888897}
-  m_AnchoredPosition: {x: -2.5, y: 1.3493958}
+  m_AnchoredPosition: {x: -2.5, y: 1.3493652}
   m_SizeDelta: {x: -2.1116028, y: -4.698799}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1650374883

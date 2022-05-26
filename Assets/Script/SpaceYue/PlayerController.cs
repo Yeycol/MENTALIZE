@@ -260,6 +260,7 @@ public class PlayerController : MonoBehaviour
             Contador.PointsAdd();
         } else if(collision.tag == "Nave")
         {
+            this.gameObject.SetActive(false);
             ControlNiveles.shareLvl.CambiarNivel(69);
         }
     }

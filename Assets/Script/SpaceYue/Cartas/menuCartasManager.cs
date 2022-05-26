@@ -8,11 +8,15 @@ public class menuCartasManager : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.shareInstance.StarGame();
+        
         if (sharedInstance == null)
         {
             sharedInstance = this;
         }
+    }
+    private void Start()
+    {
+        GameManager.shareInstance.StarGame();
     }
     [SerializeField] Canvas[] menuCanvas = new Canvas[2];
 
