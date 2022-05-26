@@ -42,6 +42,7 @@ public class Contador : MonoBehaviour
     public int TwoMinPoints;//Variable de tipo entera que almacena el segundo valor minimo para ganar partida
     public int ThreeMinPoints;//Variable de tipo entera que almacena el tercer valor minimo para ganar partida 
     public Button ReferContinue;//Varibale de tipo button que prentende desactivar la interacción del botón continuar
+    public int pointsYue;//Variable que pretende almacenar los puntos conseguidos en el modo de juego Space Yue 
     void Awake()
     {
         if (sharecont == null)
@@ -107,9 +108,9 @@ public class Contador : MonoBehaviour
             if (scene.name == "Inicio")
             {
                 SliderInicio[0].value = puntos;
-                SliderInicio[1].value = puntos;
+                SliderInicio[1].value = pointsYue;
                 points_ui.text = puntos.ToString() + "/555pts";//Se imprime los puntos con el valor máximo en las barras de progreso del Inicio
-                UI_WinText.text =puntos.ToString()+ "/555pts";
+                UI_WinText.text =pointsYue.ToString()+ "/555pts";
             }
         }
         
