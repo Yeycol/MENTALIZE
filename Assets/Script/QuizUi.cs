@@ -9,7 +9,6 @@ using UnityEngine.UI;//Libreria necesaria para manipular las componentes de Inte
 
 public class QuizUi : MonoBehaviour
 {
-    public GameObject q_question;// Esta variable almacenará el texto de la pregunta 
     public TextMeshProUGUI questions;
     public List<OptionButton> q_buttonl = null; // Esta lista nos permitirá tener una referencia de los botones que hemos creado(Button Option)
  
