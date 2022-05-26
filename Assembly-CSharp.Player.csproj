@@ -60,6 +60,7 @@
     <Compile Include="Assets\Script\SpaceYue\Oscilador.cs" />
     <Compile Include="Assets\Script\SpaceYue\MovingPlatform.cs" />
     <Compile Include="Assets\Script\Option.cs" />
+    <Compile Include="Assets\Script\SpaceYue\Cartas\TimerCartas.cs" />
     <Compile Include="Assets\Script\Control_Button.cs" />
     <Compile Include="Assets\Script\SpaceYue\LevelBlock.cs" />
     <Compile Include="Assets\Script\ManagerQuiz.cs" />
@@ -67,6 +68,8 @@
     <Compile Include="Assets\Script\SpaceYue\LevelManager.cs" />
     <Compile Include="Assets\Script\Carga.cs" />
     <Compile Include="Assets\Script\Questions.cs" />
+    <Compile Include="Assets\Script\SpaceYue\Cartas\EstatusCartas.cs" />
+    <Compile Include="Assets\Script\SpaceYue\Cartas\sceneControlador.cs" />
     <Compile Include="Assets\Script\QuizUi.cs" />
     <Compile Include="Assets\Script\QuizDb.cs" />
     <Compile Include="Assets\Script\SpaceYue\Collectable.cs" />
@@ -76,8 +79,10 @@
     <Compile Include="Assets\Script\OptionButton.cs" />
     <Compile Include="Assets\Script\ControlLogro.cs" />
     <Compile Include="Assets\Script\RealTimeAnimation.cs" />
+    <Compile Include="Assets\Script\SpaceYue\Cartas\CartasGameYue.cs" />
     <Compile Include="Assets\Script\ControlNiveles.cs" />
     <Compile Include="Assets\Script\AudioManager.cs" />
+    <Compile Include="Assets\Script\SpaceYue\Cartas\menuCartasManager.cs" />
     <Compile Include="Assets\Script\BuyEvent.cs" />
     <Compile Include="Assets\Script\SpaceYue\CameraFollow.cs" />
     <Compile Include="Assets\Script\Contador.cs" />
