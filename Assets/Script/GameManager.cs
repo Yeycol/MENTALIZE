@@ -191,9 +191,9 @@ public class GameManager : MonoBehaviour
             AudioManager.shareaudio.Efectos[8].Pause();//Pausamos el Efeco Salida Nave
             AudioManager.shareaudio.Efectos[9].Pause();//Pausamos el Efeco Roto
             AudioManager.shareaudio.Efectos[10].Pause();//Pausamos el Efeco Abducir Nave
-            AudioManager.shareaudio.Efectos[14].Pause();//Al pasar en esta pausa se deben deshabilitar las canciones en determinada escena para proceder con su configuración*/
-            AudioManager.shareaudio.Efectos[15].Pause();// Al pasar a pausa se para un momento la música de Trivias
-            AudioManager.shareaudio.Efectos[16].Pause();//Se pausa la música de Space Yue
+            //AudioManager.shareaudio.Efectos[14].Pause();//Al pasar en esta pausa se deben deshabilitar las canciones en determinada escena para proceder con su configuración*/
+            //AudioManager.shareaudio.Efectos[15].Pause();// Al pasar a pausa se para un momento la música de Trivias
+            //AudioManager.shareaudio.Efectos[16].Pause();//Se pausa la música de Space Yue
             AudioManager.shareaudio.Efectos[17].Pause();//Se pausa la Frase A toda Máquina gogo
             AudioManager.shareaudio.Efectos[18].Pause();//Se pausa la Frase Se te acaba el Tiempo
             AudioManager.shareaudio.Efectos[19].Pause();//Se pausa el sonido de la frase Mira el Reloj no te queda tiempo

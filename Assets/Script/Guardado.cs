@@ -35,7 +35,7 @@ public class Guardado : MonoBehaviour
         //Método encargado de guardar los niveles desbloqueados
         BinaryFormatter bf = new BinaryFormatter();//Permite crear un formato binario el cual gestionará el trabajo de serialización
         FileStream file = File.Create(RutaArchivo);//Se crea un puntero en donde crear el archivo, donde se pasa por parámetro la ruta
-        GuardadodeDatos datos = new GuardadodeDatos(ControlNiveles.LvlDesbloqueado);//Se inicializa la clase de gardado de datos y se pasa por parámetro la variable a almacenar 
+        GuardadodeDatos datos = new GuardadodeDatos(ControlNiveles.LvlDesbloqueado,ControlNiveles.LvlDesbloqueoSpace);//Se inicializa la clase de gardado de datos y se pasa por parámetro la variable a almacenar 
         bf.Serialize(file, datos);//Guardamos el parámetro enviado al método de la clase GuardadodeDatos en el archivo con ruta que creamos
         file.Close();//Cerrramos el archivo que hemos creado
     }
@@ -49,6 +49,7 @@ public class Guardado : MonoBehaviour
             GuardadodeDatos datos = (GuardadodeDatos)bf.Deserialize(file);// Se deserializa el archivo e la ruta que especificamos abrir, no se pueden enviar binarios al Unity y esperar que funcione 
             //Pero si podemos convertir nuestro archivo deserializado a un tipo de dato específico
             ControlNiveles.LvlDesbloqueado = datos.NivelesDesbloqueados;// Se iguala la variable de la clase control niveles a la variable de la clase de GUardadodeNiveles 
+            ControlNiveles.LvlDesbloqueoSpace = datos.NivelesDesbloqueadosSpace;
             //Para que reciba e dato almacenado en su interior
         }
         else
@@ -169,9 +170,11 @@ public class Guardado : MonoBehaviour
 [System.Serializable]
 class GuardadodeDatos{
     public int NivelesDesbloqueados;// Variable de tipo entero que recibirá el nivel desbloqueado pasado por parámetro 
-    public GuardadodeDatos(int NivelesDesbloqueados_)//Método que recibe por parámetro  un entero al crearse la clase
+    public int NivelesDesbloqueadosSpace;//Variable de tipo entero que almacenará los niveles desbloqueados de Space
+    public GuardadodeDatos(int NivelesDesbloqueados_, int NivelDesSpace)//Método que recibe por parámetro  un entero al crearse la clase
     {
         NivelesDesbloqueados = NivelesDesbloqueados_;// Se le otorga el dato pasado por parámetro a la variable entero
+        NivelesDesbloqueadosSpace = NivelDesSpace;//Se establece el valor de la variable de clase al valor pasado por referencia en este caso el nivel desbloqueado para modo de juego Space Yue 
     }
 }
 [System.Serializable]
