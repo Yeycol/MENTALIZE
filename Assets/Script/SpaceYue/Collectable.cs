@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum CollectableType{
     healthPotion,
-    manaPotion,
+    //manaPotion,
     money
 }
 
@@ -55,9 +55,9 @@ public class Collectable : MonoBehaviour
                 player.GetComponent<PlayerController>().CollectHealth(this.value);
             break;
 
-            case CollectableType.manaPotion:
+            /*case CollectableType.manaPotion:
                 player.GetComponent<PlayerController>().CollectMana(this.value);
-            break;
+            break;*/
         }
     }
 

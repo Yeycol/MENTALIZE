@@ -5,9 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Variables del movimiento del personaje
-    public float jumpForce;        // Fuerza de salto
-    public float runningSpeed;     // Velocidad de movimiento horizontal
+    //public float jumpForce;        // Fuerza de salto
+    //public float runningSpeed;     // Velocidad de movimiento horizontal
+    public float runSpeed = 0;
+    public float runningSpeedHorizontal = 3;
+    public float runningSpeedVertical = 3;
+    float horizontalMove = 0;
+    float verticalMove = 0;
     Rigidbody2D rigidBody;  	        // Variable de física del cuerpo, es una variable 'privada', pero esta palabra se puede omitir
+    public Joystick joystick;
     public LayerMask groundMask;        // Variable de capa del suelo, modificable en interfaz
     Animator animator;
     SpriteRenderer flipX;
@@ -19,13 +25,15 @@ public class PlayerController : MonoBehaviour
     const string STATE_ALIVE = "isAlive";
     const string STATE_ON_THE_GROUND = "isOnTheGround";
 
-    private int healthPoints, manaPoints;
+    private int healthPoints; //manaPoints
 
-    public const int INITIAL_HEALTH = 100, INITIAL_MANA = 30,
-        MAX_HEALTH = 200, MAX_MANA = 30,
-        MIN_HEALTH = 10, MIN_MANA = 0;
-    public const int SUPERJUMP_COST = 2;
-    public const float SUPERJUMP_FORCE = 1.3f;
+    //POner esto en public const int
+    //INITIAL_MANA = 30, MAX_MANA = 30, MIN_MANA = 0;
+    //---
+    //public const int SUPERJUMP_COST = 2;
+    //public const float SUPERJUMP_FORCE = 1.3f;
+
+    public const int INITIAL_HEALTH = 100, MAX_HEALTH = 200, MIN_HEALTH = 10;
 
     // Obtiene las características físicas antes de inicializar, como la gravedad.
     void Awake()
@@ -51,7 +59,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool(STATE_ON_THE_GROUND, true);        // Inicia la variable STATE_ON_THE_GROUND con true
 
         healthPoints = INITIAL_HEALTH;
-        manaPoints = INITIAL_MANA;
+        //manaPoints = INITIAL_MANA;
 
         Invoke("RestartPosition", 0.2f);
         AudioManager.shareaudio.Efectos[16].Play();
@@ -71,15 +79,42 @@ public class PlayerController : MonoBehaviour
 
     // Si detecta el espacio o click derecho se desencadena el salto
     void Update()
-    {   // Si estamos en partida, podemos movernos
-        
-        /*else
-        {      // Si no estamos en partida, no hay velocidad en X
-            rigidBody.velocity = new Vector2(0,rigidBody.velocity.y);
-        }*/
+    {
+        verticalMove = joystick.Vertical * runningSpeedVertical;
+        horizontalMove = joystick.Horizontal * runningSpeedHorizontal;
+
+        animator.SetBool(STATE_ON_THE_GROUND, IsTouchingTheGround());
+        Debug.DrawRay(this.transform.position, Vector2.down * 1.6f, Color.red);
+        if (GameManager.shareInstance.currentgameState == GameState.InGame)
+        {
+            if(joystick.Vertical > 0)
+            {
+                if (IsTouchingTheGround())
+                {
+                    rigidBody.AddForce(Vector2.up * verticalMove, ForceMode2D.Impulse);
+                    //transform.position += new Vector3(0, verticalMove, 0) * Time.deltaTime * runSpeed;
+                }
+            }
+            
+            //transform.position += new Vector3(horizontalMove, verticalMove, 0) * Time.deltaTime * runSpeed;
+            if (joystick.Horizontal < 0)
+            {
+                flipX.flipX = true;
+                transform.position += new Vector3(horizontalMove, 0, 0) * Time.deltaTime * runSpeed;
+            }
+            else if (joystick.Horizontal > 0)
+            {
+                flipX.flipX = false;
+                transform.position += new Vector3(horizontalMove, 0, 0) * Time.deltaTime * runSpeed;
+            }
+        }
+        if (healthPoints <= 0)
+        {
+            Die();
+        }
     }
 
-    private void MoveTeclas()
+    /*private void MoveTeclas()
     {
         //GetButtonDown("Jump")
         if (Input.GetKeyDown(KeyCode.Space))
@@ -106,7 +141,7 @@ public class PlayerController : MonoBehaviour
         {
             move(0);
         }
-    }
+    }*/
 
     void FixedUpdate()
     {
@@ -118,20 +153,20 @@ public class PlayerController : MonoBehaviour
         {
             animator.enabled = true;        // Si esta en mov, la animacion se reanuda 
         }*/
-        animator.SetBool(STATE_ON_THE_GROUND, IsTouchingTheGround());       // En cada frame, ubica si el jugador está o no el suelo y lo ubica en su sitio
-        Debug.DrawRay(this.transform.position, Vector2.down * 1.6f, Color.red);      // Debug permite probar cosas, en este caso dibuja un rayo rojo desde
+        //animator.SetBool(STATE_ON_THE_GROUND, IsTouchingTheGround());       // En cada frame, ubica si el jugador está o no el suelo y lo ubica en su sitio
+        //Debug.DrawRay(this.transform.position, Vector2.down * 1.6f, Color.red);      // Debug permite probar cosas, en este caso dibuja un rayo rojo desde
                                                                                      // el centro del jugador hacia el suelo
-        if (GameManager.shareInstance.currentgameState == GameState.InGame)
+        /*if (GameManager.shareInstance.currentgameState == GameState.InGame)
         {
             MoveTeclas();
         }
         if (healthPoints <= 0)
         {
             Die();
-        }
+        }*/
     }
 
-    void move(float direction)
+    /*void move(float direction)
     {
         rigidBody.velocity = new Vector2(direction, rigidBody.velocity.y);  // Da la velocidad de mov en X y Y
         if (Input.GetKey(KeyCode.A))
@@ -143,22 +178,34 @@ public class PlayerController : MonoBehaviour
             flipX.flipX = false;
         }
 
-    }
+    }*/
 
     // La forma en que salta, tomando la dirección, la fuerza y el modo de la fuerza
-    void Jump(bool superjump)
+    /*void Jump(bool superjump)
     {
         float jumpForceFactor = jumpForce;
-        if (superjump && manaPoints >= SUPERJUMP_COST)
+    //-----------
+        /*if (superjump && manaPoints >= SUPERJUMP_COST)
         {
             manaPoints -= SUPERJUMP_COST;
             jumpForceFactor *= SUPERJUMP_FORCE;
         }
+    //-----------
         if (IsTouchingTheGround())
         {
             rigidBody.AddForce(Vector2.up * jumpForceFactor, ForceMode2D.Impulse);
         }
-    }
+    }*/
+    /*void Jump(bool superjump)
+    {
+        float jumpForceFactor = runningSpeedVertical;
+
+        if (IsTouchingTheGround())
+        {
+            rigidBody.AddForce(Vector2.up * jumpForceFactor, ForceMode2D.Impulse);
+        }
+    }*/
+
 
     // Nos indica si el personaje está o no tocando el suelo
     bool IsTouchingTheGround()
@@ -195,24 +242,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void CollectMana(int points)
+    /*public void CollectMana(int points)
     {
         manaPoints += points;
         if (manaPoints >= MAX_MANA)
         {
             manaPoints = MAX_MANA;
         }
-    }
+    }*/
 
     public int GetHealth()
     {
         return healthPoints;
     }
 
-    public int GetMana()
+    /*public int GetMana()
     {
         return manaPoints;
-    }
+    }*/
 
     public float GetTravelledDistance()
     {
@@ -224,7 +271,7 @@ public class PlayerController : MonoBehaviour
         {
             case "MovilV":
                 //rigidBody.gravityScale = 17f;
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (joystick.Vertical > 0)
                 {
                     transform.position = transform.position;
                 }
