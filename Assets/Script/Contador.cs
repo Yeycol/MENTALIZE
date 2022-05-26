@@ -99,13 +99,18 @@ public class Contador : MonoBehaviour
             text_health.text = vidas.ToString();//Imprime las vidas en la interfaz
             currentTime = time;//Se establece que el tiempo actual es igual a el tiempo establecido en la variable publica
         }
-        if (scene.name != "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace" && scene.name != "YueScene")//Solo si la escena esdistinta a la establecida
+
+        if (scene.name != "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace")//Solo si la escena esdistinta a la establecida
         {
             GuardadoMonedas.CargarMonedas();// Se carga las monedas para poderlas visualizar la cantidad de monedas que se tiene
-            GuardadoMonedas.CargarPoints();//Se carga los puntos para ser mostrados por interfaz
             moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
-            points_ui.text = puntos.ToString();
-            if (scene.name == "Inicio")
+            if (scene.name != "YueScene")
+            {
+                GuardadoMonedas.CargarPoints();//Se carga los puntos para ser mostrados por interfaz
+                points_ui.text = puntos.ToString();
+            } 
+            
+            if (scene.name == "Inicio"&& scene.name != "YueScene")
             {
                 SliderInicio[0].value = puntos;
                 SliderInicio[1].value = pointsYue;
@@ -440,7 +445,7 @@ public class Contador : MonoBehaviour
    
             /*El objetivo de esta condicional es el de limitar el guardado de puntos cuando se juegue 
              por segunda vez un mismo nivel superado*/
-            if (sharecont.puntos <sharecont.MaxPoints)
+            if (sharecont.puntos <sharecont.MaxPoints&& sharecont.scene.name!="YueScene")
             {
                 //Si los puntos son menores al valor máximo de puntos en el nivel hará las siguientes acciones
                 sharecont.puntos += sharecont.value_Points;//Se incrementa el valor de la variable puntos de acuerdo al valor almacena en la variable Value Points

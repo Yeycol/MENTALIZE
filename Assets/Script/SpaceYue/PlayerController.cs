@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer flipX;
     Vector3 startPosition;
     float travelledDistance;
+    
 
     // Guarda el estado de si está vivo o en el suelo en las variables STATE_ALIVE y STATE_ON_THE_GROUND
     const string STATE_ALIVE = "isAlive";
@@ -39,7 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         //Indicamos a la música de este modo de juego que se reproduzca en bucle 
         startPosition = this.transform.position;
-        PlayerPrefs.SetFloat("maxscore", 0);
+        Contador.sharecont.text_health.text = Contador.sharecont.vidas.ToString();
         StartGame();
     }
 
@@ -254,7 +255,11 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Nave")
+        if(collision.tag == "Coin")
+        {
+            collision.gameObject.SetActive(false);
+            Contador.PointsAdd();
+        } else if(collision.tag == "Nave")
         {
             ControlNiveles.shareLvl.CambiarNivel(69);
         }
