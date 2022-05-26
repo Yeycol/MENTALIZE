@@ -93,13 +93,13 @@ public class Contador : MonoBehaviour
 
     public void InicializarDatosInterfaz()
     {
-        if (scene.name != "SelectLevel (Trivias)" && scene.name != "Tienda" && scene.name!="SelectLevelSpace" && scene.name!="Inicio"&& scene.name != "YueScene") //Solo si estamos en escenas distintas a las mencionadas
+        if (scene.name != "SelectLevel (Trivias)" && scene.name != "Tienda" && scene.name!="SelectLevelSpace" && scene.name!="Inicio"&& scene.name != "YueScene" && scene.name != "SceneCard") //Solo si estamos en escenas distintas a las mencionadas
         {
             textcont.text = contador.ToString() + range;//Se imprime el contador y el rango de la cantidad de preguntas que habrá en el nivel
             text_health.text = vidas.ToString();//Imprime las vidas en la interfaz
             currentTime = time;//Se establece que el tiempo actual es igual a el tiempo establecido en la variable publica
         }
-        if (scene.name != "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace" && scene.name != "YueScene")//Solo si la escena esdistinta a la establecida
+        if (scene.name != "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace" && scene.name != "YueScene" && scene.name != "SceneCard")//Solo si la escena esdistinta a la establecida
         {
             GuardadoMonedas.CargarMonedas();// Se carga las monedas para poderlas visualizar la cantidad de monedas que se tiene
             GuardadoMonedas.CargarPoints();//Se carga los puntos para ser mostrados por interfaz

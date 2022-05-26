@@ -238,7 +238,6 @@ public class PlayerController : MonoBehaviour
                 break;
             case "MovilL":
                 transform.position = new Vector2(collision.transform.position.x, transform.position.y);
-                rigidBody.gravityScale = 17f;
                 Debug.Log("Posición alterada");
                 //StartCoroutine("WaitMovilL");
                 break;

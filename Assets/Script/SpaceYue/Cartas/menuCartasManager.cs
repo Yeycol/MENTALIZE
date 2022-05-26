@@ -8,6 +8,7 @@ public class menuCartasManager : MonoBehaviour
 
     private void Awake()
     {
+        GameManager.shareInstance.StarGame();
         if (sharedInstance == null)
         {
             sharedInstance = this;
@@ -15,21 +16,15 @@ public class menuCartasManager : MonoBehaviour
     }
     [SerializeField] Canvas[] menuCanvas = new Canvas[2];
 
-    private void Start()
-    {
-        menuCanvas[0].enabled = false;
-        menuCanvas[1].enabled = false;       
-    }
-
     public void ShowVictory(int score)
     {
-        menuCanvas[0].enabled = true;
+        GameManager.shareInstance.WinGame();
         EstatusCartas.sharedInstance.WinPoints(score);
     }
 
     public void ShowDefeat(int score)
     {
-        menuCanvas[1].enabled = true;
+        GameManager.shareInstance.GameOver();
         EstatusCartas.sharedInstance.LosePoints(score);
     }
     public void NoShowVictory()

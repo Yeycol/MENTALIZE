@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TimerCartas : MonoBehaviour
 {
     Image timeBar;
-    public float maxTime = 5f;
+    public float maxTime = 40f;
     public float timeLeft;
 
     public static TimerCartas sharedInstance;
