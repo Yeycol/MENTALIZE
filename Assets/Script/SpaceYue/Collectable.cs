@@ -60,8 +60,8 @@ public class Collectable : MonoBehaviour
             break;
         }
     }
-    /*
-    void OnTriggerEnter2D(Collider2D collision)
+
+    /*void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player" && GameManager.shareInstance.currentgameState == GameState.InGame){
             Collect();
