@@ -71,10 +71,7 @@ public class PlayerController : MonoBehaviour
     // Si detecta el espacio o click derecho se desencadena el salto
     void Update()
     {   // Si estamos en partida, podemos movernos
-        if (GameManager.shareInstance.currentgameState == GameState.InGame)
-        {
-            MoveTeclas();
-        }
+        
         /*else
         {      // Si no estamos en partida, no hay velocidad en X
             rigidBody.velocity = new Vector2(0,rigidBody.velocity.y);
@@ -83,15 +80,14 @@ public class PlayerController : MonoBehaviour
 
     private void MoveTeclas()
     {
-        if (Input.GetButtonDown("Jump"))
+        //GetButtonDown("Jump")
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump(false);
-            rigidBody.gravityScale = 1f;
         }
         else if (Input.GetMouseButtonDown(0))
         {
             Jump(true);
-            rigidBody.gravityScale = 1f;
         }
 
         if (Input.GetKey(KeyCode.D))
@@ -119,8 +115,12 @@ public class PlayerController : MonoBehaviour
             animator.enabled = true;        // Si esta en mov, la animacion se reanuda 
         }*/
         animator.SetBool(STATE_ON_THE_GROUND, IsTouchingTheGround());       // En cada frame, ubica si el jugador está o no el suelo y lo ubica en su sitio
-        Debug.DrawRay(this.transform.position, Vector2.down * 1.5f, Color.red);      // Debug permite probar cosas, en este caso dibuja un rayo rojo desde
+        Debug.DrawRay(this.transform.position, Vector2.down * 1.6f, Color.red);      // Debug permite probar cosas, en este caso dibuja un rayo rojo desde
                                                                                      // el centro del jugador hacia el suelo
+        if (GameManager.shareInstance.currentgameState == GameState.InGame)
+        {
+            MoveTeclas();
+        }
         if (healthPoints <= 0)
         {
             Die();
@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
     // Nos indica si el personaje está o no tocando el suelo
     bool IsTouchingTheGround()
     {
-        if (Physics2D.Raycast(this.transform.position, Vector2.down, 1.5f,
+        if (Physics2D.Raycast(this.transform.position, Vector2.down, 1.6f,
                             groundMask))
         {
             return true;
@@ -220,7 +220,14 @@ public class PlayerController : MonoBehaviour
         {
             case "MovilV":
                 //rigidBody.gravityScale = 17f;
-                transform.position = new Vector2(transform.position.x, collision.transform.position.y + 1.65f);
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    transform.position = transform.position;
+                }
+                else
+                {
+                    transform.position = new Vector2(collision.transform.position.x, collision.transform.position.y + 1.65f);
+                }
                 break;
             case "MovilH":
                 transform.position = new Vector2(collision.transform.position.x, transform.position.y);

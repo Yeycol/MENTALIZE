@@ -9,10 +9,6 @@ public class CameraFollow : MonoBehaviour
     public float dampingTime = 0.2f;
     public Vector3 velocity = Vector3.zero;
 
-    private void Start()
-    {
-        offset = GetComponent<Vector3>();
-    }
     // Update is called once per frame
     void Update()
     {
