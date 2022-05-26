@@ -17,8 +17,8 @@ public class ManagerScene : MonoBehaviour
     public Canvas PortafolioDeVersiones;//Variable de tipo Canvas que hace referencia al canvas que mostrará La interfaz del pritafolio de Versiones
     public TextMeshProUGUI NoteOfVer;//Variable de tipo Tesh Mesh Pro que mostrará el texto d elas descripciones d ela nota de versión 
     public Image[] ReferencesButtonPor;//Array de tipo imagen que hacen referencia a las imágenes de los botones de Portafolio de Versiones 
-    public GameObject[] ReferencesObject;//Array d etipo objeto que almacenara los objetos con las componentes imagenes para que estas expandan las imágenes y permitan una mejor visualización 
-    public GameObject[] MarcoDesripciones;//Array que contiene los objetos a deshabilitar para mostrar la imagen Epandida
+    public GameObject[] ReferencesObject;//Array de tipo objeto que almacenara los objetos con las componentes imagenes para que estas expandan las imágenes y permitan una mejor visualización 
+    public GameObject[] MarcoDesripciones;//Array que contiene los objetos a deshabilitar para mostrar la imagen Expandida
     private void Awake()
     {
         if (shareMscen == null)
