@@ -9,11 +9,13 @@ public class PlayerController : MonoBehaviour
     //public float runningSpeed;     // Velocidad de movimiento horizontal
     public float runSpeed = 0;
     public float runningSpeedHorizontal = 3;
-    public float runningSpeedVertical = 3;
+    //public float runningSpeedVertical = 3;
     float horizontalMove = 0;
-    float verticalMove = 0;
+    //float verticalMove = 0;
+    [SerializeField] float jumpForce = 3f;
     Rigidbody2D rigidBody;  	        // Variable de física del cuerpo, es una variable 'privada', pero esta palabra se puede omitir
-    public Joystick joystick;
+    [SerializeField] Joystick joystickX;
+    [SerializeField] Joystick joystickY;
     public LayerMask groundMask;        // Variable de capa del suelo, modificable en interfaz
     Animator animator;
     SpriteRenderer flipX;
@@ -80,37 +82,39 @@ public class PlayerController : MonoBehaviour
     // Si detecta el espacio o click derecho se desencadena el salto
     void Update()
     {
-        verticalMove = joystick.Vertical * runningSpeedVertical;
-        horizontalMove = joystick.Horizontal * runningSpeedHorizontal;
+        //verticalMove = joystick.Vertical * runningSpeedVertical;
+        horizontalMove = joystickX.Horizontal * runningSpeedHorizontal;
 
         animator.SetBool(STATE_ON_THE_GROUND, IsTouchingTheGround());
         Debug.DrawRay(this.transform.position, Vector2.down * 1.6f, Color.red);
+        Movimiento();
+        if (healthPoints <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Movimiento()
+    {
         if (GameManager.shareInstance.currentgameState == GameState.InGame)
         {
-            if(joystick.Vertical > 0)
+            if (joystickY.Vertical >= 0.5 && IsTouchingTheGround())
             {
-                if (IsTouchingTheGround())
-                {
-                    rigidBody.AddForce(Vector2.up * verticalMove, ForceMode2D.Impulse);
-                    //transform.position += new Vector3(0, verticalMove, 0) * Time.deltaTime * runSpeed;
-                }
+                rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                //transform.position += new Vector3(0, verticalMove, 0) * Time.deltaTime * runSpeed;
             }
-            
+
             //transform.position += new Vector3(horizontalMove, verticalMove, 0) * Time.deltaTime * runSpeed;
-            if (joystick.Horizontal < 0)
+            if (joystickX.Horizontal < 0)
             {
                 flipX.flipX = true;
                 transform.position += new Vector3(horizontalMove, 0, 0) * Time.deltaTime * runSpeed;
             }
-            else if (joystick.Horizontal > 0)
+            else if (joystickX.Horizontal > 0)
             {
                 flipX.flipX = false;
                 transform.position += new Vector3(horizontalMove, 0, 0) * Time.deltaTime * runSpeed;
             }
-        }
-        if (healthPoints <= 0)
-        {
-            Die();
         }
     }
 
@@ -271,7 +275,7 @@ public class PlayerController : MonoBehaviour
         {
             case "MovilV":
                 //rigidBody.gravityScale = 17f;
-                if (joystick.Vertical > 0)
+                if (joystickY.Vertical > 0)
                 {
                     transform.position = transform.position;
                 }
@@ -287,7 +291,6 @@ public class PlayerController : MonoBehaviour
             case "MovilL":
                 transform.position = new Vector2(collision.transform.position.x, transform.position.y);
                 Debug.Log("Posición alterada");
-                //StartCoroutine("WaitMovilL");
                 break;
             /*default:
                 transform.position = transform.position;
@@ -311,9 +314,4 @@ public class PlayerController : MonoBehaviour
             ControlNiveles.shareLvl.CambiarNivel(69);
         }
     }
-    /*IEnumerator WaitMovilL()
-    {
-        yield return new WaitForSeconds(5f);
-        transform.position = transform.position;
-    }*/
 }
