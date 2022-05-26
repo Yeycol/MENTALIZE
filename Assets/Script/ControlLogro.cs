@@ -85,7 +85,7 @@ public class ControlLogro : MonoBehaviour
                 ElementsInterface[i].ButtonsInterface.interactable = false;//Se deshabilita la interacción de los botones de la interfaz Logros
                 ElementsInterface[i].Moneda.enabled = false;//Se deshabilita los iconos de moneda y fondo en la posición de id 
                 ElementsInterface[i].Fondo.enabled = false;
-                ElementsInterface[i].TextInterface.enabled = false;//Se deshabilita la componente texto de Inteerfaz Logros
+                ElementsInterface[i].TextInterface.enabled = false;//Se deshabilita la componente texto de Interfaz Logros
             }
         }
     }
