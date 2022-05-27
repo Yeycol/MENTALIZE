@@ -46,6 +46,7 @@ public class AnimaCon : MonoBehaviour
 
         }
         scene = SceneManager.GetActiveScene();
+        
     }
 
 
