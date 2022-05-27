@@ -58,8 +58,10 @@
   <ItemGroup>
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
+
     <Compile Include="Assets\Script\SpaceYue\Oscilador.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+
     <Compile Include="Assets\Script\SpaceYue\MovingPlatform.cs" />
     <Compile Include="Assets\Script\Option.cs" />
     <Compile Include="Assets\Script\SpaceYue\Cartas\TimerCartas.cs" />
@@ -138,7 +140,9 @@
     <Compile Include="Assets\Script\RefPerandBack.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Script\SpaceYue\PlayerController.cs" />
+
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
