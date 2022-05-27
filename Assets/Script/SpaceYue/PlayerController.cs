@@ -18,9 +18,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Joystick joystickY;
     public LayerMask groundMask;        // Variable de capa del suelo, modificable en interfaz
     Animator animator;
-    SpriteRenderer flipX;
+    SpriteRenderer spritePlayer;
     Vector3 startPosition;
     float travelledDistance;
+    [SerializeField] bool invulnerable;
+    [SerializeField] float parpadeoRate = 0.01f;
     
 
     // Guarda el estado de si está vivo o en el suelo en las variables STATE_ALIVE y STATE_ON_THE_GROUND
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        flipX = GetComponent<SpriteRenderer>();    // Otorga las caracteristicas de SpriteRenderer a flipX
+        spritePlayer = GetComponent<SpriteRenderer>();    // Otorga las caracteristicas de SpriteRenderer a flipX
         GameManager.shareInstance.StarGame();//Pasamos al jugador en estado de InGame
     }
     // Start is called before the first frame update
@@ -91,6 +93,7 @@ public class PlayerController : MonoBehaviour
         if (healthPoints <= 0)
         {
             Die();
+            gameObject.SetActive(false);
         }
     }
 
@@ -107,12 +110,12 @@ public class PlayerController : MonoBehaviour
             //transform.position += new Vector3(horizontalMove, verticalMove, 0) * Time.deltaTime * runSpeed;
             if (joystickX.Horizontal < 0)
             {
-                flipX.flipX = true;
+                spritePlayer.flipX = true;
                 transform.position += new Vector3(horizontalMove, 0, 0) * Time.deltaTime * runSpeed;
             }
             else if (joystickX.Horizontal > 0)
             {
-                flipX.flipX = false;
+                spritePlayer.flipX = false;
                 transform.position += new Vector3(horizontalMove, 0, 0) * Time.deltaTime * runSpeed;
             }
         }
@@ -234,7 +237,9 @@ public class PlayerController : MonoBehaviour
         }
 
         this.animator.SetBool(STATE_ALIVE, false);
+
         GameManager.shareInstance.GameOver();
+        gameObject.SetActive(false);
     }
 
     public void CollectHealth(int points)
@@ -312,6 +317,35 @@ public class PlayerController : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             ControlNiveles.shareLvl.CambiarNivel(69);
+        }else if(collision.tag == "Peligro")
+        {
+            if (invulnerable == true)
+            {
+                return;
+            }
+            Contador.ResetHealth();
+            invulnerable = true;
+            StartCoroutine(HacerVulnerable());
+            
+        }
+    }
+
+    IEnumerator HacerVulnerable()
+    {
+        StartCoroutine(Parpadeo());
+        yield return new WaitForSeconds(3);
+        invulnerable = false;
+    }
+    IEnumerator Parpadeo()
+    {
+        int t = 10;
+        while(t > 0)
+        {
+            spritePlayer.enabled = false;
+            yield return new WaitForSeconds(t * parpadeoRate);
+            spritePlayer.enabled = true;
+            yield return new WaitForSeconds(t * parpadeoRate);
+            t--;
         }
     }
 }
