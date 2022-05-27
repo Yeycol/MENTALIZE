@@ -72,7 +72,7 @@ public class ManagerScene : MonoBehaviour
     }
     public void LoadMenu(int ReferencesMenus)
     {
-        if(ReferencesMenus == 2)
+        if(ReferencesMenus == 3)
         {
             Screen.orientation = ScreenOrientation.Landscape;
         }
