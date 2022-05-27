@@ -64,7 +64,12 @@ public class ControlResolution : MonoBehaviour
                     ReferencesScalerScene[1].matchWidthOrHeight = 0.92f;
                     ObjectRecTransformGeneral[0].localScale = new Vector3(1.5f, 1.5f, 0f);
                     ObjectRecTransformGeneral[1].localPosition = new Vector2(1f, 0f);
-                }
+                } else if (ScenaAdaptable.name == "SelectLevel (Trivias)")
+                {
+                    ReferencesScalerScene[0].matchWidthOrHeight = 0.84f;
+                    ReferencesScalerScene[1].matchWidthOrHeight = 0.92f;
+                    ObjectRecTransformGeneral[1].localPosition = new Vector2(1f, 0f);
+                } 
                 break;
             case 0.46f://Sansung Galaxy S22+
                 if (ScenaAdaptable.name == "Inicio")
@@ -84,8 +89,13 @@ public class ControlResolution : MonoBehaviour
                     ReferencesScalerScene[1].matchWidthOrHeight = 0.92f;
                     ObjectRecTransformGeneral[0].localScale = new Vector3(1.5f, 1.5f, 0f);
                     ObjectRecTransformGeneral[1].localPosition = new Vector2(1f, 0f);
+                }else if (ScenaAdaptable.name == "SelectLevel (Trivias)")
+                {
+                    ReferencesScalerScene[0].matchWidthOrHeight = 0.85f;
+                    ReferencesScalerScene[1].matchWidthOrHeight = 0.92f;
+                    ObjectRecTransformGeneral[1].localPosition = new Vector2(1f, 0f);
                 }
-                    break;
+                break;
             case 0.47f://Sansung Galaxy Note 10 +
                 if (ScenaAdaptable.name == "Inicio")
                 {
@@ -106,6 +116,12 @@ public class ControlResolution : MonoBehaviour
                     ObjectRecTransformGeneral[0].localScale = new Vector3(1.5f, 1.5f, 0f);
                     ObjectRecTransformGeneral[1].localPosition = new Vector2(1f, 0f);
                 }
+                else if (ScenaAdaptable.name == "SelectLevel (Trivias)")
+                {
+                    ReferencesScalerScene[0].matchWidthOrHeight = 0.87f;
+                    ReferencesScalerScene[1].matchWidthOrHeight = 0.94f;
+                    ObjectRecTransformGeneral[1].localPosition = new Vector2(1f, 0f);
+                }
                 break;
             case 0.48f://Samsung Galaxy J6+
                 if (ScenaAdaptable.name == "Inicio")
@@ -122,9 +138,15 @@ public class ControlResolution : MonoBehaviour
                 }
                 else if (ScenaAdaptable.name == "SelectModoJuego")
                 {
-                    ReferencesScalerScene[0].matchWidthOrHeight = 0.86f;
+                    ReferencesScalerScene[0].matchWidthOrHeight = 0.89f;
                     ReferencesScalerScene[1].matchWidthOrHeight = 0.98f;
                     ObjectRecTransformGeneral[0].localScale = new Vector3(1.5f, 1.5f, 0f);
+                    ObjectRecTransformGeneral[1].localPosition = new Vector2(1f, 0f);
+                }
+                else if (ScenaAdaptable.name == "SelectLevel (Trivias)")
+                {
+                    ReferencesScalerScene[0].matchWidthOrHeight = 0.89f;
+                    ReferencesScalerScene[1].matchWidthOrHeight = 0.98f;
                     ObjectRecTransformGeneral[1].localPosition = new Vector2(1f, 0f);
                 }
                 break;
@@ -141,6 +163,19 @@ public class ControlResolution : MonoBehaviour
                 {
                     ReferencesScalerScene[3].matchWidthOrHeight = 0.80f;
                 }
+                else if (ScenaAdaptable.name == "SelectModoJuego")
+                {
+                    ReferencesScalerScene[0].matchWidthOrHeight = 0.81f;
+                    ReferencesScalerScene[1].matchWidthOrHeight = 0.86f;
+                    ObjectRecTransformGeneral[0].localScale = new Vector3(1.66f, 1.66f, 0f);
+                    ObjectRecTransformGeneral[1].localPosition = new Vector2(1f, 0f);
+                }
+                else if (ScenaAdaptable.name == "SelectLevel (Trivias)")
+                {
+                    ReferencesScalerScene[0].matchWidthOrHeight = 0.80f;
+                    ReferencesScalerScene[1].matchWidthOrHeight = 0.86f;
+                    ObjectRecTransformGeneral[1].localPosition = new Vector2(1f, 0f);
+                }
                 break;
             case 0.36f://Samsung W22 5G
                 if (ScenaAdaptable.name == "Inicio")
@@ -154,6 +189,18 @@ public class ControlResolution : MonoBehaviour
                 else if (ScenaAdaptable.name == "Carga")
                 {
                     ReferencesScalerScene[3].matchWidthOrHeight = 0.75f;
+                }else if (ScenaAdaptable.name == "SelectModoJuego")
+                {
+                    ReferencesScalerScene[0].matchWidthOrHeight = 0.74f;
+                    ReferencesScalerScene[1].matchWidthOrHeight = 0.81f;
+                    ObjectRecTransformGeneral[0].localScale = new Vector3(1.83f, 1.83f, 0f);
+                    ObjectRecTransformGeneral[1].localPosition = new Vector2(1f, 0f);
+                }
+                else if (ScenaAdaptable.name == "SelectLevel (Trivias)")
+                {
+                    ReferencesScalerScene[0].matchWidthOrHeight = 0.74f;
+                    ReferencesScalerScene[1].matchWidthOrHeight = 0.81f;
+                    ObjectRecTransformGeneral[1].localPosition = new Vector2(1f, 0f);
                 }
                 break;
             case 0.5f://Samsung Galaxy A6s
@@ -169,9 +216,22 @@ public class ControlResolution : MonoBehaviour
                 {
                     ReferencesScalerScene[3].matchWidthOrHeight = 0.92f;
                 }
+                else if (ScenaAdaptable.name == "SelectModoJuego")
+                {
+                    ReferencesScalerScene[0].matchWidthOrHeight = 0.92f;
+                    ReferencesScalerScene[1].matchWidthOrHeight = 1f;
+                    ObjectRecTransformGeneral[0].localScale = new Vector3(1.83f, 1.83f, 0f);
+                    ObjectRecTransformGeneral[1].localPosition = new Vector2(1f, 0f);
+                }
+                else if (ScenaAdaptable.name == "SelectLevel (Trivias)")
+                {
+                    ReferencesScalerScene[0].matchWidthOrHeight = 0.92f;
+                    ReferencesScalerScene[1].matchWidthOrHeight = 1f;
+                    ObjectRecTransformGeneral[1].localPosition = new Vector2(1f, 0f);
+                }
                 break;
 
-
+                
                 //TODO: Establecer mas relaciones de aspecto para adaptar la interfaz a diferente resoluciones
         }
     }
