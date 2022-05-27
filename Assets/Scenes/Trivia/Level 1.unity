@@ -430,7 +430,7 @@ MonoBehaviour:
   currentTime: 0
   range: /5
   value_Points: 1
-  value_moneda: 100
+  value_moneda: 10000
   moneda: 0
   scene:
     m_Handle: 0
@@ -2215,6 +2215,7 @@ MonoBehaviour:
   Fon: {fileID: 0}
   Perfil: 0
   Background: 0
+  AlmName: 
   Nameuser: {fileID: 2139086098}
   ObjectsUser:
   - {fileID: -6320689724038811481, guid: a0fdf8e4f7cc19549b661fb63ad5eeec, type: 3}
