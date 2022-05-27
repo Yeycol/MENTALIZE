@@ -87,7 +87,7 @@ public class Guardado : MonoBehaviour
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file3 = File.Create(RutaArchivo3);
-        Puntos datos3 = new Puntos (Contador.sharecont.puntos);
+        Puntos datos3 = new Puntos (Contador.sharecont.puntos,Contador.sharecont.pointsYue);
         bf.Serialize(file3, datos3);
         file3.Close();
     }
@@ -99,11 +99,13 @@ public class Guardado : MonoBehaviour
             FileStream file3 = File.Open(RutaArchivo3, FileMode.Open);
             Puntos datos3 = (Puntos)bf.Deserialize(file3);
             Contador.sharecont.puntos = datos3.GetPoints();
+            Contador.sharecont.pointsYue = datos3.GetPointsYue();
             file3.Close();
         }
         else
         {
             Contador.sharecont.puntos = 0;
+            Contador.sharecont.pointsYue = 0;
         }
     }
 
@@ -192,16 +194,23 @@ class Monedas
 class Puntos
 {
     private int PointsSave;
+    private int PointsYue;
 
-    public Puntos(int PuntosGanados)
+    public Puntos(int PuntosGanados, int PuntosYue)
     {
         PointsSave = PuntosGanados;
+        PointsYue=PuntosYue;
     }
     public int GetPoints()
     {
-        return PointsSave;
+        return PointsSave;  
     }
-    
+    public int GetPointsYue()
+    {
+        return PointsYue;
+    }
+
+
 }
 [System.Serializable]
 class IdObjetos

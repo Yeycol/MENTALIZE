@@ -72,6 +72,14 @@ public class ManagerScene : MonoBehaviour
     }
     public void LoadMenu(int ReferencesMenus)
     {
+        if(ReferencesMenus == 2)
+        {
+            Screen.orientation = ScreenOrientation.Landscape;
+        }
+        else
+        {
+            Screen.orientation = ScreenOrientation.Portrait;
+        }
         GameManager.shareInstance.BackToMenu();//Pasamos aa estado de menú
         SceneManager.LoadScene(ReferencesMenus);//Cargamos directamente la escena pasada por parámetro
     }

@@ -51,7 +51,7 @@ public class ControlNiveles : MonoBehaviour
     {
         //Este método recibe como parámetro un entero del indice de la escena a la que queremos dirigirnos 
         
-        if (Nivel == 6 || Nivel == 2||Nivel==3||Nivel==7)// Si el número de la escena pasada por argumento es igual a los valores establecidos en el condicional
+        if (Nivel == 6 || Nivel == 2||Nivel==3||Nivel==7 || Nivel == 2)// Si el número de la escena pasada por argumento es igual a los valores establecidos en el condicional
         {
             //Entonces llamará a la corrrutina encargada de cargar la escena del menú
             StartCoroutine(AnimatorTransitionSceneMenu(Nivel));
@@ -158,7 +158,7 @@ public void FalseButton()
         for (int i = 0; i < LvlDesbloqueoSpace+1; i++)
         {
             BotonesSpace[i].interactable = true;//Habilitamos la interacción de los botones, que corresponden a los niveles desbloqueados
-            BotonesSpace[i].image.sprite = GroupImageChange[2];
+            BotonesSpace[i].image.sprite = GroupImageChange[1];
             TextButtonSpace[i].text= (i+1).ToString();
         }
     }
@@ -169,7 +169,7 @@ public void FalseButton()
         {
             if (BotonesSpace[i].interactable == false)
             {
-                BotonesSpace[i].image.sprite = GroupImageChange[3];
+                BotonesSpace[i].image.sprite = GroupImageChange[0];
                 TextButtonSpace[i].text = " ?";
             }
         }

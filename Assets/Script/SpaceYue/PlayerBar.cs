@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum BarType{
-    healthBar,
-    manaBar
+    healthBar
+    //,manaBar
 }
 
 public class PlayerBar : MonoBehaviour
@@ -20,9 +20,9 @@ public class PlayerBar : MonoBehaviour
            case BarType.healthBar:
                 slider.maxValue = PlayerController.MAX_HEALTH;
             break;
-            case BarType.manaBar:
+            /*case BarType.manaBar:
                 slider.maxValue = PlayerController.MAX_MANA;
-            break;
+            break;*/
        }
     }
 
@@ -34,10 +34,10 @@ public class PlayerBar : MonoBehaviour
                 slider.value = GameObject.Find("YuePlayer").
                     GetComponent<PlayerController>().GetHealth();
             break;
-            case BarType.manaBar:
+            /*case BarType.manaBar:
                 slider.value = GameObject.Find("YuePlayer").
                     GetComponent<PlayerController>().GetMana();
-            break;
+            break;*/
         }
     }
 }

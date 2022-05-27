@@ -13,7 +13,7 @@ public class OptionButton: MonoBehaviour
     private Text text = null;// Hace referencia al texto de la opción
     private Button buttons = null;//Hace referencia a los botones de las opciones
     private Image img = null;//Hace referencia a la imagend e los botones
-    public Option Option { get; set; } //Aqui estamos almamcenando y recuperando un valor, en este caso la opción seleccionada
+    public Option Option; //{ get; set; } //Aqui estamos almamcenando y recuperando un valor, en este caso la opción seleccionada
     private Color origincolor = Color.white;//Referencia del color original de la imagen de los botones
 
     // Actión es un método que nos permite encapsular una función donde nos retorna un Valor nulo//

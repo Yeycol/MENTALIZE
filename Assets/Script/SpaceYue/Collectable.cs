@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum CollectableType{
     healthPotion,
-    manaPotion,
+    //manaPotion,
     money
 }
 
@@ -55,13 +55,13 @@ public class Collectable : MonoBehaviour
                 player.GetComponent<PlayerController>().CollectHealth(this.value);
             break;
 
-            case CollectableType.manaPotion:
+            /*case CollectableType.manaPotion:
                 player.GetComponent<PlayerController>().CollectMana(this.value);
-            break;
+            break;*/
         }
     }
-    /*
-    void OnTriggerEnter2D(Collider2D collision)
+
+    /*void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player" && GameManager.shareInstance.currentgameState == GameState.InGame){
             Collect();
