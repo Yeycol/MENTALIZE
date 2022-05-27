@@ -26,7 +26,7 @@ public class menuCartasManager : MonoBehaviour
     public void ShowVictory(int score)
     {
         GameManager.shareInstance.WinGame();
-
+        AnimaCon.ShareAnimation.StartPadlock();
         WinPoints(score);
     }
 
