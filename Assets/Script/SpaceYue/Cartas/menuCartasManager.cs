@@ -28,12 +28,16 @@ public class menuCartasManager : MonoBehaviour
         GameManager.shareInstance.WinGame();
         AnimaCon.ShareAnimation.StartPadlock();
         WinPoints(score);
+        Contador.sharecont.pointsYue += score;
+        Contador.sharecont.GuardadoMonedas.GuardarPoints();
     }
 
     public void ShowDefeat(int score)
     {
         GameManager.shareInstance.GameOver();
         LosePoints(score);
+        Contador.sharecont.pointsYue -= score;
+        Contador.sharecont.GuardadoMonedas.GuardarPoints();
     }
     public void NoShowVictory()
     {
