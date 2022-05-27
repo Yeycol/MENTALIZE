@@ -263,8 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39578f933211e344a71b4e0fe46bdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreWin: {fileID: 1314072054}
-  ScoreLose: {fileID: 122105999}
+  ScoreWin: {fileID: 872103399}
+  ScoreLose: {fileID: 1542319514}
 --- !u!1 &75733499
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,17 +599,6 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 4576550698288414133, guid: b2a8da22b3c39d94c8b7eb2b870b8c18, type: 3}
   m_PrefabInstance: {fileID: 122105996}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &122105999 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4576550698154521514, guid: b2a8da22b3c39d94c8b7eb2b870b8c18, type: 3}
-  m_PrefabInstance: {fileID: 122105996}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &206090043
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,19 +681,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Contador, Assembly-CSharp
-        m_MethodName: resetcont
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1978148754}
         m_TargetAssemblyTypeName: EventSounds, Assembly-CSharp
         m_MethodName: ButtonSelect
         m_Mode: 1
@@ -716,7 +693,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 519295374}
+        m_TargetAssemblyTypeName: Contador, Assembly-CSharp
+        m_MethodName: resetcont
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 851917065}
         m_TargetAssemblyTypeName: AnimaCon, Assembly-CSharp
         m_MethodName: DesactivateConfeti
         m_Mode: 1
@@ -924,7 +913,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 851917065}
         m_TargetAssemblyTypeName: AnimaCon, Assembly-CSharp
         m_MethodName: DesactivateAlert
         m_Mode: 1
@@ -1141,7 +1130,7 @@ RectTransform:
   m_GameObject: {fileID: 436726163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 16.345148, y: 16.345148, z: 16.345148}
+  m_LocalScale: {x: 9.268401, y: 9.268401, z: 9.268401}
   m_Children:
   - {fileID: 749364694}
   - {fileID: 206090044}
@@ -1156,7 +1145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 12.587, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &437338329
@@ -1252,7 +1241,7 @@ MonoBehaviour:
   moneda: 0
   scene:
     m_Handle: 0
-  GuardadoMonedas: {fileID: 0}
+  GuardadoMonedas: {fileID: 1336050662}
   pointsinv: 0
   Oneintro: No
   TimeReferences: 0
@@ -1926,10 +1915,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
-        m_MethodName: CambiarNivel
-        m_Mode: 3
+      - m_Target: {fileID: 1978148754}
+        m_TargetAssemblyTypeName: EventSounds, Assembly-CSharp
+        m_MethodName: ButtonSelect
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1938,19 +1927,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EventSounds, Assembly-CSharp
-        m_MethodName: ButtonSelect
-        m_Mode: 1
+      - m_Target: {fileID: 1336050663}
+        m_TargetAssemblyTypeName: ControlNiveles, Assembly-CSharp
+        m_MethodName: CambiarNivel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 851917065}
         m_TargetAssemblyTypeName: AnimaCon, Assembly-CSharp
         m_MethodName: DesactivateConfeti
         m_Mode: 1
@@ -2484,6 +2473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86b467e8c43a7b34182fbfeaa2f19de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreWin: {fileID: 1744774465}
+  ScoreLose: {fileID: 1542319514}
   menuCanvas:
   - {fileID: 1314072053}
   - {fileID: 122105998}
@@ -2725,7 +2716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1239683403
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3293,17 +3284,6 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 6572014015512794703, guid: 4bd0c5864f88e4e458b495f95856ed3d, type: 3}
   m_PrefabInstance: {fileID: 1314072051}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1314072054 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6572014014585260391, guid: 4bd0c5864f88e4e458b495f95856ed3d, type: 3}
-  m_PrefabInstance: {fileID: 1314072051}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1319885272
 GameObject:
   m_ObjectHideFlags: 0
@@ -4428,7 +4408,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 422636749}
         m_TargetAssemblyTypeName: ManagerScene, Assembly-CSharp
         m_MethodName: QuitApplication
         m_Mode: 1
@@ -4777,19 +4757,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Contador, Assembly-CSharp
-        m_MethodName: resetcont
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1978148754}
         m_TargetAssemblyTypeName: EventSounds, Assembly-CSharp
         m_MethodName: ButtonSelect
         m_Mode: 1
@@ -4801,7 +4769,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 519295374}
+        m_TargetAssemblyTypeName: Contador, Assembly-CSharp
+        m_MethodName: resetcont
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 851917065}
         m_TargetAssemblyTypeName: AnimaCon, Assembly-CSharp
         m_MethodName: DesactivateConfeti
         m_Mode: 1

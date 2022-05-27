@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class menuCartasManager : MonoBehaviour
 {
+    [SerializeField] Text ScoreWin;
+    [SerializeField] Text ScoreLose;
     public static menuCartasManager sharedInstance;
 
     private void Awake()
@@ -23,13 +26,18 @@ public class menuCartasManager : MonoBehaviour
     public void ShowVictory(int score)
     {
         GameManager.shareInstance.WinGame();
-        EstatusCartas.sharedInstance.WinPoints(score);
+        AnimaCon.ShareAnimation.StartPadlock();
+        WinPoints(score);
+        Contador.sharecont.pointsYue += score;
+        Contador.sharecont.GuardadoMonedas.GuardarPoints();
     }
 
     public void ShowDefeat(int score)
     {
         GameManager.shareInstance.GameOver();
-        EstatusCartas.sharedInstance.LosePoints(score);
+        LosePoints(score);
+        Contador.sharecont.pointsYue -= score;
+        Contador.sharecont.GuardadoMonedas.GuardarPoints();
     }
     public void NoShowVictory()
     {
@@ -39,5 +47,13 @@ public class menuCartasManager : MonoBehaviour
     public void NoShowDefeat()
     {
         menuCanvas[1].enabled = false;
+    }
+    public void WinPoints(int score)
+    {
+        ScoreWin.text = score.ToString() + " Pts.";
+    }
+    public void LosePoints(int score)
+    {
+        ScoreLose.text = score.ToString() + " Pts.";
     }
 }

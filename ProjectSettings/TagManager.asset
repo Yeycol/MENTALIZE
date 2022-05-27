@@ -16,6 +16,7 @@ TagManager:
   - MovilL
   - Movil
   - Nave
+  - Peligro
   layers:
   - Default
   - TransparentFX

@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class EstatusCartas : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI ScoreWin;
-    [SerializeField] TextMeshProUGUI ScoreLose;
+    [SerializeField] Text ScoreWin;
+    [SerializeField] Text ScoreLose;
     public static EstatusCartas sharedInstance;
 
     private void Awake()
@@ -15,11 +16,11 @@ public class EstatusCartas : MonoBehaviour
     }
     public void WinPoints(int score)
     {
-        ScoreWin.SetText(score.ToString() + " Pts.");
+        ScoreWin.text = score.ToString() + " Pts.";
     }
 
     public void LosePoints(int score)
     {
-        ScoreLose.SetText(score.ToString() + " Pts.");
+        ScoreLose.text = score.ToString() + " Pts.";
     }
 }

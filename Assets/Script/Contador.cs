@@ -422,6 +422,9 @@ public class Contador : MonoBehaviour
             case "YueScene":
                 ControlNiveles.shareLvl.CambiarNivel(67);
                 break;
+            case "SceneCard":
+                ControlNiveles.shareLvl.CambiarNivel(69);
+                break;
 
         }
     }
