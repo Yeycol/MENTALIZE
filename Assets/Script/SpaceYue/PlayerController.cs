@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.shareInstance.currentgameState == GameState.InGame)
         {
-            if (joystickY.Vertical >= 0.5 && IsTouchingTheGround())
+            if (joystickX.Vertical >= 0.5 && IsTouchingTheGround())
             {
                 rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 //transform.position += new Vector3(0, verticalMove, 0) * Time.deltaTime * runSpeed;
@@ -275,7 +275,7 @@ public class PlayerController : MonoBehaviour
         {
             case "MovilV":
                 //rigidBody.gravityScale = 17f;
-                if (joystickY.Vertical > 0)
+                if (joystickX.Vertical > 0)
                 {
                     transform.position = transform.position;
                 }

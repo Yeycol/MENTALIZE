@@ -66,7 +66,7 @@ public class Contador : MonoBehaviour
     {
 
         //Aqui se esta evaluando a cada frame, si estamos en en modo juego ejecutar� las instrucciones establecidas en las condicionales
-        if (GameManager.shareInstance.currentgameState == GameState.InGame && scene.name != "YueScene")
+        if (GameManager.shareInstance.currentgameState == GameState.InGame && scene.name != "YueScene" && scene.name != "SceneCard")
         {
             //Las siguientes condicionales estan encargadads de evaluar un booleano que permite que el llamado al m�todo event time sea llamado a cada 5 frames 
             //Esto da el efecto que el tiempo vaya mas lento, as� evitando que el tiempo sea arrebatado cuando una animaci�n se encuentra activa 
