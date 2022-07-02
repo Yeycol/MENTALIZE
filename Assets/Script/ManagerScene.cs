@@ -72,7 +72,7 @@ public class ManagerScene : MonoBehaviour
     }
     public void LoadMenu(int ReferencesMenus)
     {
-        if(ReferencesMenus == 3)
+        if(ReferencesMenus == 3 || ReferencesMenus == 68)
         {
             Screen.orientation = ScreenOrientation.Landscape;
         }
@@ -99,7 +99,7 @@ public class ManagerScene : MonoBehaviour
     public void ActiveCanvasAnimaScene()
     {
         //Método encargado de habilitar el canvas de las trancisiones entre escenas
-        SceneAnima.enabled = true;
+        SceneAnima.enabled = true; 
     }
 
     public void QuitApplication()
