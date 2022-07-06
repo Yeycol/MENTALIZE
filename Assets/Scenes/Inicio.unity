@@ -6539,7 +6539,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028642082}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -7416,6 +7416,7 @@ MonoBehaviour:
   TwoMinPoints: 0
   ThreeMinPoints: 0
   ReferContinue: {fileID: 0}
+  pointsYue: 0
 --- !u!4 &1218427456
 Transform:
   m_ObjectHideFlags: 0

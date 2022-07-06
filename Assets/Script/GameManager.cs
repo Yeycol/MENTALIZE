@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         if (shareInstance == null)
         {
             shareInstance = this;
-            DontDestroyOnLoad(gameObject);//Método que evita que las configuraciones y datos almacenados en las variables de la anterior escena no sean borradas al pasar a una nueva
+            DontDestroyOnLoad(gameObject);//Método que evita que las configuraciones y datos almacenados en las variables de la anterior escena no sean borradas al pasar a una nueva escena
            
         }
         else
