@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour
     //public float runningSpeed;     // Velocidad de movimiento horizontal
     public float runSpeed = 0;
     public float runningSpeedHorizontal = 3;
-    //public float runningSpeedVertical = 3;
+    public float runningSpeedVertical = 3;  //DESACTIVAR
     float horizontalMove = 0;
-    //float verticalMove = 0;
+    float verticalMove = 0; //DESACTIVAR
     [SerializeField] float jumpForce = 3f;
     Rigidbody2D rigidBody;  	        // Variable de física del cuerpo, es una variable 'privada', pero esta palabra se puede omitir
     [SerializeField] Joystick joystickX;
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
     // Si detecta el espacio o click derecho se desencadena el salto
     void Update()
     {
-        //verticalMove = joystick.Vertical * runningSpeedVertical;
+        verticalMove = joystickY.Vertical * runningSpeedVertical;    //DESACTIVAR
         horizontalMove = joystickX.Horizontal * runningSpeedHorizontal;
 
         animator.SetBool(STATE_ON_THE_GROUND, IsTouchingTheGround());
@@ -101,10 +101,10 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.shareInstance.currentgameState == GameState.InGame)
         {
-            if (joystickX.Vertical >= 0.5 && IsTouchingTheGround())
+            if (joystickY.Vertical >= 0.5 && IsTouchingTheGround()) //joystickY DESACTIVAR
             {
                 rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-                //transform.position += new Vector3(0, verticalMove, 0) * Time.deltaTime * runSpeed;
+                transform.position += new Vector3(0, verticalMove, 0) * Time.deltaTime * runSpeed;  //DESACTIVAR
             }
 
             //transform.position += new Vector3(horizontalMove, verticalMove, 0) * Time.deltaTime * runSpeed;
@@ -280,7 +280,7 @@ public class PlayerController : MonoBehaviour
         {
             case "MovilV":
                 //rigidBody.gravityScale = 17f;
-                if (joystickX.Vertical > 0)
+                if (joystickY.Vertical > 0) //joystickY DESACTIVAR
                 {
                     transform.position = transform.position;
                 }

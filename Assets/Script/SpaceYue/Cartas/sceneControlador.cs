@@ -56,7 +56,8 @@ public class sceneControlador : MonoBehaviour
     }
     private void Update()
     {
-        EvaluarVictoria();
+        
+        if(GameManager.shareInstance.currentgameState == GameState.InGame) EvaluarVictoria();
     }
 
     private void EvaluarVictoria()
@@ -70,7 +71,7 @@ public class sceneControlador : MonoBehaviour
         }
         else if (score >= 0 && score < 6 && TimerCartas.sharedInstance.timeLeft == 0)
         {
-            scoreGame = -20;
+            scoreGame = 20;
             menuCartasManager.sharedInstance.ShowDefeat(scoreGame);
         }
     }
