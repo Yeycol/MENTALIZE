@@ -1,0 +1,15 @@
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\bin\Debug\net6.0\Prácticas.exe
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\bin\Debug\net6.0\Prácticas.deps.json
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\bin\Debug\net6.0\Prácticas.runtimeconfig.json
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\bin\Debug\net6.0\Prácticas.dll
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\bin\Debug\net6.0\Prácticas.pdb
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\obj\Debug\net6.0\Prácticas.csproj.AssemblyReference.cache
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\obj\Debug\net6.0\Prácticas.GeneratedMSBuildEditorConfig.editorconfig
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\obj\Debug\net6.0\Prácticas.AssemblyInfoInputs.cache
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\obj\Debug\net6.0\Prácticas.AssemblyInfo.cs
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\obj\Debug\net6.0\Prácticas.csproj.CoreCompileInputs.cache
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\obj\Debug\net6.0\Prácticas.dll
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\obj\Debug\net6.0\refint\Prácticas.dll
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\obj\Debug\net6.0\Prácticas.pdb
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\obj\Debug\net6.0\Prácticas.genruntimeconfig.cache
+D:\Developer\MENTALIZE\Prácticahastalosmétodos\Prácticas\obj\Debug\net6.0\ref\Prácticas.dll

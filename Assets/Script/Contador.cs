@@ -58,7 +58,8 @@ public class Contador : MonoBehaviour
         PlayerPrefs.DeleteKey("ActivarEvento");
         PlayerPrefs.DeleteKey("ExtraMoneda");
         PlayerPrefs.DeleteKey("Time");
-        PlayerPrefs.DeleteKey("Live");*/
+        PlayerPrefs.DeleteKey("Live");
+        PlayerPrefs.DeleteKey("MonedaYue");*/
         CargarEquipament();//Se llama al m�todo encargado de Cargar vi    das extras y el tiempo extra pasado por referencia etc
         InicializarDatosInterfaz();//Cuando inicia el juego debemos imprimer el valor que hayan adquirido las variables al iniciar el juego     
     }
@@ -100,7 +101,9 @@ public class Contador : MonoBehaviour
             currentTime = time;//Se establece que el tiempo actual es igual a el tiempo establecido en la variable publica
         }
 
-        if (scene.name != "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace")//Solo si la escena esdistinta a la establecida
+
+        if (scene.name != "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace" )//Solo si la escena esdistinta a la establecida
+
         {
             GuardadoMonedas.CargarMonedas();// Se carga las monedas para poderlas visualizar la cantidad de monedas que se tiene
             moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
@@ -454,11 +457,12 @@ public class Contador : MonoBehaviour
                 sharecont.puntos += sharecont.value_Points;//Se incrementa el valor de la variable puntos de acuerdo al valor almacena en la variable Value Points
                 sharecont.points_ui.text = sharecont.puntos.ToString();//Se imprime el valor de puntos por la variable tipo texto ubicada en interfaz gr�fica
             }
-
+                     
         sharecont.pointsinv += sharecont.value_Points;//Se incrementa el valor de los puntos invicibles de acuerdo al valor establecido en valor de puntos
         sharecont.moneda += sharecont.value_moneda;//Se incrementa el valor de la moneda de acuerdo al valor establecido de la moneda por nivel
         sharecont.moneda_ui.text = sharecont.moneda.ToString();//Se imprime el valor de monedas ganadas por interfaz  
         sharecont.monedawin+=sharecont.value_moneda;//Se incrementa el valor de las monedas del win de acuerdo al valor que se esten dando en este nivel, con la finalidad de ser mostradas al ganar la partida en el canvas
+        PlayerPrefs.SetInt("MonedaYue",sharecont.monedawin);
     }
 
     public void SaveEquipament(int vidas, float extratime, int MonedaExtra)

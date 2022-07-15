@@ -102,6 +102,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.shareInstance.currentgameState == GameState.InGame)
         {
             if (joystickY.Vertical >= 0.5 && IsTouchingTheGround()) //joystickY DESACTIVAR
+
             {
                 rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 transform.position += new Vector3(0, verticalMove, 0) * Time.deltaTime * runSpeed;  //DESACTIVAR
@@ -280,7 +281,9 @@ public class PlayerController : MonoBehaviour
         {
             case "MovilV":
                 //rigidBody.gravityScale = 17f;
+
                 if (joystickY.Vertical > 0) //joystickY DESACTIVAR
+
                 {
                     transform.position = transform.position;
                 }
