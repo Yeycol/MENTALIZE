@@ -111,7 +111,10 @@ public class Contador : MonoBehaviour
             {
                 GuardadoMonedas.CargarPoints();//Se carga los puntos para ser mostrados por interfaz
                 points_ui.text = puntos.ToString();
-            } 
+            } else if (scene.name=="SceneCard")
+            {
+                monedawin = PlayerPrefs.GetInt("MonedaYue");
+            }
             
             if (scene.name == "Inicio")
             {
