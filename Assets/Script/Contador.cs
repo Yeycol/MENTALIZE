@@ -101,7 +101,9 @@ public class Contador : MonoBehaviour
             currentTime = time;//Se establece que el tiempo actual es igual a el tiempo establecido en la variable publica
         }
 
+
         if (scene.name != "SelectLevel (Trivias)" && scene.name != "SelectLevelSpace" )//Solo si la escena esdistinta a la establecida
+
         {
             GuardadoMonedas.CargarMonedas();// Se carga las monedas para poderlas visualizar la cantidad de monedas que se tiene
             moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
