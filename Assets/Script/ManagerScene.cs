@@ -69,7 +69,7 @@ public class ManagerScene : MonoBehaviour
     {
         //Desactiva el Canvas del GameOver 
         GameOver.enabled = false;
-    }
+    }                       
     public void LoadMenu(int ReferencesMenus)
     {
         if(ReferencesMenus == 3 || ReferencesMenus == 68)
