@@ -111,9 +111,9 @@ public class Contador : MonoBehaviour
             {
                 GuardadoMonedas.CargarPoints();//Se carga los puntos para ser mostrados por interfaz
                 points_ui.text = puntos.ToString();
-            } else if (scene.name=="SceneCard")
+            } else if (scene.name=="SceneCard") // En este caso se evalua si nos encontramos en la escena de Scene Card para que solo en esta se cargue las monedas de los player prefs
             {
-                monedawin = PlayerPrefs.GetInt("MonedaYue");
+                monedawin = PlayerPrefs.GetInt("MonedaYue");// Cargamos el valor almacenado de las monedas que se guardaron previamente a entrar a la escena del juego de cartas
             }
             
             if (scene.name == "Inicio")
@@ -465,7 +465,8 @@ public class Contador : MonoBehaviour
         sharecont.moneda += sharecont.value_moneda;//Se incrementa el valor de la moneda de acuerdo al valor establecido de la moneda por nivel
         sharecont.moneda_ui.text = sharecont.moneda.ToString();//Se imprime el valor de monedas ganadas por interfaz  
         sharecont.monedawin+=sharecont.value_moneda;//Se incrementa el valor de las monedas del win de acuerdo al valor que se esten dando en este nivel, con la finalidad de ser mostradas al ganar la partida en el canvas
-        PlayerPrefs.SetInt("MonedaYue",sharecont.monedawin);
+        if(Contador.sharecont.scene.name=="YueScene")//Solo Si estamos en Yue Scene Va a guardarse la cantidad de monedas obtenidas
+        PlayerPrefs.SetInt("MonedaYue",sharecont.monedawin);//Cada que llamamos al método encargado de aumentar el valor de las monedas conseguidas mandamos a que se guarden la cantidad de monedas obtenidas en ese momento
     }
 
     public void SaveEquipament(int vidas, float extratime, int MonedaExtra)
