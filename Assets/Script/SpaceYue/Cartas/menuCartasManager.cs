@@ -28,6 +28,8 @@ public class menuCartasManager : MonoBehaviour
         GameManager.shareInstance.WinGame();
         AnimaCon.ShareAnimation.StartPadlock();
         WinPoints(score);
+        Contador.sharecont.moneda += Contador.sharecont.monedawin;
+        Contador.sharecont.GuardadoMonedas.GuardarMonedas();
         Contador.sharecont.pointsYue += score;
         Contador.sharecont.GuardadoMonedas.GuardarPoints();
     }
