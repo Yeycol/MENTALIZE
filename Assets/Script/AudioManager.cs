@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class AudioManager : MonoBehaviour
     public GameObject[] ButtonInterfacePause = new GameObject[2];//Referencia de los botones del canvas de la pausa
     public Image FondInterfaceCanvas;//Variable de tipo Image que pretende almacenar el objeto con la componente image
     public Sprite [] IntercambioImage= new Sprite[2];//Variable de tipo sprite que almacenará el sprite de interfaceOpciones
+    public RectTransform InterfacePause;//Variable que pretende almacenar la posición, rotación, etc de la interfaz de pausa
     private void Awake()
     {
       if (shareaudio == null)
@@ -25,7 +27,7 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-       
+  
 
     }
 
@@ -34,7 +36,6 @@ public class AudioManager : MonoBehaviour
         //Método que establece un volumén inicial
  
             Inicializar();
-
     }
 
     // Update is called once per frame
@@ -132,7 +133,7 @@ public class AudioManager : MonoBehaviour
             ButtonInterfacePause[0].SetActive(true);//Habilitamos los otros botones necesarios en Ingame 
             ButtonInterfacePause[1].SetActive(true);
             FondInterfaceCanvas.sprite = IntercambioImage[1];//Cambiamos el sprite  de la componente image para Pausa
-        }
+        } 
         Musica1.value = PlayerPrefs.GetFloat("Mus");
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
@@ -170,7 +171,7 @@ public class AudioManager : MonoBehaviour
     public void ReturnMenu()
     {
         //Método encargado de volver al menú del videojuego
-        if (Contador.sharecont.scene.name != "YueScene")
+        if (Contador.sharecont.scene.name != "YueScene" && Contador.sharecont.scene.name != "SceneCard")
         {
             ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al método encargado de desahabilitar los botones de las trivias
         }
@@ -183,7 +184,7 @@ public class AudioManager : MonoBehaviour
 
         //Método encargado de resetear la partida en modo pausa
         Contador.sharecont.resetcont();//Se llama al método encargado de resetear la partida
-        if (Contador.sharecont.scene.name != "YueScene")
+        if (Contador.sharecont.scene.name != "YueScene" && Contador.sharecont.scene.name != "SceneCard")
         {
             ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al método encargado de desahabilitar los botones de las trivias
         }

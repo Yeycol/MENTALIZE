@@ -2459,6 +2459,7 @@ MonoBehaviour:
   IntercambioImage:
   - {fileID: -2437836408048091623, guid: 1941e345d49cc024cb75d427799972de, type: 3}
   - {fileID: -3887745384209591016, guid: 1941e345d49cc024cb75d427799972de, type: 3}
+  InterfacePause: {fileID: 1648927193}
 --- !u!4 &456155945
 Transform:
   m_ObjectHideFlags: 0
