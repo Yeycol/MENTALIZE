@@ -42,7 +42,8 @@ public class Contador : MonoBehaviour
     public int TwoMinPoints;//Variable de tipo entera que almacena el segundo valor minimo para ganar partida
     public int ThreeMinPoints;//Variable de tipo entera que almacena el tercer valor minimo para ganar partida 
     public Button ReferContinue;//Varibale de tipo button que prentende desactivar la interacci�n del bot�n continuar
-    public int pointsYue;//Variable que pretende almacenar los puntos conseguidos en el modo de juego Space Yue 
+    public int pointsYue;//Variable que pretende almacenar los puntos conseguidos en el modo de juego Space Yue
+    public int controlCoinsYue;
     void Awake()
     {
         if (sharecont == null)
@@ -111,9 +112,13 @@ public class Contador : MonoBehaviour
             {
                 GuardadoMonedas.CargarPoints();//Se carga los puntos para ser mostrados por interfaz
                 points_ui.text = puntos.ToString();
-            } else if (scene.name=="SceneCard") // En este caso se evalua si nos encontramos en la escena de Scene Card para que solo en esta se cargue las monedas de los player prefs
+            } else if (scene.name=="SceneCard" && controlCoinsYue == 0) // En este caso se evalua si nos encontramos en la escena de Scene Card para que solo en esta se cargue las monedas de los player prefs
             {
                 monedawin = PlayerPrefs.GetInt("MonedaYue");// Cargamos el valor almacenado de las monedas que se guardaron previamente a entrar a la escena del juego de cartas
+                moneda += monedawin;
+                moneda_ui.text = moneda.ToString();
+                controlCoinsYue = 1;
+                PlayerPrefs.SetInt("controlCoinsYue", controlCoinsYue);
             }
             
             if (scene.name == "Inicio")
@@ -484,6 +489,7 @@ public class Contador : MonoBehaviour
         TimeReferences = PlayerPrefs.GetFloat("Time");//Se establece la cantidad de tiempo extra que da la carta 
         Oneintro = PlayerPrefs.GetString("ActivarEvento");//Se carga en este caso la activaci�n del evento , para que se otrogue vidas extras
         monedaextra = PlayerPrefs.GetInt("ExtraMoneda");//Se establece la cantidad de monedas extras que se dar�n al ganar una partida
+        controlCoinsYue = PlayerPrefs.GetInt("controlCoinsYue");
 
     }
     IEnumerator WaitExtraTime()

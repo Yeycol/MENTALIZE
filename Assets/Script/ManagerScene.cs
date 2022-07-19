@@ -75,7 +75,6 @@ public class ManagerScene : MonoBehaviour
         if(ReferencesMenus == 3 || ReferencesMenus == 68)
         {
             Screen.orientation = ScreenOrientation.Landscape;
-            PlayerPrefs.DeleteKey("MonedaYue");
             AudioManager.shareaudio.InterfacePause.localScale = new Vector3(0.56f, 0.56f, 0.56f);//Establecemos la escala de la interfaz de pausa no mas empieza el juego
         }
         else

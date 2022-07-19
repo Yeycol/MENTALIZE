@@ -28,8 +28,10 @@ public class menuCartasManager : MonoBehaviour
         GameManager.shareInstance.WinGame();
         AnimaCon.ShareAnimation.StartPadlock();
         WinPoints(score);
-        Contador.sharecont.moneda += Contador.sharecont.monedawin;
         Contador.sharecont.GuardadoMonedas.GuardarMonedas();
+        PlayerPrefs.DeleteKey("MonedaYue");
+        Contador.sharecont.controlCoinsYue = 0;
+        PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
         Contador.sharecont.pointsYue += score;
         Contador.sharecont.GuardadoMonedas.GuardarPoints();
     }
@@ -37,6 +39,8 @@ public class menuCartasManager : MonoBehaviour
     public void ShowDefeat(int score)
     {
         GameManager.shareInstance.GameOver();
+        Contador.sharecont.controlCoinsYue = 0;
+        PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
         LosePoints(score);
         Contador.sharecont.pointsYue -= score;
         Contador.sharecont.GuardadoMonedas.GuardarPoints();

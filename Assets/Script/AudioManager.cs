@@ -175,18 +175,27 @@ public class AudioManager : MonoBehaviour
         {
             ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al método encargado de desahabilitar los botones de las trivias
         }
-            ActivarOpciones.shareOp.DesactivatePause();//Llamamos a un método encargado de desactivar el canvas de la pausa sin necesidad de pasarle In game
+        else if (Contador.sharecont.scene.name == "SceneCard")
+        {
+            PlayerPrefs.DeleteKey("MonedaYue");
+            Contador.sharecont.controlCoinsYue = 0;
+            PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
+        }
+        ActivarOpciones.shareOp.DesactivatePause();//Llamamos a un método encargado de desactivar el canvas de la pausa sin necesidad de pasarle In game
         ControlNiveles.shareLvl.CambiarNivel(6);//Llamamos al método encargado de cambiar el nivel con las transiciones, pasamos como parámetro el número de la escena que corresponde al menú
     }
 
     public void ResetOpciones()
     {
-
         //Método encargado de resetear la partida en modo pausa
         Contador.sharecont.resetcont();//Se llama al método encargado de resetear la partida
         if (Contador.sharecont.scene.name != "YueScene" && Contador.sharecont.scene.name != "SceneCard")
         {
             ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al método encargado de desahabilitar los botones de las trivias
+        }else if(Contador.sharecont.scene.name == "SceneCard")
+        {
+            Contador.sharecont.controlCoinsYue = 0;
+            PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
         }
             ActivarOpciones.shareOp.DesactivatePause();//Se llama el método encargado de desactivar la interfaz de Pausa y pasar al modo de juego In Game
         //ActivarOpciones.shareOp.OffCanvasPause();
