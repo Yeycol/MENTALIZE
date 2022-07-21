@@ -12195,7 +12195,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 159
+  m_RootOrder: 160
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1963255999
 PrefabInstance:
@@ -12454,6 +12454,7 @@ MonoBehaviour:
   ThreeMinPoints: 4
   ReferContinue: {fileID: 0}
   pointsYue: 0
+  controlCoinsYue: 0
 --- !u!4 &1994455211
 Transform:
   m_ObjectHideFlags: 0
@@ -13781,7 +13782,7 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: b0a32d86b69800b4ea5c1df1fefeffa0, type: 2}
     - target: {fileID: 3602509409207827439, guid: 9ba603529888b3f4bb65e9b60c318cd6, type: 3}
       propertyPath: m_CollisionDetection
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ba603529888b3f4bb65e9b60c318cd6, type: 3}

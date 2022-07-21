@@ -11,7 +11,6 @@ public class menuCartasManager : MonoBehaviour
 
     private void Awake()
     {
-        
         if (sharedInstance == null)
         {
             sharedInstance = this;
@@ -19,6 +18,7 @@ public class menuCartasManager : MonoBehaviour
     }
     private void Start()
     {
+        Contador.sharecont.GuardadoMonedas.CargarPoints();
         GameManager.shareInstance.StarGame();
     }
     [SerializeField] Canvas[] menuCanvas = new Canvas[2];
@@ -36,13 +36,12 @@ public class menuCartasManager : MonoBehaviour
         Contador.sharecont.GuardadoMonedas.GuardarPoints();
     }
 
-    public void ShowDefeat(int score)
+    public void ShowDefeat()
     {
         GameManager.shareInstance.GameOver();
         Contador.sharecont.controlCoinsYue = 0;
         PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
-        LosePoints(score);
-        Contador.sharecont.pointsYue -= score;
+        LosePoints(0);
         Contador.sharecont.GuardadoMonedas.GuardarPoints();
     }
     public void NoShowVictory()
