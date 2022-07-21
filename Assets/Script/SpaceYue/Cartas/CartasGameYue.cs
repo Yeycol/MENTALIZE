@@ -10,7 +10,7 @@ public class CartasGameYue : MonoBehaviour
     
     public void OnMouseDown()
     {
-        if (carta.activeSelf && controller.canReveal)
+        if (carta.activeSelf && controller.canReveal && GameManager.shareInstance.currentgameState == GameState.InGame)
         {
             carta.SetActive(false);
             controller.CardRevealed(this);
