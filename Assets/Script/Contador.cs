@@ -112,7 +112,8 @@ public class Contador : MonoBehaviour
             {
                 GuardadoMonedas.CargarPoints();//Se carga los puntos para ser mostrados por interfaz
                 points_ui.text = puntos.ToString();
-            } else if (scene.name=="SceneCard" && controlCoinsYue == 0) // En este caso se evalua si nos encontramos en la escena de Scene Card para que solo en esta se cargue las monedas de los player prefs
+            }
+            else if (scene.name == "SceneCard" && controlCoinsYue == 0) // En este caso se evalua si nos encontramos en la escena de Scene Card para que solo en esta se cargue las monedas de los player prefs
             {
                 monedawin = PlayerPrefs.GetInt("MonedaYue");// Cargamos el valor almacenado de las monedas que se guardaron previamente a entrar a la escena del juego de cartas
                 moneda += monedawin;
@@ -120,7 +121,7 @@ public class Contador : MonoBehaviour
                 controlCoinsYue = 1;
                 PlayerPrefs.SetInt("controlCoinsYue", controlCoinsYue);
             }
-            
+
             if (scene.name == "Inicio")
             {
                 SliderInicio[0].value = puntos;
@@ -129,7 +130,7 @@ public class Contador : MonoBehaviour
                 UI_WinText.text =pointsYue.ToString()+ "/555pts";
             }
         }
-        
+
     }
     public void EventTime()
     {
