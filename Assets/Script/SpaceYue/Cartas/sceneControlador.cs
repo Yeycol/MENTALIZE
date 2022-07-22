@@ -112,6 +112,7 @@ public class sceneControlador : MonoBehaviour
         if (_firstRevealed.id == _scondRevealed.id)
         {
             score++;
+            _firstRevealed.GetComponent<SpriteRenderer>().color =_scondRevealed.GetComponent<SpriteRenderer>().color = Color.green;
         }
         else
         {
@@ -120,10 +121,13 @@ public class sceneControlador : MonoBehaviour
             int t = 2;
             while(t > 0)
             {
-                _firstRevealed.gameObject.SetActive(false);
+                
+                _firstRevealed.gameObject.SetActive(false); 
                 yield return new WaitForSeconds(t * parpadeoRateCard);
                 _scondRevealed.gameObject.SetActive(false);
                 yield return new WaitForSeconds(t * parpadeoRateCard);
+                _firstRevealed.GetComponent<SpriteRenderer>().color = Color.red;
+                _scondRevealed.GetComponent<SpriteRenderer>().color = Color.red;
                 _firstRevealed.gameObject.SetActive(true);
                 yield return new WaitForSeconds(t * parpadeoRateCard);
                 _scondRevealed.gameObject.SetActive(true);
