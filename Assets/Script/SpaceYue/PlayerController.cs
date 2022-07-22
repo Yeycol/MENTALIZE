@@ -150,10 +150,10 @@ public class PlayerController : MonoBehaviour
             move(0);
         }
     }*/
-
-    void FixedUpdate()
+    
+    /*void FixedUpdate()
     {
-        /*if (rigidBody.velocity.x != 0)
+        if (rigidBody.velocity.x != 0)
         {      // Si el personaje esta quieto, se cancela la animacion
             animator.enabled = true;
         }
@@ -171,8 +171,8 @@ public class PlayerController : MonoBehaviour
         if (healthPoints <= 0)
         {
             Die();
-        }*/
-    }
+        }
+    }*/
 
     /*void move(float direction)
     {
@@ -312,16 +312,16 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "Coin")
+        if(collision.CompareTag("Coin"))
         {
             AudioManager.shareaudio.Efectos[30].Play();
             collision.gameObject.SetActive(false);
             Contador.PointsAdd();
-        } else if(collision.tag == "Nave")
+        } else if(collision.CompareTag("Nave"))
         {
             this.gameObject.SetActive(false);
             ControlNiveles.shareLvl.CambiarNivel(69);
-        }else if(collision.tag == "Peligro")
+        }else if(collision.CompareTag("Peligro"))
         {
             if (invulnerable == true)
             {
