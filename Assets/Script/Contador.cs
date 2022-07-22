@@ -108,9 +108,9 @@ public class Contador : MonoBehaviour
         {
             GuardadoMonedas.CargarMonedas();// Se carga las monedas para poderlas visualizar la cantidad de monedas que se tiene
             moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
+            GuardadoMonedas.CargarPoints();//Se carga los puntos para ser mostrados por interfaz
             if (scene.name != "YueScene" && scene.name != "SceneCard")
-            {
-                GuardadoMonedas.CargarPoints();//Se carga los puntos para ser mostrados por interfaz
+            { 
                 points_ui.text = puntos.ToString();
             }
             else if (scene.name == "SceneCard" && controlCoinsYue == 0) // En este caso se evalua si nos encontramos en la escena de Scene Card para que solo en esta se cargue las monedas de los player prefs
