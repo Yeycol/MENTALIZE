@@ -41,6 +41,7 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     public void Inicializar()
     {
+        /*Se establece en cero la variable controladora con la finalidad de que en el caso de que el usuario salga del juego en el preciso momento que sean cargas las monedas totales el valor del controlador este establecido en 0 y no en 1 para que este puedo acceder a la condicional */
         Contador.sharecont.controlCoinsYue = 0;
         PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
         //Este método esta encargado de dar play a la música, efectos y de indicar su volumén inciial
