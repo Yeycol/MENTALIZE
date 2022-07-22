@@ -14,6 +14,7 @@ public class CartasGameYue : MonoBehaviour
         {
             carta.SetActive(false);
             controller.CardRevealed(this);
+            AudioManager.shareaudio.Efectos[11].Play();
         }
 
     }

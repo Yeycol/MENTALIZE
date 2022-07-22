@@ -66,13 +66,11 @@ public class sceneControlador : MonoBehaviour
         {
             scoreGame = 20;
             menuCartasManager.sharedInstance.ShowVictory(scoreGame);
-            score = -1;
 
         }
         else if (score >= 0 && score < 6 && TimerCartas.sharedInstance.timeLeft == 0)
         {
-            scoreGame = 20;
-            menuCartasManager.sharedInstance.ShowDefeat(scoreGame);
+            menuCartasManager.sharedInstance.ShowDefeat();
         }
     }
 
