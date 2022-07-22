@@ -27,6 +27,7 @@ public class CartasGameYue : MonoBehaviour
     public void Unreveal()
     {
         carta.SetActive(true);
+        this.GetComponent<SpriteRenderer>().color = Color.white;    
     }
 
     private int _id;
@@ -40,5 +41,7 @@ public class CartasGameYue : MonoBehaviour
         _id = id;
         GetComponent<SpriteRenderer>().sprite = image;
     }
+
+    
 
 }
