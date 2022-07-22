@@ -11,6 +11,7 @@ public class sceneControlador : MonoBehaviour
     public const float offSetY = 3f;
     CartasGameYue _firstRevealed;
     CartasGameYue _scondRevealed;
+    [SerializeField] float parpadeoRateCard = 0.01f;
     public int score = 0;
     int scoreGame;
 
@@ -21,7 +22,7 @@ public class sceneControlador : MonoBehaviour
 
     private void Awake()
     {
-        if (sharedInstance == null) sharedInstance = this;
+        if (sharedInstance == null) sharedInstance = this; 
     }
 
     private void Start()
@@ -114,11 +115,24 @@ public class sceneControlador : MonoBehaviour
         }
         else
         {
+            AudioManager.shareaudio.Efectos[32].Play();
             yield return new WaitForSeconds(0.3f);
+            int t = 2;
+            while(t > 0)
+            {
+                _firstRevealed.gameObject.SetActive(false);
+                yield return new WaitForSeconds(t * parpadeoRateCard);
+                _scondRevealed.gameObject.SetActive(false);
+                yield return new WaitForSeconds(t * parpadeoRateCard);
+                _firstRevealed.gameObject.SetActive(true);
+                yield return new WaitForSeconds(t * parpadeoRateCard);
+                _scondRevealed.gameObject.SetActive(true);
+                yield return new WaitForSeconds(t * parpadeoRateCard);
+                t--;
+            }
             _firstRevealed.Unreveal();
             _scondRevealed.Unreveal();
         }
-
         _firstRevealed = null;
         _scondRevealed = null;
     }

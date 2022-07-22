@@ -314,6 +314,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.tag == "Coin")
         {
+            AudioManager.shareaudio.Efectos[30].Play();
             collision.gameObject.SetActive(false);
             Contador.PointsAdd();
         } else if(collision.tag == "Nave")

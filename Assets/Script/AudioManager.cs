@@ -74,6 +74,9 @@ public class AudioManager : MonoBehaviour
         Efectos[27].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene la frase Cuanto más dificil es la victoria mayor es la felicidad al ganar
         Efectos[28].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la frase Nos equivocamos es momento de nutrir nuestras mentes
         Efectos[29].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la frase No te sientas mal sigue intentandolo
+        Efectos[30].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la recolección de monedas
+        Efectos[31].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de selección de cartas
+        Efectos[32].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de error de selección de cartas
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
     }
 
@@ -117,6 +120,9 @@ public class AudioManager : MonoBehaviour
         Efectos[27].volume = Efectos1.value;
         Efectos[28].volume = Efectos1.value;
         Efectos[29].volume = Efectos1.value;
+        Efectos[30].volume = Efectos1.value;
+        Efectos[31].volume = Efectos1.value;
+        Efectos[32].volume = Efectos1.value;
         PlayerPrefs.SetFloat("Efect", Efectos1.value);
         PlayerPrefs.Save();
         Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
