@@ -41,8 +41,7 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     public void Inicializar()
     {
-        Contador.sharecont.controlCoinsYue = 0;
-        PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
+      
         //Este método esta encargado de dar play a la música, efectos y de indicar su volumén inciial
         Musica1.value = 1f;//Obtenemos el valor para el slider de la música el valor float 1
         Efectos[14].volume = Musica1.value;//El valor que tenga el slider de la música tambien lo tendrá el volumen de la instancia de Audio Source

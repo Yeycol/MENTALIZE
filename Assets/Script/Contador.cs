@@ -55,6 +55,8 @@ public class Contador : MonoBehaviour
     }
     void Start()
     {
+        Contador.sharecont.controlCoinsYue = 0;
+        PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
         /*Solo usar en caso de querer resetear los valores almacenados en los key de los player prefs
         PlayerPrefs.DeleteKey("ActivarEvento");
         PlayerPrefs.DeleteKey("ExtraMoneda");
