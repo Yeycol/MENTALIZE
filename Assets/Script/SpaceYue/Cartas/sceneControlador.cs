@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class sceneControlador : MonoBehaviour
 {
+    [Header("Color")]
+    Color transparente = new Color(1,1,1,0.7f);
+    [Header("FilasColumnas")]
     public const int gridRows = 3;
     public const int gridCols = 4;
+    [Header("PosicionCartas")]
     public const float offSetX = 2f;
     public const float offSetY = 3f;
     CartasGameYue _firstRevealed;
@@ -28,9 +32,10 @@ public class sceneControlador : MonoBehaviour
     private void Start()
     {
         Vector3 startPos = originalCard.transform.position;
-        int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
-        numbers = ReorderArrayCard(numbers);
+        int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5};  //Array con los 6 pares de cartas según su posición
+        numbers = ReorderArrayCard(numbers);    //Reordenamiendo de posición de cartas
 
+        //Se establece la posición de cada carta generada a partir de la original
         for(int i = 0; i < gridCols; i++)
         {
             for(int j = 0; j < gridRows; j++)
@@ -55,12 +60,12 @@ public class sceneControlador : MonoBehaviour
             }
         }
     }
+    //Las condiciones para ganar o perder el juego de cartas
     private void Update()
     {
-        
         if(GameManager.shareInstance.currentgameState == GameState.InGame) EvaluarVictoria();
     }
-
+    //Al revelarse todas las cartas y si el tiempo es mayor a 0, se consigue la victoria, caso contrario es derrota.
     private void EvaluarVictoria()
     {
         if (score == 6 && TimerCartas.sharedInstance.timeLeft > 0)
@@ -74,7 +79,7 @@ public class sceneControlador : MonoBehaviour
             menuCartasManager.sharedInstance.ShowDefeat();
         }
     }
-
+    //Se reordena de forma aleatoria el array que almacena la posición de las cartas
     private int[] ReorderArrayCard(int[] numbers)
     {
         int[] newArray = numbers.Clone() as int[];
@@ -87,12 +92,12 @@ public class sceneControlador : MonoBehaviour
         }
         return newArray;
     }
-
+    //Indica que puede revelarse la segunda carta.
     public bool canReveal
     {
         get { return _scondRevealed == null; }
     }
-
+    //Si aún no se ha revelado ninguna carta, la carta se añade al 1er objeto, caso contrario se añade al segundo objeto y se evalua si es correcta o no.
     public void CardRevealed(CartasGameYue card)
     {
         if(_firstRevealed == null)
@@ -105,14 +110,13 @@ public class sceneControlador : MonoBehaviour
             StartCoroutine(CheckedMatch());
         }
     }
-
-
+    //Se evalúa si la 2da carta revelada coincide con la 1ra o no.
     IEnumerator CheckedMatch()
     {
         if (_firstRevealed.id == _scondRevealed.id)
         {
             score++;
-            _firstRevealed.GetComponent<SpriteRenderer>().color =_scondRevealed.GetComponent<SpriteRenderer>().color = Color.green;
+            _firstRevealed.GetComponent<SpriteRenderer>().color =_scondRevealed.GetComponent<SpriteRenderer>().color = transparente;
         }
         else
         {
@@ -121,7 +125,7 @@ public class sceneControlador : MonoBehaviour
             int t = 2;
             while(t > 0)
             {
-                
+                //Se añade un efecto de parpadeo a las cartas, al ser incorrectas.
                 _firstRevealed.gameObject.SetActive(false); 
                 yield return new WaitForSeconds(t * parpadeoRateCard);
                 _scondRevealed.gameObject.SetActive(false);
@@ -134,9 +138,11 @@ public class sceneControlador : MonoBehaviour
                 yield return new WaitForSeconds(t * parpadeoRateCard);
                 t--;
             }
+            //Los 2 objetos contenedores de las cartas, vuelven a su estado inicial, sin revelar.
             _firstRevealed.Unreveal();
             _scondRevealed.Unreveal();
         }
+        //El valor lógico de los 2 objetos, vuelve a su valor por defecto.
         _firstRevealed = null;
         _scondRevealed = null;
     }

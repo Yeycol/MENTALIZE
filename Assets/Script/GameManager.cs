@@ -245,13 +245,5 @@ public class GameManager : MonoBehaviour
        //Corrutina que espera un segundo para poder llmar a la animación de Win Game
         yield return new WaitForSeconds(0.5f);
         RealTimeAnimation.ShareRealTimeAnimator.EventInGame("Win");//Pasamos el caso al método para activar una animación de manera aleatoria
-
-
     }
-
-    public void CollectObject(Collectable collectable)
-    {
-        collectedObject += collectable.value;
-    }
-
 }

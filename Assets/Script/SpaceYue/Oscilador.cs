@@ -10,8 +10,6 @@ public class Oscilador : MonoBehaviour
     [SerializeField] [Range(0,1)] float desplazamiento;
     [SerializeField] float periodo;
 
-    
-    
     void Start()
     {
         posInicial = transform.position;
