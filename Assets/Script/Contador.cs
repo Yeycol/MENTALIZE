@@ -51,10 +51,11 @@ public class Contador : MonoBehaviour
             sharecont = this;
         }
         scene = SceneManager.GetActiveScene();//GetActiveScene es un m�todo que nos permite obtener la escena activa actualmente
-        ResetSound();//Se llama al m�todo encargado de parar los sonidos para que ninguno de la anterior escena sea escuchado
+        
     }
     void Start()
     {
+        if (GameManager.shareInstance.currentgameState == GameState.InGame) ResetSound();//Se llama al m�todo encargado de parar los sonidos para que ninguno de la anterior escena sea escuchado
         /*Solo usar en caso de querer resetear los valores almacenados en los key de los player prefs
         PlayerPrefs.DeleteKey("ActivarEvento");
         PlayerPrefs.DeleteKey("ExtraMoneda");
