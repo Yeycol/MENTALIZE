@@ -19,19 +19,19 @@ public class Control_Button : MonoBehaviour
     public void activebutton()
     {
         //Este método activa todos los botones al pasar a la siguiente pregunta 
-        BotonesTrivias[0].enabled=true;
-        BotonesTrivias[1].enabled = true;
-        BotonesTrivias[2].enabled = true;
-        BotonesTrivias[3].enabled = true;
+        BotonesTrivias[0].interactable=true;
+        BotonesTrivias[1].interactable = true;
+        BotonesTrivias[2].interactable = true;
+        BotonesTrivias[3].interactable = true;
     }
 
     public void DesactivateButton()
     {
         //Este método desactiva todos los botones dependiendo de la eventualidad
-        BotonesTrivias[0].enabled = false;
-        BotonesTrivias[1].enabled = false;
-        BotonesTrivias[2].enabled = false;
-        BotonesTrivias[3].enabled = false;
+        BotonesTrivias[0].interactable = false;
+        BotonesTrivias[1].interactable = false;
+        BotonesTrivias[2].interactable = false;
+        BotonesTrivias[3].interactable = false;
     }
    
 
