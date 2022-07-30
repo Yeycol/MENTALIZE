@@ -147,11 +147,7 @@ public void FalseButton()
         }
        
     }
-    public void  masLevel()
-    {
-        LvlcurrentSpace++;
-        DesbloquearSpace();
-    }
+   
     public void RefreshButtonSpace()
     {
         //Método encargado de mostrar los niveles desbloqueados para Space Yue

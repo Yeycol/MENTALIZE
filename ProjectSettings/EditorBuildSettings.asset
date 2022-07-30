@@ -215,4 +215,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneCard.unity
     guid: 1b8f115430af2684e969175804e60cd1
+  - enabled: 1
+    path: Assets/Scenes/YueScene/YueScene2.unity
+    guid: 175b9a5d9d994ae4b8df9bd677f11e51
+  - enabled: 1
+    path: Assets/Scenes/YueScene/YueScene3.unity
+    guid: 40cf607e80b1f4342bd0828bad7a5be4
+  - enabled: 1
+    path: Assets/Scenes/YueScene/YueScene4.unity
+    guid: a8652942c07b48e4d91154ea16f03339
+  - enabled: 1
+    path: Assets/Scenes/YueScene/YueScene5.unity
+    guid: 1b5be22e10355ad419a9d95b0a2b7be5
   m_configObjects: {}
