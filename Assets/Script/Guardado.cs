@@ -56,6 +56,7 @@ public class Guardado : MonoBehaviour
         {
             //Si no le otorgará a la variable niveles desbloqueados un cero
             ControlNiveles.LvlDesbloqueado = 0;
+            ControlNiveles.LvlDesbloqueoSpace = 0;
         }
     }
     //Para el guardado de monedas se aplica lo antes mencionado
