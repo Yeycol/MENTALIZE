@@ -183,14 +183,7 @@ public class AudioManager : MonoBehaviour
         {
             ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al método encargado de desahabilitar los botones de las trivias
         }
-        if (Contador.sharecont.scene.name == "SceneCard" || Contador.sharecont.scene.name == "SceneCard 1"
-             || Contador.sharecont.scene.name == "SceneCard 2" || Contador.sharecont.scene.name == "SceneCard 3"
-             || Contador.sharecont.scene.name == "SceneCard 4")
-        {
-            PlayerPrefs.DeleteKey("MonedaYue");
-            Contador.sharecont.controlCoinsYue = 0;
-            PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
-        }
+
         ActivarOpciones.shareOp.DesactivatePause();//Llamamos a un método encargado de desactivar el canvas de la pausa sin necesidad de pasarle In game
         ControlNiveles.shareLvl.CambiarNivel(6);//Llamamos al método encargado de cambiar el nivel con las transiciones, pasamos como parámetro el número de la escena que corresponde al menú
     }
@@ -201,14 +194,8 @@ public class AudioManager : MonoBehaviour
         Contador.sharecont.resetcont();//Se llama al método encargado de resetear la partida
         if (Contador.sharecont.scene.name != "YueScene" && Contador.sharecont.scene.name != "YueScene2" && Contador.sharecont.scene.name != "YueScene3" && Contador.sharecont.scene.name != "YueScene4" && Contador.sharecont.scene.name != "YueScene5"
             && Contador.sharecont.scene.name != "SceneCard" && Contador.sharecont.scene.name != "SceneCard 1" && Contador.sharecont.scene.name != "SceneCard 2" && Contador.sharecont.scene.name != "SceneCard 3" && Contador.sharecont.scene.name != "SceneCard 4")
-        {
+        {//Estas condicionales tienen la finalidad de inpedir que sea llamado este método para que no haya conflictos de Objet Null Reference
             ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al método encargado de desahabilitar los botones de las trivias
-        }else if(Contador.sharecont.scene.name == "SceneCard" || Contador.sharecont.scene.name == "SceneCard 1"
-            || Contador.sharecont.scene.name == "SceneCard 2" || Contador.sharecont.scene.name == "SceneCard 3"
-            || Contador.sharecont.scene.name == "SceneCard 4")
-        {
-            Contador.sharecont.controlCoinsYue = 0;
-            PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
         }
             ActivarOpciones.shareOp.DesactivatePause();//Se llama el método encargado de desactivar la interfaz de Pausa y pasar al modo de juego In Game
         //ActivarOpciones.shareOp.OffCanvasPause();
