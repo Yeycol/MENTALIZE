@@ -25,17 +25,12 @@ public class PlayerController : MonoBehaviour
     const string STATE_ALIVE = "isAlive";
     const string STATE_ON_THE_GROUND = "isOnTheGround";
 
-    private int healthPoints;
-
-    public const int INITIAL_HEALTH = 100, MAX_HEALTH = 200, MIN_HEALTH = 10;
-
     // Obtiene las características físicas antes de inicializar, como la gravedad.
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spritePlayer = GetComponent<SpriteRenderer>();    // Otorga las caracteristicas de SpriteRenderer a flipX
-      
     }
     // Start is called before the first frame update
     void Start()
@@ -52,8 +47,6 @@ public class PlayerController : MonoBehaviour
         RealTimeAnimation.ShareRealTimeAnimator.RamdomIndex();//Llamamos al método encargadod e habilitar las animaciones de la clase RealTimeAnimation
         animator.SetBool(STATE_ALIVE, true);                // Inicia la variable STATE_ALIVE con true
         animator.SetBool(STATE_ON_THE_GROUND, true);        // Inicia la variable STATE_ON_THE_GROUND con true
-
-        healthPoints = INITIAL_HEALTH;
 
         Invoke("RestartPosition", 0.2f);
         AudioManager.shareaudio.Efectos[16].Play();
@@ -79,11 +72,6 @@ public class PlayerController : MonoBehaviour
         animator.SetBool(STATE_ON_THE_GROUND, IsTouchingTheGround());
         Debug.DrawRay(this.transform.position, Vector2.down * 1.6f, Color.red);
         Movimiento();
-        if (healthPoints <= 0)
-        {
-            Die();
-            gameObject.SetActive(false);
-        }
     }
     //Movimiento del personaje en sentido horizontal
     private void Movimiento()
@@ -105,7 +93,7 @@ public class PlayerController : MonoBehaviour
     //Método que permite el salto por medio de un Event Trigger en el botón de salto
     public void Saltar()
     {
-        if (IsTouchingTheGround())
+        if (GameManager.shareInstance.currentgameState == GameState.InGame && IsTouchingTheGround())
         {
             rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
@@ -141,12 +129,6 @@ public class PlayerController : MonoBehaviour
                 break;
             case "MovilH":
                 transform.position = new Vector2(collision.transform.position.x, transform.position.y);
-                break;
-            case "MovilL":
-                transform.position = new Vector2(collision.transform.position.x, transform.position.y);
-                break;
-            case "Static":
-                transform.position = new Vector2(collision.transform.position.x, collision.transform.position.y + 1.65f);
                 break;
         }
     }

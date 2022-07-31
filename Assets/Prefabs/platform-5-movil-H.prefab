@@ -58,6 +58,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6157984704408200020}
     m_Modifications:
+    - target: {fileID: 1071926937788606506, guid: e7ab79efeeb8a734d9189aaedeac661d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071926937788606506, guid: e7ab79efeeb8a734d9189aaedeac661d, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -860030289
+      objectReference: {fileID: 0}
     - target: {fileID: 1071926937788606507, guid: e7ab79efeeb8a734d9189aaedeac661d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -112,7 +120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1071926937788606508, guid: e7ab79efeeb8a734d9189aaedeac661d, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: MovilH
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1071926937788606509, guid: e7ab79efeeb8a734d9189aaedeac661d, type: 3}
