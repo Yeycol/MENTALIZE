@@ -25,6 +25,7 @@ public class menuCartasManager : MonoBehaviour
 
     public void ShowVictory(int score)
     {
+        
         GameManager.shareInstance.WinGame();
         AnimaCon.ShareAnimation.StartPadlock();
         WinPoints(score);
@@ -34,6 +35,7 @@ public class menuCartasManager : MonoBehaviour
         PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
         Contador.sharecont.pointsYue += score;
         Contador.sharecont.GuardadoMonedas.GuardarPoints();
+        ControlNiveles.shareLvl.DesbloquearSpace();
     }
 
     public void ShowDefeat()

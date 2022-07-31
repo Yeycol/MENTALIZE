@@ -69,8 +69,9 @@ public class Contador : MonoBehaviour
      private void FixedUpdate()
     {
 
-        //Aqui se esta evaluando a cada frame, si estamos en en modo juego ejecutar� las instrucciones establecidas en las condicionales
-        if (GameManager.shareInstance.currentgameState == GameState.InGame && scene.name != "YueScene" && scene.name != "SceneCard")
+        //Aqui se esta evaluando a cada frame, si las escenas son distintas a las mncionadas para que se ejecuten las tareas establecidas
+        if (GameManager.shareInstance.currentgameState == GameState.InGame && scene.name != "YueScene" && scene.name != "YueScene2" && scene.name != "YueScene3" && scene.name != "YueScene4" && scene.name != "YueScene5" && scene.name != "SceneCard" 
+            && scene.name != "SceneCard 1" && scene.name != "SceneCard 2" && scene.name != "SceneCard 3" && scene.name != "SceneCard 4" )
         {
             //Las siguientes condicionales estan encargadads de evaluar un booleano que permite que el llamado al m�todo event time sea llamado a cada 5 frames 
             //Esto da el efecto que el tiempo vaya mas lento, as� evitando que el tiempo sea arrebatado cuando una animaci�n se encuentra activa 
@@ -97,7 +98,8 @@ public class Contador : MonoBehaviour
 
     public void InicializarDatosInterfaz()
     {
-        if (scene.name != "SelectLevel (Trivias)" && scene.name != "Tienda" && scene.name!="SelectLevelSpace" && scene.name!="Inicio"&& scene.name != "YueScene" && scene.name != "SceneCard") //Solo si estamos en escenas distintas a las mencionadas
+        if (scene.name != "SelectLevel (Trivias)" && scene.name != "Tienda" && scene.name!="SelectLevelSpace" && scene.name!="Inicio"&& scene.name != "YueScene" && scene.name != "YueScene2" && scene.name != "YueScene3" && scene.name != "YueScene4" && scene.name != "YueScene5" 
+            && scene.name != "SceneCard" && scene.name != "SceneCard 1" && scene.name != "SceneCard 2" && scene.name != "SceneCard 3" && scene.name != "SceneCard 4") //Solo se cargan los datos si estamos en escenas distintas a las mencionadas
         {
             textcont.text = contador.ToString() + range;//Se imprime el contador y el rango de la cantidad de preguntas que habr� en el nivel
             text_health.text = vidas.ToString();//Imprime las vidas en la interfaz
@@ -111,7 +113,8 @@ public class Contador : MonoBehaviour
             GuardadoMonedas.CargarMonedas();// Se carga las monedas para poderlas visualizar la cantidad de monedas que se tiene
             moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
             GuardadoMonedas.CargarPoints();//Se carga los puntos para ser mostrados por interfaz
-           if (scene.name == "SceneCard" && controlCoinsYue == 0) // En este caso se evalua si nos encontramos en la escena de Scene Card para que solo en esta se cargue las monedas de los player prefs
+           if (scene.name == "SceneCard" || scene.name == "SceneCard 1" || scene.name == "SceneCard 2" 
+           || scene.name == "SceneCard 3" || scene.name == "SceneCard 4" && controlCoinsYue == 0) // En este caso se evalua si nos encontramos en la escena de Scene Card para que solo en esta se cargue las monedas de los player prefs
             {
                 monedawin = PlayerPrefs.GetInt("MonedaYue");// Cargamos el valor almacenado de las monedas que se guardaron previamente a entrar a la escena del juego de cartas
                 moneda += monedawin;
@@ -432,8 +435,33 @@ public class Contador : MonoBehaviour
             case "YueScene":
                 ControlNiveles.shareLvl.CambiarNivel(67);
                 break;
+            case "YueScene2":
+                ControlNiveles.shareLvl.CambiarNivel(70);
+                break;
+            case "YueScene3":
+                ControlNiveles.shareLvl.CambiarNivel(71);
+                break;
+            case "YueScene4":
+                ControlNiveles.shareLvl.CambiarNivel(72);
+                break;
+            case "YueScene5":
+                ControlNiveles.shareLvl.CambiarNivel(73);
+                break;
             case "SceneCard":
                 ControlNiveles.shareLvl.CambiarNivel(69);
+                break;
+            case "SceneCard 1":
+                ControlNiveles.shareLvl.CambiarNivel(77);
+                break;
+            case "SceneCard 2":
+                ControlNiveles.shareLvl.CambiarNivel(76);
+                break;
+
+            case "SceneCard 3":
+                ControlNiveles.shareLvl.CambiarNivel(75);
+                break;
+            case "SceneCard 4":
+                ControlNiveles.shareLvl.CambiarNivel(74);
                 break;
 
         }
@@ -458,7 +486,7 @@ public class Contador : MonoBehaviour
    
             /*El objetivo de esta condicional es el de limitar el guardado de puntos cuando se juegue 
              por segunda vez un mismo nivel superado*/
-            if (sharecont.puntos <sharecont.MaxPoints&& sharecont.scene.name!="YueScene")
+            if (sharecont.puntos <sharecont.MaxPoints&& sharecont.scene.name!="YueScene"&& sharecont.scene.name != "YueScene2" && sharecont.scene.name != "YueScene3"&&sharecont.scene.name != "YueScene4" && sharecont.scene.name != "YueScene5")
             {
                 //Si los puntos son menores al valor m�ximo de puntos en el nivel har� las siguientes acciones
                 sharecont.puntos += sharecont.value_Points;//Se incrementa el valor de la variable puntos de acuerdo al valor almacena en la variable Value Points
@@ -469,7 +497,7 @@ public class Contador : MonoBehaviour
         sharecont.moneda += sharecont.value_moneda;//Se incrementa el valor de la moneda de acuerdo al valor establecido de la moneda por nivel
         sharecont.moneda_ui.text = sharecont.moneda.ToString();//Se imprime el valor de monedas ganadas por interfaz  
         sharecont.monedawin+=sharecont.value_moneda;//Se incrementa el valor de las monedas del win de acuerdo al valor que se esten dando en este nivel, con la finalidad de ser mostradas al ganar la partida en el canvas
-        if(Contador.sharecont.scene.name=="YueScene")//Solo Si estamos en Yue Scene Va a guardarse la cantidad de monedas obtenidas
+        if(Contador.sharecont.scene.name=="YueScene" || sharecont.scene.name == "YueScene2" || sharecont.scene.name == "YueScene3" || sharecont.scene.name == "YueScene4" || sharecont.scene.name == "YueScene5")//Solo Si estamos en Yue Scene Va a guardarse la cantidad de monedas obtenidas
         PlayerPrefs.SetInt("MonedaYue",sharecont.monedawin);//Cada que llamamos al método encargado de aumentar el valor de las monedas conseguidas mandamos a que se guarden la cantidad de monedas obtenidas en ese momento
     }
 

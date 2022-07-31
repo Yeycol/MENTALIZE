@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spritePlayer = GetComponent<SpriteRenderer>();    // Otorga las caracteristicas de SpriteRenderer a flipX
-        GameManager.shareInstance.StarGame();//Pasamos al jugador en estado de InGame
+      
     }
     // Start is called before the first frame update
     void Start()
@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
 
     public void StartGame()
     {
+        GameManager.shareInstance.StarGame();//Pasamos al jugador en estado de InGame
         RealTimeAnimation.ShareRealTimeAnimator.RamdomIndex();//Llamamos al método encargadod e habilitar las animaciones de la clase RealTimeAnimation
         animator.SetBool(STATE_ALIVE, true);                // Inicia la variable STATE_ALIVE con true
         animator.SetBool(STATE_ON_THE_GROUND, true);        // Inicia la variable STATE_ON_THE_GROUND con true
@@ -160,8 +161,28 @@ public class PlayerController : MonoBehaviour
         } else if(collision.CompareTag("Nave"))
         {
             this.gameObject.SetActive(false);
-            ControlNiveles.shareLvl.CambiarNivel(69);
-        }else if(collision.CompareTag("Peligro"))
+            //Esta condicional evaluará el nombre de la escena activa y dependiendo de la escena cargará el Scene Card correspondiente
+            if (Contador.sharecont.scene.name == "YueScene")
+            {
+                ControlNiveles.shareLvl.CambiarNivel(69);//Le decimos a la clase encargada de cambiar los niveles que cargue la escena de cartas
+            } else if (Contador.sharecont.scene.name == "YueScene2")
+            {
+                ControlNiveles.shareLvl.CambiarNivel(77);
+            }
+            else if (Contador.sharecont.scene.name == "YueScene3")
+            {
+                ControlNiveles.shareLvl.CambiarNivel(76);
+            }
+            else if (Contador.sharecont.scene.name == "YueScene4")
+            {
+                ControlNiveles.shareLvl.CambiarNivel(75);
+            }
+            else if (Contador.sharecont.scene.name == "YueScene5")
+            {
+                ControlNiveles.shareLvl.CambiarNivel(74);
+            }
+        }
+        else if(collision.CompareTag("Peligro"))
         {
             if (invulnerable == true)
             {
