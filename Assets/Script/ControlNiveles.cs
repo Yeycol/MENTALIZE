@@ -35,6 +35,7 @@ public class ControlNiveles : MonoBehaviour
     }
     private void Start()
     {
+        cargaryguardar.Cargar();// Se cargan los niveles desbloqueados tanto de las trivias como de Lvl spaces
             if (Getscene.name == "SelectLevel (Trivias)")
             {
                 //Solo si estamos en estado de juego pasaran las acciones establecidas dentro de este condicional 
@@ -110,6 +111,7 @@ public void DesbloquearNivel()
 
     public void DesbloquearSpace()
     {
+
         //Método encargado de desbloquear los niveles para el modo de juego Space Yue
         if (LvlDesbloqueoSpace < LvlcurrentSpace)
         {

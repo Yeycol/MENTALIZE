@@ -178,11 +178,14 @@ public class AudioManager : MonoBehaviour
     public void ReturnMenu()
     {
         //Método encargado de volver al menú del videojuego
-        if (Contador.sharecont.scene.name != "YueScene" && Contador.sharecont.scene.name != "SceneCard")
+        if (Contador.sharecont.scene.name != "YueScene" && Contador.sharecont.scene.name != "YueScene2" && Contador.sharecont.scene.name != "YueScene3" && Contador.sharecont.scene.name != "YueScene4" && Contador.sharecont.scene.name != "YueScene5"
+             && Contador.sharecont.scene.name != "SceneCard" && Contador.sharecont.scene.name != "SceneCard 1" && Contador.sharecont.scene.name != "SceneCard 2" && Contador.sharecont.scene.name != "SceneCard 3" && Contador.sharecont.scene.name != "SceneCard 4")
         {
             ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al método encargado de desahabilitar los botones de las trivias
         }
-        else if (Contador.sharecont.scene.name == "SceneCard")
+        if (Contador.sharecont.scene.name == "SceneCard" || Contador.sharecont.scene.name == "SceneCard 1"
+             || Contador.sharecont.scene.name == "SceneCard 2" || Contador.sharecont.scene.name == "SceneCard 3"
+             || Contador.sharecont.scene.name == "SceneCard 4")
         {
             PlayerPrefs.DeleteKey("MonedaYue");
             Contador.sharecont.controlCoinsYue = 0;
@@ -196,10 +199,13 @@ public class AudioManager : MonoBehaviour
     {
         //Método encargado de resetear la partida en modo pausa
         Contador.sharecont.resetcont();//Se llama al método encargado de resetear la partida
-        if (Contador.sharecont.scene.name != "YueScene" && Contador.sharecont.scene.name != "SceneCard")
+        if (Contador.sharecont.scene.name != "YueScene" && Contador.sharecont.scene.name != "YueScene2" && Contador.sharecont.scene.name != "YueScene3" && Contador.sharecont.scene.name != "YueScene4" && Contador.sharecont.scene.name != "YueScene5"
+            && Contador.sharecont.scene.name != "SceneCard" && Contador.sharecont.scene.name != "SceneCard 1" && Contador.sharecont.scene.name != "SceneCard 2" && Contador.sharecont.scene.name != "SceneCard 3" && Contador.sharecont.scene.name != "SceneCard 4")
         {
             ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al método encargado de desahabilitar los botones de las trivias
-        }else if(Contador.sharecont.scene.name == "SceneCard")
+        }else if(Contador.sharecont.scene.name == "SceneCard" || Contador.sharecont.scene.name == "SceneCard 1"
+            || Contador.sharecont.scene.name == "SceneCard 2" || Contador.sharecont.scene.name == "SceneCard 3"
+            || Contador.sharecont.scene.name == "SceneCard 4")
         {
             Contador.sharecont.controlCoinsYue = 0;
             PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
