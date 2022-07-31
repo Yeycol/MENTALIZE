@@ -43,7 +43,7 @@ public class Contador : MonoBehaviour
     public int ThreeMinPoints;//Variable de tipo entera que almacena el tercer valor minimo para ganar partida 
     public Button ReferContinue;//Varibale de tipo button que prentende desactivar la interacci�n del bot�n continuar
     public int pointsYue;//Variable que pretende almacenar los puntos conseguidos en el modo de juego Space Yue
-    public int controlCoinsYue;
+    public int controlCoinsYue;// Variable de tipo entera que se encarga de controlar la cantidad de veces que se debe incrementar al valor d ela moneda global, las monedas conseguidas en la anterior escena
     void Awake()
     {
         if (sharecont == null)
@@ -55,8 +55,8 @@ public class Contador : MonoBehaviour
     }
     void Start()
     {
-        Contador.sharecont.controlCoinsYue = 0;
-        PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
+        Contador.sharecont.controlCoinsYue = 0;//Pasamos al controlador en 0 para que se vuelvan a cargar los valores de las monedas conseguidas en el anterior nivel
+        PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);// Se guarda el valor del controlador en el PLayer Prefs
         /*Solo usar en caso de querer resetear los valores almacenados en los key de los player prefs
         PlayerPrefs.DeleteKey("ActivarEvento");
         PlayerPrefs.DeleteKey("ExtraMoneda");
@@ -117,10 +117,10 @@ public class Contador : MonoBehaviour
            || scene.name == "SceneCard 3" || scene.name == "SceneCard 4" && controlCoinsYue == 0) // En este caso se evalua si nos encontramos en la escena de Scene Card para que solo en esta se cargue las monedas de los player prefs
             {
                 monedawin = PlayerPrefs.GetInt("MonedaYue");// Cargamos el valor almacenado de las monedas que se guardaron previamente a entrar a la escena del juego de cartas
-                moneda += monedawin;
-                moneda_ui.text = moneda.ToString();
-                controlCoinsYue = 1;
-                PlayerPrefs.SetInt("controlCoinsYue", controlCoinsYue);
+                moneda += monedawin;// Se incrementa las monedas globales de acuerdo a las monedas conseguidas en ele anterior nivel
+                moneda_ui.text = moneda.ToString();//Se muestra por GUI las monedas con dicho incremento
+                controlCoinsYue = 1;// Y se pasa al controlador en 1 para que no vuelva ha cargarse
+                PlayerPrefs.SetInt("controlCoinsYue", controlCoinsYue);//Se guarda en el player prefs la modificación de dicho controlador, con la finalidad que no se cargue a cada momento
             }
 
             if (scene.name == "Inicio")
