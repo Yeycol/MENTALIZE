@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 2505700736263543042}
   - component: {fileID: 6320748027879969683}
   - component: {fileID: 2743148302872438609}
+  - component: {fileID: 1928249485}
+  - component: {fileID: 1928249484}
   m_Layer: 3
   m_Name: rampa
-  m_TagString: Platform
+  m_TagString: MovilH
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -860030289
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 8944531780640323225, guid: 5354dca51c343be4baf755d40e6bf7c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -109,3 +111,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7002583, y: 0.7539616}
   m_EdgeRadius: 0
+--- !u!95 &1928249485
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6307104627838851688}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 84b699f405470434c982ded623d8d508, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1928249484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6307104627838851688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e802bc8b21a9684e877fd6980307cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  posInicial: {x: 21, y: -8}
+  dirDesplazamiento: {x: 4, y: 0}
+  desplazamiento: 0
+  periodo: 10

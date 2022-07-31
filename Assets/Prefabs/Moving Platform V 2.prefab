@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9123818868305037283}
   m_Layer: 3
   m_Name: Moving Platform V 2
-  m_TagString: Movil
+  m_TagString: MovilV
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -1328860024068962289, guid: fd1be4860ea0f794e8f9f7012ec3fc0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 3.2499998, y: 0.99018204}
@@ -94,7 +94,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.01927948, y: -0.00963974}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e802bc8b21a9684e877fd6980307cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posInicial: {x: 38.54, y: -13.7}
-  dirDesplazamiento: {x: 0, y: -17}
+  posInicial: {x: 39, y: -10}
+  dirDesplazamiento: {x: 0, y: -16}
   desplazamiento: 0
-  periodo: 6
+  periodo: 15
