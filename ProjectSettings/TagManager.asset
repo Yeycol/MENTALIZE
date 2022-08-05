@@ -58,6 +58,9 @@ TagManager:
   - name: Fondo
     uniqueID: 3351736945
     locked: 0
+  - name: Enemigo
+    uniqueID: 3491646707
+    locked: 0
   - name: Entorno
     uniqueID: 3434937007
     locked: 0
