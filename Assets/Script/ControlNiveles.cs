@@ -24,6 +24,7 @@ public class ControlNiveles : MonoBehaviour
     private Scene Getscene;
     public Carga ReferCar;// Variable de tipo de clase carga que es encargada de almacenar un entero de la escena previa que debe ser cargado después de la pantalla de carga
     public Sprite [] GroupImageChange;//Array que pretende almacenar las imagines a cambiar cuando un nivel se desbloquea
+    public int lvlSpacecont;//Variable que prentende almacenar la cantidad de niveles que se han desbloqueado para la modalidad de Space Yue
     private void Awake()
     {
         if (shareLvl == null)
@@ -32,9 +33,11 @@ public class ControlNiveles : MonoBehaviour
         }
        cargaryguardar = GetComponent<Guardado>();//Como este script esta agregado al mismo objeto llamado control niveles, simplemente recuperamos su componente sin buscarlo
        Getscene = SceneManager.GetActiveScene();
+        lvlSpacecont = PlayerPrefs.GetInt("lvlS");//Siempre cargamos la variable contadora de los niveles de Space Yue
     }
     private void Start()
     {
+        cargaryguardar.Cargar();// Se cargan los niveles desbloqueados tanto de las trivias como de Lvl spaces
             if (Getscene.name == "SelectLevel (Trivias)")
             {
                 //Solo si estamos en estado de juego pasaran las acciones establecidas dentro de este condicional 
@@ -110,6 +113,7 @@ public void DesbloquearNivel()
 
     public void DesbloquearSpace()
     {
+
         //Método encargado de desbloquear los niveles para el modo de juego Space Yue
         if (LvlDesbloqueoSpace < LvlcurrentSpace)
         {
@@ -147,11 +151,7 @@ public void FalseButton()
         }
        
     }
-    public void  masLevel()
-    {
-        LvlcurrentSpace++;
-        DesbloquearSpace();
-    }
+   
     public void RefreshButtonSpace()
     {
         //Método encargado de mostrar los niveles desbloqueados para Space Yue
@@ -160,6 +160,15 @@ public void FalseButton()
             BotonesSpace[i].interactable = true;//Habilitamos la interacción de los botones, que corresponden a los niveles desbloqueados
             BotonesSpace[i].image.sprite = GroupImageChange[1];
             TextButtonSpace[i].text= (i+1).ToString();
+            if (i==2)//Solo si la posición dle botón de los niveles es igual a 2
+            {
+                lvlSpacecont=i;//Asigna el valor d ela posición actual, indicando que nivel es el que sea ha desbloqueado
+                PlayerPrefs.SetInt("lvlS", lvlSpacecont);//Se guarda el valor asignado
+            } else if (i == 4)
+            {
+                lvlSpacecont = i;
+                PlayerPrefs.SetInt("lvlS", lvlSpacecont);
+            }
         }
     }
     public void FalseRefreshYue()

@@ -9,18 +9,14 @@ public class PlayerController : MonoBehaviour
     //public float runningSpeed;     // Velocidad de movimiento horizontal
     public float runSpeed = 0;
     public float runningSpeedHorizontal = 3;
-    public float runningSpeedVertical = 3;  //DESACTIVAR
     float horizontalMove = 0;
-    float verticalMove = 0; //DESACTIVAR
     [SerializeField] float jumpForce = 3f;
     Rigidbody2D rigidBody;  	        // Variable de física del cuerpo, es una variable 'privada', pero esta palabra se puede omitir
     [SerializeField] Joystick joystickX;
-    [SerializeField] Joystick joystickY;
     public LayerMask groundMask;        // Variable de capa del suelo, modificable en interfaz
     Animator animator;
     SpriteRenderer spritePlayer;
     Vector3 startPosition;
-    float travelledDistance;
     [SerializeField] bool invulnerable;
     [SerializeField] float parpadeoRate = 0.01f;
     
@@ -29,23 +25,12 @@ public class PlayerController : MonoBehaviour
     const string STATE_ALIVE = "isAlive";
     const string STATE_ON_THE_GROUND = "isOnTheGround";
 
-    private int healthPoints; //manaPoints
-
-    //POner esto en public const int
-    //INITIAL_MANA = 30, MAX_MANA = 30, MIN_MANA = 0;
-    //---
-    //public const int SUPERJUMP_COST = 2;
-    //public const float SUPERJUMP_FORCE = 1.3f;
-
-    public const int INITIAL_HEALTH = 100, MAX_HEALTH = 200, MIN_HEALTH = 10;
-
     // Obtiene las características físicas antes de inicializar, como la gravedad.
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spritePlayer = GetComponent<SpriteRenderer>();    // Otorga las caracteristicas de SpriteRenderer a flipX
-        GameManager.shareInstance.StarGame();//Pasamos al jugador en estado de InGame
     }
     // Start is called before the first frame update
     void Start()
@@ -58,12 +43,10 @@ public class PlayerController : MonoBehaviour
 
     public void StartGame()
     {
+        GameManager.shareInstance.StarGame();//Pasamos al jugador en estado de InGame
         RealTimeAnimation.ShareRealTimeAnimator.RamdomIndex();//Llamamos al método encargadod e habilitar las animaciones de la clase RealTimeAnimation
         animator.SetBool(STATE_ALIVE, true);                // Inicia la variable STATE_ALIVE con true
         animator.SetBool(STATE_ON_THE_GROUND, true);        // Inicia la variable STATE_ON_THE_GROUND con true
-
-        healthPoints = INITIAL_HEALTH;
-        //manaPoints = INITIAL_MANA;
 
         Invoke("RestartPosition", 0.2f);
         AudioManager.shareaudio.Efectos[16].Play();
@@ -84,31 +67,17 @@ public class PlayerController : MonoBehaviour
     // Si detecta el espacio o click derecho se desencadena el salto
     void Update()
     {
-        verticalMove = joystickX.Vertical * runningSpeedVertical;    //DESACTIVAR
         horizontalMove = joystickX.Horizontal * runningSpeedHorizontal;
 
         animator.SetBool(STATE_ON_THE_GROUND, IsTouchingTheGround());
         Debug.DrawRay(this.transform.position, Vector2.down * 1.6f, Color.red);
         Movimiento();
-        if (healthPoints <= 0)
-        {
-            Die();
-            gameObject.SetActive(false);
-        }
     }
-
+    //Movimiento del personaje en sentido horizontal
     private void Movimiento()
     {
         if (GameManager.shareInstance.currentgameState == GameState.InGame)
         {
-            if (joystickX.Vertical >= 0.5 && IsTouchingTheGround()) //joystickY DESACTIVAR
-
-            {
-                rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-                transform.position += new Vector3(0, verticalMove, 0) * Time.deltaTime * runSpeed;  //DESACTIVAR
-            }
-
-            //transform.position += new Vector3(horizontalMove, verticalMove, 0) * Time.deltaTime * runSpeed;
             if (joystickX.Horizontal < 0)
             {
                 spritePlayer.flipX = true;
@@ -121,100 +90,14 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    /*private void MoveTeclas()
+    //Método que permite el salto por medio de un Event Trigger en el botón de salto
+    public void Saltar()
     {
-        //GetButtonDown("Jump")
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (GameManager.shareInstance.currentgameState == GameState.InGame && IsTouchingTheGround())
         {
-            Jump(false);
-            rigidBody.gravityScale = 1f;
-
+            rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-        else if (Input.GetMouseButtonDown(0))
-        {
-            Jump(true);
-            rigidBody.gravityScale = 1f;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {  // Al presionar D o Flecha dere  // se da vel. de mov. positiva
-            move(runningSpeed);
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {   // Al presionar A o Flecha izq   // se da vel. de mov. negativa
-            move(-runningSpeed);
-        }
-        else
-        {
-            move(0);
-        }
-    }*/
-
-    void FixedUpdate()
-    {
-        /*if (rigidBody.velocity.x != 0)
-        {      // Si el personaje esta quieto, se cancela la animacion
-            animator.enabled = true;
-        }
-        else if (IsTouchingTheGround() == false)
-        {
-            animator.enabled = true;        // Si esta en mov, la animacion se reanuda 
-        }*/
-        //animator.SetBool(STATE_ON_THE_GROUND, IsTouchingTheGround());       // En cada frame, ubica si el jugador está o no el suelo y lo ubica en su sitio
-        //Debug.DrawRay(this.transform.position, Vector2.down * 1.6f, Color.red);      // Debug permite probar cosas, en este caso dibuja un rayo rojo desde
-                                                                                     // el centro del jugador hacia el suelo
-        /*if (GameManager.shareInstance.currentgameState == GameState.InGame)
-        {
-            MoveTeclas();
-        }
-        if (healthPoints <= 0)
-        {
-            Die();
-        }*/
     }
-
-    /*void move(float direction)
-    {
-        rigidBody.velocity = new Vector2(direction, rigidBody.velocity.y);  // Da la velocidad de mov en X y Y
-        if (Input.GetKey(KeyCode.A))
-        {        // Si la direccion cambia de sentido, el sprite se da la vuelta al renderizarse
-            flipX.flipX = true;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {                              // Sino, la renderizacion se mantiene normal
-            flipX.flipX = false;
-        }
-
-    }*/
-
-    // La forma en que salta, tomando la dirección, la fuerza y el modo de la fuerza
-    /*void Jump(bool superjump)
-    {
-        float jumpForceFactor = jumpForce;
-    //-----------
-        /*if (superjump && manaPoints >= SUPERJUMP_COST)
-        {
-            manaPoints -= SUPERJUMP_COST;
-            jumpForceFactor *= SUPERJUMP_FORCE;
-        }
-    //-----------
-        if (IsTouchingTheGround())
-        {
-            rigidBody.AddForce(Vector2.up * jumpForceFactor, ForceMode2D.Impulse);
-        }
-    }*/
-    /*void Jump(bool superjump)
-    {
-        float jumpForceFactor = runningSpeedVertical;
-
-        if (IsTouchingTheGround())
-        {
-            rigidBody.AddForce(Vector2.up * jumpForceFactor, ForceMode2D.Impulse);
-        }
-    }*/
-
-
     // Nos indica si el personaje está o no tocando el suelo
     bool IsTouchingTheGround()
     {
@@ -228,100 +111,60 @@ public class PlayerController : MonoBehaviour
             return false;
         }
     }
+    //Método que permite morir al jugador según las condiciones dadas.
     public void Die()
     {
-        travelledDistance = GetTravelledDistance();
-        float previousMaxDistance = PlayerPrefs.GetFloat("maxscore", 0f);
-        if (travelledDistance > previousMaxDistance)
-        {
-            PlayerPrefs.SetFloat("maxscore", travelledDistance);
-        }
-
         this.animator.SetBool(STATE_ALIVE, false);
 
         GameManager.shareInstance.GameOver();
         gameObject.SetActive(false);
     }
-
-    public void CollectHealth(int points)
-    {
-        healthPoints += points;
-        if (healthPoints >= MAX_HEALTH)
-        {
-            healthPoints = MAX_HEALTH;
-        }
-    }
-
-    /*public void CollectMana(int points)
-    {
-        manaPoints += points;
-        if (manaPoints >= MAX_MANA)
-        {
-            manaPoints = MAX_MANA;
-        }
-    }*/
-
-    public int GetHealth()
-    {
-        return healthPoints;
-    }
-
-    /*public int GetMana()
-    {
-        return manaPoints;
-    }*/
-
-    public float GetTravelledDistance()
-    {
-        return this.transform.position.x - startPosition.x;
-    }
+    //Condiciones de posicionamiento del jugador, al tocar plataformas con movimiento horizontal, vertical, libre y estático.
     private void OnCollisionStay2D(Collision2D collision)
     {
         switch (collision.gameObject.tag)
         {
             case "MovilV":
-                //rigidBody.gravityScale = 17f;
-
-                if (joystickX.Vertical > 0) //joystickY DESACTIVAR
-
-                {
-                    transform.position = transform.position;
-                }
-                else
-                {
-                    transform.position = new Vector2(collision.transform.position.x, collision.transform.position.y + 1.65f);
-                }
+                transform.position = transform.position;
                 break;
             case "MovilH":
                 transform.position = new Vector2(collision.transform.position.x, transform.position.y);
-                Debug.Log("Posición alterada");
                 break;
-            case "MovilL":
-                transform.position = new Vector2(collision.transform.position.x, transform.position.y);
-                Debug.Log("Posición alterada");
-                break;
-            /*default:
-                transform.position = transform.position;
-                break;*/
         }
-        /*if (collision.gameObject.tag == "Movil")
-        {
-            //rigidBody.gravityScale = 17f;
-            //Debug.Log("Posición alterada");
-        }*/
     }
+    //Recolección de monedas, cambio de escena a juego de cartas y reducción de vida al tocar objetos peligrosos.
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "Coin")
+        if(collision.CompareTag("Coin"))
         {
             AudioManager.shareaudio.Efectos[30].Play();
             collision.gameObject.SetActive(false);
             Contador.PointsAdd();
-        } else if(collision.tag == "Nave")
+        } else if(collision.CompareTag("Nave"))
         {
             this.gameObject.SetActive(false);
-            ControlNiveles.shareLvl.CambiarNivel(69);
-        }else if(collision.tag == "Peligro")
+            //Esta condicional evaluará el nombre de la escena activa y dependiendo de la escena cargará el Scene Card correspondiente
+            if (Contador.sharecont.scene.name == "YueScene")
+            {
+                ControlNiveles.shareLvl.CambiarNivel(69);//Le decimos a la clase encargada de cambiar los niveles que cargue la escena de cartas
+            } else if (Contador.sharecont.scene.name == "YueScene2")
+            {
+                ControlNiveles.shareLvl.CambiarNivel(77);
+            }
+            else if (Contador.sharecont.scene.name == "YueScene3")
+            {
+                ControlNiveles.shareLvl.CambiarNivel(76);
+            }
+            else if (Contador.sharecont.scene.name == "YueScene4")
+            {
+                ControlNiveles.shareLvl.CambiarNivel(75);
+            }
+            else if (Contador.sharecont.scene.name == "YueScene5")
+            {
+                ControlNiveles.shareLvl.CambiarNivel(74);
+            }
+        }
+        else if(collision.CompareTag("Peligro"))
         {
             if (invulnerable == true)
             {
@@ -330,15 +173,16 @@ public class PlayerController : MonoBehaviour
             Contador.ResetHealth();
             invulnerable = true;
             StartCoroutine(HacerVulnerable());
-            
         }
     }
+    //Hace vulnerable al personaje tras haber salido de una reducción de vida reciente.
     IEnumerator HacerVulnerable()
     {
         StartCoroutine(Parpadeo());
         yield return new WaitForSeconds(3);
         invulnerable = false;
     }
+    //Efecto parpadeo al tocar un objeto peligroso. Activación y desactivación progresiva del sprite para tal efecto.
     IEnumerator Parpadeo()
     {
         int t = 10;

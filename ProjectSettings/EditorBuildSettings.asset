@@ -207,12 +207,36 @@ EditorBuildSettings:
     path: Assets/Scenes/Trivia/Level 60.unity
     guid: 4da7e15b34e84934ba2d6ced0c6513f0
   - enabled: 1
-    path: Assets/Scenes/YueScene.unity
+    path: Assets/Scenes/YueScene/YueScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: "Assets/Scenes/Cr\xE9ditos.unity"
     guid: e55b81a6e1939df42afb2de6eaf53d89
   - enabled: 1
-    path: Assets/Scenes/SceneCard.unity
+    path: Assets/Scenes/ScenesCard/SceneCard.unity
     guid: 1b8f115430af2684e969175804e60cd1
+  - enabled: 1
+    path: Assets/Scenes/YueScene/YueScene2.unity
+    guid: 175b9a5d9d994ae4b8df9bd677f11e51
+  - enabled: 1
+    path: Assets/Scenes/YueScene/YueScene3.unity
+    guid: 40cf607e80b1f4342bd0828bad7a5be4
+  - enabled: 1
+    path: Assets/Scenes/YueScene/YueScene4.unity
+    guid: a8652942c07b48e4d91154ea16f03339
+  - enabled: 1
+    path: Assets/Scenes/YueScene/YueScene5.unity
+    guid: 1b5be22e10355ad419a9d95b0a2b7be5
+  - enabled: 1
+    path: Assets/Scenes/ScenesCard/SceneCard 4.unity
+    guid: 1d5bf5a5e96a74241914a1ec95dbaedf
+  - enabled: 1
+    path: Assets/Scenes/ScenesCard/SceneCard 3.unity
+    guid: 2606959debb27d44eb0c723f01eef104
+  - enabled: 1
+    path: Assets/Scenes/ScenesCard/SceneCard 2.unity
+    guid: 8617b1136da73204280791952fb274e4
+  - enabled: 1
+    path: Assets/Scenes/ScenesCard/SceneCard 1.unity
+    guid: 9f27c4141454ec74ba641fe70b11dd0f
   m_configObjects: {}

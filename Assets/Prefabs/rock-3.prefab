@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7021243278469703322}
   - component: {fileID: 4611827843640982215}
-  - component: {fileID: 2546558437788298862}
+  - component: {fileID: 8997261282332204371}
   m_Layer: 3
   m_Name: rock-3
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1986419069
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -8540905476116569852, guid: fd1be4860ea0f794e8f9f7012ec3fc0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -83,8 +83,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &2546558437788298862
-PolygonCollider2D:
+--- !u!61 &8997261282332204371
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,7 +96,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.03136897, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -106,20 +106,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.6051728, y: 0.06534178}
-      - {x: 0.6442767, y: 0.78224605}
-      - {x: 0.6442767, y: 1.1081116}
-      - {x: 0.56606895, y: 1.1472155}
-      - {x: -0.25511232, y: 1.1472155}
-      - {x: -0.6331164, y: 1.0559732}
-      - {x: -0.6331164, y: -0.012865962}
-      - {x: -0.6200818, y: -0.9122549}
-      - {x: -0.6331164, y: -1.0426012}
-      - {x: -0.6331164, y: -1.0817051}
-      - {x: -0.45063168, y: -1.1338435}
-      - {x: 0.31841108, y: -1.1338435}
-      - {x: 0.5269651, y: -1.0947397}
-      - {x: 0.5530343, y: -1.0686704}
-      - {x: 0.6051728, y: -0.3126623}
+  serializedVersion: 2
+  m_Size: {x: 1.5000043, y: 2.2904212}
+  m_EdgeRadius: 0

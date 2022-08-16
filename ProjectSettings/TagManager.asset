@@ -17,6 +17,7 @@ TagManager:
   - Movil
   - Nave
   - Peligro
+  - Gameover
   layers:
   - Default
   - TransparentFX
@@ -53,4 +54,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Fondo
+    uniqueID: 3351736945
+    locked: 0
+  - name: Entorno
+    uniqueID: 3434937007
+    locked: 0
+  - name: Nave
+    uniqueID: 1986419069
+    locked: 0
+  - name: Player
+    uniqueID: 902931571
     locked: 0

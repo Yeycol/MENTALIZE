@@ -762,7 +762,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Logrado al conseguir  nivel 15 en Trivias y Space Yue.
+  m_Text: Logrado al conseguir  nivel 15 en Trivias y  el nivel 3 en Space Yue.
 --- !u!222 &66290615
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4136,7 +4136,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Logrado al conseguir el nivel 20 en Space Yue
+  m_Text: Logrado al conseguir el nivel 5 en Space Yue
 --- !u!222 &481797611
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5326,7 +5326,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1000
+  m_Text: 10000
 --- !u!222 &665173144
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7417,6 +7417,7 @@ MonoBehaviour:
   ThreeMinPoints: 0
   ReferContinue: {fileID: 0}
   pointsYue: 0
+  controlCoinsYue: 0
 --- !u!4 &1218427456
 Transform:
   m_ObjectHideFlags: 0
@@ -8801,6 +8802,7 @@ MonoBehaviour:
   ShadowColor: {r: 0, g: 0, b: 0, a: 0}
   ReferCar: {fileID: 1758714149}
   GroupImageChange: []
+  lvlSpacecont: 0
 --- !u!4 &1487268517
 Transform:
   m_ObjectHideFlags: 0

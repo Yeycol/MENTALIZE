@@ -13,7 +13,6 @@ public class Guardado : MonoBehaviour
     private string RutaArchivo2;//Variable que almacenará ruta en donde almacenaremos un array de enteros
     private string RutaArchivo3;//Variable que almacenará ruta en donde se guardará el entero de los puntos ganados
     private string RutaArchivo4;//Variable de tipo string que almacena la ruta en donde se alamacenará los id d elos logros desbloqueados
-    static bool PrimeraVez = true;//Booleano utilizado para hacer el cargado de los niveles por única vez
     public List<int> Cero = null;//Lista vacía en caso de que no exista el fichero
     public List<bool> Cero1;//Lista de booleanos que almacenan valores inciiales en false
     private void Awake()
@@ -23,11 +22,7 @@ public class Guardado : MonoBehaviour
         RutaArchivo2 = Application.persistentDataPath + "/ObjectBuyDate.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte el juego
         RutaArchivo3 = Application.persistentDataPath + "/PointsDate.dat";//Ruta por defecto de Unity donde se almacenará los archivos del juego, varia segun la plataforma que se exporte el juego
         RutaArchivo4 = Application.persistentDataPath + "/AchievementsDate.dat";
-        if (PrimeraVez)//Evalua si es el bolleano es verdad, se carga los niveles desbloqueados, si n es el caso no ingresa a la condicional
-        {
-            Cargar();//Método encargado de cargar los datos almacenados
-            PrimeraVez = false;//Se pasa a false cuando ingreso por primera vez para que este no ingrese mas
-        }
+ 
   
     }
     public void Guardar()
@@ -56,6 +51,7 @@ public class Guardado : MonoBehaviour
         {
             //Si no le otorgará a la variable niveles desbloqueados un cero
             ControlNiveles.LvlDesbloqueado = 0;
+            ControlNiveles.LvlDesbloqueoSpace = 0;
         }
     }
     //Para el guardado de monedas se aplica lo antes mencionado
