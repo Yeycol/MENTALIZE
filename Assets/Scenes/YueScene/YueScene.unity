@@ -394,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307104627838851688, guid: 5b39e905316374542a3aa52dd5da89b5, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: MovilL
       objectReference: {fileID: 0}
     - target: {fileID: 6320748027879969683, guid: 5b39e905316374542a3aa52dd5da89b5, type: 3}
       propertyPath: m_SortingLayer
@@ -3014,7 +3014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307104627838851688, guid: 5b39e905316374542a3aa52dd5da89b5, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: MovilL
       objectReference: {fileID: 0}
     - target: {fileID: 6320748027879969683, guid: 5b39e905316374542a3aa52dd5da89b5, type: 3}
       propertyPath: m_SortingLayer
@@ -7024,7 +7024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307104627838851688, guid: 5b39e905316374542a3aa52dd5da89b5, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: MovilL
       objectReference: {fileID: 0}
     - target: {fileID: 6320748027879969683, guid: 5b39e905316374542a3aa52dd5da89b5, type: 3}
       propertyPath: m_SortingLayer
@@ -7880,7 +7880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307104627838851688, guid: 5b39e905316374542a3aa52dd5da89b5, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: MovilL
       objectReference: {fileID: 0}
     - target: {fileID: 6320748027879969683, guid: 5b39e905316374542a3aa52dd5da89b5, type: 3}
       propertyPath: m_SortingLayer
@@ -9147,7 +9147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307104627838851688, guid: 5b39e905316374542a3aa52dd5da89b5, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: MovilL
       objectReference: {fileID: 0}
     - target: {fileID: 6320748027879969683, guid: 5b39e905316374542a3aa52dd5da89b5, type: 3}
       propertyPath: m_SortingLayer
@@ -12314,7 +12314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307104627838851688, guid: 5b39e905316374542a3aa52dd5da89b5, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: MovilL
       objectReference: {fileID: 0}
     - target: {fileID: 6320748027879969683, guid: 5b39e905316374542a3aa52dd5da89b5, type: 3}
       propertyPath: m_SortingLayer
@@ -13178,7 +13178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3602509409207827436, guid: 9ba603529888b3f4bb65e9b60c318cd6, type: 3}
       propertyPath: jumpForce
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3602509409207827436, guid: 9ba603529888b3f4bb65e9b60c318cd6, type: 3}
       propertyPath: botonSaltar

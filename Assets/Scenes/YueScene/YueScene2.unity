@@ -10492,7 +10492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896368288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 120.99001, y: -14.510003, z: -10}
+  m_LocalPosition: {x: 19.13001, y: -36.32, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4578643303881840906}
@@ -11909,11 +11909,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3602509409207827426, guid: 9ba603529888b3f4bb65e9b60c318cd6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 120.32
+      value: 18.46
       objectReference: {fileID: 0}
     - target: {fileID: 3602509409207827426, guid: 9ba603529888b3f4bb65e9b60c318cd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.79
+      value: -37.6
       objectReference: {fileID: 0}
     - target: {fileID: 3602509409207827426, guid: 9ba603529888b3f4bb65e9b60c318cd6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11961,7 +11961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3602509409207827436, guid: 9ba603529888b3f4bb65e9b60c318cd6, type: 3}
       propertyPath: jumpForce
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3602509409207827436, guid: 9ba603529888b3f4bb65e9b60c318cd6, type: 3}
       propertyPath: botonSaltar
