@@ -152,7 +152,7 @@ public class ControlLogro : MonoBehaviour
 
 
         //Evaluando los niveles alcanzados a partir de los puntos
-        if (Contador.sharecont.puntos == 145 && ControlNiveles.shareLvl.lvlSpacecont == 2 && ControlPointsLvl20 == "")//Si se consigue 145 puntos equivalente al Lvl 20
+        if (Contador.sharecont.puntos == 5 && ControlNiveles.shareLvl.lvlSpacecont == 2 && ControlPointsLvl20 == "")//Si se consigue 145 puntos equivalente al Lvl 20
         {
             DesbloquearLogro(3);//Desbloqueamos el logro Alpinista de niveles
             ControlPointsLvl20 = "S";
@@ -235,8 +235,17 @@ public class ControlLogro : MonoBehaviour
                 Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();
                 GuardadoListas.GuardarMonedas();
                 break;
-            case 6:
+            case 5:
                 ControlSección.ShareTienda.UnlockedGoals(43);
+                Contador.sharecont.moneda += 40000;
+                Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();
+                GuardadoListas.GuardarMonedas();
+                break;
+            case 6:
+                ControlSección.ShareTienda.UnlockedGoals(44);
+                ControlSección.ShareTienda.UnlockedGoals(45);
+                ControlSección.ShareTienda.UnlockedGoals(46);
+                ControlSección.ShareTienda.UnlockedGoals(47);
                 ControlSección.ShareTienda.UnlockedGoals(21);
                 Contador.sharecont.moneda += 50000;
                 Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();
