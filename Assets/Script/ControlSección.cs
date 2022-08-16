@@ -15,7 +15,7 @@ public class ControlSección : MonoBehaviour
     public int ReferencesIdList;//Variable pública que servirá para almacenar los ids(int), de acuerdo al indice de la Lista IdObjetos
     public Button[] Button_Equipar;//Array de Referencia de los botones que sirven para equipar
     public Text[] Txt_Equipar;// Array de Referencia del texto de los botones de equipar
-    public int Ido;//Variable de tipo entero que almacena el Id del objeto equipado en este caso para las cartas
+    public int Ido;//Variable de tipo ent ero que almacena el Id del objeto equipado en este caso para las cartas
     public int Ido_Perfil;//Variable de tipo entero que almacena el Id del objeto equipado en este caso para los perfiles
     public int Ido_Fondo;//Variable de tipo entero que almacena el Id del objeto  equipado en este caso para los Fondos
     public string Equipado = "No";//Variable de tipo string, cuya finalidad el limitar el cargado de los botones Equipados en las cartas, para evitar en las demás escenas el Error: Null Refrences
@@ -199,7 +199,7 @@ public class ControlSección : MonoBehaviour
 
             }
             //Estas condicionales evaluan a que casos llamar para que se contabilice el tipo de carta comprada
-            if (itemIndex <= 9)
+            if (itemIndex <=9)
             {
                 ControlLogro.ShareLogro.PassCaseCompra("Bronce");
             } else if (itemIndex > 9 && itemIndex <= 16){
@@ -228,7 +228,7 @@ public class ControlSección : MonoBehaviour
              relación con el anclaje superior derecho.
              offsetMin= Desplazamiento de la esquina inferior izquierda del rectángulo en 
              relación con el anclaje inferior izquierdo.
-             Vectoe 2= Representa la posición y vectores 2D*/
+             Vector 2= Representa la posición y vectores 2D*/
         //Se establece el tamaño del rectángulo de los objetos de nuestra interfaz, de tal forma que  cambien de tamaño en las diferentes resoluciones
         if (PressButton == 1)//Si en este caso es uno, habilitara el objeto Cartas y los demas serán deshabilitados
         {
@@ -237,6 +237,7 @@ public class ControlSección : MonoBehaviour
             ObjectsShop[0].offsetMin = new Vector2(0, -8974);
             //Right //Top
             ObjectsShop[0].offsetMax = new Vector2(0, 0);
+            
             GUIControl[0].SetActive(true);
             GUIControl[1].SetActive(false);
             GUIControl[2].SetActive(false);
