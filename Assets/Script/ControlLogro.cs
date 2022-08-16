@@ -17,6 +17,7 @@ public class ControlLogro : MonoBehaviour
     public string ControlPointsLvl60;//Variable de tipo string que pretende controlar el desbloqueo del Logro Experto en Trivias
     public string ControlSinCard;//Variable de tipo string que pretende controlar el desbloqueo del Logro Solo de Dioses
     public string ControlOro;//Variable de tipo string que pretende controlar el desbloqueo del logro por comprar cartas de Oro                 
+    public string ControlLogroSpace;//Variable de tipo string quepretende almacenar el logro por nivel máximo en Space Yue
     public ObjecGui [] ElementsInterface;//Array de tipo de clase ObjectGui, el cual contiene todos los elementos necesarios a manipular
     public Guardado GuardadoListas;//Variable de tipo guardado que hace referencia a la clase que guarda los datos del juego
     public static ControlLogro ShareLogro;
@@ -65,6 +66,7 @@ public class ControlLogro : MonoBehaviour
         ControlPointsLvl20 = PlayerPrefs.GetString("CtrlLvl20");
         ControlPointsLvl60 = PlayerPrefs.GetString("CtrlLvl60");
         ControlSinCard = PlayerPrefs.GetString("CtrlSinCard");
+        ControlLogroSpace = PlayerPrefs.GetString("ctrlSpace");
     }
     public void CargarList()
     {
@@ -129,7 +131,7 @@ public class ControlLogro : MonoBehaviour
     public void EvaluateLogros()
     {
         //Evaluando compras realizadas en la tienda
-        if (ContadorBronce == 5 && ControlBronce=="")//Este caso solo es considerado cuando se han comprado un total de 10 cartas
+        if (ContadorBronce == 5 && ControlBronce == "")//Este caso solo es considerado cuando se han comprado un total de 10 cartas
         {
             DesbloquearLogro(0);//Se envía al método encargado de desbloquear las recompensas, el entero del logro ha desbloquear
             ControlBronce = "S";
@@ -141,7 +143,7 @@ public class ControlLogro : MonoBehaviour
             DesbloquearLogro(1);
             ControlPlata = "S";
             PlayerPrefs.SetString("CtrlPlata", ControlPlata);
-        } else if(ContadorOro==4 &&ControlOro=="" && ControlSección.ShareTienda.ListaObjetos[22].IsPurchased == true )//Este evalua si se han comprado 4 cartas de oro y si ya se ha desbloqueado la carta de diamante
+        } else if (ContadorOro == 4 && ControlOro == "" && ControlSección.ShareTienda.ListaObjetos[22].IsPurchased == true)//Este evalua si se han comprado 4 cartas de oro y si ya se ha desbloqueado la carta de diamante
         {
             DesbloquearLogro(2);
             ControlOro = "S";
@@ -150,17 +152,22 @@ public class ControlLogro : MonoBehaviour
 
 
         //Evaluando los niveles alcanzados a partir de los puntos
-        if (Contador.sharecont.puntos == 145 && ControlPointsLvl20=="")//Si se consigue 145 puntos equivalente al Lvl 20
+        if (Contador.sharecont.puntos == 5 && ControlNiveles.shareLvl.lvlSpacecont == 2 && ControlPointsLvl20 == "")//Si se consigue 145 puntos equivalente al Lvl 20
         {
             DesbloquearLogro(3);//Desbloqueamos el logro Alpinista de niveles
             ControlPointsLvl20 = "S";
             PlayerPrefs.SetString("CtrlLvl20", ControlPointsLvl20);
-        } else if (Contador.sharecont.puntos == 555 && ControlPointsLvl60=="")// Si se consigue 555 puntos equivalentes al Lvl 60
+        } else if (Contador.sharecont.puntos == 555 && ControlPointsLvl60 == "")// Si se consigue 555 puntos equivalentes al Lvl 60
         {
             DesbloquearLogro(4);//Desbloqueamos el logro Experto en Trivias 
             ControlPointsLvl60 = "S";
-            PlayerPrefs.SetString("CtrlLvl60",ControlPointsLvl60);
-        }//TODO:Aun falta establecer las conidcionales para el modo de juego Space Yue
+            PlayerPrefs.SetString("CtrlLvl60", ControlPointsLvl60);
+        } else if (ControlNiveles.shareLvl.lvlSpacecont ==4&&ControlLogroSpace=="") {
+            DesbloquearLogro(5);//Se desbloquea el Logro Explorador Experto
+            ControlLogroSpace = "S";
+            PlayerPrefs.SetString("ctrlSpace", ControlLogroSpace);
+        
+        }
 
 
         //Evaluando cantidad alamacenados en la Lista IdLogros
@@ -189,7 +196,12 @@ public class ControlLogro : MonoBehaviour
     public void DesblockGift(int i)
     {
         GuardadoListas.CargarList();//Se llama al método encargado de cargar la lista de objetos comprados
-
+        ElementsInterface[i].ButtonsInterface.interactable = false;//Se deshabilita la interacción de los botones de la interfaz Logros
+        ElementsInterface[i].Moneda.enabled = false;//Se deshabilita los iconos de moneda y fondo en la posición de id 
+        ElementsInterface[i].Fondo.enabled = false;
+        ElementsInterface[i].TextInterface.enabled = false;//Se deshabilita la componente texto de Inteerfaz Logros
+        Recolected[i] = true;
+        GuardadoListas.GuardarLogros();
         switch (i)
         {
             case 0:
@@ -197,73 +209,47 @@ public class ControlLogro : MonoBehaviour
                 Contador.sharecont.moneda += 4000;
                 Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();
                 GuardadoListas.GuardarMonedas();
-                Recolected[i] = true;
-                ElementsInterface[i].ButtonsInterface.interactable = false;//Se deshabilita la interacción de los botones de la interfaz Logros
-                ElementsInterface[i].Moneda.enabled = false;//Se deshabilita los iconos de moneda y fondo en la posición de id 
-                ElementsInterface[i].Fondo.enabled = false;
-                ElementsInterface[i].TextInterface.enabled = false;//Se deshabilita la componente texto de Inteerfaz Logros
-                GuardadoListas.GuardarLogros();
+                
                 break;
             case 1:
                 ControlSección.ShareTienda.UnlockedGoals(39);
                 Contador.sharecont.moneda += 6000;
                 Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();
                 GuardadoListas.GuardarMonedas();
-                Recolected[i] = true;
-                ElementsInterface[i].ButtonsInterface.interactable = false;//Se deshabilita la interacción de los botones de la interfaz Logros
-                ElementsInterface[i].Moneda.enabled = false;//Se deshabilita los iconos de moneda y fondo en la posición de id 
-                ElementsInterface[i].Fondo.enabled = false;
-                ElementsInterface[i].TextInterface.enabled = false;//Se deshabilita la componente texto de Inteerfaz Logros
-                GuardadoListas.GuardarLogros();
                 break;
             case 2:
                 ControlSección.ShareTienda.UnlockedGoals(40);
                 Contador.sharecont.moneda += 80000;
                 Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();
                 GuardadoListas.GuardarMonedas();
-                Recolected[i] = true;
-                ElementsInterface[i].ButtonsInterface.interactable = false;//Se deshabilita la interacción de los botones de la interfaz Logros
-                ElementsInterface[i].Moneda.enabled = false;//Se deshabilita los iconos de moneda y fondo en la posición de id 
-                ElementsInterface[i].Fondo.enabled = false;
-                ElementsInterface[i].TextInterface.enabled = false;//Se deshabilita la componente texto de Inteerfaz Logros
-                GuardadoListas.GuardarLogros();
                 break;
             case 3:
                 ControlSección.ShareTienda.UnlockedGoals(41);
                 Contador.sharecont.moneda += 20000;
                 Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();
                 GuardadoListas.GuardarMonedas();
-                Recolected[i] = true;
-                ElementsInterface[i].ButtonsInterface.interactable = false;//Se deshabilita la interacción de los botones de la interfaz Logros
-                ElementsInterface[i].Moneda.enabled = false;//Se deshabilita los iconos de moneda y fondo en la posición de id 
-                ElementsInterface[i].Fondo.enabled = false;
-                ElementsInterface[i].TextInterface.enabled = false;//Se deshabilita la componente texto de Inteerfaz Logros
-                GuardadoListas.GuardarLogros();
                 break;
             case 4:
                 ControlSección.ShareTienda.UnlockedGoals(42);
                 Contador.sharecont.moneda += 30000;
                 Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();
                 GuardadoListas.GuardarMonedas();
-                Recolected[i] = true;
-                ElementsInterface[i].ButtonsInterface.interactable = false;//Se deshabilita la interacción de los botones de la interfaz Logros
-                ElementsInterface[i].Moneda.enabled = false;//Se deshabilita los iconos de moneda y fondo en la posición de id 
-                ElementsInterface[i].Fondo.enabled = false;
-                ElementsInterface[i].TextInterface.enabled = false;//Se deshabilita la componente texto de Inteerfaz Logros
-                GuardadoListas.GuardarLogros();
+                break;
+            case 5:
+                ControlSección.ShareTienda.UnlockedGoals(43);
+                Contador.sharecont.moneda += 40000;
+                Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();
+                GuardadoListas.GuardarMonedas();
                 break;
             case 6:
-                ControlSección.ShareTienda.UnlockedGoals(43);
+                ControlSección.ShareTienda.UnlockedGoals(44);
+                ControlSección.ShareTienda.UnlockedGoals(45);
+                ControlSección.ShareTienda.UnlockedGoals(46);
+                ControlSección.ShareTienda.UnlockedGoals(47);
                 ControlSección.ShareTienda.UnlockedGoals(21);
                 Contador.sharecont.moneda += 50000;
                 Contador.sharecont.moneda_ui.text = Contador.sharecont.moneda.ToString();
                 GuardadoListas.GuardarMonedas();
-                Recolected[i] = true;
-                ElementsInterface[i].ButtonsInterface.interactable = false;//Se deshabilita la interacción de los botones de la interfaz Logros
-                ElementsInterface[i].Moneda.enabled = false;//Se deshabilita los iconos de moneda y fondo en la posición de id 
-                ElementsInterface[i].Fondo.enabled = false;
-                ElementsInterface[i].TextInterface.enabled = false;//Se deshabilita la componente texto de Inteerfaz Logros
-                GuardadoListas.GuardarLogros();
                 break;
         }
     }
