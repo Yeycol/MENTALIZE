@@ -6,22 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager shareaudio;//Variable que servirá para hacer la clase una instancia compartida
-    public Slider Musica1, Efectos1;//Variable de tipo Slider que servirá para hacer referencia a los sliders que controlan la regulación de volumen 
+    public static AudioManager shareaudio;//Variable que servirï¿½ para hacer la clase una instancia compartida
+    public Slider Musica1, Efectos1;//Variable de tipo Slider que servirï¿½ para hacer referencia a los sliders que controlan la regulaciï¿½n de volumen 
     public AudioSource[] Efectos;//Array de efectos que hacen referencia al conjunto de efectos que deseamos regular el volumen
-    public Image Mute1;//Refencia  de la imagen que tiene un símbolo que da a expresar que se muteo totalmente la música
-    public Image Mute2;//Refencia  de la imagen que tiene un símbolo que da a expresar que se muteo totalmente los efectos
+    public Image Mute1;//Refencia  de la imagen que tiene un sï¿½mbolo que da a expresar que se muteo totalmente la mï¿½sica
+    public Image Mute2;//Refencia  de la imagen que tiene un sï¿½mbolo que da a expresar que se muteo totalmente los efectos
     public Canvas ReferAudio;//Referencia al canvas del audio
     public GameObject[] ButtonInterfacePause = new GameObject[2];//Referencia de los botones del canvas de la pausa
     public Image FondInterfaceCanvas;//Variable de tipo Image que pretende almacenar el objeto con la componente image
-    public Sprite [] IntercambioImage= new Sprite[2];//Variable de tipo sprite que almacenará el sprite de interfaceOpciones
-    public RectTransform InterfacePause;//Variable que pretende almacenar la posición, rotación, etc de la interfaz de pausa
+    public Sprite [] IntercambioImage= new Sprite[2];//Variable de tipo sprite que almacenarï¿½ el sprite de interfaceOpciones
+    public RectTransform InterfacePause;//Variable que pretende almacenar la posiciï¿½n, rotaciï¿½n, etc de la interfaz de pausa
     private void Awake()
     {
       if (shareaudio == null)
         {
             shareaudio = this;
-            DontDestroyOnLoad(gameObject);//Método que evita que se destruyan las referencias y datos almacenados en las variables de esta clase 
+            DontDestroyOnLoad(gameObject);//Mï¿½todo que evita que se destruyan las referencias y datos almacenados en las variables de esta clase 
         }
         else
         {
@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //Método que establece un volumén inicial
+        //Mï¿½todo que establece un volumï¿½n inicial
  
             Inicializar();
     }
@@ -41,12 +41,16 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     public void Inicializar()
     {
-      
-        //Este método esta encargado de dar play a la música, efectos y de indicar su volumén inciial
-        Musica1.value = 1f;//Obtenemos el valor para el slider de la música el valor float 1
-        Efectos[14].volume = Musica1.value;//El valor que tenga el slider de la música tambien lo tendrá el volumen de la instancia de Audio Source
-        Efectos[15].volume = Musica1.value;//Efecto 15 hace referencia a la música de las trivias
-        Efectos[16].volume = Musica1.value;//Efecto 16 hace referencia a la música de Space Yue
+
+        /*Se establece en cero la variable controladora con la finalidad de que en el caso de que el usuario salga del juego en el preciso momento que sean cargas las monedas totales el valor del controlador este establecido en 0 y no en 1 para que este puedo acceder a la condicional */
+        Contador.sharecont.controlCoinsYue = 0;
+        PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
+
+        //Este mï¿½todo esta encargado de dar play a la mï¿½sica, efectos y de indicar su volumï¿½n inciial
+        Musica1.value = 1f;//Obtenemos el valor para el slider de la mï¿½sica el valor float 1
+        Efectos[14].volume = Musica1.value;//El valor que tenga el slider de la mï¿½sica tambien lo tendrï¿½ el volumen de la instancia de Audio Source
+        Efectos[15].volume = Musica1.value;//Efecto 15 hace referencia a la mï¿½sica de las trivias
+        Efectos[16].volume = Musica1.value;//Efecto 16 hace referencia a la mï¿½sica de Space Yue
         Efectos1.value= 1f;
         Efectos[0].volume = Efectos1.value;//Otorgamos el valor del slider al volumen del efecto de Over 
         Efectos[1].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Answer Good
@@ -60,9 +64,9 @@ public class AudioManager : MonoBehaviour
         Efectos[9].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Roto
         Efectos[10].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de Nave Abducir
         Efectos[11].volume = Efectos1.value;// Otorgamos el valor del slider al volumen del efecto de ButtonSelect
-        Efectos[12].volume = Efectos1.value;//Otorgamos el valor del slider al volumen del efecto de FocosDañados
+        Efectos[12].volume = Efectos1.value;//Otorgamos el valor del slider al volumen del efecto de FocosDaï¿½ados
         Efectos[13].volume = Efectos1.value;//Otorgamos el valor del slider al volumen del efecto de Win
-        Efectos[17].volume = Efectos1.value;//Otorgamos el valor del slider al volumen de la voz de la frase A toda Máquina Go Go
+        Efectos[17].volume = Efectos1.value;//Otorgamos el valor del slider al volumen de la voz de la frase A toda Mï¿½quina Go Go
         Efectos[18].volume = Efectos1.value;//Otorgmaos el valor del slider al volumen del objeto que contiene la componete audio source de la frase Se te acaba el tiempo   
         Efectos[19].volume = Efectos1.value;//Otrogamos el valor del slider a la propiedad volumen del objeto encargado de reproducir la frase Mira el Reloj no te queda tiempo
         Efectos[20].volume=Efectos1.value;//Otorgamos el valor del slider a la propieda volumen del objeto que contiene el sonido de la frase Concentrate tu puedes hacerlo mejor
@@ -72,25 +76,25 @@ public class AudioManager : MonoBehaviour
         Efectos[24].volume = Efectos1.value;//Ortorgamos el valor del slider a la propieda volumen del objeto que contiene el sonido de la frase JIJIJI Jugamos de nuevo eso fue divertido
         Efectos[25].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la frase KABOM Vamos por otra
         Efectos[26].volume = Efectos1.value;//Otorgamos el valor de slider a la propiedad volume del objeto que contiene el sonido  de la frase Eso fue excelente, quieres ir por muffins
-        Efectos[27].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene la frase Cuanto más dificil es la victoria mayor es la felicidad al ganar
+        Efectos[27].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene la frase Cuanto mï¿½s dificil es la victoria mayor es la felicidad al ganar
         Efectos[28].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la frase Nos equivocamos es momento de nutrir nuestras mentes
         Efectos[29].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la frase No te sientas mal sigue intentandolo
-        Efectos[30].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la recolección de monedas
-        Efectos[31].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de selección de cartas
-        Efectos[32].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de error de selección de cartas
-        Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
+        Efectos[30].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de la recolecciï¿½n de monedas
+        Efectos[31].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de selecciï¿½n de cartas
+        Efectos[32].volume = Efectos1.value;//Otorgamos el valor del slider a la propiedad volumen del objeto que contiene el sonido de error de selecciï¿½n de cartas
+        Mute();//Llamado a un mï¿½todo que evalua cuando debe mostrarse el icono de mute
     }
 
 
 
     public void regularVolumen()
     {
-        Efectos[14].volume = Musica1.value;//El valor del Slider será igual a la propiedad volumen de la música para el Menú
+        Efectos[14].volume = Musica1.value;//El valor del Slider serï¿½ igual a la propiedad volumen de la mï¿½sica para el Menï¿½
         Efectos[15].volume = Musica1.value;
         Efectos[16].volume = Musica1.value;
         PlayerPrefs.SetFloat("Mus", Musica1.value);// Le asignamos el valor que tenga el slider en la variable del prefab
         PlayerPrefs.Save();//Guardamos los valores del prefab
-        Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
+        Mute();//Llamado a un mï¿½todo que evalua cuando debe mostrarse el icono de mute
     }
     public void RegularEfectos()
     {
@@ -126,12 +130,12 @@ public class AudioManager : MonoBehaviour
         Efectos[32].volume = Efectos1.value;
         PlayerPrefs.SetFloat("Efect", Efectos1.value);
         PlayerPrefs.Save();
-        Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
+        Mute();//Llamado a un mï¿½todo que evalua cuando debe mostrarse el icono de mute
     }
     public void CargarSlider()
     {
-        //Se encarga de cargar los valores guardados en la variable de player prefs, es decir le otorgamos el valor almacenado en el player prefs al slider de la música
-        if(GameManager.shareInstance.currentgameState==GameState.menu) {//Si estamos en modo de juego menú
+        //Se encarga de cargar los valores guardados en la variable de player prefs, es decir le otorgamos el valor almacenado en el player prefs al slider de la mï¿½sica
+        if(GameManager.shareInstance.currentgameState==GameState.menu) {//Si estamos en modo de juego menï¿½
             ButtonInterfacePause[0].SetActive(false);//Desactiva los botones de la interfaz
             ButtonInterfacePause[1].SetActive(false);
             FondInterfaceCanvas.sprite = IntercambioImage[0];//Cambiamos el sprite de la componente image para opciones
@@ -142,18 +146,18 @@ public class AudioManager : MonoBehaviour
             FondInterfaceCanvas.sprite = IntercambioImage[1];//Cambiamos el sprite  de la componente image para Pausa
         } 
         Musica1.value = PlayerPrefs.GetFloat("Mus");
-        Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
+        Mute();//Llamado a un mï¿½todo que evalua cuando debe mostrarse el icono de mute
     }
     public void CargarEfectos()
     {
         //Se encarga de cargar los valores guardados en la variable de player prefs, es decir le otorgamos el valor almacenado en el player prefs al slider de los efectos
         Efectos1.value = PlayerPrefs.GetFloat("Efect");
-        Mute();//Llamado a un método que evalua cuando debe mostrarse el icono de mute
+        Mute();//Llamado a un mï¿½todo que evalua cuando debe mostrarse el icono de mute
     }
     public void Mute()
     {
-        //Método encargado de evaluar si se activa el mute o no, dependiendo de los valores del slider
-        if (Musica1.value==0 && Efectos1.value == 0)// Si el slider de música y el slider de efectos son iguales a cero
+        //Mï¿½todo encargado de evaluar si se activa el mute o no, dependiendo de los valores del slider
+        if (Musica1.value==0 && Efectos1.value == 0)// Si el slider de mï¿½sica y el slider de efectos son iguales a cero
         {
             Mute1.enabled = true;//Habilita la imagen de mute
             Mute2.enabled = true;//Habilita la imagen de mute
@@ -163,7 +167,7 @@ public class AudioManager : MonoBehaviour
         {
             Mute1.enabled = false;//Deshabilita la imagen de mute
             Mute2.enabled = false;//Deshabilita la imagen de mute
-        } else if (Musica1.value>0 && Efectos1.value== 0)//Si el slider de musica es mayor que cero y el slider de efectos es iguañ a cero
+        } else if (Musica1.value>0 && Efectos1.value== 0)//Si el slider de musica es mayor que cero y el slider de efectos es iguaï¿½ a cero
         {
             Mute1.enabled = false;//Deshabilita la imagen de mute
             Mute2.enabled = true;//Habilita la imagen de mute
@@ -177,32 +181,32 @@ public class AudioManager : MonoBehaviour
 
     public void ReturnMenu()
     {
-        //Método encargado de volver al menú del videojuego
+        //Mï¿½todo encargado de volver al menï¿½ del videojuego
         if (Contador.sharecont.scene.name != "YueScene" && Contador.sharecont.scene.name != "YueScene2" && Contador.sharecont.scene.name != "YueScene3" && Contador.sharecont.scene.name != "YueScene4" && Contador.sharecont.scene.name != "YueScene5"
              && Contador.sharecont.scene.name != "SceneCard" && Contador.sharecont.scene.name != "SceneCard 1" && Contador.sharecont.scene.name != "SceneCard 2" && Contador.sharecont.scene.name != "SceneCard 3" && Contador.sharecont.scene.name != "SceneCard 4")
         {
-            ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al método encargado de desahabilitar los botones de las trivias
+            ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al mï¿½todo encargado de desahabilitar los botones de las trivias
         }
 
-        ActivarOpciones.shareOp.DesactivatePause();//Llamamos a un método encargado de desactivar el canvas de la pausa sin necesidad de pasarle In game
-        ControlNiveles.shareLvl.CambiarNivel(6);//Llamamos al método encargado de cambiar el nivel con las transiciones, pasamos como parámetro el número de la escena que corresponde al menú
+        ActivarOpciones.shareOp.DesactivatePause();//Llamamos a un mï¿½todo encargado de desactivar el canvas de la pausa sin necesidad de pasarle In game
+        ControlNiveles.shareLvl.CambiarNivel(6);//Llamamos al mï¿½todo encargado de cambiar el nivel con las transiciones, pasamos como parï¿½metro el nï¿½mero de la escena que corresponde al menï¿½
     }
 
     public void ResetOpciones()
     {
-        //Método encargado de resetear la partida en modo pausa
-        Contador.sharecont.resetcont();//Se llama al método encargado de resetear la partida
+        //Mï¿½todo encargado de resetear la partida en modo pausa
+        Contador.sharecont.resetcont();//Se llama al mï¿½todo encargado de resetear la partida
         if (Contador.sharecont.scene.name != "YueScene" && Contador.sharecont.scene.name != "YueScene2" && Contador.sharecont.scene.name != "YueScene3" && Contador.sharecont.scene.name != "YueScene4" && Contador.sharecont.scene.name != "YueScene5"
             && Contador.sharecont.scene.name != "SceneCard" && Contador.sharecont.scene.name != "SceneCard 1" && Contador.sharecont.scene.name != "SceneCard 2" && Contador.sharecont.scene.name != "SceneCard 3" && Contador.sharecont.scene.name != "SceneCard 4")
-        {//Estas condicionales tienen la finalidad de inpedir que sea llamado este método para que no haya conflictos de Objet Null Reference
-            ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al método encargado de desahabilitar los botones de las trivias
+        {//Estas condicionales tienen la finalidad de inpedir que sea llamado este mï¿½todo para que no haya conflictos de Objet Null Reference
+            ActivarOpciones.shareOp.ReferControlButton.DesactivateButton();//LLamamos al mï¿½todo encargado de desahabilitar los botones de las trivias
         }
-            ActivarOpciones.shareOp.DesactivatePause();//Se llama el método encargado de desactivar la interfaz de Pausa y pasar al modo de juego In Game
+            ActivarOpciones.shareOp.DesactivatePause();//Se llama el mï¿½todo encargado de desactivar la interfaz de Pausa y pasar al modo de juego In Game
         //ActivarOpciones.shareOp.OffCanvasPause();
     }
    public void PlayGame()
     {
-        //Método encargado de Desactivar la pausa
+        //Mï¿½todo encargado de Desactivar la pausa
         ActivarOpciones.shareOp.DesactivatePause();
     }
 }
