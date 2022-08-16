@@ -42,10 +42,6 @@ public class AudioManager : MonoBehaviour
     public void Inicializar()
     {
 
-        /*Se establece en cero la variable controladora con la finalidad de que en el caso de que el usuario salga del juego en el preciso momento que sean cargas las monedas totales el valor del controlador este establecido en 0 y no en 1 para que este puedo acceder a la condicional */
-        Contador.sharecont.controlCoinsYue = 0;
-        PlayerPrefs.SetInt("controlCoinsYue", Contador.sharecont.controlCoinsYue);
-
         //Este m�todo esta encargado de dar play a la m�sica, efectos y de indicar su volum�n inciial
         Musica1.value = 1f;//Obtenemos el valor para el slider de la m�sica el valor float 1
         Efectos[14].volume = Musica1.value;//El valor que tenga el slider de la m�sica tambien lo tendr� el volumen de la instancia de Audio Source
