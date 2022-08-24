@@ -221,7 +221,7 @@ public class RealTimeAnimation : MonoBehaviour
     public void StoptAnimationConfeti()
     {
         //Método encargado de habilitar la animación del confeti
-        EventCorrectAndError[4].Rebind();
+        EventCorrectAndError[4].Rebind();   
         EventCorrectAndError[4].Update(0f);
         EventCorrectAndError[4].gameObject.SetActive(false);//Desactivamos el objeto de confeti para evitar acumulación de batches  
     }

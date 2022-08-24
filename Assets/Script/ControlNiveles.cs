@@ -37,19 +37,25 @@ public class ControlNiveles : MonoBehaviour
     }
     private void Start()
     {
+        InicializaciondeNivelesDesbloqueados();//Llama al método encargado de actualizar los niveles desbloqueados
+    }
+
+    public void InicializaciondeNivelesDesbloqueados()
+    {
         cargaryguardar.Cargar();// Se cargan los niveles desbloqueados tanto de las trivias como de Lvl spaces
-            if (Getscene.name == "SelectLevel (Trivias)")
-            {
-                //Solo si estamos en estado de juego pasaran las acciones establecidas dentro de este condicional 
-                RefreshButton();// Método encargado de actualizar los botones desbloqueados 
-                FalseButton();// Método encargado de desbloquear los botones bloqueados 
-            } else if(Getscene.name == "SelectLevelSpace")
-            {
+        if (Getscene.name == "SelectLevel (Trivias)")
+        {
+            //Solo si estamos en estado de juego pasaran las acciones establecidas dentro de este condicional 
+            RefreshButton();// Método encargado de actualizar los botones desbloqueados 
+            FalseButton();// Método encargado de desbloquear los botones bloqueados 
+        }
+        else if (Getscene.name == "SelectLevelSpace")
+        {
             RefreshButtonSpace();//Método encargado de mostrar los botones habilitados en este caso los niveles desbloqueados
             FalseRefreshYue();//Método encargado de establecer que métodos se encuentran aun bloqueados
-            }
-       
+        }
     }
+      
     public void CambiarNivel(int Nivel)
     {
         //Este método recibe como parámetro un entero del indice de la escena a la que queremos dirigirnos 

@@ -1094,6 +1094,7 @@ MonoBehaviour:
   ShadowColor: {r: 0, g: 0, b: 0, a: 0}
   ReferCar: {fileID: 1223232428}
   GroupImageChange: []
+  lvlSpacecont: 0
 --- !u!4 &151707430
 Transform:
   m_ObjectHideFlags: 0
@@ -10939,7 +10940,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896368288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 272.4, y: -15.4, z: -10}
+  m_LocalPosition: {x: 156.27002, y: -95.82, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4578643303881840906}
@@ -13126,11 +13127,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3602509409207827426, guid: 9ba603529888b3f4bb65e9b60c318cd6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 271.72998
+      value: 155.6
       objectReference: {fileID: 0}
     - target: {fileID: 3602509409207827426, guid: 9ba603529888b3f4bb65e9b60c318cd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.679998
+      value: -97.1
       objectReference: {fileID: 0}
     - target: {fileID: 3602509409207827426, guid: 9ba603529888b3f4bb65e9b60c318cd6, type: 3}
       propertyPath: m_LocalPosition.z
