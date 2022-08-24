@@ -1427,6 +1427,7 @@ MonoBehaviour:
   ControlPointsLvl60: 
   ControlSinCard: 
   ControlOro: 
+  ControlLogroSpace: 
   ElementsInterface:
   - Moneda: {fileID: 1543351309}
     Fondo: {fileID: 1910110266}

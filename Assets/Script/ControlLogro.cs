@@ -50,9 +50,13 @@ public class ControlLogro : MonoBehaviour
         if (Contador.sharecont.scene.name == "Inicio")*/
         {
             CargarList();//Método encargado de cargar las listas
-            EvaluateLogros();//Se evalua en cada Start si se ha cumplido alguna condicional de los logros
             CargarRecompensas();//Método encargado de habilitar las recompensas obtenidas
         }
+    }
+    private void FixedUpdate()
+    {
+     
+        EvaluateLogros();//Se evalua en cada Start si se ha cumplido alguna condicional de los logros
     }
     public void CargarPlayerPrefs()
     {
@@ -183,7 +187,6 @@ public class ControlLogro : MonoBehaviour
             //Sale este mensaje predeterminado
             InformaciónLogros.text = "Aun no tienes logros ●～●";
         }
-
         //Evaluando si no se ha equipado ninguna carta
         if (ControlSección.ShareTienda.Equipado == ""&& Contador.sharecont.puntos == 345&&ControlSinCard=="")//Está condicional ejecuta sus acciones siempre y cuando no s ehaya equipado ninguna carta y se haya alcanzado el nivel 40
         {
