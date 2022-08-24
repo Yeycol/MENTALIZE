@@ -46,8 +46,8 @@ public class ControlLogro : MonoBehaviour
         PlayerPrefs.DeleteKey("CtrlOro");
         PlayerPrefs.DeleteKey("CtrlLvl20");
         PlayerPrefs.DeleteKey("CtrlLvl60");
-        PlayerPrefs.DeleteKey("CtrlSinCard");*/
-        if (Contador.sharecont.scene.name == "Inicio")
+        PlayerPrefs.DeleteKey("CtrlSinCard");
+        if (Contador.sharecont.scene.name == "Inicio")*/
         {
             CargarList();//Método encargado de cargar las listas
             EvaluateLogros();//Se evalua en cada Start si se ha cumplido alguna condicional de los logros
@@ -152,7 +152,7 @@ public class ControlLogro : MonoBehaviour
 
 
         //Evaluando los niveles alcanzados a partir de los puntos
-        if (Contador.sharecont.puntos == 5 && ControlNiveles.shareLvl.lvlSpacecont == 2 && ControlPointsLvl20 == "")//Si se consigue 145 puntos equivalente al Lvl 20
+        if (Contador.sharecont.puntos == 10 && ControlNiveles.shareLvl.lvlSpacecont==2 && ControlPointsLvl20 == "")//Si se consigue 145 puntos equivalente al Lvl 20
         {
             DesbloquearLogro(3);//Desbloqueamos el logro Alpinista de niveles
             ControlPointsLvl20 = "S";

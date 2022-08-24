@@ -113,6 +113,10 @@ public class Contador : MonoBehaviour
             GuardadoMonedas.CargarMonedas();// Se carga las monedas para poderlas visualizar la cantidad de monedas que se tiene
             moneda_ui.text = moneda.ToString();//Imprime las monedas en la interfaz
             GuardadoMonedas.CargarPoints();//Se carga los puntos para ser mostrados por interfaz
+            if (ControlNiveles.shareLvl.Lvlcurrent > 0)//mientras el nivel actual sea mayor que cero se cargarán los puntos en la escena correspondiente
+            {
+                points_ui.text = puntos.ToString();//Mostramos los puntos globales por GUI
+            }
            if (scene.name == "SceneCard" || scene.name == "SceneCard 1" || scene.name == "SceneCard 2" 
            || scene.name == "SceneCard 3" || scene.name == "SceneCard 4" && controlCoinsYue == 0) // En este caso se evalua si nos encontramos en la escena de Scene Card para que solo en esta se cargue las monedas de los player prefs
             {
@@ -138,7 +142,7 @@ public class Contador : MonoBehaviour
         if (currentTime > 0)
         {
             //Si el tiempo establecido es mayor que cero se debera disminuir el tiempo establecido
-            currentTime -= Time.deltaTime;//Time.deltatime es un m�todo que nos permite saber el tiempo transcurrido desde el �ltimo frame, es decir iremos decrementando la variable current time de acuerdo al tiempo que haya transcurrido
+            currentTime -= Time.fixedDeltaTime;//Time.deltatime es un m�todo que nos permite saber el tiempo transcurrido desde el �ltimo frame, es decir iremos decrementando la variable current time de acuerdo al tiempo que haya transcurrido
                                           //Si el juego va a 60 frames, update jecutar� 60 frames por segundo, donde el tiempo transcurrido es 1seg
             time_ui.text = (int)currentTime + "seg";//Aqui asignamos de manera explicita el valor de la variable current time a la variable tipo texto apra que esta se muestre en la UI
         }

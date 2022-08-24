@@ -450,6 +450,8 @@ MonoBehaviour:
   TwoMinPoints: 3
   ThreeMinPoints: 4
   ReferContinue: {fileID: 141988857}
+  pointsYue: 0
+  controlCoinsYue: 0
 --- !u!4 &98125071
 Transform:
   m_ObjectHideFlags: 0
@@ -4491,15 +4493,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lvlcurrent: 1
+  LvlcurrentSpace: 0
   Buttonslevel: []
-  Imagelevel: []
   Level: []
+  BotonesSpace: []
+  TextButtonSpace: []
   LevelShadow: []
   ActiveColor: {r: 0, g: 0, b: 0, a: 0}
   ShadowColor: {r: 0, g: 0, b: 0, a: 0}
   ReferCar: {fileID: 497460352}
-  BlockButton: {fileID: 0}
-  DesblockButton: {fileID: 0}
+  GroupImageChange: []
+  lvlSpacecont: 0
 --- !u!4 &1301416258
 Transform:
   m_ObjectHideFlags: 0
@@ -5119,7 +5123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93efa854db538fb41ace9b7e5b5c66e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  q_question: {fileID: 359605376}
   questions: {fileID: 359605378}
   q_buttonl:
   - {fileID: 831772270}
@@ -8114,11 +8117,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3359444101382051960, guid: 38cd92b4bbf9a4e45b6217f8fe903548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3359444101382051960, guid: 38cd92b4bbf9a4e45b6217f8fe903548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3359444101382051960, guid: 38cd92b4bbf9a4e45b6217f8fe903548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8138,11 +8141,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3359444101382051960, guid: 38cd92b4bbf9a4e45b6217f8fe903548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DesactivateButton
+      value: OutlineRed
       objectReference: {fileID: 0}
     - target: {fileID: 3359444101382051960, guid: 38cd92b4bbf9a4e45b6217f8fe903548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: OutlineRed
+      value: DesactivateButton
       objectReference: {fileID: 0}
     - target: {fileID: 3359444101382051960, guid: 38cd92b4bbf9a4e45b6217f8fe903548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -8154,11 +8157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3359444101382051960, guid: 38cd92b4bbf9a4e45b6217f8fe903548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3359444101382051960, guid: 38cd92b4bbf9a4e45b6217f8fe903548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3359444101382051960, guid: 38cd92b4bbf9a4e45b6217f8fe903548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
