@@ -45,8 +45,7 @@ public class AnimaCon : MonoBehaviour
             ShareAnimation = this;
 
         }
-        scene = SceneManager.GetActiveScene();
-        
+        scene = SceneManager.GetActiveScene(); 
     }
 
 

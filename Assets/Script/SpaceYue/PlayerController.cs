@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
     //Movimiento del personaje en sentido horizontal
     private void Movimiento()
     {
-       if (GameManager.shareInstance.currentgameState == GameState.InGame)
+        if (GameManager.shareInstance.currentgameState == GameState.InGame)
         {
             if (joystickX.Horizontal < 0)
             {
@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
                 spritePlayer.flipX = false;
                 transform.position += new Vector3(horizontalMove, 0, 0) * Time.deltaTime * runSpeed;
             }
-      }
+        }
     }
     //Método que permite el salto por medio de un Event Trigger en el botón de salto
     public void Saltar()

@@ -2306,8 +2306,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a76a545ff4205a7458592867430a4fb1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 4179746655080313175, guid: 0def47ffd715bd64d83c28d287c94059, type: 3}
+  m_Color: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2939,12 +2939,12 @@ MonoBehaviour:
   score: 0
   originalCard: {fileID: 1426688716}
   images:
-  - {fileID: 21300000, guid: cade36e693cc18442a7b1de04d6f2890, type: 3}
+  - {fileID: 21300000, guid: 575d79497a94e864d905115eea6cb23a, type: 3}
+  - {fileID: 21300000, guid: 64b16d9160ad80d4c9cfe94c85f7fae1, type: 3}
   - {fileID: 21300000, guid: 1685f37edc0bfa9488eebd22d20d384d, type: 3}
-  - {fileID: 21300000, guid: d094fa75970590f418279bf6eb91acfc, type: 3}
-  - {fileID: 21300000, guid: 475a0c3ff0cb3514e884ef4e3eaef65e, type: 3}
-  - {fileID: 21300000, guid: 786097d3d25e3e6449c65f35702ca9d6, type: 3}
   - {fileID: 21300000, guid: 98ae1be102c5f4f4fabd8b79bbe8ea06, type: 3}
+  - {fileID: 21300000, guid: 20659e4b9112e97468bb6c2dfba39775, type: 3}
+  - {fileID: 21300000, guid: d275016c9017aa54493a5836333fa199, type: 3}
 --- !u!1 &1239683402
 GameObject:
   m_ObjectHideFlags: 0
