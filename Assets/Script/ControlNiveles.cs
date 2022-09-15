@@ -23,21 +23,22 @@ public class ControlNiveles : MonoBehaviour
     public static ControlNiveles shareLvl;// Variable que hace referencia a esta misma clase, servirá para hacerla una instancia compartida   
     private Scene Getscene;
     public Carga ReferCar;// Variable de tipo de clase carga que es encargada de almacenar un entero de la escena previa que debe ser cargado después de la pantalla de carga
-    public Sprite [] GroupImageChange;//Array que pretende almacenar las imagines a cambiar cuando un nivel se desbloquea
-    public int lvlSpacecont;//Variable que prentende almacenar la cantidad de niveles que se han desbloqueado para la modalidad de Space Yue
+    public Sprite [] GroupImageChange;//Array que pretende almacenar las imagines a cambiar cuando un nivel se desbloqueas
+   
     private void Awake()
     {
         if (shareLvl == null)
         {
             shareLvl = this;
         }
-       cargaryguardar = GetComponent<Guardado>();//Como este script esta agregado al mismo objeto llamado control niveles, simplemente recuperamos su componente sin buscarlo
-       Getscene = SceneManager.GetActiveScene();
-        lvlSpacecont = PlayerPrefs.GetInt("lvlS");//Siempre cargamos la variable contadora de los niveles de Space Yue
+        cargaryguardar = GetComponent<Guardado>();//Como este script esta agregado al mismo objeto llamado control niveles, simplemente recuperamos su componente sin buscarlo
+        Getscene = SceneManager.GetActiveScene();
     }
+       
     private void Start()
     {
         InicializaciondeNivelesDesbloqueados();//Llama al método encargado de actualizar los niveles desbloqueados
+      
     }
 
     public void InicializaciondeNivelesDesbloqueados()
@@ -115,6 +116,14 @@ public void DesbloquearNivel()
             cargaryguardar.Guardar();// Se llama al método de la clase Guardado, para que este guarde los niveles desbloqueados 
 
         }
+        if (LvlDesbloqueado == 14)
+        {
+            PlayerPrefs.SetInt("LvlT1", 1);
+        }else if (LvlDesbloqueado == 59)
+        {
+            PlayerPrefs.SetInt("LvlT2", 1);
+        }
+     
     }
 
     public void DesbloquearSpace()
@@ -125,6 +134,14 @@ public void DesbloquearNivel()
         {
             LvlDesbloqueoSpace = LvlcurrentSpace;
             cargaryguardar.Guardar();
+        }
+
+        if (LvlDesbloqueoSpace == 2)// Solo si el nivel mandadoa desbloquear es igual a 2 y el controlador sea 0
+        {
+            PlayerPrefs.SetInt("LvlS1", 1);// Se asigna al KeyPLayer prefs el valor que permita desbloquear el logro para los niveles
+        } else if (LvlDesbloqueoSpace == 4 )
+        {
+            PlayerPrefs.SetInt("LvlS2", 1);
         }
     }
 public void FalseButton()
@@ -166,15 +183,7 @@ public void FalseButton()
             BotonesSpace[i].interactable = true;//Habilitamos la interacción de los botones, que corresponden a los niveles desbloqueados
             BotonesSpace[i].image.sprite = GroupImageChange[1];
             TextButtonSpace[i].text= (i+1).ToString();
-            if (i==2)//Solo si la posición dle botón de los niveles es igual a 2
-            {
-                lvlSpacecont=i;//Asigna el valor d ela posición actual, indicando que nivel es el que sea ha desbloqueado
-                PlayerPrefs.SetInt("lvlS", lvlSpacecont);//Se guarda el valor asignado
-            } else if (i == 4)
-            {
-                lvlSpacecont = i;
-                PlayerPrefs.SetInt("lvlS", lvlSpacecont);
-            }
+
         }
     }
     public void FalseRefreshYue()

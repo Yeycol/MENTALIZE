@@ -65,6 +65,7 @@ public class Contador : MonoBehaviour
         PlayerPrefs.DeleteKey("MonedaYue");*/
         CargarEquipament();//Se llama al m�todo encargado de Cargar vi    das extras y el tiempo extra pasado por referencia etc
         InicializarDatosInterfaz();//Cuando inicia el juego debemos imprimer el valor que hayan adquirido las variables al iniciar el juego     
+    
     }
      private void FixedUpdate()
     {

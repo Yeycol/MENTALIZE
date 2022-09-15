@@ -21,7 +21,7 @@ public class ControlLogro : MonoBehaviour
     public ObjecGui [] ElementsInterface;//Array de tipo de clase ObjectGui, el cual contiene todos los elementos necesarios a manipular
     public Guardado GuardadoListas;//Variable de tipo guardado que hace referencia a la clase que guarda los datos del juego
     public static ControlLogro ShareLogro;
-
+    public int[] ControlLogroLogic = { 0,0,0,0};//Arrays que contiene un conjunto de enteros que pretenden controlar desbloqueada de logros con respecto a los niveles desbloqueados
     private void Awake()
     {
         if (ShareLogro == null)
@@ -47,6 +47,11 @@ public class ControlLogro : MonoBehaviour
         PlayerPrefs.DeleteKey("CtrlLvl20");
         PlayerPrefs.DeleteKey("CtrlLvl60");
         PlayerPrefs.DeleteKey("CtrlSinCard");
+        PlayerPrefs.DeleteKey("LvlS1");
+        PlayerPrefs.DeleteKey("LvlS2");
+        PlayerPrefs.DeleteKey("LvlT1");
+        PlayerPrefs.DeleteKey("LvlT2");
+        PlayerPrefs.DeleteKey("ctrlSpace");
         if (Contador.sharecont.scene.name == "Inicio")*/
         {
             CargarList();//Método encargado de cargar las listas
@@ -71,6 +76,10 @@ public class ControlLogro : MonoBehaviour
         ControlPointsLvl60 = PlayerPrefs.GetString("CtrlLvl60");
         ControlSinCard = PlayerPrefs.GetString("CtrlSinCard");
         ControlLogroSpace = PlayerPrefs.GetString("ctrlSpace");
+        ControlLogroLogic[0] = PlayerPrefs.GetInt("LvlS1");
+        ControlLogroLogic[1] = PlayerPrefs.GetInt("LvlS2");
+        ControlLogroLogic[2] = PlayerPrefs.GetInt("LvlT1");
+        ControlLogroLogic[3] = PlayerPrefs.GetInt("LvlT2");
     }
     public void CargarList()
     {
@@ -156,17 +165,17 @@ public class ControlLogro : MonoBehaviour
 
 
         //Evaluando los niveles alcanzados a partir de los puntos
-        if (Contador.sharecont.puntos == 10 && ControlNiveles.shareLvl.lvlSpacecont==2 && ControlPointsLvl20 == "")//Si se consigue 145 puntos equivalente al Lvl 20
+        if (ControlLogroLogic[2] ==1 && ControlLogroLogic[0] ==1 &&  ControlPointsLvl20 == "")//Si se consigue 145 puntos equivalente al Lvl 20
         {
-            DesbloquearLogro(3);//Desbloqueamos el logro Alpinista de niveles
+            DesbloquearLogro(3);//Desb loqueamos el logro Alpinista de niveles
             ControlPointsLvl20 = "S";
             PlayerPrefs.SetString("CtrlLvl20", ControlPointsLvl20);
-        } else if (Contador.sharecont.puntos == 555 && ControlPointsLvl60 == "")// Si se consigue 555 puntos equivalentes al Lvl 60
+        } else if (ControlLogroLogic[3] == 1 && ControlPointsLvl60 == "")// Si se consigue 555 puntos equivalentes al Lvl 60
         {
             DesbloquearLogro(4);//Desbloqueamos el logro Experto en Trivias 
             ControlPointsLvl60 = "S";
             PlayerPrefs.SetString("CtrlLvl60", ControlPointsLvl60);
-        } else if (ControlNiveles.shareLvl.lvlSpacecont ==4&&ControlLogroSpace=="") {
+        } else if (ControlLogroLogic[1]==1 && ControlLogroSpace=="") {
             DesbloquearLogro(5);//Se desbloquea el Logro Explorador Experto
             ControlLogroSpace = "S";
             PlayerPrefs.SetString("ctrlSpace", ControlLogroSpace);

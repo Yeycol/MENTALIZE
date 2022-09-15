@@ -7,7 +7,7 @@ public class ReproCredito : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        
+        AudioManager.shareaudio.Efectos[14].Pause();
     }
     private void Start()
     {
@@ -17,7 +17,7 @@ public class ReproCredito : MonoBehaviour
    IEnumerator WaitForE() {
 
 
-        yield return new WaitForSeconds(100f);
+        yield return new WaitForSeconds(80f);
         ControlNiveles.shareLvl.CambiarNivel(7);
     
    }

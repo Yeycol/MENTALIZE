@@ -3885,7 +3885,6 @@ MonoBehaviour:
   ShadowColor: {r: 0, g: 0, b: 0, a: 0}
   ReferCar: {fileID: 437338330}
   GroupImageChange: []
-  lvlSpacecont: 0
 --- !u!4 &1336050664
 Transform:
   m_ObjectHideFlags: 0

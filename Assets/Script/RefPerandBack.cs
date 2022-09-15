@@ -31,10 +31,10 @@ public class RefPerandBack : MonoBehaviour
         if (GameManager.shareInstance.currentgameState != GameState.menu)//Esta condicional evalua si nos encontramos en el menu
             RefreshNameUser();//Se llama al método encargado de establecer el nombre del perfil equipado
         /*Borrar los datos almacenados en los Key de los PLayer prefs solo si se requiere
-
         PlayerPrefs.DeleteKey("ID_PERFIL");
         PlayerPrefs.DeleteKey("ID_FONDO");
         PlayerPrefs.DeleteKey("NameUser");*/
+
     }
 
 
