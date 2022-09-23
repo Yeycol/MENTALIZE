@@ -21,7 +21,8 @@ public class ControlLogro : MonoBehaviour
     public ObjecGui [] ElementsInterface;//Array de tipo de clase ObjectGui, el cual contiene todos los elementos necesarios a manipular
     public Guardado GuardadoListas;//Variable de tipo guardado que hace referencia a la clase que guarda los datos del juego
     public static ControlLogro ShareLogro;
-    public int[] ControlLogroLogic = { 0,0,0,0};//Arrays que contiene un conjunto de enteros que pretenden controlar desbloqueada de logros con respecto a los niveles desbloqueados
+    public int[] ControlLogroL= {0,0,0,0,0};//Arrays que contiene un conjunto de enteros que pretenden controlar desbloqueada de logros con respecto a los niveles desbloqueados
+    public int id;
     private void Awake()
     {
         if (ShareLogro == null)
@@ -51,22 +52,22 @@ public class ControlLogro : MonoBehaviour
         PlayerPrefs.DeleteKey("LvlS2");
         PlayerPrefs.DeleteKey("LvlT1");
         PlayerPrefs.DeleteKey("LvlT2");
+        PlayerPrefs.DeleteKey("LvlT3");
         PlayerPrefs.DeleteKey("ctrlSpace");*/
-        if (Contador.sharecont.scene.name == "Inicio")
-        {
-            CargarList();//Método encargado de cargar las listas
-            CargarRecompensas();//Método encargado de habilitar las recompensas obtenidas
-        }
+
+        GuardadoListas.CargarLogros();//Se llama al método encargado de cargar los Id Logros y boleanos
+        CargarRecompensas();//Método encargado de habilitar las recompensas obtenidas  
+
     }
     private void FixedUpdate()
     {
-     
+        
         EvaluateLogros();//Se evalua en cada Start si se ha cumplido alguna condicional de los logros
     }
     public void CargarPlayerPrefs()
     {
-        //Método encargado de cargar los Players Prefs de los contadores
-        ContadorBronce= PlayerPrefs.GetInt("BronceCard");
+        /*Método encargado de cargar los Players Prefs de los contadores*/
+        ContadorBronce = PlayerPrefs.GetInt("BronceCard");
         ContadorOro = PlayerPrefs.GetInt("OroCard");
         ContadorPlata = PlayerPrefs.GetInt("PlataCard");
         ControlBronce = PlayerPrefs.GetString("CtrlBronce");
@@ -76,31 +77,31 @@ public class ControlLogro : MonoBehaviour
         ControlPointsLvl60 = PlayerPrefs.GetString("CtrlLvl60");
         ControlSinCard = PlayerPrefs.GetString("CtrlSinCard");
         ControlLogroSpace = PlayerPrefs.GetString("ctrlSpace");
-        ControlLogroLogic[0] = PlayerPrefs.GetInt("LvlS1");
-        ControlLogroLogic[1] = PlayerPrefs.GetInt("LvlS2");
-        ControlLogroLogic[2] = PlayerPrefs.GetInt("LvlT1");
-        ControlLogroLogic[3] = PlayerPrefs.GetInt("LvlT2");
+        ControlLogroL[0] = PlayerPrefs.GetInt("LvlS1");
+        ControlLogroL[1] = PlayerPrefs.GetInt("LvlS2");
+        ControlLogroL[2] = PlayerPrefs.GetInt("LvlT1");
+        ControlLogroL[3] = PlayerPrefs.GetInt("LvlT2");
+        ControlLogroL[4] = PlayerPrefs.GetInt("LvlT3");
     }
-    public void CargarList()
-    {
-        //Método encargado de cargar la lista de objetos guardados(IdLogros)
-        GuardadoListas.CargarLogros();//Se llama al método encargado de cargar los Id Logros y boleanos
-    }
+
+    
     public void CargarRecompensas()
     {
         //Método encargado de habilitar y desahabilitar la recolección de recompensas
         for (int i = 0; i <IdLogros.Count; i++)
         {
-            int id = IdLogros[i];//Se asigna el entero almecenado en la posición recorrida
+            id = IdLogros[i];//Se asigna el entero almecenado en la posición recorrida
             if (Recolected[id] == false)//Si la posición de la variable Id tiene el Recolected en false
             {
+                Debug.Log("False entro");
                 ElementsInterface[id].ButtonsInterface.interactable = true;//Hablitará los botones del GUI de los Logros
             } else if (Recolected[id] == true)//En caso de que el Recolección se haya realizado entonces 
             {
-                ElementsInterface[i].ButtonsInterface.interactable = false;//Se deshabilita la interacción de los botones de la interfaz Logros
-                ElementsInterface[i].Moneda.enabled = false;//Se deshabilita los iconos de moneda y fondo en la posición de id 
-                ElementsInterface[i].Fondo.enabled = false;
-                ElementsInterface[i].TextInterface.enabled = false;//Se deshabilita la componente texto de Interfaz Logros
+                Debug.Log("True Entro");
+                ElementsInterface[id].ButtonsInterface.interactable = false;//Se deshabilita la interacción de los botones de la interfaz Logros
+                ElementsInterface[id].Moneda.enabled = false;//Se deshabilita los iconos de moneda y fondo en la posición de id 
+                ElementsInterface[id].Fondo.enabled = false;
+                ElementsInterface[id].TextInterface.enabled = false;//Se deshabilita la componente texto de Interfaz Logros
             }
         }
     }
@@ -165,17 +166,17 @@ public class ControlLogro : MonoBehaviour
 
 
         //Evaluando los niveles alcanzados a partir de los puntos
-        if (ControlLogroLogic[2] ==1 && ControlLogroLogic[0] ==1 &&  ControlPointsLvl20 == "")//Si se consigue 145 puntos equivalente al Lvl 20
+        if (ControlLogroL[2] ==1 && ControlLogroL[0] ==1 &&  ControlPointsLvl20 == "")//Si se consigue 145 puntos equivalente al Lvl 20
         {
             DesbloquearLogro(3);//Desb loqueamos el logro Alpinista de niveles
             ControlPointsLvl20 = "S";
             PlayerPrefs.SetString("CtrlLvl20", ControlPointsLvl20);
-        } else if (ControlLogroLogic[3] == 1 && ControlPointsLvl60 == "")// Si se consigue 555 puntos equivalentes al Lvl 60
+        } else if (ControlLogroL[3] == 1 && ControlPointsLvl60 == "")// Si se consigue 555 puntos equivalentes al Lvl 60
         {
             DesbloquearLogro(4);//Desbloqueamos el logro Experto en Trivias 
             ControlPointsLvl60 = "S";
             PlayerPrefs.SetString("CtrlLvl60", ControlPointsLvl60);
-        } else if (ControlLogroLogic[1]==1 && ControlLogroSpace=="") {
+        } else if (ControlLogroL[1]==1 && ControlLogroSpace=="") {
             DesbloquearLogro(5);//Se desbloquea el Logro Explorador Experto
             ControlLogroSpace = "S";
             PlayerPrefs.SetString("ctrlSpace", ControlLogroSpace);
@@ -197,7 +198,7 @@ public class ControlLogro : MonoBehaviour
             InformaciónLogros.text = "Aun no tienes logros ●～●";
         }
         //Evaluando si no se ha equipado ninguna carta
-        if (ControlSección.ShareTienda.Equipado == ""&& Contador.sharecont.puntos == 345&&ControlSinCard=="")//Está condicional ejecuta sus acciones siempre y cuando no s ehaya equipado ninguna carta y se haya alcanzado el nivel 40
+        if (ControlSección.ShareTienda.Equipado == ""&&ControlLogroL[4]==1&&ControlSinCard=="")//Está condicional ejecuta sus acciones siempre y cuando no s ehaya equipado ninguna carta y se haya alcanzado el nivel 40
         {
             DesbloquearLogro(6);//Desbloqueamos el logro Experto en Trivias 
             ControlSinCard = "S";

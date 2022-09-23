@@ -1458,7 +1458,7 @@ MonoBehaviour:
     TextInterface: {fileID: 238613570}
     ButtonsInterface: {fileID: 299489550}
   GuardadoListas: {fileID: 1487268515}
-  ControlLogroLogic: 00000000000000000000000000000000
+  ControlLogroLogic: 0000000000000000000000000000000000000000
 --- !u!1 &238613568
 GameObject:
   m_ObjectHideFlags: 0
@@ -5473,7 +5473,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -75.24463, y: -1.3481483}
+  m_AnchoredPosition: {x: -3020.392, y: -1.3481483}
   m_SizeDelta: {x: 75.2446, y: -1.3481}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &794641486
@@ -9112,6 +9112,8 @@ MonoBehaviour:
   - {fileID: 1189602175}
   OrdSons: {fileID: 0}
   TextButonShop: []
+  FondYueScene: {fileID: 0}
+  Numr: 5
 --- !u!4 &1563848045
 Transform:
   m_ObjectHideFlags: 0
@@ -9166,7 +9168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 3372.9873}
   m_SizeDelta: {x: 0, y: 1162.7769}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1573908975

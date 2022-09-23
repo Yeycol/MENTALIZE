@@ -106,10 +106,10 @@ public class ControlNiveles : MonoBehaviour
     
     }
 
-public void DesbloquearNivel()
+    public void DesbloquearNivel()
     {
         //Método llamado cuando se gana una partida
-        if (LvlDesbloqueado<Lvlcurrent)//Entra a la condicional siempre y cuando el nivel desbloqueado sea menor que el nivel actual
+        if (LvlDesbloqueado < Lvlcurrent)//Entra a la condicional siempre y cuando el nivel desbloqueado sea menor que el nivel actual
         {
             //Se le asigna a la variable Lvl Desbloqueado el level actual que se tenga almacenado 
             LvlDesbloqueado = Lvlcurrent;
@@ -119,10 +119,14 @@ public void DesbloquearNivel()
         if (LvlDesbloqueado == 3)
         {
             PlayerPrefs.SetInt("LvlT1", 1);
-        }else if (LvlDesbloqueado == 59)
+        } else if (LvlDesbloqueado==39)
+        {
+            PlayerPrefs.SetInt("LvlT3", 1);
+        }
+        else if (LvlDesbloqueado == 59)
         {
             PlayerPrefs.SetInt("LvlT2", 1);
-        }
+        } 
      
     }
 
