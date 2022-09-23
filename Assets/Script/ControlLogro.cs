@@ -51,8 +51,8 @@ public class ControlLogro : MonoBehaviour
         PlayerPrefs.DeleteKey("LvlS2");
         PlayerPrefs.DeleteKey("LvlT1");
         PlayerPrefs.DeleteKey("LvlT2");
-        PlayerPrefs.DeleteKey("ctrlSpace");
-        if (Contador.sharecont.scene.name == "Inicio")*/
+        PlayerPrefs.DeleteKey("ctrlSpace");*/
+        if (Contador.sharecont.scene.name == "Inicio")
         {
             CargarList();//Método encargado de cargar las listas
             CargarRecompensas();//Método encargado de habilitar las recompensas obtenidas

@@ -41,15 +41,15 @@ public class Carga : MonoBehaviour
     {
         //Método que carga el entero anteriormente guardado
         Preverload=PlayerPrefs.GetInt("Preview");
+        Screen.orientation = ScreenOrientation.Portrait;
     }
    
     IEnumerator Wait_Intro(int PreviewLevel)
     {
-
             int index = Random.Range(0, Frases.Length);//Devuelve un entero aleatorio desde 0 hasta la cantidad de elementos del array
             Muestra.SetText(Frases[index].text);//Se iguala la variable tipo text de GUI con el indice de tipo entero obtenido de manera aleatoria
             //Se espera que se reproduzca el video
-            yield return  new WaitForSeconds(0f);   //PONER 8F
+            yield return  new WaitForSeconds(1f);   
             ControlNiveles.shareLvl.CambiarNivel(PreviewLevel);
     }
     

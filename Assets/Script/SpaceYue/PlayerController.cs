@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     public void StartGame()
     {
         GameManager.shareInstance.StarGame();//Pasamos al jugador en estado de InGame
+        RealTimeAnimation.ShareRealTimeAnimator.ResetIndex();//Reseteamos las animaciones aleatorias
         RealTimeAnimation.ShareRealTimeAnimator.RamdomIndex();//Llamamos al método encargadod e habilitar las animaciones de la clase RealTimeAnimation
         animator.SetBool(STATE_ALIVE, true);                // Inicia la variable STATE_ALIVE con true
         animator.SetBool(STATE_ON_THE_GROUND, true);        // Inicia la variable STATE_ON_THE_GROUND con true
@@ -166,20 +167,23 @@ public class PlayerController : MonoBehaviour
         }
         else if(collision.CompareTag("Peligro"))
         {
-            if (invulnerable == true)
+            if (GameManager.shareInstance.currentgameState == GameState.InGame)
             {
-                return;
+                if (invulnerable == true)
+                {
+                    return;
+                }
+                Contador.ResetHealth();
+                invulnerable = true;
+                StartCoroutine(HacerVulnerable());
             }
-            Contador.ResetHealth();
-            invulnerable = true;
-            StartCoroutine(HacerVulnerable());
         }
     }
     //Hace vulnerable al personaje tras haber salido de una reducción de vida reciente.
     IEnumerator HacerVulnerable()
     {
         StartCoroutine(Parpadeo());
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3f);
         invulnerable = false;
     }
     //Efecto parpadeo al tocar un objeto peligroso. Activación y desactivación progresiva del sprite para tal efecto.

@@ -648,6 +648,8 @@ MonoBehaviour:
   TwoMinPoints: 473
   ThreeMinPoints: 474
   ReferContinue: {fileID: 1847726558}
+  pointsYue: 0
+  controlCoinsYue: 0
 --- !u!4 &98125071
 Transform:
   m_ObjectHideFlags: 0
@@ -4240,15 +4242,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lvlcurrent: 52
+  LvlcurrentSpace: 0
   Buttonslevel: []
-  Imagelevel: []
   Level: []
+  BotonesSpace: []
+  TextButtonSpace: []
   LevelShadow: []
   ActiveColor: {r: 0, g: 0, b: 0, a: 0}
   ShadowColor: {r: 0, g: 0, b: 0, a: 0}
   ReferCar: {fileID: 497460352}
-  BlockButton: {fileID: 0}
-  DesblockButton: {fileID: 0}
+  GroupImageChange: []
 --- !u!4 &1301416258
 Transform:
   m_ObjectHideFlags: 0
@@ -4929,7 +4932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93efa854db538fb41ace9b7e5b5c66e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  q_question: {fileID: 359605376}
   questions: {fileID: 359605378}
   q_buttonl:
   - {fileID: 831772270}
@@ -7493,7 +7495,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 2cebdc561a9766c4ea82d9612a3b73eb, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 300
     m_Alignment: 4

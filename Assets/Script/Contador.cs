@@ -475,8 +475,11 @@ public class Contador : MonoBehaviour
     public static void ResetHealth()
     {
         //M�todo encargado de quitar las vidas
-        sharecont.vidas--;
-        sharecont.text_health.text = sharecont.vidas.ToString();
+        if (sharecont.vidas > 0)
+        {
+            sharecont.vidas--;
+            sharecont.text_health.text = sharecont.vidas.ToString();
+        }
         if (sharecont.vidas == 0)
         {
             //Se llam� a la pantalla de GameOver solo si las vidas son igual a 0

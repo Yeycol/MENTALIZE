@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -104,12 +103,12 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 47
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -839,41 +838,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      platform-1: 463319418
-      pink5: 1256202836
-      rampa: -2074659593
-      platform-3: 502627244
-      nave2: -1830634788
-      run5: 1239189178
-      platform-4: -1766300205
-      run3: -117657276
-      blue1: 1256202836
-      run7: 1940363993
-      run4: 1578862780
-      pink3: 1039102327
-      run8: -399303322
-      run2: -412188983
-      nave3: -1853649558
-      platform-2: -98722272
-      jump4: -1271489863
-      jump1: 691272126
-      pink1: 1565756920
-      rock: 2055165267
-      blue3: -622535356
-      blue5: -2030425150
-      run6: 221644882
-      jump5: 463319418
-      YueBackgorund: 1607439921
-      run1: -592537350
-      pink2: -1854361742
-      jump2: 1346530463
-      jump3: 1698124071
-      nave1: 2079999199
-      nave4: -1016861647
-      pink4: 1319538359
-      blue4: -1036840895
-      blue2: 648082957
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

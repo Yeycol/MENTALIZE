@@ -72,10 +72,10 @@ public class ManagerScene : MonoBehaviour
     }                       
     public void LoadMenu(int ReferencesMenus)
     {
-        if(ReferencesMenus == 3 || ReferencesMenus == 68)
+        if(ReferencesMenus == 3 || ReferencesMenus == 68 || ReferencesMenus == 67 || ReferencesMenus == 70 || ReferencesMenus == 71 || ReferencesMenus == 72 || ReferencesMenus == 73)
         {
             Screen.orientation = ScreenOrientation.Landscape;
-            AudioManager.shareaudio.InterfacePause.localScale = new Vector3(0.56f, 0.56f, 0.56f);//Establecemos la escala de la interfaz de pausa no mas empieza el juego
+           
         }
         else
         {
@@ -150,20 +150,19 @@ public class ManagerScene : MonoBehaviour
             //En el caso de  que el entero pasado por parámetro sea O
             ReferencesButtonPor[1].color = Color.white;//Establecemos en blanco los botones que no han sido presionados, dependiendo de la posición pasado por parámetro
             ReferencesButtonPor[2].color = Color.white;
-            NoteOfVer.SetText("2022/03/1 — Ver 1.0 " + "\n● Se cambiaron los colores de las cartas, a unos mas vivos." +
-                "\n● Se arreglo el bug de las animaciones, al resetear la partida.");
+            NoteOfVer.SetText("2022/03/1 — Ver 1_0 " + "\n |1| Por el momento el juego cuenta con dos modalidades de juego (Trivias & Space Yue) \r\n |2| Se agregaron 6 logros desbloqueables");
         }
         else if (NumOfbutton == 1)
         {
             ReferencesButtonPor[0].color = Color.white;
             ReferencesButtonPor[2].color = Color.white;
-            NoteOfVer.SetText("Sin Fecha — Ver 2.0");
+            NoteOfVer.SetText("Sin Fecha — Ver 2_0");
         }
         else if (NumOfbutton == 2)
         {
             ReferencesButtonPor[0].color = Color.white;
             ReferencesButtonPor[1].color = Color.white;
-            NoteOfVer.SetText("Sin Fecha — Ver 3.0");
+            NoteOfVer.SetText("Sin Fecha — Ver 3_0");
         }
     }
     public void ActiveEventDescripciones(int IdObjectDecrip)

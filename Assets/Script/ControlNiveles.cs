@@ -61,7 +61,7 @@ public class ControlNiveles : MonoBehaviour
     {
         //Este método recibe como parámetro un entero del indice de la escena a la que queremos dirigirnos 
         
-        if (Nivel == 6 || Nivel == 2||Nivel==3||Nivel==7 || Nivel == 2 || Nivel == 68)/// Si el número de la escena pasada por argumento es igual a los valores establecidos en el condicional
+        if (Nivel == 6 || Nivel == 2||Nivel==3||Nivel==7 || Nivel == 2 || Nivel == 68 || Nivel==67 || Nivel==70 || Nivel==71 || Nivel==72 || Nivel==73)/// Si el número de la escena pasada por argumento es igual a los valores establecidos en el condicional
         {
             //Entonces llamará a la corrrutina encargada de cargar la escena del menú
             StartCoroutine(AnimatorTransitionSceneMenu(Nivel));
@@ -116,7 +116,7 @@ public void DesbloquearNivel()
             cargaryguardar.Guardar();// Se llama al método de la clase Guardado, para que este guarde los niveles desbloqueados 
 
         }
-        if (LvlDesbloqueado == 14)
+        if (LvlDesbloqueado == 3)
         {
             PlayerPrefs.SetInt("LvlT1", 1);
         }else if (LvlDesbloqueado == 59)

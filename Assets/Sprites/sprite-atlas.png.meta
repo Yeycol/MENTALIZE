@@ -159,7 +159,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -227,12 +226,12 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 47
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1193,52 +1192,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      run-3: 811914464036974742
-      run-2: 6540979597773369133
-      jump-3: -1258100965029755944
-      coin-4: 4699269360601819532
-      coin-2: 347877288660826553
-      die-3: 8037330803665430888
-      jump-7: -1779315004656326395
-      c-red: -3633848751634092917
-      poison-1: -5250418495684898632
-      coin-6: -6487695376953339983
-      enemy-1: 929746245400192888
-      rock-2: -7285164916902084130
-      background: -2134227730256808988
-      c-blue: 6948756967975173768
-      c-lightBlue: -1124663655294720912
-      coin-7: -5117711691910092056
-      poison-2: 5099181259972743053
-      coin-3: 4526093260865635619
-      die-1: -1834839304329973853
-      jump-1: 7915299046477037444
-      jump-2: -9045160400954907714
-      c-pink: 7635912379453187867
-      c-orange: 8202948136824234231
-      run-5: 7596894913299905460
-      enemy-3: -6497888376613446912
-      run-4: -4088732607091328363
-      rock-1: -7456345696621433630
-      platform-l: -761057223209028634
-      c-yellow: -9035459622905624351
-      jump-6: -167230624330251118
-      c-gray: -8025548305724658615
-      jump-4: -1401037756328481213
-      rock-3: -8540905476116569852
-      sprite-atlas-3_2: 263245411778203624
-      platform-s: -1328860024068962289
-      platform-m: -2824542340850907453
-      die-2: -4301072689001114796
-      coin-8: 2794885167260522716
-      c-lightOrange: -5430495673939953439
-      run-1: -2829787552688202090
-      jump-5: 2195313978732605589
-      coin-5: -2518477372775369262
-      enemy-2: -3253556673123058818
-      floor: 8582598921192119027
-      coin-1: 8107129862210210587
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
