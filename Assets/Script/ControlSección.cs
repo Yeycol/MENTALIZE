@@ -959,7 +959,7 @@ public class ControlSección : MonoBehaviour
                     PlayerPrefs.SetString("Equipado_Fondo", "Si");
                     RefPerandBack.ShareRefPerFon.PreverSaveIdFondo(46);
                     Button_Equipar[46].interactable = false;
-                    Txt_Equipar[46].text = "Euipado";
+                    Txt_Equipar[46].text = "Equipado";
                     Fondo.sprite = PerfiL_Fondo[23];
                 }
                 break;

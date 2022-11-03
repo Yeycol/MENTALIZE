@@ -97,7 +97,6 @@ public class ControlLogro : MonoBehaviour
                 ElementsInterface[id].ButtonsInterface.interactable = true;//Hablitará los botones del GUI de los Logros
             } else if (Recolected[id] == true)//En caso de que el Recolección se haya realizado entonces 
             {
-                Debug.Log("True Entro");
                 ElementsInterface[id].ButtonsInterface.interactable = false;//Se deshabilita la interacción de los botones de la interfaz Logros
                 ElementsInterface[id].Moneda.enabled = false;//Se deshabilita los iconos de moneda y fondo en la posición de id 
                 ElementsInterface[id].Fondo.enabled = false;

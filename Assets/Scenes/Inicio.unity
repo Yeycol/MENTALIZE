@@ -1458,7 +1458,8 @@ MonoBehaviour:
     TextInterface: {fileID: 238613570}
     ButtonsInterface: {fileID: 299489550}
   GuardadoListas: {fileID: 1487268515}
-  ControlLogroLogic: 0000000000000000000000000000000000000000
+  ControlLogroL: 0000000000000000000000000000000000000000
+  id: 0
 --- !u!1 &238613568
 GameObject:
   m_ObjectHideFlags: 0
@@ -5473,7 +5474,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3020.392, y: -1.3481483}
+  m_AnchoredPosition: {x: -75.244385, y: -1.3481483}
   m_SizeDelta: {x: 75.2446, y: -1.3481}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &794641486
@@ -9168,7 +9169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3372.9873}
+  m_AnchoredPosition: {x: 0, y: 531.7471}
   m_SizeDelta: {x: 0, y: 1162.7769}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1573908975
@@ -11431,10 +11432,10 @@ RectTransform:
   m_Father: {fileID: 393869070}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.59888893}
+  m_AnchorMin: {x: 0, y: 0.59825927}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0, y: 3.147461}
-  m_SizeDelta: {x: 35.4563, y: 703.4263}
+  m_AnchoredPosition: {x: -0.5, y: 0.5}
+  m_SizeDelta: {x: -1, y: -1.000061}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1947441952
 MonoBehaviour:
@@ -13284,10 +13285,10 @@ RectTransform:
   m_Father: {fileID: 393869070}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.46944445}
+  m_AnchorMin: {x: 0, y: 0.5546296}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00024414062, y: 47.34607}
-  m_SizeDelta: {x: 0.00048828, y: 94.688}
+  m_AnchoredPosition: {x: -0.5000305, y: 14.706116}
+  m_SizeDelta: {x: -1.0001, y: 24.7065}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2120097383
 MonoBehaviour:

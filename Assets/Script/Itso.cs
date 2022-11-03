@@ -16,7 +16,7 @@ public class Itso : MonoBehaviour
    IEnumerator StayoneMoment()
     {
         //Se da un momento para que se muestre el logo del Itso
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
         GameManager.shareInstance.LoadPartyandGame(true);//Se establece en true la reproducción de la música del Menú
         ControlNiveles.shareLvl.CambiarNivel(4);//Nos dirijimos a la escena de carga para que nos direccione a la escena de inicio
     }
